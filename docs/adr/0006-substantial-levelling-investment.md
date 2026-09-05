@@ -9,7 +9,7 @@
 
 ## Context
 
-[ADR-0005](0005-team-rotation-and-boss-mastery.md) calls for frequent team rebuilding. The interview asked how long a newly caught Pokémon should normally take to reach the current cap, explicitly considering levelling only.
+At the time of the interview, [ADR-0005](0005-team-rotation-and-boss-mastery.md) called for frequent rebuilding. [ADR-0017](0017-trusted-core-and-boss-mastery.md) now replaces that target with a trusted core and rotating specialists. The interview asked how long a newly caught Pokémon should normally take to reach the current cap, explicitly considering levelling only.
 
 ## Decision
 
@@ -44,4 +44,4 @@ Design training and experience access alongside encounters, and measure actual p
 
 [ADR-0016](0016-individual-traits-and-battle-training.md) adds random improvable IVs, fixed natures and the goal of clear, non-tedious development from battle use and boss experience. The 20–30-minute-or-more target remains specifically about levelling. Whether levelling, IV improvement and earned development overlap is unresolved; do not treat the levelling target as approval for several additional training grinds. Measure the complete cost of introducing a replacement when designing the combined system.
 
-When evaluating the proposed gym-rematch catch-up route in ADR-0016, include rematch duration and repeated attempts in the total preparation cost. Do not assume a recruit must repeat every earlier gym until reward caps and eligibility are decided.
+When evaluating gym-rematch catch-up in ADR-0016, include rematch duration and repeated attempts in total preparation cost. Eligibility requires participation without fainting in a player victory; rematch teams must suit campaign progress. Do not assume a recruit must repeat every earlier gym until reward structure and caps are decided.

@@ -9,10 +9,11 @@ Project governance is established. No engine has been selected or imported, no g
 ## Confirmed direction
 
 - Original 151 species in original forms only in the main campaign; no regional variants or Mega Evolutions.
-- Repeated attempts to master major bosses. Team adaptation and rewarding continued use must coexist; the earlier rotation-frequency target is under review ([ADR-0016](docs/adr/0016-individual-traits-and-battle-training.md)).
+- Keep a trusted core and rotate specialists for different bosses; repeated attempts and boss mastery remain central ([ADR-0017](docs/adr/0017-trusted-core-and-boss-mastery.md)).
 - Substantial levelling investment for newly caught Pokémon: roughly 20–30 minutes or more; total preparation time and overlap remain open.
 - Random IVs that can be improved, with a safeguard against unusable random outcomes; acquired natures and their stat effects remain fixed.
-- Clear, predictable battle-earned development, especially from boss experience, rewarding continuity without excessive penalties for rotation. The exact training system remains to be designed.
+- Clear, predictable battle-earned development, especially from boss experience, rewarding continuity without excessive penalties for rotation. The exact reward formula and training system remain to be designed.
+- Gym rewards require a player victory, field participation and no fainting during that battle. Stronger rematch teams suited to campaign progress let recruits earn the same gym rewards as veterans ([ADR-0016](docs/adr/0016-individual-traits-and-battle-training.md)).
 - Full boss team, move, ability, held-item and bag-consumable scouting before the first attempt.
 - VGC-style open-team-list information for boss AI, with hidden stats and pending actions protected.
 - Preselected battle consumables with one campaign-wide allowance and separate category limits, their numbers chosen through testing; boss defeats cost money and spent consumables.
@@ -29,7 +30,7 @@ Project governance is established. No engine has been selected or imported, no g
 - Challenging encounters and well-designed Pokémon without making every species equally strong or viable.
 - Distinct, playable types, with longer usefulness for Bug Pokémon and attention to late-game Flying options such as Pidgeot ([ADR-0014](docs/adr/0014-type-identity-and-campaign-viability.md)).
 
-See [ADR-0001](docs/adr/0001-project-direction.md) for the initial scope, [ADR-0004](docs/adr/0004-original-151-roster.md) for the roster boundary, and [ADR-0005](docs/adr/0005-team-rotation-and-boss-mastery.md) for team rotation and boss mastery. [ADRs 0006–0008](docs/adr/README.md) define levelling, scouting and consumable/loss policies. [ADR-0009](docs/adr/0009-vgc-style-ai-information.md) defines the boss AI information standard. [ADRs 0010–0011](docs/adr/README.md) define mixed battle formats, Set rules and cross-generation move curation. [ADR-0012](docs/adr/0012-ability-and-typing-rebalance.md) defines ability/typing changes; ADR-0004 now excludes regional and Mega forms. Detailed implementation remains open; numerical category limits and the overall quota are delegated to balance testing.
+See [ADR-0001](docs/adr/0001-project-direction.md) for the initial scope, [ADR-0004](docs/adr/0004-original-151-roster.md) for the roster boundary, and [ADR-0017](docs/adr/0017-trusted-core-and-boss-mastery.md) for a trusted core, rotating specialists and boss mastery (replacing ADR-0005). [ADRs 0006–0008](docs/adr/README.md) define levelling, scouting and consumable/loss policies. [ADR-0009](docs/adr/0009-vgc-style-ai-information.md) defines the boss AI information standard. [ADRs 0010–0011](docs/adr/README.md) define mixed battle formats, Set rules and cross-generation move curation. [ADR-0012](docs/adr/0012-ability-and-typing-rebalance.md) defines ability/typing changes; ADR-0004 now excludes regional and Mega forms. Detailed implementation remains open; numerical category limits and the overall quota are delegated to balance testing.
 
 ## Working in this repository
 

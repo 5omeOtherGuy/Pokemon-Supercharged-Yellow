@@ -48,7 +48,7 @@ No implementation or gameplay validation has occurred.
 - Engine/upstream project and exact mechanics baseline.
 - Starting Pokémon and which Yellow-specific events or presentation to reproduce.
 - Level-cap values, unlock milestones and enforcement behavior.
-- IV safeguards and improvement access; the battle-training mechanism, participation, catch-up and revised rotation frequency within ADR-0016. Random improvable IVs and fixed acquired natures are selected.
+- IV safeguards and improvement access; the battle-training formula, reward limits and rematch access within ADR-0016. Random improvable IVs, fixed acquired natures and gym eligibility/rematch rules are selected. ADR-0017 selects a trusted core with rotating specialists.
 - Numerical category limits (delegated to testing), remaining consumable scope/action rules and detailed AI information mapping beyond ADR-0009.
 - Specific singles/doubles boss assignments and team sizes within ADR-0010; individual move choices and behavior within ADR-0011.
 - Speed presets, animation/audio behavior and other specific QoL features.
@@ -100,4 +100,8 @@ The user selected no type-representation quota and the standard modern effective
 
 ## Clarification — 2026-09-05, individual traits and battle experience
 
-[ADR-0016](0016-individual-traits-and-battle-training.md) accepts random improvable IVs with a usability safeguard, fixed acquired natures, and clear, predictable development rewarding battle use and especially boss experience. Continuity should be rewarded without excessively penalising rotation. The original frequent-composition-change target is under review; no replacement frequency is selected. The progression mechanism remains proposed, and the levelling target does not settle total preparation time.
+[ADR-0016](0016-individual-traits-and-battle-training.md) accepts random improvable IVs with a usability safeguard, fixed acquired natures, and clear, predictable development rewarding battle use and especially boss experience. Continuity should be rewarded without excessively penalising rotation. At that stage, the original frequent-composition-change target was under review; the resolution is recorded below. The progression mechanism remains proposed, and the levelling target does not settle total preparation time.
+
+## Clarification — 2026-09-05, gym eligibility and trusted core
+
+The user selected gym rewards only for Pokémon that entered battle and did not faint, after a player victory, and stronger rematch teams suited to campaign progress. ADR-0016 records these rules while leaving the reward formula open. [ADR-0017](0017-trusted-core-and-boss-mastery.md) supersedes ADR-0005 with a trusted core and rotating specialists, retaining the boss-mastery target.

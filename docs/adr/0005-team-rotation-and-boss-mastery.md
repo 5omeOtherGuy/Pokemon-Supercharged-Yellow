@@ -1,11 +1,13 @@
 # ADR-0005: Build the campaign around team rotation and boss mastery
 
-- Status: Accepted
+- Status: Superseded
 - Date: 2026-09-05
 - Decision authority: Explicit user answers in design interview round 1
 - Implementation: Not started — design targets only
 - Supersedes: None
-- Superseded by: None
+- Superseded by: [ADR-0017](0017-trusted-core-and-boss-mastery.md)
+
+This record is historical. [ADR-0017](0017-trusted-core-and-boss-mastery.md) replaces its team-continuity target and carries forward boss mastery.
 
 ## Context
 
@@ -73,3 +75,7 @@ The user wants using an individual Pokémon, especially in gym battles, to yield
 The original frequency target is therefore under review, not a mandate for high roster turnover. Preserve meaningful adaptation and demanding bosses while evaluating veteran rewards and recruit catch-up. The user has not yet chosen a replacement frequency, fixed core size or permanent team; do not silently adopt one. This clarification does not revoke the repeated-defeat/mastery target.
 
 The user subsequently proposed gym rematches as a way for recruits to earn veterans' rewards. ADR-0016 records this candidate; it supports evaluating continuity and adaptation together without yet choosing a new rotation frequency.
+
+## Supersession — 2026-09-05
+
+The user selected a trusted core with rotating specialists. ADR-0017 replaces this record, retaining repeated defeats and boss mastery as experience targets. Earlier statements and review notes above are history, not current roster-turnover instructions.

@@ -44,7 +44,7 @@ Evaluate roles at their acquisition and evolution stages and at later campaign c
 
 When reviewing a weak option, assess move access, abilities, typing, encounter timing and the available opposition together. [ADR-0015](0015-standard-chart-and-stat-rebalance.md) selects the standard modern chart and primarily modest base-stat adjustments, with larger changes reserved for special or necessary cases.
 
-Keep the existing goals of frequent team rebuilding and difficult bosses. Longer viability means meaningful reasons to bring selected Pokémon back for later encounters, without promising one permanent team can answer every challenge.
+Use the revised goal of a trusted core with rotating specialists and difficult bosses in [ADR-0017](0017-trusted-core-and-boss-mastery.md), which supersedes the earlier frequent-rebuilding target. Longer viability means meaningful reasons to bring selected Pokémon back for later encounters, without promising one permanent team can answer every challenge.
 
 ## Evidence and validation
 

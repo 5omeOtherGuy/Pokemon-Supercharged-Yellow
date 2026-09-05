@@ -9,7 +9,7 @@
 
 ## Context
 
-[ADR-0005](0005-team-rotation-and-boss-mastery.md) makes boss mastery central. The interview asked what information should be available in-game before the first attempt.
+[ADR-0017](0017-trusted-core-and-boss-mastery.md), superseding ADR-0005, retains boss mastery as a central goal. The interview asked what information should be available in-game before the first attempt.
 
 ## Decision
 

@@ -13,12 +13,13 @@ These instructions apply throughout this repository. Read any more specific AGEN
 
 Build a familiar Kanto adventure with substantially greater strategic depth and challenge. Preserve Pokémon identities and the atmosphere remembered from childhood. The StarCraft II balance-team comparison describes a quality ambition, not an affiliation or evidence of balance.
 
-The authoritative initial requirements are in ADR-0001, with refinements in accepted ADRs 0004–0016. In particular:
+The authoritative initial requirements are in ADR-0001, with refinements in accepted ADRs 0004 and 0006–0017. ADR-0005 is superseded by ADR-0017. In particular:
 - Main-campaign species are restricted to the original 151 in their original forms. No regional variants or Mega Evolutions, including opponent teams. Postgame scope remains open.
-- Repeated attempts to master major bosses are intended. The earlier frequent team-rebuilding target is under review against ADR-0016: reward continued use while supporting adaptation without excessive switching penalties. No revised frequency or core size is selected. Do not impose forced losses or mandatory team changes.
+- Encourage a trusted core with rotating specialists (ADR-0017, superseding ADR-0005). Repeated attempts to master major bosses remain intended. Do not enforce a fixed core size, forced losses or mandatory team changes.
 - Levelling a newly caught Pokémon to the cap should normally require substantial training (roughly 20–30 minutes or more); total preparation burden, training overlap and reference speed remain open.
 - Use random, improvable IVs with a safeguard against randomisation making a Pokémon unusable, and keep its acquired nature and nature-based stat effects fixed (ADR-0016). Exact IV bounds and improvement methods remain open.
-- Reward battle use, especially boss experience, through clear, predictable development beyond level. Reward continuity without excessive rotation penalties or tedious training. ADR-0016 accepts these goals, not its proposed training-points mechanism; ceilings, participation and catch-up rules remain open.
+- Reward battle use, especially boss experience, through clear, predictable development beyond level. Reward continuity without excessive rotation penalties or tedious training. ADR-0016 accepts these goals and gym rules, not its proposed training-points mechanism; reward formula, ceilings and access timing remain open.
+- Gym rewards require a player victory, field participation and no fainting during that battle. Switched-out survivors qualify; unused reserves and fainted participants do not. Use stronger gym-rematch teams suited to campaign progress so recruits can earn the same gym rewards as veterans (ADR-0016).
 - Full boss teams, moves, abilities, held items and selected bag consumables/quantities must be available in-game before the first attempt.
 - Boss AI follows the VGC open-team-list information boundary in ADR-0009; do not import VGC battle-format rules. Exact opponent stats, hidden allocations, pending player actions and future RNG are not direct AI inputs.
 - Boss defeats cost money and spent consumables. Non-held battle consumables have one fixed campaign-wide, preselected allowance; choose its number through balance testing, not the earlier example of three.

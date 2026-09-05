@@ -10,7 +10,7 @@ ADRs preserve why consequential choices were made. This directory covers softwar
 | [0002](0002-decision-records.md) | Use repository decision records | Accepted |
 | [0003](0003-source-foundation.md) | Select a source foundation through a build audit | Proposed |
 | [0004](0004-original-151-roster.md) | Restrict the main campaign roster to the original 151 | Accepted |
-| [0005](0005-team-rotation-and-boss-mastery.md) | Build the campaign around team rotation and boss mastery | Accepted |
+| [0005](0005-team-rotation-and-boss-mastery.md) | Build the campaign around team rotation and boss mastery | Superseded |
 | [0006](0006-substantial-levelling-investment.md) | Preserve substantial levelling investment | Accepted |
 | [0007](0007-full-boss-scouting.md) | Provide full boss team scouting before the first attempt | Accepted |
 | [0008](0008-consumable-loadouts-and-loss-costs.md) | Preselect limited battle consumables and retain loss costs | Accepted |
@@ -22,6 +22,7 @@ ADRs preserve why consequential choices were made. This directory covers softwar
 | [0014](0014-type-identity-and-campaign-viability.md) | Give each type distinct identity and meaningful campaign viability | Accepted |
 | [0015](0015-standard-chart-and-stat-rebalance.md) | Keep the standard modern chart and use restrained stat rebalancing | Accepted |
 | [0016](0016-individual-traits-and-battle-training.md) | Preserve individual traits and reward battle experience | Accepted |
+| [0017](0017-trusted-core-and-boss-mastery.md) | Encourage a trusted core with rotating specialists and retain boss mastery | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 

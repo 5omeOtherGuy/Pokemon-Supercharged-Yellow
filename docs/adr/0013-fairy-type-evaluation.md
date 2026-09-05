@@ -15,9 +15,7 @@
 
 Include Fairy in the campaign ruleset. Its primary design rationale is to make familiar Pokémon more interesting through mechanics that fit their identities. Retain the modern official starting assignments: Clefairy/Clefable (Fairy), Jigglypuff/Wigglytuff (Normal/Fairy), and Mr. Mime (Psychic/Fairy), subject to the existing policy for carefully justified changes.
 
-The initial inclusion decision left the exact type-effectiveness chart, numerical balance, moves and ability assignments open. ADR-0015 subsequently selects the standard modern chart; individual balance changes remain open. Increased interest does not require equal power or universal viability. The user described the physical/special split and Fairy as impactful examples of modernization; that is a statement of player experience, not measured balance evidence.
-
-Use standard modern matchups, as subsequently selected in ADR-0015. Additional Fairy retypings still require individual identity and balance justification under ADR-0012; there is no representation quota. The earlier suggestion to consider custom chart changes was not adopted.
+Use the standard modern chart selected in [ADR-0015](0015-standard-chart-and-stat-rebalance.md). Additional Fairy retypings require individual justification under ADR-0012; there is no representation quota. Increased interest does not require equal power or universal viability. Numerical balance, moves and ability assignments remain open; reported player experience is not measured balance evidence.
 
 Once the source foundation is chosen, verify end-to-end support rather than assuming a database type entry is sufficient.
 
@@ -70,8 +68,6 @@ Implement the standard modern chart and curate affected Pokémon around distinct
 
 ## Decision history — 2026-09-05
 
-Initially Proposed to discuss Fairy's viability. Updated to Accepted after the user's follow-up explained its value to familiar Pokémon identities and player interest. Acceptance is limited to inclusion and that rationale. The original standard-chart recommendation and evaluation suggestions remain proposals where not separately decided.
+Initially Proposed for Fairy discussion in [665c6c0](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/665c6c0). [fbc89ae](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/fbc89ae) recorded the follow-up as endorsement of inclusion based on identity and interest. This is explicitly a contextual interpretation, not a verbatim approval of every proposal.
 
-## Clarification — 2026-09-05, chart policy resolved
-
-The user selected the standard modern type-effectiveness chart in [ADR-0015](0015-standard-chart-and-stat-rebalance.md). This resolves the open chart policy without changing Fairy inclusion. Substantial stat adjustments remain exceptional and type representation has no quota.
+ADR-0015 subsequently accepted the standard chart; custom chart changes were not adopted. Other evaluation ideas remain provisional. Editorial audit: consolidated chart clarifications without changing status, inclusion or its documented authority.

@@ -34,7 +34,7 @@ This record replaces that individual capacity requirement and retains the chosen
 - Every stat has a maximum for additional points earned through training.
 - One Pokémon can theoretically reach every stat's training maximum. Do not impose a shared total-point ceiling that makes this impossible.
 - Reaching all maxima should be difficult and exceptional. Normal late-game development aims to maximise the stats relevant to a Pokémon's role, rather than every stat.
-- Exact per-stat limits, growth rates, focus options and point-to-stat conversion remain open. Do not assume equal caps, a particular main-series EV formula or a specific diminishing-return curve.
+- Do not assume equal per-stat caps, a main-series EV formula or a particular diminishing-return curve; numerical details remain open.
 - On-the-fly focus changes concern future training; they do not change battle stats instantly. Exact UI timing, including whether focus can be changed during a battle, is an implementation detail still to resolve.
 
 ### Ordinary stat-training eligibility
@@ -65,13 +65,9 @@ This record replaces that individual capacity requirement and retains the chosen
 - Ordinary stat training should usually require additional focused battles after reaching the level cap. Exact rates and additional duration remain open.
 - Preserve the substantial levelling target and trusted core with rotating specialists. Ordinary late-game builds should target relevant stats rather than universal completion.
 
-### Individual capabilities remain earned
+### Related personal rewards
 
-[ADR-0019](0019-gym-resistances-and-capabilities.md) still grants each qualifying Pokémon one fixed capability per granting encounter: it entered battle, never fainted during it, and its team won. Progression-appropriate rematches let recruits earn these personal capabilities.
-
-Each of the eight gym leaders still provides its distinct individual capability reward. Collecting all eight gym capabilities requires personally qualifying for all eight; unlocking full stat-training capacity does not. Capability sources remain repeatable under ADR-0021.
-
-Retain three capability slots, costs of one to three, optional drawbacks, free reassignment only at Pokémon Centers/designated services, and the separate held-item slot. IV improvement remains separate; acquired nature effects remain fixed.
+[ADR-0019](0019-gym-resistances-and-capabilities.md) owns individually earned capabilities, their participation/survival/victory rule, three-slot assignments and service-only reassignment. Each of the eight leaders still grants a distinct personal capability; collecting all eight requires qualifying for all eight rewards. Full training-ceiling access instead follows the trainer's badges. Repeatable capability sources remain governed by ADR-0021, and individual traits by ADR-0016.
 
 ## Alternatives considered
 
@@ -119,12 +115,12 @@ Future validation should check:
 
 Draft a provisional badge-stage table and evaluate its actual stat impact at the corresponding level caps. Compare targeted preparation, typical role-focused development and maximum stage-legal training. Do not label untested values balanced.
 
-## Clarification — 2026-09-05, ordinary training credit
+## Decision history — 2026-09-05
 
-The user selected ordinary training points only for Pokémon that entered battle, never fainted, and belonged to the winning team. This resolves the previously open participation/outcome policy without changing ordinary EXP, IV improvement or badge-wide ceiling access. No implementation or runtime tests have occurred.
+[4991131](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/4991131) corrected ADR-0022's individual-ceiling interpretation, carrying forward permanent gains and flexible focus. [2bd8f84](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/2bd8f84) then selected participation, no fainting and team victory for ordinary training too. Neither changed ordinary EXP or IV-improvement rules.
 
-## Clarification — 2026-09-05, EXP-style reward scaling
+Asked how useful much weaker opponents should be for training, the user answered: "Same as regular exp gain in the main pokemon games." [83b1bd2](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/83b1bd2) recorded EXP-style scaling without selecting a generation or conversion. Continued training at the level cap is an engineering consequence of the accepted post-levelling pacing, not a separately quoted formula choice.
 
-Asked how useful much weaker opponents should be for stat training, the user answered: "Same as regular exp gain in the main pokemon games." This accepts EXP-style scaling, without selecting an exact generation or numerical conversion.
+The original [secondary experience overview](https://bulbapedia.bulbagarden.net/wiki/Experience), consulted on 2026-09-05, was preliminary context for differing EXP formulas. It is not a selected baseline or verified source implementation. Pin and inspect primary source before implementing reward scaling.
 
-[Bulbapedia's experience reference](https://bulbapedia.bulbagarden.net/wiki/Experience), inspected 2026-09-05, distinguishes flat and recipient-level-scaled main-series formulas. This is a secondary overview supporting the need to pin a baseline, not a verified implementation source or acceptance of a particular formula. Before implementing, inspect the selected baseline and record its exact version/source. No code or balance tests exist.
+Editorial audit: consolidated clarifications and linked personal-capability details to their owner. Eligibility, permanent growth, all-stat potential and badge-wide ceilings are unchanged.

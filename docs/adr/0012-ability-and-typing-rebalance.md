@@ -18,7 +18,7 @@ The user permits curated cross-generation moves while retaining the original 151
 - Start from modern official Pokémon typings and permit carefully justified custom typing changes.
 - Treat these permissions as design tools, not a requirement to alter every Pokémon.
 
-The exact baseline data revision, specific assignments and versions of ability behavior remain to be selected. Pokémon typing changes are distinct from changing the type-effectiveness chart.
+The exact baseline data revision, specific assignments and versions of ability behavior remain to be selected. [ADR-0013](0013-fairy-type-evaluation.md) includes Fairy; [ADR-0015](0015-standard-chart-and-stat-rebalance.md) fixes the standard modern chart and no representation quota. Species typing permission does not authorise changing that chart.
 
 ## Alternatives considered
 
@@ -54,22 +54,10 @@ No assignments, type changes or game mechanics have been implemented. Future che
 
 Audit candidate engines for required existing abilities and types. Curate individual changes alongside moves, stats, evolution timing and encounters. Keep original forms recognisable.
 
-## Clarification — 2026-09-05, Fairy discussion
+## Decision history — 2026-09-05
 
-Before this record was committed, the user explicitly requested discussion of Fairy's viability. Fairy inclusion was therefore left unresolved, despite the modern official typing starting point. ADR-0013 initially recorded an agent recommendation for discussion. Other boundaries in this record remained accepted. The subsequent resolution is recorded below.
+Fairy was initially left open for explicit discussion despite the modern-typing baseline; ADR-0013 subsequently recorded the user's identity-based endorsement. ADR-0015 later settled the standard chart, representation and stat-change boundaries.
 
-## Clarification — 2026-09-05, Fairy inclusion
+ADR-0019 separately authorised learned Pokémon passives. ADR-0020 initially added trainer-wide badge scope, then [ADR-0021](0021-trainer-builds-and-reward-ownership.md) superseded it with trainer builds and reward ownership. Those systems do not change the existing-official-ability policy for innate assignments.
 
-The user's follow-up endorses Fairy for its fit with familiar Pokémon and the interest it adds to their battle identities; [ADR-0013](0013-fairy-type-evaluation.md) now accepts inclusion. The existing official Fairy assignments are part of the modern-typing starting point. At that stage, exact chart policy, individual adjustments and any additional justified retypings remained separate choices; the later chart decision follows.
-
-## Clarification — 2026-09-05, fixed chart and species-specific changes
-
-[ADR-0015](0015-standard-chart-and-stat-rebalance.md) selects the standard modern effectiveness chart and restrained base-stat rebalancing with justified exceptions. Typing changes remain permitted on individual identity and balance grounds, without a type-representation quota. Permission to change species typings does not permit custom chart changes.
-
-## Clarification — 2026-09-05, separate learned passives
-
-[ADR-0019](0019-gym-resistances-and-capabilities.md) explicitly permits designing Pokémon-earned passive capabilities in addition to gym training capacity. This extends the project's development systems without replacing the existing-official-ability policy for innate assignments. Exact effects and interactions remain open; ADR-0020 subsequently accepts trainer-wide badge scope, with exact effects still open.
-
-## Clarification — 2026-09-05, trainer reward ownership
-
-[ADR-0021](0021-trainer-builds-and-reward-ownership.md) supersedes ADR-0020, defining selectable trainer builds and limiting Pokémon capabilities to repeatable sources. These separate systems do not change the existing-official-ability policy for innate abilities.
+Editorial audit: consolidated these follow-ups into canonical links; no ability/typing decision changed.

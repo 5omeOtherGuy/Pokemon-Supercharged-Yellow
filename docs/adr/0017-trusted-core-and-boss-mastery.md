@@ -30,7 +30,7 @@ This replaces ADR-0005 in full and explicitly carries forward its boss-mastery t
 
 Design varied strategic demands while allowing continuing members to contribute. Frequent wholesale rebuilding is no longer the default balance assumption.
 
-[ADR-0016](0016-individual-traits-and-battle-training.md) defines traits, development goals and accepted gym rules. Progression-appropriate rematches let recruits earn the same personal capabilities as veterans. [ADR-0023](0023-badge-wide-training-ceilings.md) selects permanent focus-directed gains and trainer-wide training ceilings unlocked by badges; recruits share the current ceiling without personal gym victories. [ADR-0019](0019-gym-resistances-and-capabilities.md) retains extra gym capacity alongside modest learned Pokémon passives, using three capacity slots per Pokémon and one-, two- or three-slot capability costs. Repeatable Elite Four and other notable encounters may also grant capabilities. Numerical balance and remaining progression details stay open; ADR-0021 accepts trainer-wide badge scope and selective opponent capability use consistent with trainer experience.
+[ADR-0016](0016-individual-traits-and-battle-training.md) owns individual traits, development goals and progression-appropriate rematches. Recruits share badge-wide training ceilings under [ADR-0023](0023-badge-wide-training-ceilings.md), while earning their own points and the personal capabilities in [ADR-0019](0019-gym-resistances-and-capabilities.md). [ADR-0021](0021-trainer-builds-and-reward-ownership.md) governs trainer builds and selective opponent progression.
 
 The levelling target in [ADR-0006](0006-substantial-levelling-investment.md) is unchanged. Measure total preparation and rematch effort so specialist rotation remains practical. Existing scouting, information, consumable and format rules remain applicable; this target does not authorise hidden AI advantages.
 
@@ -50,10 +50,6 @@ No encounters or training systems have been implemented or playtested. Evaluate 
 
 Use this target for encounter design and the training-system prototype. Preserve ADR-0005 as history and direct current planning to this record.
 
-## Clarification — 2026-09-05, permanent development
+## Decision history — 2026-09-05
 
-ADR-0022 allows flexible focus for future gains without reallocating existing training. Relevant-stat completion is the normal late-game target; all-stat completion must remain exceptional. Preserve meaningful rotating specialists without requiring every recruit to match a veteran's complete development.
-
-## Clarification — 2026-09-05, recruit ceiling access
-
-[ADR-0023](0023-badge-wide-training-ceilings.md) removes individual gym catch-up requirements for stat capacity. Recruits still train for their own points and earn personal capabilities, preserving a role for continuity and rematches.
+ADR-0022 subsequently made training permanent with flexible future focus; ADR-0023 then removed individual gym catch-up for ceiling access. Neither changed the trusted-core target. Useful specialists need not match a veteran's complete development. Editorial audit: consolidated these follow-ups into current links.

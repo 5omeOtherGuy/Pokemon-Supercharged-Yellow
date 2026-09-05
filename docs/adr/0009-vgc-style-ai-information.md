@@ -9,14 +9,14 @@
 
 ## Context
 
-The user answered "Same as in official vcg turnaments" when asked what a boss should know about the player's team before turn one. We interpret this as the current official open-team-list standard for live VGC events. This answer concerns information access, not a choice of doubles, team size, level scaling or generation mechanics.
+The user answered "Same as in official vcg turnaments" when asked what a boss should know about the player's team before turn one. The recorded adaptation uses the official open-team-list standard for live VGC events, checked against the dated handbook below. This answer concerns information access, not a choice of doubles, team size, level scaling or generation mechanics.
 
 ## Decision
 
 Use an open-team-list information boundary for boss AI.
 
 - Disclose the player's battle-team species/relevant forms, known moves, abilities and held items before the first turn.
-- Include the Nature/stat-alignment field in the current-standard mapping, if the game uses that mechanic; its implementation has not been chosen.
+- Include the Nature/stat-alignment field in the recorded mapping. [ADR-0016](0016-individual-traits-and-battle-training.md) subsequently selected fixed acquired natures and stat effects; the field representation still needs an explicit engine mapping.
 - Do not directly disclose the player's exact numerical stats or underlying IV/EV/stat allocations.
 - The AI may reason from permitted team information and observable battle events. Estimates and deductions must remain distinguishable from direct hidden-data access.
 - As the engineering translation of a human opponent's information boundary, do not let the AI read the player's committed action, switch target or item choice for the current turn before choosing its own action, or inspect future random outcomes.
@@ -36,29 +36,29 @@ This decision does not settle singles/doubles, bring-four rules, Mega Evolution,
 
 ## Evidence and validation
 
-Primary references checked on 2026-09-05:
-- [Official VGC Tournament Handbook, sections 2.4–2.4.1](https://www.pokemon.com/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-vgc-tournament-handbook-en.pdf): indexed official text specifies open team lists and excludes numerical stats from opponent disclosure.
-- [Official Video Game Team List](https://www.pokemon.com/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-vg-team-list.pdf): indexed official fields include Stat Alignment, Ability, Held Item and moves.
+The user requested official VGC information; the exclusions of pending commands and future RNG are documented engineering translations of a human opponent's boundary. Mutual bag-loadout visibility was separately selected in round 5.
 
-The full PDF bodies were not exposed by the web reader; the statements above rely on indexed official passages. A complete field-by-field check of an accessible official copy remains an implementation prerequisite. The Nature/stat-alignment mapping follows the listed field and the handbook's numerical-stat exception; it must not be confused with revealing a stat spread.
+The [official VGC Tournament Handbook](https://mcdn.pokemon.com/pokemon-prod/raw/upload/v1/live/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-vgc-tournament-handbook-en.pdf), revision **2026-05-21**, was retrieved and its team-list section checked in full on 2026-09-05 (sections **2.5–2.5.1**, pages 7–8; page 8 also visually inspected). It specifies open lists containing species/battle-relevant forms, ability, held item, moves and stat alignment; numerical stats are withheld from the opponent. The Scarlet/Violet-specific Tera field does not select that mechanic for this project.
 
-No engine or AI code has been implemented or tested. Future checks should demonstrate that hidden opponent data and the player's pending command cannot affect AI evaluation when permitted observations are identical.
+Retrieved PDF SHA-256: `152ff4de657ee0f001bd8fd5f1290272782798836701ed72c4b311c974404e24`. The URL can change; use the revision and hash to identify the inspected copy. The handbook supports disclosure of stat alignment; mapping that term to this project's fixed nature effects remains the recorded adaptation, not an imported Champions ruleset.
+
+No AI code has been implemented or tested. Future verification must hold permitted observations and the AI's own decision randomness constant while varying hidden opponent data, pending commands and future battle RNG; evaluation must remain unchanged.
 
 ## Open questions
 
-- Selection-lock timing and keeping the visible consumable loadout synchronised with actual available supplies.
-- Remaining public fields, including level/form details, and reciprocal additions to boss scouting.
+- Exact nature/stat-alignment representation, remaining public fields such as level/form details, and reciprocal additions to boss scouting. Player access to boss natures and exact stats remains open under ADR-0007.
 - Observable HP precision, stat inference, memory across attempts and ordinary-trainer AI.
-- Choice commitment and information filtering in the selected engine.
+- Loadout locking, choice commitment and information filtering in the selected engine.
+- Additional active-passive fields proposed in ADR-0024.
 
 ## Follow-up
 
-Implement the accepted custom consumable-information extension within an explicit field-level information contract against a verified upstream engine. Preserve uncertainty for inferred opponent statistics.
+Map each accepted field into an explicit information contract against a verified engine. Preserve uncertainty for estimates and audit all evaluation helpers for hidden-data access.
 
-## Clarification — 2026-09-05, design interview round 5
+## Decision history — 2026-09-05
 
-The user confirmed: both sides see complete consumable loadouts. This is a campaign-specific extension to the VGC reference, recorded jointly with [ADR-0008](0008-consumable-loadouts-and-loss-costs.md), not a claim that official VGC includes bag supplies. Hidden statistics and pending actions remain protected.
+Round 4 requested the VGC standard; [eccdd70](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/eccdd70) recorded the adaptation. Round 5 explicitly added mutual consumable visibility as a campaign extension, not an official VGC rule.
 
-## Clarification — 2026-09-05, AI reliability and passive information
+The later tentative suggestion that AI might need all information for reliability did not reverse hidden-stat or pending-action protections. [ADR-0024](0024-passive-scouting-and-ai-observations.md) proposes new active-effect disclosure and an implementation approach; it remains Proposed.
 
-The user tentatively suggested AI might need all information to avoid glitches, while explicitly expressing uncertainty. This is not approval to remove the accepted hidden-stat or pending-action boundaries. [ADR-0024](0024-passive-scouting-and-ai-observations.md) proposes reciprocal active-passive disclosure and separates complete battle-resolution state from bounded decision observations. Exact new fields remain proposed; engine-specific integration and reliability checks remain necessary.
+Editorial audit: replaced incomplete indexed-PDF evidence with the accessible official handbook and corrected the earlier 2.4–2.4.1 section citation to 2.5–2.5.1. The original [team-list form](https://www.pokemon.com/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-vg-team-list.pdf) remains a historical reference; its full body was not verified and is no longer needed as proof of the listed fields. No accepted information boundary changed.

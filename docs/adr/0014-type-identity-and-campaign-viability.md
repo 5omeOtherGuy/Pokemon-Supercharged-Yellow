@@ -61,6 +61,6 @@ No engine or balance results exist. Future review should identify intended roles
 
 Apply the representation, chart and stat-change boundaries in ADR-0015. Use these interests to help choose representative Pokémon and encounters for the first balance prototype. This does not make the list an exclusive priority or select the prototype's scope.
 
-## Clarification — 2026-09-05, no representation quota
+## Decision history — 2026-09-05
 
-The user explicitly selected no representation quota: add typings only when individual Pokémon justify them. This makes type identity and playability a balance goal, not a requirement to manufacture an obtainable member of every type. The user also selected the standard modern chart and primarily modest stat adjustments with exceptional or necessary larger changes; see ADR-0015.
+The user subsequently selected no representation quota, the standard chart and primarily modest stat adjustments with justified exceptions. [ADR-0015](0015-standard-chart-and-stat-rebalance.md) owns these boundaries. Editorial audit: replaced the duplicated clarification; type-level playability remains a goal without requiring an obtainable species of every type.

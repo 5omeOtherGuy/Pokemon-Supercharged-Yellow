@@ -13,7 +13,7 @@ Recharged Yellow source is unavailable and not required. We need a maintainable 
 
 A feature list is not evidence that the relevant implementation works or is suitable for reuse.
 
-## Decision
+## Proposal
 
 Propose auditing the FireRed source ecosystem first, including pret/pokefirered, Deokishisu/FRLG-Plus and egalleta/FRLG-2Plus. Compare the necessary effort with an Emerald expansion foundation if the FireRed candidates have material limitations.
 
@@ -48,7 +48,7 @@ No source foundation has been compiled, imported or tested in this project.
 - Relevant upstream revisions, attribution/reuse requirements and outstanding defects.
 - Completeness of split integration in damage, UI, AI and interactions.
 - Work needed for milestone caps and battle-speed controls.
-- Extensibility for the eventual ruleset, moves, abilities and roster.
+- Extensibility for the accepted ruleset and progression systems; see the audit scope below.
 - Save behavior, toolchain requirements and test support.
 - Effort needed to reproduce desired Yellow elements.
 
@@ -58,5 +58,17 @@ No source foundation has been compiled, imported or tested in this project.
 2. Check reuse requirements and preserve required attribution.
 3. Compile the most promising candidate using documented toolchain versions.
 4. Verify boot, basic battles and save/load; record checks actually performed.
-5. Assess implementation paths for split, caps and speed controls.
+5. Assess split, caps and speed controls plus the accepted-system integration risks below.
 6. Accept or replace this proposal with a reasoned foundation choice and reproducible instructions.
+
+## Audit scope update — 2026-09-05
+
+The initial split/caps/speed shortlist predates the later progression decisions. Under the documentation-review task, expand the eventual engineering comparison to include:
+
+- The owner's platform/hardware targets and minimum Yellow-specific content/presentation; these are not established by the candidate list. See [review finding F5](../design-review.md#f5-platform-and-yellow-identity-remain-unconfirmed). The [intended badge reference](../design-review.md#f6-existing-badge-benefits-lacks-a-reference) also remains open.
+- Both battle formats and Set rules; required move/ability/Fairy/chart support; acquisition, evolution and relearning paths for eligible original forms.
+- Permanent per-stat training at the level cap, trainer-wide badge ceilings, individual capability rewards and separate trainer budgets ([ownership map](README.md#progression-ownership)). Inspect battle-end eligibility and reward persistence rather than assuming standard EV machinery fits.
+- Preselected bag supplies and loss accounting, data-backed scouting and an AI observation boundary capable of handling custom effects. ADR-0024 remains a proposal for extra disclosure fields.
+- Save-data space/versioning for individual points, traits and capability collections, trainer unlocks/builds, and settings; storage/evolution transitions and reward transactions.
+
+Record each capability as inspected, demonstrated, missing or unverified at a pinned revision. This is an investigation checklist, not a claim that any listed foundation supports it. Public-documentation claims above remain preliminary; this audit did not import or build an engine.

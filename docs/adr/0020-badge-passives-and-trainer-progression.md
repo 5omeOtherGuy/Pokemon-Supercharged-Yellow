@@ -7,6 +7,8 @@
 - Supersedes: None
 - Superseded by: [ADR-0021](0021-trainer-builds-and-reward-ownership.md)
 
+Historical record. Its decisions and open questions describe the earlier policy. Follow ADR-0020 → ADR-0021; [current policy](0021-trainer-builds-and-reward-ownership.md) governs new work. Editorial navigation note added 2026-09-05.
+
 ## Context
 
 [ADR-0019](0019-gym-resistances-and-capabilities.md) defines individually earned capabilities with three capacity slots. The user has now selected trainer-wide badge benefits and explained how opposing trainers should use capabilities without undermining the player's sense of accomplishment.

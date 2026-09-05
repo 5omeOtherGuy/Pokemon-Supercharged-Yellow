@@ -41,7 +41,7 @@ A small stat change can still alter important matchups; magnitude alone does not
 User answers on 2026-09-05:
 - "No representation quota: add typings only when individual Pokémon justify them."
 - "Keep the standard modern chart."
-- For base stats: "Option 2 as primary, option 3 only in special cases and/or where necessary." Option 2 allowed redistribution and modest changes to overall strength; option 3 allowed substantial changes when identity and balance justify them.
+- For base stats: "Option 2 as primary, option 3 only in special cases and/or where necessary." The original record at [cb3ebf9](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/blob/cb3ebf9/docs/adr/0015-standard-chart-and-stat-rebalance.md) maps option 2 to redistribution/modest strength changes and option 3 to substantial justified changes. The audit preserves that documented mapping; the raw interview/options are not in Git.
 
 No game data has been changed or balance tested. Once a foundation exists, pin a reference for the standard modern chart and verify its complete matrix, displayed matchups and AI handling. Record any ability/move-specific interaction separately from that matrix. Assess stat changes using meaningful matchup checks and human campaign testing.
 
@@ -50,12 +50,11 @@ No game data has been changed or balance tested. Once a foundation exists, pin a
 - Pinned data revision and generation-specific mechanics beyond the chart.
 - Individual stat spreads, typing changes and qualifying exceptional cases.
 - Practical numerical guidance for modest versus substantial changes, if a recurring need emerges.
-- IV safeguards and improvement methods, battle-earned training and preparation details under ADR-0016. Random improvable IVs and fixed acquired natures are selected.
 
 ## Follow-up
 
 Use these boundaries when auditing engine data and curating species changes. Keep baseline data and project overrides distinguishable. Resolve player preparation systems before making detailed assumptions about attainable stats at each cap.
 
-## Clarification — 2026-09-05, acquired traits and training
+## Related decisions and editorial note — 2026-09-05
 
-[ADR-0016](0016-individual-traits-and-battle-training.md) defines the selected individual-trait rules and the goals for battle-earned development. Species base-stat changes remain distinct from an individual Pokémon's IVs and earned training. Evaluate their combined effect once the progression mechanism is selected.
+[ADR-0016](0016-individual-traits-and-battle-training.md) defines the selected individual-trait rules and the goals for battle-earned development. Species base-stat changes remain distinct from an individual Pokémon's IVs and earned training. [ADR-0023](0023-badge-wide-training-ceilings.md) now selects the training model; numerical limits remain open. Evaluate these layers together. The audit corrected the stale mechanism-selection wording and clarified the recorded option mapping.

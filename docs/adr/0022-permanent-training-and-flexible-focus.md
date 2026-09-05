@@ -7,6 +7,8 @@
 - Supersedes: [ADR-0018](0018-gym-training-budget-and-focus.md)
 - Superseded by: [ADR-0023](0023-badge-wide-training-ceilings.md)
 
+Historical record. Its decisions and open questions describe the earlier policy. Follow ADR-0022 → ADR-0023; [current policy](0023-badge-wide-training-ceilings.md) governs new work. Editorial navigation note added 2026-09-05.
+
 ## Context
 
 ADR-0018 combined gym-earned training capacity with automatic focus allocation and later-game, earned focus changes that instantly redistributed existing points. The user replaces that focus model: focus may change on the fly, existing points never move, each stat has its own training maximum, and one Pokémon can theoretically reach all of those maxima.

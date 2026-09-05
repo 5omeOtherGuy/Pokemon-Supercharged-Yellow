@@ -2,50 +2,50 @@
 
 - Status: Accepted
 - Date: 2026-09-05
-- Decision authority: Explicit user answers in design interview round 2
+- Decision authority: Explicit user answers in design interview round 2; subsequent ordinary-training pacing clarification
 - Implementation: Not started — design policy only
 - Supersedes: None
 - Superseded by: None
 
 ## Context
 
-At the time of the interview, [ADR-0005](0005-team-rotation-and-boss-mastery.md) called for frequent rebuilding. [ADR-0017](0017-trusted-core-and-boss-mastery.md) now replaces that target with a trusted core and rotating specialists. The interview asked how long a newly caught Pokémon should normally take to reach the current cap, explicitly considering levelling only.
+The interview asked how long a newly caught Pokémon should normally take to reach the current cap, considering levelling only. The original frequent-rebuilding target in ADR-0005 has since been replaced by a trusted core with rotating specialists in [ADR-0017](0017-trusted-core-and-boss-mastery.md).
 
 ## Decision
 
-Target substantial training investment: roughly 20–30 minutes or more under typical relevant conditions. This is a pacing target, not an enforced minimum timer for every catch or campaign stage. Moves, natures and stat training are separate decisions.
+Target substantial levelling investment: roughly 20–30 minutes or more under typical relevant conditions. This is a pacing target, not an enforced minimum timer for every catch or campaign stage. Do not introduce universal instant catch-up as a default QoL feature.
+
+Ordinary stat training should usually require additional focused battles after levelling, as subsequently selected and retained in [ADR-0023](0023-badge-wide-training-ceilings.md). Its extra duration is unchosen. The levelling target does not approve equally long chores for every preparation system.
 
 ## Alternatives considered
 
-Almost immediate catch-up, or 5–10 minutes of targeted training. The user selected substantial training.
+Almost immediate catch-up, or 5–10 minutes of targeted training. The user selected substantial levelling investment.
 
 ## Consequences
 
-Levelling is intentional preparation. Do not introduce universal instant catch-up as a default QoL feature. Training multiple replacements could multiply this cost; shared experience and group-training policies remain unresolved.
+Training several replacements can multiply preparation cost. Measure the complete path to a useful recruit: levelling, additional stat training, IV improvement, move access, capability rematches, service travel and supplies. Measure useful readiness separately from completing every possible reward.
+
+ADR-0023 gives recruits the trainer's current training ceilings immediately; personal rematches recover capabilities under [ADR-0019](0019-gym-resistances-and-capabilities.md), not stat capacity. Focus changes direct future gains without relocating existing points. EXP-related trainer passives in [ADR-0021](0021-trainer-builds-and-reward-ownership.md) must be evaluated against the unchanged levelling target.
 
 ## Evidence and validation
 
-User answer on 2026-09-05: "Substantial training: roughly 20–30 minutes or more." Future timing checks must record starting level, cap, campaign stage, party size, training activity and battle-speed setting. Measure both one replacement and multiple replacements.
+User answer on 2026-09-05: "Substantial training: roughly 20–30 minutes or more." The additional post-levelling training preference was recorded in [commit 863a7e7](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/863a7e7).
 
-No game implementation or runtime validation has occurred.
+Future timing checks must record starting level, cap, campaign stage, party size, activity, battle-speed setting and training modifiers. Compare one and several replacements, including failed rematches and replenishment. No implementation or timing validation has occurred.
 
 ## Open questions
 
-- Training activities and access.
-- Individual versus shared experience and group-training time.
-- Reference speed setting for the pacing target.
-- Stage-dependent exceptions and naturally near-cap catches.
+- Training activities, access, ordinary EXP sharing and group-training time.
+- Reference speed for the levelling target and stage-dependent exceptions, including near-cap catches.
+- Additional stat-training duration and total useful-recruit preparation time.
+- Overlap with IV improvement, capability acquisition and other preparation activities.
 
 ## Follow-up
 
-Design training and experience access alongside encounters, and measure actual pacing before accepting numerical experience tuning.
+Design training and resource access alongside encounters. Measure actual pacing before accepting numerical tuning.
 
-## Clarification — 2026-09-05, total preparation burden
+## Decision history — 2026-09-05
 
-[ADR-0016](0016-individual-traits-and-battle-training.md) adds random improvable IVs, fixed natures and the goal of clear, non-tedious development from battle use and boss experience. The 20–30-minute-or-more target remains specifically about levelling. Whether levelling, IV improvement and earned development overlap is unresolved; do not treat the levelling target as approval for several additional training grinds. Measure the complete cost of introducing a replacement when designing the combined system.
+The levelling target originated in interview round 2. Later discussion added the whole-preparation concern and selected additional ordinary training after levelling. ADR-0018's individual gym-budget catch-up and earned instant redistribution were later superseded through ADR-0022 by ADR-0023.
 
-When evaluating gym-rematch catch-up in ADR-0016, include rematch duration and repeated attempts in total preparation cost. Eligibility requires participation without fainting in a player victory; rematch teams must suit campaign progress. [ADR-0018](0018-gym-training-budget-and-focus.md) now requires all eight distinct leader rewards for full gym-related development; measure that completion path separately from the training needed for a recruit to contribute usefully.
-
-## Clarification — 2026-09-05, additional ordinary training
-
-The user selected ordinary stat training that usually requires additional focused battles after levelling. This resolves the general overlap preference; the extra duration, activity and total preparation burden are still unchosen. The original levelling target remains separate. Instant redistribution after an earned later-game focus change does not require repeating that training (ADR-0018).
+Editorial audit: removed those superseded rules from current pacing guidance. The [pre-audit clarifications](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/blob/66c17faf1292626ae5f0ec70531aaf1b2a871ec1/docs/adr/0006-substantial-levelling-investment.md) remain in Git; the levelling and additional-training choices are unchanged.

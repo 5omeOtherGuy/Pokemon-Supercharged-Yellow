@@ -41,10 +41,10 @@ No game implementation or runtime validation has occurred.
 
 Resolve presentation and remaining information fields before implementing scouting. Coordinate with [ADR-0008](0008-consumable-loadouts-and-loss-costs.md).
 
-## Clarification — 2026-09-05, design interview round 4
+## Decision history — 2026-09-05
 
-The user confirmed full boss consumable-loadout visibility, including quantities. [ADR-0008](0008-consumable-loadouts-and-loss-costs.md) records that rule. [ADR-0009](0009-vgc-style-ai-information.md) records the player's requested VGC information standard for the boss AI; campaign-specific additions remain explicit.
+Interview round 2 selected full team/move/ability/held-item scouting; round 4 added the complete boss bag loadout and quantities, recorded jointly in [ADR-0008](0008-consumable-loadouts-and-loss-costs.md). ADR-0009 owns the separately requested AI information standard.
 
-## Clarification — 2026-09-05, preparation and public gym information
+The later preparation/public-gym-information statement led to [ADR-0024](0024-passive-scouting-and-ai-observations.md), which proposes reciprocal active trainer-passive and assigned-capability disclosure. That extension remains Proposed; it is not an accepted scouting field.
 
-The user reaffirmed that players must be able to prepare and that gym-leader information plausibly is public knowledge. [ADR-0024](0024-passive-scouting-and-ai-observations.md) proposes adding complete active trainer passives and assigned Pokémon capabilities to pre-battle scouting, with equivalent AI access. That specific extension remains Proposed; the preparation goal and existing scouting fields remain Accepted.
+Editorial audit: consolidated duplicate clarifications; accepted fields and unresolved stat/level disclosure are unchanged.

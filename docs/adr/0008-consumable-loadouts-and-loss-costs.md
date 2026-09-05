@@ -54,18 +54,10 @@ No game implementation or runtime validation has occurred.
 
 Test numerical allowances within the confirmed policy. Clarify remaining selection/locking and item-access details. Resolve battle scope, economy and recovery details before implementation.
 
-## Clarification — 2026-09-05, design interview round 3
+## Decision history — 2026-09-05
 
-The user selected one fixed campaign-wide allowance with the number determined through balance testing; HP healing, status cures, PP restoration and temporary stat boosters as the eligible player categories; and only major bosses using bag consumables, with the same maximum as the player. Revives were not selected in the explicit category selection and are therefore excluded from player battle supplies. This resolves open details without superseding the original preselection and loss-cost policy.
+- Round 2 selected money loss and spent supplies remaining spent; the user's added preselection quota excluded held items and used three only as an example. The meaning of “option 3” is explicitly recorded in [the original ADR at 030b85d](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/blob/030b85d/docs/adr/0008-consumable-loadouts-and-loss-costs.md); this audit has no raw interview transcript.
+- Round 3 selected a fixed campaign-wide maximum, the four player categories and equal boss allowance with no ordinary-trainer bag use. Revives were omitted from the explicit player category selection and recorded as excluded; this is a documented interpretation of that selection.
+- Round 4 added category-based duplicate limits and full boss-supply scouting. Round 5 delegated separate numerical category caps to testing, excluded mixed-category supplies and confirmed mutual visibility. One HP item was an example, not a universal category cap.
 
-Future validation must cover eligible categories, rejection of player revives, a constant campaign limit, equal player/boss maxima and no ordinary-trainer bag use. No gameplay tests have run.
-
-## Clarification — 2026-09-05, design interview round 4
-
-The user selected category-based duplicate limits, using one HP-healing item as an example, and full pre-battle visibility of boss consumables and quantities. Numerical category caps, mixed-effect classification and boss visibility of player supplies remain unresolved. Validate category restrictions against differently named items serving the same role; verify displayed boss supplies match the actual locked loadout.
-
-## Clarification — 2026-09-05, design interview round 5
-
-The user delegated separate numerical category limits to balance testing, excluded items combining categories from battle supplies, and confirmed mutual visibility of complete consumable loadouts. These resolve earlier open questions without changing the overall fixed campaign allowance or loss-cost policy.
-
-Future checks must reject mixed-category supplies, enforce both overall and category limits, and confirm each side sees the actual locked supplies and quantities. Knowing the available supplies must not reveal the opponent's pending item action. No implementation or gameplay validation has occurred.
+Editorial audit: consolidated the resolved round 3–5 questions here. Future checks must reject mixed-category supplies/player revives, enforce overall and category maxima across differently named items, keep the campaign limit constant, prohibit ordinary-trainer bag use, and verify both visible loadouts match actual supplies without revealing pending actions. No gameplay checks have run.

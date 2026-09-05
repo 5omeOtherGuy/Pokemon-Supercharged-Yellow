@@ -2,6 +2,38 @@
 
 ADRs preserve why consequential choices were made. This directory covers software architecture and durable game-design policies. The system is intentionally plain Markdown; no ADR service or generator is required.
 
+## Current decision map
+
+Read the owning records for complete rules, authority and open questions. This map is navigation, not independent decision evidence.
+
+| Area | Current records |
+| --- | --- |
+| Charter; decision workflow | [0001](0001-project-direction.md); [0002](0002-decision-records.md) |
+| Source foundation | [0003](0003-source-foundation.md), **Proposed** |
+| Main-campaign roster; team continuity and boss mastery | [0004](0004-original-151-roster.md); [0017](0017-trusted-core-and-boss-mastery.md) |
+| Levelling and total preparation | [0006](0006-substantial-levelling-investment.md) |
+| Boss scouting; consumables and loss costs; AI information | [0007](0007-full-boss-scouting.md); [0008](0008-consumable-loadouts-and-loss-costs.md); [0009](0009-vgc-style-ai-information.md) |
+| Battle formats/Set; move curation | [0010](0010-mixed-battles-and-set-rules.md); [0011](0011-curated-moves-across-generations.md) |
+| Innate abilities/typings; Fairy; type viability; chart/stat boundaries | [0012](0012-ability-and-typing-rebalance.md); [0013](0013-fairy-type-evaluation.md); [0014](0014-type-identity-and-campaign-viability.md); [0015](0015-standard-chart-and-stat-rebalance.md) |
+| Individual traits, development goals and rematch difficulty | [0016](0016-individual-traits-and-battle-training.md) |
+| Pokémon capabilities; trainer builds/reward ownership/NPC progression; stat training | [0019](0019-gym-resistances-and-capabilities.md); [0021](0021-trainer-builds-and-reward-ownership.md); [0023](0023-badge-wide-training-ceilings.md) |
+| Active-passive scouting and AI observations | [0024](0024-passive-scouting-and-ai-observations.md), **Proposed** |
+
+Supersession chains: 0005 → 0017; 0018 → 0022 → 0023; 0020 → 0021. Follow them to current policy; preserved records describe the decisions and questions of their time.
+
+## Progression ownership
+
+| Term | Owner and purpose | How it changes | Canonical record |
+| --- | --- | --- | --- |
+| IVs and acquired nature | Individual traits, separate from earned training | IVs random but improvable with a usability safeguard; acquired nature and its stat effects fixed | [0016](0016-individual-traits-and-battle-training.md) |
+| Training ceiling | Trainer's badge stage bounds each stat for all Pokémon, including recruits | Badge acquisition unlocks capacity automatically; it does not fill points | [0023](0023-badge-wide-training-ceilings.md) |
+| Training points and focus | Individual permanent stat development | Surviving field participants in a won battle earn points; freely changing focus directs future gains only | [0023](0023-badge-wide-training-ceilings.md) |
+| Pokémon capabilities | Individual earned passive collection and assigned loadout | Repeatable fixed encounter rewards; three slots with costs of 1–3; free reassignment at a Center/designated service | [0019](0019-gym-resistances-and-capabilities.md) |
+| Trainer passives and capacity | Trainer expertise expressed through a selected build, separate from Pokémon slots | Shared weighted budget grows through badges; select at a Center; numbers and reassignment cost open | [0021](0021-trainer-builds-and-reward-ownership.md) |
+| Inherited badge benefits | Intended reference-game benefits, separate from the additional trainer build | Reference and exact effects still unresolved | [0021](0021-trainer-builds-and-reward-ownership.md) |
+
+Ordinary level EXP, stat-training reward value and stat-training eligibility are separate. A capability is also distinct from an innate ability and the normal held-item slot. “Capacity” alone is ambiguous: name the training ceiling, Pokémon capability capacity or trainer-passive budget.
+
 ## Index
 
 | ID | Decision | Status |
@@ -37,7 +69,7 @@ Accepted means a decision was made. It does not mean implementation or verificat
 
 Use an ADR for engine selection, ruleset policy, roster boundaries, progression/cap design, training systems, AI information policy, save compatibility, distribution, or another choice whose rationale future contributors will need.
 
-Do not create an ADR for every stat adjustment, bug fix or refactor. Record those in focused change notes or commits unless they alter a broader policy. Keep open questions in the relevant proposal rather than creating a separate tracking system.
+Do not create an ADR for every stat adjustment, bug fix or refactor. Record those in focused change notes or commits unless they alter a broader policy. Keep open questions in their owning record, including accepted records with unresolved details. A review report may identify cross-record risks without becoming a second specification or issue tracker.
 
 ## Create and maintain a record
 
@@ -59,8 +91,14 @@ Routine authorised engineering decisions can be accepted by the implementing age
 
 To replace an accepted decision, create a new ADR explaining the change. Mark the old one Superseded and add reciprocal links in both records; update the index. Do not silently rewrite the old rationale. Clarifications, evidence, implementation status and factual corrections can be updated in place with a dated note when substantive.
 
+When streamlining, keep the current decision near the top, consolidate resolved clarifications into dated history with source links, and preserve the rationale. Keep old decisions visibly historical instead of updating them into current policy.
+
 Use ISO dates (YYYY-MM-DD). Cite upstream repository paths and exact commits/tags when available; label references without pinned revisions as preliminary.
 
 ## Verification for documentation changes
 
 Check that filenames and IDs agree, IDs are unique, index statuses match records, relative links resolve, and accepted claims have an identified decision authority. Inspect the diff for accidental scope changes. No build or test command exists until the chosen foundation supplies a verified one.
+
+## Review history
+
+The [2026-09-05 design review](../design-review.md) covers all 24 records at `66c17fa`, including proposals and superseded decisions. It records editorial corrections, evidence limits and remaining work. No ADR status changed in that audit.

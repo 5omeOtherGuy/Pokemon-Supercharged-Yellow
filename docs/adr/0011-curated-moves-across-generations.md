@@ -41,12 +41,11 @@ No moves have been selected or implemented. Future validation should cover mecha
 - Permission to grant species moves outside their official learnsets.
 - Custom moves and changes to existing move values.
 - Move acquisition, relearning and TM/tutor policies.
-- Specific ability/typing implementations within ADR-0012 and the original-form boundary in ADR-0004.
 
 ## Follow-up
 
-Set remaining modernisation boundaries, then audit move support in candidate foundations and curate learnsets against the campaign progression.
+Resolve remaining move-specific boundaries as needed, audit move support in candidate foundations and curate learnsets against the campaign progression.
 
-## Clarification — 2026-09-05, design interview round 7
+## Related decisions and editorial note — 2026-09-05
 
-The user separately approved existing-ability reassignment and justified custom typing changes from modern official typings ([ADR-0012](0012-ability-and-typing-rebalance.md)), while restricting the main campaign to original forms without regional variants or Mega Evolution ([ADR-0004](0004-original-151-roster.md)). Those decisions supplement this move policy; no individual move assignment is implied.
+[ADR-0012](0012-ability-and-typing-rebalance.md) owns the later ability/typing permissions; [ADR-0004](0004-original-151-roster.md) owns the original-form boundary. These supplement move curation without approving a specific move assignment. The audit replaced the duplicated round-7 clarification with these references.

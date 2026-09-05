@@ -7,6 +7,8 @@
 - Supersedes: None
 - Superseded by: [ADR-0022](0022-permanent-training-and-flexible-focus.md)
 
+Historical record. Its decisions and open questions describe the earlier policy. Follow ADR-0018 → ADR-0022 → ADR-0023; [current policy](0023-badge-wide-training-ceilings.md) governs new work. Editorial navigation note added 2026-09-05.
+
 ## Context
 
 [ADR-0016](0016-individual-traits-and-battle-training.md) establishes battle-earned development, acquired traits and gym reward eligibility. [ADR-0017](0017-trusted-core-and-boss-mastery.md) targets a trusted core with rotating specialists. The interview asked whether gym rewards extend ordinary training potential, how points are allocated and how many distinct gym leaders contribute.
@@ -95,4 +97,4 @@ The user selected both extra gym training capacity and modest individual passive
 
 ## Supersession — 2026-09-05
 
-[ADR-0022](0022-permanent-training-and-flexible-focus.md) is the current policy. This record preserves the earlier decision and rationale; its superseded restrictions are not current requirements.
+[ADR-0022](0022-permanent-training-and-flexible-focus.md) replaced this policy and was subsequently superseded by [ADR-0023](0023-badge-wide-training-ceilings.md). This record preserves the earlier decision and rationale; its superseded restrictions are not current requirements.

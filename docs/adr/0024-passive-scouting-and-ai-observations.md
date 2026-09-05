@@ -78,3 +78,7 @@ No implementation, compilation or runtime tests exist.
 ## Follow-up
 
 Review the proposal as a player-experience choice, then map approved fields into the selected engine and prototype a boss with both passive systems. Preserve existing accepted information limits until explicitly revised.
+
+## Evidence review — 2026-09-05
+
+The documentation audit rechecked `IsAiBattlerAware` (lines 200–206) and `AI_DecideKnownAbilityForTurn` (lines 1760–1805) at the pinned revision above. Their awareness and candidate-ability branches support only the stated example of knowledge modelling. They do not establish end-to-end isolation of hidden data or custom-effect support. Status remains Proposed; no user uncertainty was treated as acceptance.

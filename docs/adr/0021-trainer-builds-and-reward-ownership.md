@@ -33,7 +33,7 @@ ADR-0020 accepted intended existing badge benefits, modest additional combat pas
 - This restriction concerns the passive reward systems; it does not prohibit ordinary EXP, money, items or story progression rewards.
 - Pokémon capability sources must support repeat access so later recruits can earn their rewards. Gyms, Elite Four battles and other notable encounters remain eligible sources where this condition is met.
 - Do not solve non-repeatable encounters by giving permanent, individually missable capabilities. Trainer rewards belong to the player and can benefit later recruits.
-- Repeatable capability encounters retain one fixed capability for every qualifying Pokémon: entered battle, never fainted during it, and the player's team won. Exact access arrangements for Elite Four and other repeatable sources remain open.
+- [ADR-0019](0019-gym-resistances-and-capabilities.md) owns fixed encounter rewards and individual participation/survival/victory eligibility. Exact repeat access for Elite Four and other sources remains open.
 
 ### Opponent capability use
 
@@ -57,8 +57,6 @@ These are encounter-design constraints, not an automatic scaling algorithm. Exac
 ## Relationship to other systems
 
 [ADR-0019](0019-gym-resistances-and-capabilities.md) governs Pokémon capability costs, free service-only reassignment and the separate held-item slot. [ADR-0023](0023-badge-wide-training-ceilings.md) governs permanent stat training and flexible focus. Selecting a trainer build does not redistribute Pokémon training points or grant individual capabilities. Badge-stage ceilings are automatic progression unlocks, separate from the selected additional-passive build.
-
-Major bosses and selected experienced trainers now use both systems where justified by their backgrounds. Their trainer passives consume trainer capacity, while each Pokémon's assigned capabilities consume that Pokémon's own capacity.
 
 ## Alternatives considered
 
@@ -84,7 +82,7 @@ Assess the combined effects of trainer passives, individual capabilities, held i
 
 The user's answers on 2026-09-05 choose the limited-subset-at-a-Pokémon-Center option, describe EXP and stat-boost examples, require a clear trainer/Pokémon distinction, and prohibit individual capabilities from non-repeatable story encounters. Opponent experience and partial-loadout rules carry forward from ADR-0020.
 
-No implementation or balance results exist. Future checks must cover ownership, recruit access, selection limits, repeatable reward access, singles/doubles interactions and lore-consistent opponent loadouts.
+No implementation or balance results exist. Future checks must cover ownership, recruit access, repeatable sources, singles/doubles interactions and lore-consistent NPC loadouts. Reject over-budget assignments, recalculate costs on Center selection, verify badge-driven growth without duplicate badge/rematch increments, and keep story passive unlocks separate from capacity increases. Badge-wide training ceilings remain automatic, outside the selected build.
 
 ## Open questions
 
@@ -99,18 +97,10 @@ No implementation or balance results exist. Future checks must cover ownership, 
 
 Specify numerical badge-based capacity growth and information policy, then draft representative player and NPC trainer builds plus Pokémon effects with explicit ownership and background rationales. Verify the inherited badge baseline before implementing it.
 
-## Clarification — 2026-09-05, automatic badge ceilings
+## Decision history — 2026-09-05
 
-[ADR-0023](0023-badge-wide-training-ceilings.md) clarifies that badge-based training capacity applies player-wide, including to recruits, without assigning a trainer passive. Individual Pokémon still earn their own points and capabilities.
+[bb514f7](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/bb514f7) replaced ADR-0020 with Center-selected trainer builds, training/EXP scope and trainer ownership of one-time story passives, carrying forward selective opponent capability use. ADR-0023 subsequently distinguished automatic badge training ceilings from selectable trainer effects.
 
-## Clarification — 2026-09-05, weighted trainer capacity
+[d0db39c](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/d0db39c) selected weighted shared trainer capacity. [d3d0fb7](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/d3d0fb7) selected badge-based growth and major bosses/selected experienced trainers for trainer builds. These resolved the capacity model, growth route and opponent category, not numerical budgets or effects.
 
-The user selected a shared capacity budget with stronger trainer passives costing more. This resolves the capacity model without selecting a budget size, cost range or progression schedule. Trainer capacity and Pokémon capability capacity remain separate.
-
-Future validation should reject assignments above the trainer budget, calculate active cost correctly when changing builds at the Pokémon Center, and check combinations alongside individual capabilities and held items. Badge-wide training ceilings remain automatic and do not require assigning a passive. No game implementation or balance tests exist.
-
-## Clarification — 2026-09-05, badge growth and opposing trainer builds
-
-The user selected gym badges as the source of trainer passive capacity growth, and major bosses plus selected experienced trainers for trainer-wide builds consistent with their backgrounds. Earlier notes leaving the growth route or opponent category open are historical; numerical budgets and concrete loadouts remain unresolved.
-
-Future validation should check badge-based budget changes, prevent duplicate badge/rematch growth, keep story passive unlocks separate from capacity increases, enforce each trainer's assigned budget, and assess opponent builds against their backgrounds and both battle formats. No implementation or playtest results exist.
+Editorial audit: consolidated the clarification log and duplicate capability rules while retaining this record as the owner of trainer builds, passive source ownership and NPC progression.

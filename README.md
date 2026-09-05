@@ -11,8 +11,9 @@ Project governance is established. No engine has been selected or imported, no g
 - Original 151 species only in the main campaign.
 - Frequent team rebuilding and repeated attempts to master major bosses.
 - Substantial levelling investment for newly caught Pokémon: roughly 20–30 minutes or more.
-- Full boss team, move, ability and held-item scouting before the first attempt.
-- Preselected battle consumables with one campaign-wide allowance, its number chosen through testing; boss defeats cost money and spent consumables.
+- Full boss team, move, ability, held-item and bag-consumable scouting before the first attempt.
+- VGC-style open-team-list information for boss AI, with hidden stats and pending actions protected.
+- Preselected battle consumables with category-based duplicate restrictions and one campaign-wide allowance, its number chosen through testing; boss defeats cost money and spent consumables.
 - Player supplies allow HP healing, status cures, PP restoration and temporary stat boosters, but no revives. Only opposing major bosses use bag consumables, with the same maximum as the player.
 - One initial difficulty setting.
 - Level caps.
@@ -20,7 +21,7 @@ Project governance is established. No engine has been selected or imported, no g
 - Restrained player customisation and useful quality-of-life improvements, especially adjustable battle speed.
 - Challenging encounters and well-designed Pokémon without making every species equally strong or viable.
 
-See [ADR-0001](docs/adr/0001-project-direction.md) for the initial scope, [ADR-0004](docs/adr/0004-original-151-roster.md) for the roster boundary, and [ADR-0005](docs/adr/0005-team-rotation-and-boss-mastery.md) for team rotation and boss mastery. [ADRs 0006–0008](docs/adr/README.md) define levelling, scouting and consumable/loss policies. Their detailed implementation, including the item quota, remains open.
+See [ADR-0001](docs/adr/0001-project-direction.md) for the initial scope, [ADR-0004](docs/adr/0004-original-151-roster.md) for the roster boundary, and [ADR-0005](docs/adr/0005-team-rotation-and-boss-mastery.md) for team rotation and boss mastery. [ADRs 0006–0008](docs/adr/README.md) define levelling, scouting and consumable/loss policies. [ADR-0009](docs/adr/0009-vgc-style-ai-information.md) defines the boss AI information standard. Detailed implementation, category limits and the overall item quota remain open.
 
 ## Working in this repository
 

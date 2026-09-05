@@ -14,6 +14,7 @@ ADRs preserve why consequential choices were made. This directory covers softwar
 | [0006](0006-substantial-levelling-investment.md) | Preserve substantial levelling investment | Accepted |
 | [0007](0007-full-boss-scouting.md) | Provide full boss team scouting before the first attempt | Accepted |
 | [0008](0008-consumable-loadouts-and-loss-costs.md) | Preselect limited battle consumables and retain loss costs | Accepted |
+| [0009](0009-vgc-style-ai-information.md) | Use VGC-style opponent information for boss AI | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 

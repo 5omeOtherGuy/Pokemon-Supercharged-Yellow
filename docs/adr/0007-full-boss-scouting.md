@@ -13,7 +13,7 @@
 
 ## Decision
 
-Make the boss's full team, moves, abilities and held items available in-game before the first attempt. Players need not lose to obtain these details. This establishes available information, not a requirement to open a scouting screen.
+Make the boss's full team, moves, abilities and held items available in-game before the first attempt. Players need not lose to obtain these details. Also reveal the boss's complete selected bag consumables and quantities, as confirmed in interview round 4. This establishes available information, not a requirement to open a scouting screen.
 
 ## Alternatives considered
 
@@ -33,10 +33,14 @@ No game implementation or runtime validation has occurred.
 
 - Access location, presentation and any acquisition cost.
 - Levels, natures, IVs/EVs and exact stats beyond the explicitly selected fields.
-- Opponent bag-consumable loadout visibility.
+- Scouting UI for boss consumables; their full identities and quantities are now confirmed as visible before battle.
 - Boss definitions, variants and ordinary-trainer scouting.
 - Additional tactical explanations or calculation tools.
 
 ## Follow-up
 
 Resolve presentation and remaining information fields before implementing scouting. Coordinate with [ADR-0008](0008-consumable-loadouts-and-loss-costs.md).
+
+## Clarification — 2026-09-05, design interview round 4
+
+The user confirmed full boss consumable-loadout visibility, including quantities. [ADR-0008](0008-consumable-loadouts-and-loss-costs.md) records that rule. [ADR-0009](0009-vgc-style-ai-information.md) records the player's requested VGC information standard for the boss AI; campaign-specific additions remain explicit.

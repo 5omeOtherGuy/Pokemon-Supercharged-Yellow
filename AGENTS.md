@@ -13,13 +13,15 @@ These instructions apply throughout this repository. Read any more specific AGEN
 
 Build a familiar Kanto adventure with substantially greater strategic depth and challenge. Preserve Pokémon identities and the atmosphere remembered from childhood. The StarCraft II balance-team comparison describes a quality ambition, not an affiliation or evidence of balance.
 
-The authoritative initial requirements are in ADR-0001, with refinements in accepted ADRs 0004–0008. In particular:
+The authoritative initial requirements are in ADR-0001, with refinements in accepted ADRs 0004–0009. In particular:
 - Main-campaign species are restricted to the original 151; forms and postgame scope remain open.
 - Frequent team rebuilding and repeated attempts to master major bosses are intended for the target returning player. Do not impose forced losses or mandatory team changes.
 - Levelling a newly caught Pokémon to the cap should normally require substantial training (roughly 20–30 minutes or more); preparation systems and reference speed remain open.
-- Full boss teams, moves, abilities and held items must be available in-game before the first attempt.
+- Full boss teams, moves, abilities, held items and selected bag consumables/quantities must be available in-game before the first attempt.
+- Boss AI follows the VGC open-team-list information boundary in ADR-0009; do not import VGC battle-format rules. Exact opponent stats, hidden allocations, pending player actions and future RNG are not direct AI inputs.
 - Boss defeats cost money and spent consumables. Non-held battle consumables have one fixed campaign-wide, preselected allowance; choose its number through balance testing, not the earlier example of three.
 - Player battle supplies may include HP healing, status cures, PP restoration and temporary stat boosters; revives are excluded. Only major bosses among opposing trainers use bag consumables, with the same maximum as the player.
+- Consumable duplicates are restricted by functional category. Exact category caps, mixed-effect handling and boss visibility of player supplies remain open.
 - Physical/special split is required.
 - Launch with one difficulty setting and level caps.
 - Keep player-facing customisation restrained; adjustable battle speed and useful QoL are required.

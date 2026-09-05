@@ -49,7 +49,7 @@ No implementation or gameplay validation has occurred.
 - Starting Pokémon and which Yellow-specific events or presentation to reproduce.
 - Level-cap values, unlock milestones and enforcement behavior.
 - IVs, EVs, nature handling and team-preparation systems.
-- Set mode, remaining consumable selection/scope rules and AI information policy.
+- Set mode, numerical category limits, mixed-effect consumables, battle scope and detailed AI information mapping beyond ADR-0009.
 - Speed presets, animation/audio behavior and other specific QoL features.
 - Initial playable milestone, postgame scope and supported release targets.
 
@@ -68,3 +68,7 @@ The user selected substantial levelling investment ([ADR-0006](0006-substantial-
 ## Clarification — 2026-09-05, design interview round 3
 
 [ADR-0008](0008-consumable-loadouts-and-loss-costs.md) now fixes the allowance policy across the campaign, delegates the number to balance testing, lists eligible player categories (excluding revives), and permits only opposing major bosses to use bag consumables with the same maximum as the player. These refine previously open item rules; implementation remains unstarted.
+
+## Clarification — 2026-09-05, design interview round 4
+
+The user chose category-based consumable duplicate limits, full boss bag-loadout visibility, and official VGC tournament information for boss AI. See [ADR-0008](0008-consumable-loadouts-and-loss-costs.md), [ADR-0007](0007-full-boss-scouting.md) and [ADR-0009](0009-vgc-style-ai-information.md). Exact category caps and campaign-specific information extensions remain open; these choices do not select the battle format.

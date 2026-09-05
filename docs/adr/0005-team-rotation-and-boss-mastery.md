@@ -15,9 +15,9 @@ The difficulty question assumed the player was at the level cap with a reasonabl
 
 ## Decision
 
-- Frequently adapting team composition for different major opponents is an intended part of the campaign.
+- Original frequency target, now under review alongside ADR-0016: frequently adapt team composition for different major opponents.
 - Repeated defeats are expected for the described returning player; mastering major bosses is a central part of the game.
-- Keeping one reasonably balanced favourite six unchanged is not the primary balance target.
+- The original direction did not target keeping one reasonably balanced favourite six unchanged. The later continuity incentive in ADR-0016 requires reviewing the expected amount of rotation; no permanent six or specific retained core has been selected.
 
 These are experience targets. They do not impose forced team replacement, a required number of losses or a scripted solution. An effective team or skilled player may still win without replacing members or retrying.
 
@@ -52,7 +52,7 @@ No encounters have been implemented or playtested. Future playtests should disti
 ## Open questions
 
 - Training activities, experience sharing and resource access within ADR-0006's levelling-time target.
-- IV/EV/nature and move-relearning systems.
+- Revised rotation frequency and retained-core expectations alongside ADR-0016; IV improvement, battle-training and move-relearning implementation. Fixed acquired natures are selected.
 - Scouting implementation and information beyond ADR-0007's accepted fields.
 - Retry location, healing, penalty amounts and item rules beyond ADR-0008.
 - AI information rules and predictability.
@@ -65,3 +65,11 @@ Continue the interview to resolve detailed training, scouting, item and retry sy
 ## Clarification — 2026-09-05, design interview round 2
 
 The user selected substantial levelling investment ([ADR-0006](0006-substantial-levelling-investment.md)), full boss scouting before the first attempt ([ADR-0007](0007-full-boss-scouting.md)), and money/item loss costs with preselected limited battle consumables ([ADR-0008](0008-consumable-loadouts-and-loss-costs.md)). Three consumables remains an example. These refine the existing direction; implementation has not started.
+
+## Clarification — 2026-09-05, continuity alongside adaptation
+
+The user wants using an individual Pokémon, especially in gym battles, to yield meaningful development beyond levels. This should reward continuity without excessively punishing frequent replacements, and the user explicitly noted that it touches the earlier rotation decision. [ADR-0016](0016-individual-traits-and-battle-training.md) records these requirements and the unresolved progression design.
+
+The original frequency target is therefore under review, not a mandate for high roster turnover. Preserve meaningful adaptation and demanding bosses while evaluating veteran rewards and recruit catch-up. The user has not yet chosen a replacement frequency, fixed core size or permanent team; do not silently adopt one. This clarification does not revoke the repeated-defeat/mastery target.
+
+The user subsequently proposed gym rematches as a way for recruits to earn veterans' rewards. ADR-0016 records this candidate; it supports evaluating continuity and adaptation together without yet choosing a new rotation frequency.

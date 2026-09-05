@@ -9,8 +9,10 @@ Project governance is established. No engine has been selected or imported, no g
 ## Confirmed direction
 
 - Original 151 species in original forms only in the main campaign; no regional variants or Mega Evolutions.
-- Frequent team rebuilding and repeated attempts to master major bosses.
-- Substantial levelling investment for newly caught Pokémon: roughly 20–30 minutes or more.
+- Repeated attempts to master major bosses. Team adaptation and rewarding continued use must coexist; the earlier rotation-frequency target is under review ([ADR-0016](docs/adr/0016-individual-traits-and-battle-training.md)).
+- Substantial levelling investment for newly caught Pokémon: roughly 20–30 minutes or more; total preparation time and overlap remain open.
+- Random IVs that can be improved, with a safeguard against unusable random outcomes; acquired natures and their stat effects remain fixed.
+- Clear, predictable battle-earned development, especially from boss experience, rewarding continuity without excessive penalties for rotation. The exact training system remains to be designed.
 - Full boss team, move, ability, held-item and bag-consumable scouting before the first attempt.
 - VGC-style open-team-list information for boss AI, with hidden stats and pending actions protected.
 - Preselected battle consumables with one campaign-wide allowance and separate category limits, their numbers chosen through testing; boss defeats cost money and spent consumables.

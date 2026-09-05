@@ -48,7 +48,7 @@ No implementation or gameplay validation has occurred.
 - Engine/upstream project and exact mechanics baseline.
 - Starting Pokémon and which Yellow-specific events or presentation to reproduce.
 - Level-cap values, unlock milestones and enforcement behavior.
-- IVs, EVs, nature handling and team-preparation systems.
+- IV safeguards and improvement access; the battle-training mechanism, participation, catch-up and revised rotation frequency within ADR-0016. Random improvable IVs and fixed acquired natures are selected.
 - Numerical category limits (delegated to testing), remaining consumable scope/action rules and detailed AI information mapping beyond ADR-0009.
 - Specific singles/doubles boss assignments and team sizes within ADR-0010; individual move choices and behavior within ADR-0011.
 - Speed presets, animation/audio behavior and other specific QoL features.
@@ -97,3 +97,7 @@ The user clarified that each type should feel distinct and playable, without req
 ## Clarification — 2026-09-05, chart, representation and stat boundaries
 
 The user selected no type-representation quota and the standard modern effectiveness chart. Base-stat redistribution and modest changes are the primary approach, with substantial changes permitted only in special cases and/or where necessary. See [ADR-0015](0015-standard-chart-and-stat-rebalance.md) and the representation clarification in ADR-0014. Specific adjustments and implementation remain pending.
+
+## Clarification — 2026-09-05, individual traits and battle experience
+
+[ADR-0016](0016-individual-traits-and-battle-training.md) accepts random improvable IVs with a usability safeguard, fixed acquired natures, and clear, predictable development rewarding battle use and especially boss experience. Continuity should be rewarded without excessively penalising rotation. The original frequent-composition-change target is under review; no replacement frequency is selected. The progression mechanism remains proposed, and the levelling target does not settle total preparation time.

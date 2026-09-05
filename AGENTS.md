@@ -13,10 +13,12 @@ These instructions apply throughout this repository. Read any more specific AGEN
 
 Build a familiar Kanto adventure with substantially greater strategic depth and challenge. Preserve Pokémon identities and the atmosphere remembered from childhood. The StarCraft II balance-team comparison describes a quality ambition, not an affiliation or evidence of balance.
 
-The authoritative initial requirements are in ADR-0001, with refinements in accepted ADRs 0004–0015. In particular:
+The authoritative initial requirements are in ADR-0001, with refinements in accepted ADRs 0004–0016. In particular:
 - Main-campaign species are restricted to the original 151 in their original forms. No regional variants or Mega Evolutions, including opponent teams. Postgame scope remains open.
-- Frequent team rebuilding and repeated attempts to master major bosses are intended for the target returning player. Do not impose forced losses or mandatory team changes.
-- Levelling a newly caught Pokémon to the cap should normally require substantial training (roughly 20–30 minutes or more); preparation systems and reference speed remain open.
+- Repeated attempts to master major bosses are intended. The earlier frequent team-rebuilding target is under review against ADR-0016: reward continued use while supporting adaptation without excessive switching penalties. No revised frequency or core size is selected. Do not impose forced losses or mandatory team changes.
+- Levelling a newly caught Pokémon to the cap should normally require substantial training (roughly 20–30 minutes or more); total preparation burden, training overlap and reference speed remain open.
+- Use random, improvable IVs with a safeguard against randomisation making a Pokémon unusable, and keep its acquired nature and nature-based stat effects fixed (ADR-0016). Exact IV bounds and improvement methods remain open.
+- Reward battle use, especially boss experience, through clear, predictable development beyond level. Reward continuity without excessive rotation penalties or tedious training. ADR-0016 accepts these goals, not its proposed training-points mechanism; ceilings, participation and catch-up rules remain open.
 - Full boss teams, moves, abilities, held items and selected bag consumables/quantities must be available in-game before the first attempt.
 - Boss AI follows the VGC open-team-list information boundary in ADR-0009; do not import VGC battle-format rules. Exact opponent stats, hidden allocations, pending player actions and future RNG are not direct AI inputs.
 - Boss defeats cost money and spent consumables. Non-held battle consumables have one fixed campaign-wide, preselected allowance; choose its number through balance testing, not the earlier example of three.
@@ -31,7 +33,7 @@ The authoritative initial requirements are in ADR-0001, with refinements in acce
 - Pokémon need meaningful strengths, weaknesses and roles; equal power or universal viability is not the goal. Each type should feel distinct and playable. Extend Bug usefulness and address late-game Flying concerns such as Pidgeot (ADR-0014); player favourites are evaluation interests, not automatic buff targets. There is no type-representation quota: justify retypings per species. Use stat redistribution and modest strength changes primarily; substantial changes require a documented exceptional or necessary case (ADR-0015).
 - Recharged Yellow is inspiration, not a source-code dependency.
 
-Do not silently adopt earlier assistant suggestions as requirements. Engine choice, postgame roster, exact mechanics generation, cap values, IV/EV/nature policy, detailed battle-format assignments, remaining consumable selection/scope details, training/scouting implementation, starters, Yellow-specific events, speed presets and prototype boundaries remain unresolved.
+Do not silently adopt earlier assistant suggestions as requirements. Engine choice, postgame roster, exact mechanics generation, cap values, IV safeguards and improvement access, battle-training mechanism, detailed battle-format assignments, remaining consumable selection/scope details, training/scouting implementation, starters, Yellow-specific events, speed presets and prototype boundaries remain unresolved.
 
 ## Ownership and changes
 

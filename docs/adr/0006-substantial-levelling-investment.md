@@ -39,3 +39,9 @@ No game implementation or runtime validation has occurred.
 ## Follow-up
 
 Design training and experience access alongside encounters, and measure actual pacing before accepting numerical experience tuning.
+
+## Clarification — 2026-09-05, total preparation burden
+
+[ADR-0016](0016-individual-traits-and-battle-training.md) adds random improvable IVs, fixed natures and the goal of clear, non-tedious development from battle use and boss experience. The 20–30-minute-or-more target remains specifically about levelling. Whether levelling, IV improvement and earned development overlap is unresolved; do not treat the levelling target as approval for several additional training grinds. Measure the complete cost of introducing a replacement when designing the combined system.
+
+When evaluating the proposed gym-rematch catch-up route in ADR-0016, include rematch duration and repeated attempts in the total preparation cost. Do not assume a recruit must repeat every earlier gym until reward caps and eligibility are decided.

@@ -50,8 +50,12 @@ No game data has been changed or balance tested. Once a foundation exists, pin a
 - Pinned data revision and generation-specific mechanics beyond the chart.
 - Individual stat spreads, typing changes and qualifying exceptional cases.
 - Practical numerical guidance for modest versus substantial changes, if a recurring need emerges.
-- IVs, EVs, nature handling and player preparation systems.
+- IV safeguards and improvement methods, battle-earned training and preparation details under ADR-0016. Random improvable IVs and fixed acquired natures are selected.
 
 ## Follow-up
 
 Use these boundaries when auditing engine data and curating species changes. Keep baseline data and project overrides distinguishable. Resolve player preparation systems before making detailed assumptions about attainable stats at each cap.
+
+## Clarification — 2026-09-05, acquired traits and training
+
+[ADR-0016](0016-individual-traits-and-battle-training.md) defines the selected individual-trait rules and the goals for battle-earned development. Species base-stat changes remain distinct from an individual Pokémon's IVs and earned training. Evaluate their combined effect once the progression mechanism is selected.

@@ -21,6 +21,7 @@ ADRs preserve why consequential choices were made. This directory covers softwar
 | [0013](0013-fairy-type-evaluation.md) | Include Fairy to strengthen familiar Pokémon identities | Accepted |
 | [0014](0014-type-identity-and-campaign-viability.md) | Give each type distinct identity and meaningful campaign viability | Accepted |
 | [0015](0015-standard-chart-and-stat-rebalance.md) | Keep the standard modern chart and use restrained stat rebalancing | Accepted |
+| [0016](0016-individual-traits-and-battle-training.md) | Preserve individual traits and reward battle experience | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 

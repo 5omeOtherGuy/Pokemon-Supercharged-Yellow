@@ -49,7 +49,7 @@ No implementation or gameplay validation has occurred.
 - Starting Pokémon and which Yellow-specific events or presentation to reproduce.
 - Level-cap values, unlock milestones and enforcement behavior.
 - IVs, EVs, nature handling and team-preparation systems.
-- Set mode, detailed consumable/opponent rules and AI information policy.
+- Set mode, remaining consumable selection/scope rules and AI information policy.
 - Speed presets, animation/audio behavior and other specific QoL features.
 - Initial playable milestone, postgame scope and supported release targets.
 
@@ -64,3 +64,7 @@ The main-campaign species boundary is now the original 151: [ADR-0004](0004-orig
 ## Clarification — 2026-09-05, design interview round 2
 
 The user selected substantial levelling investment ([ADR-0006](0006-substantial-levelling-investment.md)), full boss scouting before the first attempt ([ADR-0007](0007-full-boss-scouting.md)), and money/item loss costs with preselected limited battle consumables ([ADR-0008](0008-consumable-loadouts-and-loss-costs.md)). Three consumables remains an example. These refine the existing direction; implementation has not started.
+
+## Clarification — 2026-09-05, design interview round 3
+
+[ADR-0008](0008-consumable-loadouts-and-loss-costs.md) now fixes the allowance policy across the campaign, delegates the number to balance testing, lists eligible player categories (excluding revives), and permits only opposing major bosses to use bag consumables with the same maximum as the player. These refine previously open item rules; implementation remains unstarted.

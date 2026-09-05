@@ -12,7 +12,8 @@ Project governance is established. No engine has been selected or imported, no g
 - Frequent team rebuilding and repeated attempts to master major bosses.
 - Substantial levelling investment for newly caught Pokémon: roughly 20–30 minutes or more.
 - Full boss team, move, ability and held-item scouting before the first attempt.
-- Preselected, limited battle consumables; boss defeats cost money and spent consumables.
+- Preselected battle consumables with one campaign-wide allowance, its number chosen through testing; boss defeats cost money and spent consumables.
+- Player supplies allow HP healing, status cures, PP restoration and temporary stat boosters, but no revives. Only opposing major bosses use bag consumables, with the same maximum as the player.
 - One initial difficulty setting.
 - Level caps.
 - Physical/special split.

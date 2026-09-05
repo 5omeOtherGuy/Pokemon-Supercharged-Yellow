@@ -23,9 +23,11 @@ ADRs preserve why consequential choices were made. This directory covers softwar
 | [0015](0015-standard-chart-and-stat-rebalance.md) | Keep the standard modern chart and use restrained stat rebalancing | Accepted |
 | [0016](0016-individual-traits-and-battle-training.md) | Preserve individual traits and reward battle experience | Accepted |
 | [0017](0017-trusted-core-and-boss-mastery.md) | Encourage a trusted core with rotating specialists and retain boss mastery | Accepted |
-| [0018](0018-gym-training-budget-and-focus.md) | Unlock gym training budgets and allocate development through a focus | Accepted |
+| [0018](0018-gym-training-budget-and-focus.md) | Unlock gym training budgets and allocate development through a focus | Superseded |
 | [0019](0019-gym-resistances-and-capabilities.md) | Combine gym training capacity with earned Pokémon capability slots | Accepted |
-| [0020](0020-badge-passives-and-trainer-progression.md) | Retain badge benefits and give trainers progression consistent with their experience | Accepted |
+| [0020](0020-badge-passives-and-trainer-progression.md) | Retain badge benefits and give trainers progression consistent with their experience | Superseded |
+| [0021](0021-trainer-builds-and-reward-ownership.md) | Select trainer builds and separate trainer rewards from Pokémon capabilities | Accepted |
+| [0022](0022-permanent-training-and-flexible-focus.md) | Keep training gains permanent and let focus direct future growth | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 

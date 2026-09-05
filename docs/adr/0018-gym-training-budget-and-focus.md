@@ -1,11 +1,11 @@
 # ADR-0018: Unlock gym training budgets and allocate development through a focus
 
-- Status: Accepted
+- Status: Superseded
 - Date: 2026-09-05
 - Decision authority: Explicit user answers on gym training potential, allocation and distinct-leader rewards
 - Implementation: Not started — mechanism boundaries chosen; numbers and progression details open
 - Supersedes: None
-- Superseded by: None
+- Superseded by: [ADR-0022](0022-permanent-training-and-flexible-focus.md)
 
 ## Context
 
@@ -92,3 +92,7 @@ The user selected instant redistribution after earning a focus change later in t
 ## Clarification — 2026-09-05, retain capacity alongside passives
 
 The user selected both extra gym training capacity and modest individual passive effects. [ADR-0019](0019-gym-resistances-and-capabilities.md) now accepts that supplemental system with three capacity slots per Pokémon and capabilities costing one, two or three slots. This resolves the budget review without replacing this record. Immediate versus later filling of unlocked capacity remains open.
+
+## Supersession — 2026-09-05
+
+[ADR-0022](0022-permanent-training-and-flexible-focus.md) is the current policy. This record preserves the earlier decision and rationale; its superseded restrictions are not current requirements.

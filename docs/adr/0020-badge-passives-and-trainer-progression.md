@@ -1,11 +1,11 @@
 # ADR-0020: Retain badge benefits and give trainers progression consistent with their experience
 
-- Status: Accepted
+- Status: Superseded
 - Date: 2026-09-05
 - Decision authority: Explicit user answers on trainer badge benefits and selective opponent capability use
 - Implementation: Not started — scope and narrative constraints only
 - Supersedes: None
-- Superseded by: None
+- Superseded by: [ADR-0021](0021-trainer-builds-and-reward-ownership.md)
 
 ## Context
 
@@ -72,3 +72,7 @@ No game implementation, source audit of badge effects or balance results exist. 
 ## Follow-up
 
 Resolve the badge reference and activation policy, then document individual benefits and representative trainer loadouts. Keep exact numbers provisional until tested.
+
+## Supersession — 2026-09-05
+
+[ADR-0021](0021-trainer-builds-and-reward-ownership.md) is the current policy. This record preserves the earlier decision and rationale; its superseded restrictions are not current requirements.

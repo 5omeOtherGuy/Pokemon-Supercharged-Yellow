@@ -3,7 +3,7 @@
 - Status: Accepted
 - Date: 2026-09-05
 - Decision authority: Explicit user answers on IVs, battle-earned development and fixed natures
-- Implementation: Not started — traits and gym rules accepted; ADR-0018 selects focus and training boundaries; ADR-0019 accepts extra capacity plus learned Pokémon passives
+- Implementation: Not started — traits and gym rules accepted; ADR-0022 selects focus and training boundaries; ADR-0019 accepts extra capacity plus learned Pokémon passives
 - Supersedes: None
 - Superseded by: None
 
@@ -29,7 +29,7 @@ Exact IV distributions, safeguards, improvement access and costs remain open. As
 - Incentivise continued use of individual Pokémon while avoiding excessive penalties for frequent switching.
 - Progression must be clear and understandable, with predictable rewards; it should not feel tedious or random.
 
-ADR-0018 selects automatic focus allocation and all eight leaders contributing separately. ADR-0019 confirms retaining extra gym capacity alongside learned Pokémon passives. Numerical rewards, focus definitions and ordinary battle-training credit remain open. Random starting IVs and deterministic training progression are distinct choices.
+ADR-0022 selects automatic focus allocation and all eight leaders contributing separately. ADR-0019 confirms retaining extra gym capacity alongside learned Pokémon passives. Numerical rewards, focus definitions and ordinary battle-training credit remain open. Random starting IVs and deterministic training progression are distinct choices.
 
 ### Gym rewards and rematches
 
@@ -52,23 +52,23 @@ Use the existing hidden-stat information boundary in [ADR-0009](0009-vgc-style-a
 
 ## Training direction and supplemental gym passives
 
-[ADR-0018](0018-gym-training-budget-and-focus.md) now records the selected direction:
+[ADR-0022](0022-permanent-training-and-flexible-focus.md) now records the selected direction:
 - Retain the extra gym budget alongside modest Pokémon-earned passives in [ADR-0019](0019-gym-resistances-and-capabilities.md); use three capacity slots, with capabilities costing one, two or three slots and optionally combining benefits and drawbacks.
 - The player chooses a focus and earned points are allocated automatically.
 - Full gym development requires all eight distinct leader rewards per Pokémon. Each contribution counts once and can be earned through the original battle or a qualifying rematch.
 - Joining late does not prevent earning the same set of gym contributions.
 
-The gym reward direction now combines extra capacity and learned Pokémon passives. Point-to-stat conversion, numerical caps and initial focus choices remain open. Established focus changes unlock later through a limited rare item or challenge, with instant redistribution once earned. Show eligibility, earned and missing gym contributions, and focus effects clearly.
+The gym reward direction now combines extra capacity and learned Pokémon passives. Point-to-stat conversion, numerical caps and initial focus choices remain open. Focus can change on the fly to direct future gains; points never relocate. Independent per-stat limits permit eventual completion of every stat, with relevant-stat completion the normal late-game goal. Show eligibility, earned and missing gym contributions, and focus effects clearly.
 
 ## Alternatives and tradeoffs
 
-- Bosses only accelerate a shared ordinary training pool: considered but not selected; ADR-0018 grants additional capacity.
-- Boss experience unlocks additional recoverable training capacity: selected through eight separate gym rewards and rematches in ADR-0018.
+- Bosses only accelerate a shared ordinary training pool: considered but not selected; ADR-0022 grants additional capacity.
+- Boss experience unlocks additional recoverable training capacity: selected through eight separate gym rewards and rematches in ADR-0022.
 - Campaign-only, permanently exclusive stat rewards: preserves a lifelong veteran advantage but risks penalising late catches and missed opportunities.
 - Cosmetic records alone: can supplement development but do not meet the requested same-level gameplay benefit.
 - Final-knockout-only and party-wide credit were considered. The user selected field participation plus survival in a won encounter, including surviving support Pokémon but excluding unused reserves and fainted participants.
 
-Automatic focus allocation and extra gym capacity remain selected in ADR-0018; ADR-0019 supplements them with individual passive effects. Numerical formulas and remaining progression details are open. Gym eligibility and progression-appropriate rematches remain as stated above.
+Automatic focus allocation and extra gym capacity remain selected in ADR-0022; ADR-0019 supplements them with individual passive effects. Numerical formulas and remaining progression details are open. Gym eligibility and progression-appropriate rematches remain as stated above.
 
 ## Evidence and validation
 
@@ -87,14 +87,14 @@ No code, battle simulation or timing results exist. Once a mechanism is selected
 - Gym-rematch access timing, exact progression-appropriate teams and interaction with ordinary training.
 - Ordinary battle-training credit and non-capability rewards from non-gym bosses. ADR-0019 applies the same participation/no-fainting/victory eligibility to all earned-capability encounters.
 - Numerical IV safeguards, costs, access timing and targeted IV adjustment.
-- Numerical growth formula, focus definitions, redistribution, reward filling and limits within ADR-0018; eight distinct gym contributions are selected.
+- Numerical growth formula, focus definitions, permanent allocation, reward filling and limits within ADR-0022; eight distinct gym contributions are selected.
 - Whether bosses and ordinary trainers use comparable training bonuses.
 - Additional focused training duration after levelling, rematch access and late-game catch-up.
 - Treatment of gifts, eggs and evolution for acquired traits and earned progression.
 
 ## Follow-up
 
-Follow ADR-0018 for allocation and earned focus changes, ADR-0017 for team continuity, ADR-0019 for fixed individual capability rewards, and ADR-0020 for trainer-wide badge scope and selective opponent capability use. Resolve numerical limits, concrete effects, access and pacing before implementing the progression mechanism. Accepted policies do not establish tested game balance.
+Follow ADR-0022 for permanent allocation and flexible focus, ADR-0017 for team continuity, ADR-0019 for fixed individual capability rewards, and ADR-0021 for trainer-wide badge scope and selective opponent capability use. Resolve numerical limits, concrete effects, access and pacing before implementing the progression mechanism. Accepted policies do not establish tested game balance.
 
 ## Proposal history — 2026-09-05, gym rematches
 
@@ -115,3 +115,7 @@ The user selected later-game earned focus changes with instant redistribution, a
 ## Clarification — 2026-09-05, capability reassignment and credit
 
 ADR-0019 fixes free reassignment of earned capabilities only at Pokémon Centers or designated services and retains the separate normal held-item slot. The gym eligibility rule now also governs capability rewards from Elite Four and other notable encounters. This does not decide ordinary experience, IV-improvement or training-point credit after those battles, and does not relax the earned-access requirement for changing a training focus.
+
+## Clarification — 2026-09-05, current training and ownership policy
+
+[ADR-0022](0022-permanent-training-and-flexible-focus.md) supersedes ADR-0018: focus may change on the fly, existing points never relocate, and every stat can eventually reach its own maximum. The earlier earned-focus restrictions above are historical. [ADR-0021](0021-trainer-builds-and-reward-ownership.md) supersedes ADR-0020 and limits Pokémon capabilities to repeatable encounters; non-repeatable story passive rewards belong to the trainer.

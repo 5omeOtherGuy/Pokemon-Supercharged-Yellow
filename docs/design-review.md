@@ -6,7 +6,7 @@ Reviewed base: [`66c17faf1292626ae5f0ec70531aaf1b2a871ec1`](https://github.com/5
 
 The audit changed no ADR status or product decision. At its completion there were **18 Accepted, 2 Proposed and 4 Superseded** records. “Accepted” is decision status, not implementation or validation status.
 
-**Subsequent resolutions — 2026-09-05:** [ADR-0025](adr/0025-android-emulation-platform.md) resolves the platform portion of F5; [ADR-0026](adr/0026-yellow-kanto-content-baseline.md) resolves its content baseline, including Pikachu as starter and Kanto polish without a current Sevii Islands plan. The user has also accepted [ADR-0024](adr/0024-passive-scouting-and-ai-observations.md), resolving F7's reciprocal active-effect disclosure. ADR-0011 now requires weather/terrain moves, forgettable HMs and reusable TMs. F6 is narrowed by the user's HM-access recollection, but other inherited badge effects remain undecided. The audit counts and coverage below describe the original review; current totals are 21 Accepted, 1 Proposed and 4 Superseded.
+**Subsequent resolutions — 2026-09-05:** [ADR-0025](adr/0025-android-emulation-platform.md) resolves the platform portion of F5; [ADR-0026](adr/0026-yellow-kanto-content-baseline.md) resolves its content baseline, including Pikachu as starter and Kanto polish without a current Sevii Islands plan. The user has also accepted [ADR-0024](adr/0024-passive-scouting-and-ai-observations.md), resolving F7's reciprocal active-effect disclosure. ADR-0011 now requires weather/terrain moves, forgettable HMs and reusable TMs. Later decisions require all original 151 in one playthrough without trading (ADR-0004), no obedience restrictions (ADR-0021), and Mew under the truck (ADR-0026). Automatic badge stat boosts remain undecided. The audit counts and coverage below describe the original review; current totals are 21 Accepted, 1 Proposed and 4 Superseded.
 
 ## Coverage
 
@@ -81,7 +81,7 @@ Follow-up disposition: **Resolved by user decisions in ADRs 0025–0026.** Andro
 
 Recommended resolution: name the intended reference or describe the benefits to retain; engineering should then inventory that version's actual behavior and propose explicit treatment. No specific multiplier or bug is approved. Keep inherited benefits, automatic training ceilings and the additional trainer-passive budget separate.
 
-Follow-up: the user recalled badge permissions for particular HMs and expressed uncertainty about other benefits. [ADR-0021's pinned Yellow evidence](adr/0021-trainer-builds-and-reward-ownership.md#clarification-and-badge-evidence--2026-09-05) confirms that the original game also had traded-Pokémon obedience checks and automatic stat boosts. Their retention/removal and the exact field-permission mapping remain unresolved. The separately explicit forgettable-HM/reusable-TM requirements belong in ADR-0011.
+Follow-up: the user recalled badge permissions for particular HMs and expressed uncertainty about other benefits. [ADR-0021's pinned Yellow evidence](adr/0021-trainer-builds-and-reward-ownership.md#clarification-and-badge-evidence--2026-09-05) confirms that the original game also had traded-Pokémon obedience checks and automatic stat boosts. The user subsequently removed all obedience restrictions and trading. Automatic stat boosts and the exact field-permission mapping remain unresolved. The separately explicit forgettable-HM/reusable-TM requirements belong in ADR-0011.
 
 ### F7. Active passive disclosure remains a product proposal
 
@@ -113,7 +113,9 @@ Recommend timing one recruit and several specialists from acquisition to useful 
 
 **P1 — Needs playtesting, with an engineering access audit first.** [0012–0016](adr/README.md#current-decision-map), [0019](adr/0019-gym-resistances-and-capabilities.md), [0021](adr/0021-trainer-builds-and-reward-ownership.md) and [0023](adr/0023-badge-wide-training-ceilings.md) allow many interacting layers. All-stat potential is intentional; claiming that slow acquisition alone contains it would ignore the stage-ceiling requirement. Fixed nature and improvable IVs also require a meaningful usability safeguard without promising every species/individual is optimal.
 
-Recommend comparing poor allowed traits, typical role-focused builds and the strongest legal stage builds in both formats. Include capability/held-item/trainer combinations and actual consumables, not isolated stat totals. Verify species, evolution, move-learning/relearning, ability and item access before calling a counter available. Original-151 eligibility is not a promise all are catchable; type playability and named favourites are not quotas or automatic buffs. Fairy and Bug/Flying hypotheses remain untested. Preserve weaknesses and partial NPC loadouts rather than assuming universal maximum development.
+Recommend comparing poor allowed traits, typical role-focused builds and the strongest legal stage builds in both formats. Include capability/held-item/trainer combinations and actual consumables, not isolated stat totals. Verify species, evolution, move-learning/relearning, ability and item access before calling a counter available. At audit completion, original-151 eligibility alone did not guarantee complete collection; type playability and named favourites are not quotas or automatic buffs. Fairy and Bug/Flying hypotheses remain untested. Preserve weaknesses and partial NPC loadouts rather than assuming universal maximum development.
+
+Follow-up: ADR-0004 now extends the original eligibility-only policy to require all 151 obtainable in one playthrough without trading. Audit the complete acquisition route, replacement evolution methods, mutually exclusive choices and Mew's truck access under ADR-0026. Complete eventual collection does not make every species available for every campaign stage or require every species to be caught in the wild; the stage-specific balance work above remains necessary.
 
 ### F12. The original foundation checklist underrepresented later systems
 
@@ -125,7 +127,7 @@ Recommend comparing poor allowed traits, typical role-focused builds and the str
 
 Resolve these in dependency order; no answer is needed to finish this documentation review.
 
-Before implementing inherited badge effects, decide whether to retain automatic stat boosts and badge-based traded-Pokémon obedience, and verify the intended field-permission mapping (F6). HM access was the user's recalled benefit; uncertainty about other benefits is not acceptance of them.
+Before implementing inherited badge effects, decide whether to retain automatic stat boosts and verify the intended field-permission mapping (F6). Obedience restrictions are removed. HM access was the user's recalled benefit; uncertainty about automatic boosts is not acceptance of them.
 
 F5's platform/content decisions and F7's reciprocal active-effect disclosure are resolved. Exact Android validation configurations and the detailed Yellow reference inventory can follow candidate investigation. HM forgettability and TM reuse are also resolved in ADR-0011; the engineering audit must check that forgetting field moves cannot strand the player.
 

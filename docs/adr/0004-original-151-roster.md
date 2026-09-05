@@ -2,7 +2,7 @@
 
 - Status: Accepted
 - Date: 2026-09-05
-- Decision authority: Explicit user answers in design interview rounds 1 and 7
+- Decision authority: Explicit user answers in design interview rounds 1 and 7 and subsequent complete-collection/no-trading clarification
 - Implementation: Not started — design decision only
 - Supersedes: None
 - Superseded by: None
@@ -17,7 +17,9 @@ Restrict main-campaign species eligibility to the original 151 Pokémon. Later e
 
 Use original forms only in the main campaign. Regional variants and Mega Evolutions are excluded, including opposing trainer teams. Ability and typing changes permitted by [ADR-0012](0012-ability-and-typing-rebalance.md) apply to these original forms; they do not require adding alternate forms.
 
-This establishes an eligibility boundary, not a promise that every eligible species can be caught before the League. It does not choose encounter locations, starter access, legendary availability or a mechanics generation.
+All original 151 must be obtainable in one playthrough on one save, including the other starters, alternate evolution branches and legendary/mythical Pokémon. There is no trading, including player-to-player and NPC trades; acquisition must be self-contained. Replace any trade-dependent evolution or acquisition requirement with a suitable solo route.
+
+Complete collection is required, but not necessarily before the League or by catching every species in the wild. Acquisition methods and timing remain for design. [ADR-0026](0026-yellow-kanto-content-baseline.md) selects Pikachu as starter and Mew under the truck. This does not expand the roster beyond the original 151 or select a mechanics generation.
 
 ## Alternatives considered
 
@@ -32,17 +34,22 @@ Balance must work within this species pool. We cannot solve a campaign design pr
 
 Any source foundation with a larger database will need encounter, evolution, gift and trainer access audited; engine database support alone does not make a species campaign-eligible.
 
+Build a species-by-species acquisition plan. Check that starter, fossil and branching-evolution choices leave enough obtainable Pokémon or alternate sources to collect every species in the same run. Remove dependencies on another game, another save, external events or trading. Former NPC-trade rewards need another acquisition path; their replacement scenes and evolution methods are not selected here.
+
 ## Evidence and validation
 
 User answer, 2026-09-05: "Strictly the original 151", in response to the main-campaign roster question. No game implementation or runtime checks have occurred.
 
 Future validation should audit all campaign acquisition and opponent-team paths against the agreed species pool, including any scripts, items or mechanics that could expose excluded regional variants or Mega Evolutions.
 
+Also verify that all 151 acquisition paths can coexist in one save through the planned campaign/post-League content. Cover alternate branches, required items, story-state access and recovery from missed or failed unique encounters. No acquisition plan or playable completion route has been verified.
+
 ## Open questions
 
 - Other battle-system mechanics, if proposed, need separate decisions; regional variants and Mega Evolution are excluded from the main campaign.
-- Postgame roster scope.
-- Specific encounter distribution, access to other starters and legendary timing; ADR-0026 selects Pikachu as the starting Pokémon.
+- Any future expansion beyond the original-151 roster; none is selected by the complete-collection requirement.
+- Specific encounter distribution, solo evolution methods, other-starter acquisition and legendary timing; their attainability is required, and ADR-0026 selects the Pikachu start and Mew location.
+- Repeat/recovery behavior for missed or failed unique encounters, and which species become obtainable after the League.
 
 ## Follow-up
 
@@ -54,4 +61,8 @@ The user selected: original forms only, with no regional variants or Mega Evolut
 
 ## Clarification — 2026-09-05, Yellow content baseline
 
-[ADR-0026](0026-yellow-kanto-content-baseline.md) selects Pikachu as starter and permits wild encounter changes while preferring fidelity to Yellow where practical. It prioritises Kanto polish with no current Sevii Islands plan. The species/form boundary remains unchanged; other starter acquisition and future postgame roster remain open.
+[ADR-0026](0026-yellow-kanto-content-baseline.md) selects Pikachu as starter and permits wild encounter changes while preferring fidelity to Yellow where practical. It prioritises Kanto polish with no current Sevii Islands plan. At that clarification, other starter acquisition and future postgame roster remained open.
+
+## Clarification — 2026-09-05, complete solo collection
+
+The user stated: "There are no obedience restructions and no trading. All pokemon must be attainable within one playthrough. MEW IS UNDER TRUCK!" In the established original-151 scope, this requires all 151 on one save without trading; it does not add later-generation species. ADR-0021 records removal of obedience restrictions and ADR-0026 owns Mew's location. The prior eligibility-only policy is extended to require complete collection; exact acquisition methods and timing remain open.

@@ -2,7 +2,7 @@
 
 - Status: Accepted
 - Date: 2026-09-05
-- Decision authority: Explicit user clarification of Yellow identity, encounters, Pikachu starter and current content scope
+- Decision authority: Explicit user clarification of Yellow identity, encounters, Pikachu starter, current content scope and Mew under the truck
 - Implementation: Not started — content baseline only; no maps, scripts or encounters verified
 - Supersedes: None
 - Superseded by: None
@@ -16,13 +16,14 @@ The design review asked which aspects of Yellow must survive the rebalance. The 
 - Use FireRed/LeafGreen's Kanto map and layout as the baseline, with adjustments where necessary to fit Yellow. Preserve Yellow's main encounters and plot anchors, with the familiar Yellow/FireRed/LeafGreen look and feel.
 - Use Recharged Yellow as the reference hack for that rendition of Kanto. Its features are not adopted wholesale; the project's accepted decisions define our mechanics and scope.
 - Pikachu is the starter, as in Yellow.
+- Mew is obtainable under the truck. This is an intentional project encounter; access, trigger and timing remain to be designed.
 - Outside the main encounters and plot anchors, trainer content may change substantially: add trainers, replace trainers and change which routes they occupy.
 - Wild Pokémon encounters may change, but prefer staying as close to Yellow's original distribution as practical within the accepted design goals. Specific encounter tables are not fixed by this decision.
 - Other mainline versions of Kanto, including the user's suggested Generation II inspiration, may inform improvements. They do not replace the principal Yellow/FireRed/LeafGreen identity or automatically add their content.
 - Prioritise polishing Kanto before adding extra content. No Sevii Islands postgame is planned within the current scope.
 - Apply the already accepted mechanics, progression and balance changes to this content baseline. This does not select a FireRed/LeafGreen source dependency or reverse the GBA/NDS flexibility in [ADR-0025](0025-android-emulation-platform.md).
 
-The main-campaign original-151/original-form boundary in [ADR-0004](0004-original-151-roster.md) remains in effect. Future additions beyond the current Kanto focus require a separate scope decision; this record does not ban Kanto-based post-League activity or remove accepted capability-rematch requirements.
+The main-campaign original-151/original-form boundary in [ADR-0004](0004-original-151-roster.md) remains in effect; its subsequent clarification requires all 151 to be obtainable in one playthrough without trading. Future additions beyond the current Kanto focus require a separate scope decision; this record does not ban Kanto-based post-League activity or remove accepted capability-rematch requirements.
 
 ## Alternatives considered
 
@@ -47,10 +48,12 @@ These statements establish product intent, not verified game differences or Rech
 
 Future checks should compare map/layout and plot-anchor fidelity, the Pikachu start, required system access and allowed encounter changes. Validate the rendition on Android under ADR-0025 and playtest whether it retains the intended feel.
 
+Subsequent user decision, 2026-09-05: "MEW IS UNDER TRUCK!" This selects Mew's location for this project, not a claim about an official game's content. Verify that the truck encounter remains reachable within the complete solo-collection route in ADR-0004.
+
 ## Open questions
 
 - Detailed reference inventory, necessary Yellow adaptations and exact asset/source revisions; Recharged Yellow comparison version.
-- Specific trainer and wild-encounter changes, availability of other starters and legendary timing.
+- Specific trainer and wild-encounter changes, acquisition methods/timing for other starters and legendaries, and Mew's truck-access/encounter trigger. All original 151 must be obtainable under ADR-0004.
 - First playable milestone and detailed Kanto post-League content. Extra-region and future postgame roster scope remain unselected.
 
 ## Follow-up

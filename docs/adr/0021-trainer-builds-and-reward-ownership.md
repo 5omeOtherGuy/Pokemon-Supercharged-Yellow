@@ -16,6 +16,7 @@ ADR-0020 accepted intended existing badge benefits, modest additional combat pas
 ### Trainer builds and ownership
 
 - Preserve the intended existing badge benefits. The user subsequently identified permission to use particular HMs as the benefit they remembered and expressed uncertainty about others. Treat that as context for badge-gated field access, not approval to inherit automatic stat boosts, obedience rules or bugs. Exact inherited effects and the field-permission mapping remain to be settled; see the evidence below.
+- Do not impose obedience restrictions based on badges, level, origin or acquisition method. The user explicitly removed obedience restrictions; the accepted level-cap policy still applies. This does not remove ordinary battle effects that prevent or alter actions.
 - Additional trainer passives form a selectable build at a Pokémon Center, constrained by one shared trainer capacity budget.
 - Each selected passive consumes capacity; stronger passives cost more. The sum of active passive costs must not exceed the trainer's available budget. The active count can vary with the chosen combination.
 - Permitted design directions include increased EXP from battles and modest combat benefits, potentially stat boosts. These are categories, not approved numerical effects or a completed perk list.
@@ -86,7 +87,7 @@ No implementation or balance results exist. Future checks must cover ownership, 
 
 ## Open questions
 
-- Whether to retain automatic badge stat boosts or badge-based traded-Pokémon obedience rules; exact field-permission mapping and interaction with selected additional passives.
+- Whether to retain automatic badge stat boosts; exact field-permission mapping and interaction with selected additional passives. Obedience restrictions are removed.
 - Starting trainer capacity, numerical badge-stage increases, final budget, individual passive costs and effects, magnitudes, stacking and reassignment costs.
 - Specific eligible NPCs, their capacity budgets and passive loadouts, with background justification.
 - Scouting presentation and loadout commitment/refresh timing under [ADR-0024](0024-passive-scouting-and-ai-observations.md), which now accepts reciprocal active-effect disclosure.
@@ -114,4 +115,8 @@ Yellow source inspected at pret/pokeyellow commit `e89ead154b9968aa50eed9328ff2b
 - [Badge-house dialogue](https://github.com/pret/pokeyellow/blob/e89ead154b9968aa50eed9328ff2b38b6c194382/text/CeruleanBadgeHouse.asm) and its [second text file](https://github.com/pret/pokeyellow/blob/e89ead154b9968aa50eed9328ff2b38b6c194382/text/CeruleanBadgeHouse_2.asm) describe badge permissions for Flash, Cut, Fly, Strength and Surf.
 - [Battle core](https://github.com/pret/pokeyellow/blob/e89ead154b9968aa50eed9328ff2b38b6c194382/engine/battle/core.asm): `CheckForDisobedience` (lines 3999–4052) checks a traded Pokémon's original-trainer ID, level and badges; `ApplyBadgeStatBoosts` (lines 6639–6690) applies badge-dependent 1.125× stat boosts outside link battles. These are additional original-game effects, not project requirements. The dialogue and code disagree about which badges boost Defense/Speed; do not use dialogue alone to select battle behavior.
 
-This is read-only historical evidence, not a selected engine, full badge implementation audit or playtest. Present retaining/removing automatic boosts and obedience behavior as explicit choices; preserve the already accepted training-ceiling and trainer-capacity progression independently.
+This is read-only historical evidence, not a selected engine, full badge implementation audit or playtest. At that point retaining/removing automatic boosts and obedience behavior were explicit choices; preserve the already accepted training-ceiling and trainer-capacity progression independently.
+
+## Clarification — 2026-09-05, no obedience restrictions
+
+The user subsequently stated there are no obedience restrictions and no trading. This resolves obedience behavior; [ADR-0004](0004-original-151-roster.md) owns the no-trading and complete solo-collection requirements. Audit every inherited disobedience path, including non-trade or scripted acquisition paths, when an engine exists. The user did not answer the separate automatic-stat-boost question, which remains open.

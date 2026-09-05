@@ -84,4 +84,8 @@ Round 5 resolved category-limit tuning, exclusion of mixed-category battle suppl
 
 ## Clarification — 2026-09-05, Fairy discussion
 
-The user explicitly requested discussion of Fairy's viability after round 7. The modern-typing starting point does not settle Fairy inclusion; see [proposed ADR-0013](0013-fairy-type-evaluation.md). Existing ability-reassignment and original-form decisions remain accepted.
+The user explicitly requested discussion of Fairy's viability after round 7. At that point, the modern-typing starting point did not settle Fairy inclusion; ADR-0013 was recorded as Proposed. Existing ability-reassignment and original-form decisions remained accepted. The subsequent resolution is recorded below.
+
+## Clarification — 2026-09-05, Fairy identity rationale
+
+The user explained that Fairy made previously uninteresting familiar Pokémon feel interesting and that the typing fits them extremely well. In the context of the selected modern typing baseline and the recommendation to include Fairy, this is recorded as endorsement of inclusion in [ADR-0013](0013-fairy-type-evaluation.md). The design purpose is recognisable identity expressed through interesting battle roles. Exact type-chart policy and individual balance changes remain open; no implementation or balance validation is implied.

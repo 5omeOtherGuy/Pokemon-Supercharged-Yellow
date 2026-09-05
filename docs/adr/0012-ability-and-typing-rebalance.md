@@ -56,4 +56,8 @@ Audit candidate engines for required existing abilities and types. Curate indivi
 
 ## Clarification — 2026-09-05, Fairy discussion
 
-Before this record was committed, the user explicitly requested discussion of Fairy's viability. Fairy inclusion is therefore unresolved, despite the modern official typing starting point. [ADR-0013](0013-fairy-type-evaluation.md) records an agent recommendation for discussion, not an accepted type policy. Other boundaries in this record remain accepted.
+Before this record was committed, the user explicitly requested discussion of Fairy's viability. Fairy inclusion was therefore left unresolved, despite the modern official typing starting point. ADR-0013 initially recorded an agent recommendation for discussion. Other boundaries in this record remained accepted. The subsequent resolution is recorded below.
+
+## Clarification — 2026-09-05, Fairy inclusion
+
+The user's follow-up endorses Fairy for its fit with familiar Pokémon and the interest it adds to their battle identities; [ADR-0013](0013-fairy-type-evaluation.md) now accepts inclusion. The existing official Fairy assignments are part of the modern-typing starting point. Exact chart policy, individual adjustments and any additional justified retypings remain separate choices.

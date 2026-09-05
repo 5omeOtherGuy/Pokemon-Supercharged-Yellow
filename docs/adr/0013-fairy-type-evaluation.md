@@ -1,28 +1,30 @@
-# ADR-0013: Evaluate Fairy for the original-151 campaign
+# ADR-0013: Include Fairy to strengthen familiar Pokémon identities
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-09-05
-- Decision authority: User requested discussion; recommendation below is the agent's, not an accepted requirement
+- Decision authority: User's endorsement of Fairy's identity and gameplay value, interpreted in the context of the previously selected modern typing baseline and the proposal to include it
 - Implementation: Not started — no engine selected or playable build verified
 - Supersedes: None
 - Superseded by: None
 
 ## Context
 
-[ADR-0012](0012-ability-and-typing-rebalance.md) selects modern official typings as a starting point while permitting justified changes. The user then explicitly asked to discuss Fairy's viability. Inclusion remains open. Original forms only and the strict original-151 campaign boundary remain accepted in [ADR-0004](0004-original-151-roster.md).
+[ADR-0012](0012-ability-and-typing-rebalance.md) selects modern official typings as a starting point while permitting justified changes. The user then explicitly asked to discuss Fairy's viability, initially leaving inclusion open. In the follow-up, the user explained that Fairy made familiar Pokémon more interesting and fitted their identities extremely well. Original forms only and the strict original-151 campaign boundary remain accepted in [ADR-0004](0004-original-151-roster.md).
 
-## Proposal
+## Decision
 
-Evaluate inclusion of Fairy with standard modern matchups and its existing original-form Kanto assignments first: Clefairy/Clefable (Fairy), Jigglypuff/Wigglytuff (Normal/Fairy), and Mr. Mime (Psychic/Fairy).
+Include Fairy in the campaign ruleset. Its primary design rationale is to make familiar Pokémon more interesting through mechanics that fit their identities. Retain the modern official starting assignments: Clefairy/Clefable (Fairy), Jigglypuff/Wigglytuff (Normal/Fairy), and Mr. Mime (Psychic/Fairy), subject to the existing policy for carefully justified changes.
 
-Do not add further Fairy retypings or change the type chart just to distribute types evenly. This is a proposed initial evaluation boundary, not a reversal of the user's permission to justify custom typings later.
+This settles inclusion, not the exact type-effectiveness chart, numerical balance, moves or ability assignments. Increased interest does not require equal power or universal viability. The user described the physical/special split and Fairy as impactful examples of modernization; that is a statement of player experience, not measured balance evidence.
 
-Fairy is a plausible design choice, not a demonstrated balance improvement. Once the source foundation is chosen, verify end-to-end support rather than assuming a database type entry is sufficient.
+The agent recommends evaluating standard modern matchups and these existing Fairy assignments before adding custom chart changes or additional Fairy retypings. This recommendation remains distinct from the accepted inclusion decision and does not revoke the user's permission for justified changes under ADR-0012.
+
+Once the source foundation is chosen, verify end-to-end support rather than assuming a database type entry is sufficient.
 
 ## Alternatives considered
 
-1. Include Fairy with standard interactions: agent's recommended starting candidate.
-2. Exclude Fairy: reduces changes to childhood type expectations but requires explicit replacement typings and a review of curated moves and abilities.
+1. Include Fairy: selected direction. Standard interactions remain the agent's recommended starting candidate for the unresolved chart policy.
+2. Exclude Fairy: considered during the initial discussion. The user's enthusiasm for Fairy's identity fit and gameplay interest supports inclusion instead.
 3. Include Fairy with a custom chart: permits targeted adjustments but increases explanation and testing burden; reserve for a demonstrated problem.
 
 ## Consequences and hypotheses
@@ -35,9 +37,11 @@ Fairy is a plausible design choice, not a demonstrated balance improvement. Once
 - Fairy does not directly counter Psychic through type effectiveness; Psychic balance still needs separate attention.
 - Poison and Steel access must be assessed through moves and viable teams, not just species counts. Many nominal counters may fail against coverage or at a particular cap.
 
-These are design inferences, not playtest findings.
+These are design inferences, not playtest findings. The matchup hypotheses assume standard modern interactions; chart policy remains open.
 
 ## Evidence and validation
+
+User follow-up on 2026-09-05: the physical/special split and Fairy felt especially impactful; Fairy made Clefable and the Jigglypuff family interesting where they had previously felt boring, and the typing fitted them extremely well. This is recorded as endorsement of inclusion in the existing design context. The user did not specify an exact type chart or approve individual balance changes.
 
 Preliminary, unpinned external references consulted on 2026-09-05:
 - [Fairy roster and standard interactions](https://pokemondb.net/type/fairy).
@@ -56,12 +60,14 @@ Proposed evaluation:
 
 ## Open questions
 
-- Is the user's main concern nostalgia, small-roster balance, particular matchups or implementation effort?
-- Include Fairy, exclude it, or compare candidates before deciding?
 - Exact type chart and source-data revision.
 - Move access, encounter/evolution timing and ability assignments for affected species.
 - Any justified custom type changes after the official starting roster has been evaluated.
 
 ## Follow-up
 
-Discuss the tradeoffs with the user before accepting or rejecting this proposal. Resolve any changed baseline explicitly in ADR-0012 and the project summaries. Choose one campaign ruleset; this proposal does not add a player-facing toggle.
+Resolve the exact type-chart policy and curate affected Pokémon around distinct roles, strengths and weaknesses. Evaluate whether the resulting Pokémon feel interesting and recognisable as well as whether encounters are challenging. Use one campaign ruleset; Fairy inclusion does not introduce a player-facing toggle.
+
+## Decision history — 2026-09-05
+
+Initially Proposed to discuss Fairy's viability. Updated to Accepted after the user's follow-up explained its value to familiar Pokémon identities and player interest. Acceptance is limited to inclusion and that rationale. The original standard-chart recommendation and evaluation suggestions remain proposals where not separately decided.

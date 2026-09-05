@@ -9,6 +9,8 @@ ADRs preserve why consequential choices were made. This directory covers softwar
 | [0001](0001-project-direction.md) | Project direction and confirmed constraints | Accepted |
 | [0002](0002-decision-records.md) | Use repository decision records | Accepted |
 | [0003](0003-source-foundation.md) | Select a source foundation through a build audit | Proposed |
+| [0004](0004-original-151-roster.md) | Restrict the main campaign roster to the original 151 | Accepted |
+| [0005](0005-team-rotation-and-boss-mastery.md) | Build the campaign around team rotation and boss mastery | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 

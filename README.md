@@ -8,13 +8,15 @@ Project governance is established. No engine has been selected or imported, no g
 
 ## Confirmed direction
 
+- Original 151 species only in the main campaign.
+- Frequent team rebuilding and repeated attempts to master major bosses.
 - One initial difficulty setting.
 - Level caps.
 - Physical/special split.
 - Restrained player customisation and useful quality-of-life improvements, especially adjustable battle speed.
 - Challenging encounters and well-designed Pokémon without making every species equally strong or viable.
 
-See [ADR-0001](docs/adr/0001-project-direction.md) for scope, provenance and unresolved choices.
+See [ADR-0001](docs/adr/0001-project-direction.md) for the initial scope, [ADR-0004](docs/adr/0004-original-151-roster.md) for the roster boundary, and [ADR-0005](docs/adr/0005-team-rotation-and-boss-mastery.md) for team rotation and boss mastery. Preparation, scouting and retry systems remain open.
 
 ## Working in this repository
 

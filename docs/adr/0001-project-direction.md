@@ -43,7 +43,8 @@ No implementation or gameplay validation has occurred.
 
 ## Open questions
 
-- Original 151 only, later evolutions, or another roster boundary.
+- Forms/transformations, postgame roster and main-campaign species availability (species eligibility resolved in ADR-0004).
+- Preparation effort, boss information and retry systems supporting ADR-0005.
 - Engine/upstream project and exact mechanics baseline.
 - Starting Pokémon and which Yellow-specific events or presentation to reproduce.
 - Level-cap values, unlock milestones and enforcement behavior.
@@ -55,3 +56,7 @@ No implementation or gameplay validation has occurred.
 ## Follow-up
 
 Use these constraints in the foundation audit and later design decisions. Resolve each open question when it affects concrete work; do not require a complete game specification before starting useful engineering.
+
+## Clarification — 2026-09-05, design interview round 1
+
+The main-campaign species boundary is now the original 151: [ADR-0004](0004-original-151-roster.md). Frequent team rebuilding and repeated boss attempts are accepted experience targets: [ADR-0005](0005-team-rotation-and-boss-mastery.md). These clarify previously open scope and challenge questions; the original requirements above remain in effect. Implementation has not started.

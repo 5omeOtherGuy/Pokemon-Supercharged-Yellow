@@ -30,7 +30,7 @@ This replaces ADR-0005 in full and explicitly carries forward its boss-mastery t
 
 Design varied strategic demands while allowing continuing members to contribute. Frequent wholesale rebuilding is no longer the default balance assumption.
 
-[ADR-0016](0016-individual-traits-and-battle-training.md) defines traits, development goals and accepted gym rules. Progression-appropriate rematches let recruits earn the same gym rewards as veterans. [ADR-0018](0018-gym-training-budget-and-focus.md) selects a limited extra training budget, automatic focus-based allocation and eight distinct leader contributions; numerical balance and remaining progression details stay open.
+[ADR-0016](0016-individual-traits-and-battle-training.md) defines traits, development goals and accepted gym rules. Progression-appropriate rematches let recruits earn the same gym rewards as veterans. [ADR-0018](0018-gym-training-budget-and-focus.md) selects automatic focus-based allocation and eight distinct leader rewards. The extra gym budget is now under review in [proposed ADR-0019](0019-gym-resistances-and-capabilities.md); numerical balance and remaining progression details stay open.
 
 The levelling target in [ADR-0006](0006-substantial-levelling-investment.md) is unchanged. Measure total preparation and rematch effort so specialist rotation remains practical. Existing scouting, information, consumable and format rules remain applicable; this target does not authorise hidden AI advantages.
 

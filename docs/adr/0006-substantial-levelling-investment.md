@@ -45,3 +45,7 @@ Design training and experience access alongside encounters, and measure actual p
 [ADR-0016](0016-individual-traits-and-battle-training.md) adds random improvable IVs, fixed natures and the goal of clear, non-tedious development from battle use and boss experience. The 20–30-minute-or-more target remains specifically about levelling. Whether levelling, IV improvement and earned development overlap is unresolved; do not treat the levelling target as approval for several additional training grinds. Measure the complete cost of introducing a replacement when designing the combined system.
 
 When evaluating gym-rematch catch-up in ADR-0016, include rematch duration and repeated attempts in total preparation cost. Eligibility requires participation without fainting in a player victory; rematch teams must suit campaign progress. [ADR-0018](0018-gym-training-budget-and-focus.md) now requires all eight distinct leader rewards for full gym-related development; measure that completion path separately from the training needed for a recruit to contribute usefully.
+
+## Clarification — 2026-09-05, additional ordinary training
+
+The user selected ordinary stat training that usually requires additional focused battles after levelling. This resolves the general overlap preference; the extra duration, activity and total preparation burden are still unchosen. The original levelling target remains separate. Instant redistribution after an earned later-game focus change does not require repeating that training (ADR-0018).

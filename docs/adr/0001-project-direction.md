@@ -48,7 +48,7 @@ No implementation or gameplay validation has occurred.
 - Engine/upstream project and exact mechanics baseline.
 - Starting Pokémon and which Yellow-specific events or presentation to reproduce.
 - Level-cap values, unlock milestones and enforcement behavior.
-- IV safeguards and improvement access; training numbers, focus changes, reward filling and rematch access within ADRs 0016 and 0018. Random improvable IVs, fixed acquired natures and gym eligibility/rematch rules are selected. ADR-0017 selects a trusted core with rotating specialists.
+- IV safeguards and improvement access; training numbers, earned focus-change access and rematch access within ADRs 0016 and 0018; gym reward form is reopened in proposed ADR-0019. Random improvable IVs, fixed acquired natures and gym eligibility/rematch rules are selected. ADR-0017 selects a trusted core with rotating specialists.
 - Numerical category limits (delegated to testing), remaining consumable scope/action rules and detailed AI information mapping beyond ADR-0009.
 - Specific singles/doubles boss assignments and team sizes within ADR-0010; individual move choices and behavior within ADR-0011.
 - Speed presets, animation/audio behavior and other specific QoL features.
@@ -109,3 +109,7 @@ The user selected gym rewards only for Pokémon that entered battle and did not 
 ## Clarification — 2026-09-05, gym budgets and training focus
 
 [ADR-0018](0018-gym-training-budget-and-focus.md) selects limited extra gym-earned training capacity beyond ordinary training, automatic point allocation through a player-selected focus, and separate rewards from all eight leaders for full gym development. Each Pokémon can recover missing rewards through rematches. Numerical limits, immediate versus later filling of unlocked capacity, focus changes and total preparation pacing remain open.
+
+## Clarification — 2026-09-05, earned redistribution and gym reward review
+
+Focus changes unlock later through a limited rare item or a challenge, not money alone, and redistribute points instantly once earned (ADR-0018). Ordinary stat training should usually require additional focused battles after levelling. The user reopened gym reward form by suggesting partial type resistance or a distinct capability; [proposed ADR-0019](0019-gym-resistances-and-capabilities.md) records this without selecting a replacement yet.

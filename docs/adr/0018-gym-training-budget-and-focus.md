@@ -13,22 +13,30 @@
 
 ## Decision
 
-- Gym victories unlock a limited extra training budget beyond the maximum available through ordinary training.
+- Previously selected gym reward, now under review in ADR-0019: victories unlock a limited extra training budget beyond ordinary training. Do not implement its formula until the proposed resistance/capability alternative is resolved.
 - The player selects a training focus and earned points are allocated automatically according to it.
 - All eight gym leaders contribute separate rewards to each eligible individual Pokémon. Full gym-related development requires earning all eight.
 - Apply the participation, survival and player-victory conditions from ADR-0016. The initial encounter or a progression-appropriate rematch can earn that leader's reward.
 - Each leader's contribution to a Pokémon's extra budget is counted once. Repeating one leader cannot substitute for a missing leader or increase that same contribution indefinitely.
 - Late recruits can earn the same set of gym contributions through rematches; joining later does not inherently reduce this potential.
 
-This selects additional training capacity, not merely faster ordinary training. It does not yet decide whether a gym reward immediately fills the unlocked capacity, partially fills it or requires further battle training. It also does not choose focus definitions, numerical stat effects, per-stat limits or reallocation rules.
+The original reward choice selected additional capacity rather than faster ordinary training. The user has now reopened that reward form in ADR-0019. Focus definitions, numerical stat effects and per-stat limits remain open; earned focus-changing rules are selected below.
 
 IV improvement remains separate from this earned-training budget, and acquired natures remain fixed. Neither the species base-stat policy nor the standard type chart changes.
 
+## Earned focus changes and ordinary training
+
+- Changing an established focus is available only later in the game.
+- It must be earned through a limited rare item or a challenge. The exact route, scarcity and repeatability remain to be selected; money alone is insufficient.
+- Once a focus change is earned and applied, redistribution of existing focus points happens instantly. Do not add retraining time to that redistribution.
+- This is not an unrestricted menu reset. The initial focus-selection rules remain separate and unresolved.
+- Ordinary stat training should usually require additional focused battles after reaching the level cap. The amount of extra training remains open.
+
 ## Allocation model
 
-At a policy level, a Pokémon's available training capacity consists of its ordinary training limit plus the limited contributions unlocked from individual gyms. The selected focus directs allocation of earned points. Capacity, earned points and their allocation must remain distinguishable in implementation and explanations.
+The earlier gym-budget model combined the ordinary training limit with gym contributions; its gym component is now under review in ADR-0019. The selected focus directs allocation of earned points. Capacity, earned points and their allocation must remain distinguishable in implementation and explanations.
 
-The exact conversion of points to stats is open. A focus is a player-facing preference, not permission for hidden random allocation or unrestricted manual distribution. Whether a focus can be changed and what happens to existing allocations must be decided separately.
+The exact conversion of points to stats is open. A focus is a player-facing preference, not permission for hidden random allocation or unrestricted manual distribution. Established focuses can be changed later through the earned access rule above, with instant redistribution; exact item/challenge access remains open.
 
 ## Alternatives considered
 
@@ -39,7 +47,7 @@ The exact conversion of points to stats is open. A focus is a player-facing pref
 
 ## Consequences
 
-Veterans can develop further than otherwise comparable same-level Pokémon that have completed only ordinary training. A recruit can match the gym-earned component after earning the corresponding rewards and completing any required training.
+The original extra-budget model gave veterans greater training potential than otherwise comparable same-level Pokémon with only ordinary training. The resistance/capability proposal in ADR-0019 may change that mechanism; the goal of meaningful, recoverable gym experience remains.
 
 Full development entails eight distinct eligible gym victories per Pokémon. This is a completion requirement for the full bonus, not a decision that every Pokémon must have all bonuses to contribute or face the League. Encounter assumptions about training completeness remain open.
 
@@ -66,13 +74,17 @@ No game data, implementation or playtests exist. Future checks should cover:
 ## Open questions
 
 - Ordinary and additional gym budget sizes, whether all leader contributions have equal size, and point-to-stat conversion.
-- Immediate points versus unlocked capacity requiring additional training.
-- Focus choices, allocation proportions, focus-changing and redistribution.
-- Ordinary training eligibility, rates and overlap with levelling.
+- Gym reward form in ADR-0019; if the budget is retained, immediate points versus capacity requiring training.
+- Focus choices and allocation proportions; the later-game limited-item or challenge route for instant redistribution.
+- Ordinary training eligibility, rates and additional post-levelling duration.
 - Rematch access timing, progression tiers and exact teams.
 - Trainer training budgets and encounter assumptions about player training completeness.
 - Evolution, storage and other identity-preserving transitions for recorded gym rewards.
 
 ## Follow-up
 
-Resolve reward filling, focus changes and training overlap. Then draft a small numerical model and prototype plan using these accepted boundaries, without treating untested numbers as balanced.
+Resolve the gym-reward proposal, the focus-change access route and training duration. Then draft a numerical model and prototype plan using the settled boundaries; do not treat untested numbers as balanced.
+
+## Clarification — 2026-09-05, earned focus changes and reopened gym rewards
+
+The user selected instant redistribution after earning a focus change later in the game, through a limited rare item or a challenge rather than money alone. Ordinary training should usually require focused battles after levelling. The same reply suggested partial type resistance or a unique capability as the gym reward; [ADR-0019](0019-gym-resistances-and-capabilities.md) records this unresolved alternative. No final replacement for the extra gym budget has been selected.

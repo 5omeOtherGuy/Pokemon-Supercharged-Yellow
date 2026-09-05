@@ -3,7 +3,7 @@
 - Status: Accepted
 - Date: 2026-09-05
 - Decision authority: Explicit user answers on IVs, battle-earned development and fixed natures
-- Implementation: Not started — traits and gym rules accepted; ADR-0018 selects budget and allocation boundaries, with numbers and progression details open
+- Implementation: Not started — traits and gym rules accepted; ADR-0018 selects focus and training boundaries; gym reward form reopened in proposed ADR-0019
 - Supersedes: None
 - Superseded by: None
 
@@ -29,7 +29,7 @@ Exact IV distributions, safeguards, improvement access and costs remain open. As
 - Incentivise continued use of individual Pokémon while avoiding excessive penalties for frequent switching.
 - Progression must be clear and understandable, with predictable rewards; it should not feel tedious or random.
 
-These experience requirements are refined in ADR-0018: gyms unlock limited extra training capacity, points follow a selected focus automatically, and all eight leaders contribute separately. Numerical rewards, focus definitions, reward filling and ordinary battle-training credit remain open. Random starting IVs and deterministic training progression are distinct choices.
+ADR-0018 selects automatic focus allocation and all eight leaders contributing separately; its earlier gym-budget choice is now under review in proposed ADR-0019. Numerical rewards, focus definitions and ordinary battle-training credit remain open. Random starting IVs and deterministic training progression are distinct choices.
 
 ### Gym rewards and rematches
 
@@ -50,15 +50,15 @@ Surviving support Pokémon can qualify. A participant that helps win but faints 
 
 Use the existing hidden-stat information boundary in [ADR-0009](0009-vgc-style-ai-information.md). Do not automatically reveal new training allocations or exact bonuses to boss AI. Public training-history fields, if any, need an explicit mapping.
 
-## Selected budget mechanism
+## Training direction and reopened gym rewards
 
 [ADR-0018](0018-gym-training-budget-and-focus.md) now records the selected direction:
-- Gym victories unlock a limited extra training budget beyond ordinary training.
+- The previously selected extra gym budget is under review in [proposed ADR-0019](0019-gym-resistances-and-capabilities.md), following the user's resistance/capability suggestion.
 - The player chooses a focus and earned points are allocated automatically.
 - Full gym development requires all eight distinct leader rewards per Pokémon. Each contribution counts once and can be earned through the original battle or a qualifying rematch.
 - Joining late does not prevent earning the same set of gym contributions.
 
-The earlier training-point proposal is refined by these choices. Capacity is distinct from earned points: immediate filling of unlocked capacity, point-to-stat conversion, focus-changing and numerical caps remain open. Show eligibility, earned and missing gym contributions, and focus effects clearly.
+Gym reward form is now reopened. Point-to-stat conversion, numerical caps and initial focus choices remain open. Established focus changes unlock later through a limited rare item or challenge, with instant redistribution once earned. Show eligibility, earned and missing gym contributions, and focus effects clearly.
 
 ## Alternatives and tradeoffs
 
@@ -68,7 +68,7 @@ The earlier training-point proposal is refined by these choices. Capacity is dis
 - Cosmetic records alone: can supplement development but do not meet the requested same-level gameplay benefit.
 - Final-knockout-only and party-wide credit were considered. The user selected field participation plus survival in a won encounter, including surviving support Pokémon but excluding unused reserves and fainted participants.
 
-The extra-budget and automatic-focus mechanism is selected in ADR-0018. Numerical formulas and remaining progression details are still open. Gym eligibility and progression-appropriate rematches remain as stated above.
+Automatic focus allocation remains selected in ADR-0018; its extra gym-budget choice is under review in ADR-0019. Numerical formulas and remaining progression details are open. Gym eligibility and progression-appropriate rematches remain as stated above.
 
 ## Evidence and validation
 
@@ -89,12 +89,12 @@ No code, battle simulation or timing results exist. Once a mechanism is selected
 - Numerical IV safeguards, costs, access timing and targeted IV adjustment.
 - Numerical growth formula, focus definitions, redistribution, reward filling and limits within ADR-0018; eight distinct gym contributions are selected.
 - Whether bosses and ordinary trainers use comparable training bonuses.
-- Training overlap with levelling, rematch access and late-game catch-up.
+- Additional focused training duration after levelling, rematch access and late-game catch-up.
 - Treatment of gifts, eggs and evolution for acquired traits and earned progression.
 
 ## Follow-up
 
-Follow ADR-0018 for the selected budget and allocation direction and ADR-0017 for team continuity. Resolve numerical limits, reward filling, focus changes and rematch access before implementing the progression mechanism. Accepted policies do not establish tested game balance.
+Follow ADR-0018 for allocation and earned focus changes, ADR-0017 for team continuity, and proposed ADR-0019 for the reopened gym-reward discussion. Resolve reward form, numerical limits, access and pacing before implementing the progression mechanism. Accepted policies do not establish tested game balance.
 
 ## Proposal history — 2026-09-05, gym rematches
 
@@ -107,3 +107,7 @@ The user selected only Pokémon that entered battle and did not faint for the re
 ## Clarification — 2026-09-05, budget and allocation selected
 
 The user selected limited extra gym training capacity, automatic allocation through a chosen focus and all eight leaders contributing separate rewards. [ADR-0018](0018-gym-training-budget-and-focus.md) records these choices, resolving the earlier proposal's core direction. Exact budget sizes, filling of unlocked capacity, focus changes and remaining progression rules stay open.
+
+## Clarification — 2026-09-05, focus access and gym reward proposal
+
+The user selected later-game earned focus changes with instant redistribution, and additional ordinary training after levelling. Those choices are recorded in ADR-0018. Partial type resistance or a unique capability is proposed as an alternative gym reward in ADR-0019; it is not yet an approved effect or replacement model.

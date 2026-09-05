@@ -13,7 +13,7 @@ These instructions apply throughout this repository. Read any more specific AGEN
 
 Build a familiar Kanto adventure with substantially greater strategic depth and challenge. Preserve Pokémon identities and the atmosphere remembered from childhood. The StarCraft II balance-team comparison describes a quality ambition, not an affiliation or evidence of balance.
 
-The authoritative initial requirements are in ADR-0001, with refinements in accepted ADRs 0004–0014. In particular:
+The authoritative initial requirements are in ADR-0001, with refinements in accepted ADRs 0004–0015. In particular:
 - Main-campaign species are restricted to the original 151 in their original forms. No regional variants or Mega Evolutions, including opponent teams. Postgame scope remains open.
 - Frequent team rebuilding and repeated attempts to master major bosses are intended for the target returning player. Do not impose forced losses or mandatory team changes.
 - Levelling a newly caught Pokémon to the cap should normally require substantial training (roughly 20–30 minutes or more); preparation systems and reference speed remain open.
@@ -24,11 +24,11 @@ The authoritative initial requirements are in ADR-0001, with refinements in acce
 - Consumable duplicates are restricted by functional category; determine separate numerical caps through balance testing. Exclude items combining categories from preselected battle supplies. Both sides see each other's complete selected consumables and quantities; pending item-use actions stay private.
 - Use a substantial campaign mix of singles and doubles, including major bosses in both. Use Set rules throughout trainer battles; no free Shift-style switch after an opposing knockout.
 - Curate moves from any generation when they fit the original 151's identities and campaign balance. This does not import every move or settle move versions.
-- Existing official abilities may be reassigned when identity and balance justify it; do not invent custom abilities under this scope. Start from modern official typings and allow carefully justified custom changes; include Fairy to strengthen familiar Pokémon identities and make their battle roles more interesting, as recorded in ADR-0013. Exact type-chart policy remains open. Record specific changes and test both formats.
+- Existing official abilities may be reassigned when identity and balance justify it; do not invent custom abilities under this scope. Start from modern official typings and allow carefully justified custom changes; include Fairy to strengthen familiar Pokémon identities and make their battle roles more interesting, as recorded in ADR-0013. Keep the standard modern type-effectiveness chart (ADR-0015). Record specific changes and test both formats.
 - Physical/special split is required.
 - Launch with one difficulty setting and level caps.
 - Keep player-facing customisation restrained; adjustable battle speed and useful QoL are required.
-- Pokémon need meaningful strengths, weaknesses and roles; equal power or universal viability is not the goal. Each type should feel distinct and playable. Extend Bug usefulness and address late-game Flying concerns such as Pidgeot (ADR-0014); player favourites are evaluation interests, not automatic buff targets. Exact type representation and base-stat-change boundaries remain open.
+- Pokémon need meaningful strengths, weaknesses and roles; equal power or universal viability is not the goal. Each type should feel distinct and playable. Extend Bug usefulness and address late-game Flying concerns such as Pidgeot (ADR-0014); player favourites are evaluation interests, not automatic buff targets. There is no type-representation quota: justify retypings per species. Use stat redistribution and modest strength changes primarily; substantial changes require a documented exceptional or necessary case (ADR-0015).
 - Recharged Yellow is inspiration, not a source-code dependency.
 
 Do not silently adopt earlier assistant suggestions as requirements. Engine choice, postgame roster, exact mechanics generation, cap values, IV/EV/nature policy, detailed battle-format assignments, remaining consumable selection/scope details, training/scouting implementation, starters, Yellow-specific events, speed presets and prototype boundaries remain unresolved.

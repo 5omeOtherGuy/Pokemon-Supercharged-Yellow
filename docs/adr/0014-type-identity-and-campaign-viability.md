@@ -18,7 +18,7 @@ The initial direction rejects equal strength and universal species viability. Af
 - Extend the useful campaign life of Bug Pokémon. Address the user's similar concern about Flying Pokémon such as Pidgeot feeling underwhelming late in the game.
 - Preserve meaningful strengths, weaknesses and differences between species while pursuing these goals.
 
-The type-level goal does not specify equal representation, success in every boss battle, or completion with a monotype team. The exact representation requirement for types without an official original-form member in the original 151, particularly Dark, remains to be clarified before assigning custom typings. Do not silently relax [ADR-0004](0004-original-151-roster.md).
+The type-level goal does not specify equal representation, success in every boss battle, or completion with a monotype team. There is no representation quota, including for types without an official original-form member in the original 151 such as Dark. Add typings only when the individual Pokémon's identity and balance justify them. Do not silently relax [ADR-0004](0004-original-151-roster.md).
 
 ## Player interests
 
@@ -36,13 +36,13 @@ These are interests and evaluation priorities, not a finding that all listed Pok
 
 - Ensure every species remains comparably strong through the League: inconsistent with the user's stated distinction between type and species viability.
 - Allow entire types to lose meaningful relevance after the early game: inconsistent with the desired type-level playability and longer Bug/Flying usefulness.
-- Improve species solely through higher numbers: insufficient to establish distinct identity, although the permissible scope of base-stat changes remains open.
+- Improve species solely through higher numbers: insufficient to establish distinct identity, with the permissible scope of base-stat changes now defined in ADR-0015.
 
 ## Consequences
 
 Evaluate roles at their acquisition and evolution stages and at later campaign caps. A type may support several strategies; identity should not reduce all its Pokémon to one job.
 
-When reviewing a weak option, assess move access, abilities, typing, encounter timing and the available opposition together. Base-stat adjustment boundaries and the type chart remain unresolved; this record does not select them.
+When reviewing a weak option, assess move access, abilities, typing, encounter timing and the available opposition together. [ADR-0015](0015-standard-chart-and-stat-rebalance.md) selects the standard modern chart and primarily modest base-stat adjustments, with larger changes reserved for special or necessary cases.
 
 Keep the existing goals of frequent team rebuilding and difficult bosses. Longer viability means meaningful reasons to bring selected Pokémon back for later encounters, without promising one permanent team can answer every challenge.
 
@@ -54,12 +54,13 @@ No engine or balance results exist. Future review should identify intended roles
 
 ## Open questions
 
-- Exact type representation requirements within the original-151 roster, including Dark.
-- Standard modern type chart versus any justified changes.
-- Permissible base-stat redistribution, increases and reductions.
 - Specific species roles, access timing and adjustments.
 - How many later encounters establish sufficient continued usefulness, assessed through balance testing.
 
 ## Follow-up
 
-Clarify representation, chart and stat-change boundaries. Then use these interests to help choose representative Pokémon and encounters for the first balance prototype. This does not make the list an exclusive priority or select the prototype's scope.
+Apply the representation, chart and stat-change boundaries in ADR-0015. Use these interests to help choose representative Pokémon and encounters for the first balance prototype. This does not make the list an exclusive priority or select the prototype's scope.
+
+## Clarification — 2026-09-05, no representation quota
+
+The user explicitly selected no representation quota: add typings only when individual Pokémon justify them. This makes type identity and playability a balance goal, not a requirement to manufacture an obtainable member of every type. The user also selected the standard modern chart and primarily modest stat adjustments with exceptional or necessary larger changes; see ADR-0015.

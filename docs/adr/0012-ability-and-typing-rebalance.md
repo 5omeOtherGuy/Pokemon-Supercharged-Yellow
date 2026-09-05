@@ -48,7 +48,7 @@ No assignments, type changes or game mechanics have been implemented. Future che
 - Specific reassignments and typing changes.
 - Ability slots, hidden abilities and player ability-selection methods.
 - Whether any existing ability effects may be altered.
-- Exact type-effectiveness chart and other battle mechanics.
+- Pinned data revision for the standard modern chart selected in ADR-0015, and other battle mechanics.
 
 ## Follow-up
 
@@ -60,4 +60,8 @@ Before this record was committed, the user explicitly requested discussion of Fa
 
 ## Clarification — 2026-09-05, Fairy inclusion
 
-The user's follow-up endorses Fairy for its fit with familiar Pokémon and the interest it adds to their battle identities; [ADR-0013](0013-fairy-type-evaluation.md) now accepts inclusion. The existing official Fairy assignments are part of the modern-typing starting point. Exact chart policy, individual adjustments and any additional justified retypings remain separate choices.
+The user's follow-up endorses Fairy for its fit with familiar Pokémon and the interest it adds to their battle identities; [ADR-0013](0013-fairy-type-evaluation.md) now accepts inclusion. The existing official Fairy assignments are part of the modern-typing starting point. At that stage, exact chart policy, individual adjustments and any additional justified retypings remained separate choices; the later chart decision follows.
+
+## Clarification — 2026-09-05, fixed chart and species-specific changes
+
+[ADR-0015](0015-standard-chart-and-stat-rebalance.md) selects the standard modern effectiveness chart and restrained base-stat rebalancing with justified exceptions. Typing changes remain permitted on individual identity and balance grounds, without a type-representation quota. Permission to change species typings does not permit custom chart changes.

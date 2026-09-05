@@ -18,7 +18,8 @@ Project governance is established. No engine has been selected or imported, no g
 - Player supplies allow HP healing, status cures, PP restoration and temporary stat boosters, but no revives. Only opposing major bosses use bag consumables, with the same maximum as the player.
 - A substantial mix of singles and doubles, with major bosses in both; Set rules throughout trainer battles.
 - Carefully selected moves from any generation that fit Pokémon identity and balance.
-- Justified reassignment of existing abilities and custom typing changes from a modern official baseline; Fairy is included to strengthen familiar Pokémon identities and create more interesting battle roles ([ADR-0013](docs/adr/0013-fairy-type-evaluation.md)). Exact type-chart policy remains open.
+- Justified reassignment of existing abilities and custom typing changes from a modern official baseline; Fairy is included to strengthen familiar Pokémon identities and create more interesting battle roles ([ADR-0013](docs/adr/0013-fairy-type-evaluation.md)). Keep the standard modern type-effectiveness chart.
+- No type-representation quota. Prefer stat redistribution and modest strength changes; permit substantial changes only in justified special or necessary cases ([ADR-0015](docs/adr/0015-standard-chart-and-stat-rebalance.md)).
 - One initial difficulty setting.
 - Level caps.
 - Physical/special split.

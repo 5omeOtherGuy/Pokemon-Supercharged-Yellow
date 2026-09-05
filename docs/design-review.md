@@ -8,6 +8,8 @@ The initial audit changed no ADR status or product decision: it ended with **18 
 
 ## Handoff state
 
+The local-only state below records the handoff at `2e99e26c1e4029eb7ae72b7b2d7ce40c543f1d45`. The user subsequently instructed: "Commit everything, and make main in sync with remote." This authorises integrating the task branch and pushing `main`; use current Git refs to verify integration status.
+
 - Decision snapshot: `3fbdb7d7f534b4dc0e8c692f04c4056857732799`; this report refresh follows that snapshot without changing an ADR.
 - Branch: `codex/adr-audit`.
 - Retained worktree: `/home/someotherguy/projects/Pokemon-Supercharged-Yellow-worktrees/adr-audit`.
@@ -170,11 +172,11 @@ Android configurations, source-field mappings, save/reward transactions and a re
 3. **Baseline verification:** after selection, establish reproducible build, boot, save/load and target checks. Record exactly what was compiled, run and observed. Resolve the mechanics baseline and prototype scope; a compile alone is not playability.
 4. **Playable validation:** implement a bounded slice exercising relevant singles/doubles encounters, caps, speed, training/rewards, supplies, scouting and the approved information contract. Preserve proposed assumptions visibly. Check legal actions, hidden-data invariance, reward transactions and save persistence, then run human preparation/difficulty playtests for F10–F11. Tune caps/costs/rates using that evidence.
 
-No engine import, game code, simulation or prototype work was performed by this audit. Integration or publication of this local branch is not authorised by the request to prepare a handoff.
+No engine import, game code, simulation or prototype work was performed by this audit. The original report-handoff request did not authorise integration or publication; the later commit-and-sync instruction recorded above does.
 
 ## Local commit handoff
 
-The complete decision/documentation sequence is on `codex/adr-audit`, based on `66c17faf1292626ae5f0ec70531aaf1b2a871ec1`. These six commits precede the report-refresh commit that contains this handoff. Review the retained branch before any separately authorised integration; an agent reading only the original `main` checkout will not see these changes.
+The decision/documentation sequence was prepared on `codex/adr-audit`, based on `66c17faf1292626ae5f0ec70531aaf1b2a871ec1`. These six commits precede report refresh `2e99e26c1e4029eb7ae72b7b2d7ce40c543f1d45`. At that handoff, the original `main` checkout did not contain the changes; the subsequent instruction authorises their integration and publication.
 
 | Commit | Change |
 | --- | --- |

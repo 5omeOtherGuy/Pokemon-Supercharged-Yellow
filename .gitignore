@@ -1,0 +1,26 @@
+# Game binaries and private play data
+*.gba
+*.gbc
+*.gb
+*.nds
+*.sav
+*.srm
+*.ss0
+*.ss1
+*.ss2
+*.ss3
+*.state
+*.state[0-9]
+*.state.auto
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Local generated output; revisit with the chosen engine
+/build/
+/dist/
+__pycache__/
+*.pyc
+.DS_Store

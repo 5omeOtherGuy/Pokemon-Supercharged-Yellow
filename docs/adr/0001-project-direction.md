@@ -116,4 +116,8 @@ Focus changes unlock later through a limited rare item or a challenge, not money
 
 ## Clarification — 2026-09-05, capacity and individual passives
 
-The user selected both extra gym training capacity and modest learned Pokémon passives with skill-tree or held-item-like character. [ADR-0019](0019-gym-resistances-and-capabilities.md) accepts the user's amended three-slot capacity with capability costs of one, two or three. Capabilities may have benefits and drawbacks and may be earned from gyms, Elite Four and other notable encounters; precise effects and non-gym eligibility remain open. This explicitly adds role customisation to the earlier restrained scope. Trainer-wide badge passives applying to all used Pokémon were suggested as a possibility and remain proposed.
+The user selected both extra gym training capacity and modest learned Pokémon passives with skill-tree or held-item-like character. [ADR-0019](0019-gym-resistances-and-capabilities.md) accepts the user's amended three-slot capacity with capability costs of one, two or three. Capabilities may have benefits and drawbacks and may be earned from gyms, Elite Four and other notable encounters; precise effects remain open; non-gym eligibility is resolved in the later clarification below. This explicitly adds role customisation to the earlier restrained scope. Trainer-wide badge passives applying to all used Pokémon were suggested as a possibility and remain proposed.
+
+## Clarification — 2026-09-05, capability services and eligibility
+
+[ADR-0019](0019-gym-resistances-and-capabilities.md) now fixes free capability reassignment at Pokémon Centers or designated services only, keeps the normal held-item slot separate, and applies field participation, no fainting and encounter victory to all capability rewards, including Elite Four and other notable encounters. Earned later-game focus changes remain a distinct restriction; this does not grant free stat redistribution.

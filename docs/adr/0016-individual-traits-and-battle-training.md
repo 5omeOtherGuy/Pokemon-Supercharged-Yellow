@@ -85,7 +85,7 @@ No code, battle simulation or timing results exist. Once a mechanism is selected
 ## Open questions
 
 - Gym-rematch access timing, exact progression-appropriate teams and interaction with ordinary training.
-- Ordinary battle-training credit and non-gym boss reward policies; gym eligibility is settled.
+- Ordinary battle-training credit and non-capability rewards from non-gym bosses. ADR-0019 applies the same participation/no-fainting/victory eligibility to all earned-capability encounters.
 - Numerical IV safeguards, costs, access timing and targeted IV adjustment.
 - Numerical growth formula, focus definitions, redistribution, reward filling and limits within ADR-0018; eight distinct gym contributions are selected.
 - Whether bosses and ordinary trainers use comparable training bonuses.
@@ -111,3 +111,7 @@ The user selected limited extra gym training capacity, automatic allocation thro
 ## Clarification — 2026-09-05, focus access and gym reward proposal
 
 The user selected later-game earned focus changes with instant redistribution, and additional ordinary training after levelling. Those choices are recorded in ADR-0018. At that stage, partial resistance or a unique capability was proposed in ADR-0019. The later resolution retains capacity and adds modest individual passive capabilities, with the user's amended three-slot capacity model. Elite Four and other notable encounters may also grant capabilities; trainer-wide badge passives remain proposed.
+
+## Clarification — 2026-09-05, capability reassignment and credit
+
+ADR-0019 fixes free reassignment of earned capabilities only at Pokémon Centers or designated services and retains the separate normal held-item slot. The gym eligibility rule now also governs capability rewards from Elite Four and other notable encounters. This does not decide ordinary experience, IV-improvement or training-point credit after those battles, and does not relax the earned-access requirement for changing a training focus.

@@ -2,7 +2,7 @@
 
 - Status: Accepted
 - Date: 2026-09-05
-- Decision authority: Explicit user answers selecting both rewards and passive capabilities, followed by the amended three-slot capacity and expanded encounter sources
+- Decision authority: Explicit user answers on combined rewards, three-slot capability capacity, expanded sources, service-only reassignment, separate held items and universal encounter eligibility
 - Implementation: Not started — Pokémon passive direction accepted; trainer-wide passives remain proposed
 - Supersedes: None
 - Superseded by: None
@@ -15,12 +15,14 @@ The user initially considered partial type resistance or a unique capability ins
 
 - Retain the limited extra gym training capacity in [ADR-0018](0018-gym-training-budget-and-focus.md).
 - Add modest Pokémon-earned passive capabilities that support further customisation, individual roles and a deeper roleplaying experience.
-- Treat skill-tree passives and held-item effects as design references. This does not yet choose a branching tree, a particular item effect, a full held item's power, or use of the held-item slot.
+- Treat skill-tree passives and held-item effects as design references. This does not yet choose a branching tree, a particular item effect or a full held item's power.
 - Each Pokémon has three capacity slots for assigned earned passive capabilities. Each capability costs exactly one, two or three slots; the sum of assigned costs must not exceed three.
 - Valid full-capacity combinations are 1+1+1, 2+1 and 3. Partial use is allowed; three slots are a capacity limit, not a requirement to assign three capabilities or unlock a second/third slot later.
 - A capability may combine positive and negative effects. A drawback does not create extra capacity or a negative slot cost.
-- Capabilities can be earned from gym leaders, Elite Four battles and other notable encounters. Eligibility and repeat-access rules for non-gym sources remain to be defined.
-- Apply gym reward eligibility from [ADR-0016](0016-individual-traits-and-battle-training.md): the player wins, the Pokémon entered the field, and it did not faint during that battle.
+- Capabilities can be earned from gym leaders, Elite Four battles and other notable encounters.
+- Apply the same eligibility at all these sources: the player wins the encounter, the Pokémon entered the field, and it never fainted during that battle. Switched-out survivors and surviving support participants qualify; unused reserves and fainted participants do not.
+- Keep the normal held-item slot in addition to the three capability slots. An ordinary held item does not consume capability capacity.
+- Assigned earned capabilities can be changed freely, without a resource cost, but only at a Pokémon Center or designated service. Do not provide unrestricted reassignment elsewhere or during battle. This changes assignments among already earned capabilities; it does not grant unearned capabilities.
 - Each of the eight leaders contributes a distinct reward. Progression-appropriate rematches let a recruit earn the same rewards; duplicate wins do not replace other leaders' contributions.
 
 All eight leader rewards define full gym-related development, not the complete collection of capabilities from every encounter. The capacity limit means earning additional capabilities expands available choices rather than activating all of them together. Exact reward choices and whether learning involves branches remain open. Expanded capability sources do not automatically grant extra training-budget increments beyond the eight gyms.
@@ -35,7 +37,7 @@ The earlier restrained-customisation goal now explicitly includes this requested
 
 The standard modern type chart remains selected. Blanket partial resistance is not the chosen primary reward model; no specific damage-reduction effect or chart change is selected here.
 
-Focus changes still follow their earned later-game rule with instant redistribution. That rule does not automatically govern choosing or changing active gym passives.
+Focus changes still require earned later-game access and instantly redistribute training points once earned. Capability reassignment instead follows the free, service-only rule above. Keep these two actions and their explanations distinct.
 
 ## Proposed trainer-wide badge passives — not accepted
 
@@ -61,7 +63,7 @@ Preserve species identity and weaknesses while creating meaningful choices. Exam
 
 Price and assess combinations, not only isolated effects. Evaluate whether a supposed drawback is a meaningful cost for the build using it; do not assume a nominal penalty necessarily offsets a strong benefit.
 
-The held-item interaction, passive selection rules and reward choices within each encounter need explicit decisions. Define scouting and AI visibility for battle-relevant passives; existing hidden-stat protections do not automatically hide or disclose the new capability fields.
+A normal held item coexists with the capability loadout, and reassignment is free only at the selected service locations. Exact effect interactions and reward choices within each encounter still need decisions. Define scouting and AI visibility for battle-relevant passives; existing hidden-stat protections do not automatically hide or disclose the new capability fields.
 
 ## Evidence and validation
 
@@ -72,18 +74,24 @@ No game implementation or balance results exist. Future validation should cover 
 ## Open questions
 
 - Individual capability costs within the selected one-to-three-slot range, effects and drawbacks.
-- Relationship to held items and innate ability interactions.
+- Detailed effect stacking and interactions with held items and innate abilities; the separate normal held-item slot is selected.
 - Fixed encounter rewards versus choices or branches within each source.
-- Non-gym eligibility and repeat access for missed Elite Four or other notable-encounter capabilities.
-- How active passives are selected and changed, and any associated cost or restrictions.
+- Repeat access for missed Elite Four or other notable-encounter capabilities; participation, survival and victory requirements are selected.
+- Designated service locations and access timing, including capability reassignment during an Elite Four sequence.
 - Trainer-wide badge passive inclusion and scope.
 - Concrete effects, magnitudes, stacking rules and opponent equivalents.
 - Public information fields for boss scouting and AI.
 
 ## Follow-up
 
-Resolve held-item interaction, capability-changing rules and non-gym reward eligibility; clarify trainer-wide scope separately. Then draft representative one-, two- and three-slot capabilities and assess their combinations alongside the retained training budget.
+Clarify trainer-wide scope, opponent capability use and reward choices per encounter. Then draft representative one-, two- and three-slot capabilities and assess their combinations alongside held items and the retained training budget.
 
 ## Decision history — 2026-09-05
 
 Initially Proposed to compare partial resistance and capabilities and to review replacing the training budget. Updated to Accepted after the user selected both capacity and individual passive effects, then amended the concurrent limit to three slots with costs of one, two or three. Optional drawbacks and expanded encounter sources are accepted. The earlier one-or-two-effect count was never committed as the final rule. Trainer-wide badge effects remain a proposal; no particular effect or numerical power value is selected.
+
+## Clarification — 2026-09-05, service reassignment and shared eligibility
+
+The user selected free capability reassignment only at a Pokémon Center or designated service, retention of the normal held-item slot in addition to capability capacity, and the same participation/no-fainting/team-victory eligibility for Elite Four and other notable encounters as for gyms. Ordinary battle experience and training-credit rules are not automatically changed.
+
+Future verification should distinguish focus changes from capability reassignment; reject reassignment outside permitted services and in battle; preserve earned capabilities when unassigned; and enforce the same reward eligibility at every capability-granting encounter. No implementation or runtime tests have occurred.

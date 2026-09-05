@@ -89,3 +89,7 @@ The user explicitly requested discussion of Fairy's viability after round 7. At 
 ## Clarification — 2026-09-05, Fairy identity rationale
 
 The user explained that Fairy made previously uninteresting familiar Pokémon feel interesting and that the typing fits them extremely well. In the context of the selected modern typing baseline and the recommendation to include Fairy, this is recorded as endorsement of inclusion in [ADR-0013](0013-fairy-type-evaluation.md). The design purpose is recognisable identity expressed through interesting battle roles. Exact type-chart policy and individual balance changes remain open; no implementation or balance validation is implied.
+
+## Clarification — 2026-09-05, type identity and campaign viability
+
+The user clarified that each type should feel distinct and playable, without requiring every Pokémon to be viable. [ADR-0014](0014-type-identity-and-campaign-viability.md) records this principle, longer Bug usefulness, concerns about late-game Flying options such as Pidgeot, and the user's named Pokémon interests. The interest list is not evidence of weakness or an automatic buff list. Exact type representation, type chart and base-stat-change boundaries remain open.

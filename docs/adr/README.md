@@ -19,6 +19,7 @@ ADRs preserve why consequential choices were made. This directory covers softwar
 | [0011](0011-curated-moves-across-generations.md) | Curate moves from any generation for the original 151 | Accepted |
 | [0012](0012-ability-and-typing-rebalance.md) | Reassign existing abilities and permit justified typing changes | Accepted |
 | [0013](0013-fairy-type-evaluation.md) | Include Fairy to strengthen familiar Pokémon identities | Accepted |
+| [0014](0014-type-identity-and-campaign-viability.md) | Give each type distinct identity and meaningful campaign viability | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 

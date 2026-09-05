@@ -14,7 +14,7 @@ Project governance is established. No engine has been selected or imported, no g
 - Random IVs that can be improved, with a safeguard against unusable random outcomes; acquired natures and their stat effects remain fixed.
 - Focus changes unlock later through a limited rare item or a challenge, with instant redistribution once earned. Money alone does not suffice.
 - Ordinary stat training should usually require additional focused battles after levelling; the extra duration remains open.
-- Clear, predictable battle-earned development, especially from boss experience, rewarding continuity without excessive penalties for rotation. Points follow a player-selected focus automatically ([ADR-0018](docs/adr/0018-gym-training-budget-and-focus.md)). The earlier extra gym budget is under review: [proposed ADR-0019](docs/adr/0019-gym-resistances-and-capabilities.md) explores partial resistance or distinctive capabilities.
+- Clear, predictable battle-earned development, especially from boss experience, rewarding continuity without excessive penalties for rotation. Points follow a player-selected focus automatically ([ADR-0018](docs/adr/0018-gym-training-budget-and-focus.md)). Retain extra gym training capacity alongside modest Pokémon-earned passives; each Pokémon has three slots, with capability costs of one, two or three and possible benefits plus drawbacks ([ADR-0019](docs/adr/0019-gym-resistances-and-capabilities.md)). Capabilities may also be earned from Elite Four and other notable encounters; their eligibility rules remain open. Trainer-wide badge passives remain proposed.
 - Gym rewards require a player victory, field participation and no fainting during that battle. Stronger rematch teams suited to campaign progress let recruits earn the same gym rewards as veterans ([ADR-0016](docs/adr/0016-individual-traits-and-battle-training.md)).
 - Full gym-related development requires all eight distinct leader rewards per Pokémon. Rematches let recruits earn missing rewards; each leader's reward counts once.
 - Full boss team, move, ability, held-item and bag-consumable scouting before the first attempt.
@@ -29,7 +29,7 @@ Project governance is established. No engine has been selected or imported, no g
 - One initial difficulty setting.
 - Level caps.
 - Physical/special split.
-- Restrained player customisation and useful quality-of-life improvements, especially adjustable battle speed.
+- Restrained player customisation including the requested training-focus and learned-passive choices, plus useful quality-of-life improvements, especially adjustable battle speed.
 - Challenging encounters and well-designed Pokémon without making every species equally strong or viable.
 - Distinct, playable types, with longer usefulness for Bug Pokémon and attention to late-game Flying options such as Pidgeot ([ADR-0014](docs/adr/0014-type-identity-and-campaign-viability.md)).
 

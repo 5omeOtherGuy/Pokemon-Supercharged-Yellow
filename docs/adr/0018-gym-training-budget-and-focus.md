@@ -13,14 +13,14 @@
 
 ## Decision
 
-- Previously selected gym reward, now under review in ADR-0019: victories unlock a limited extra training budget beyond ordinary training. Do not implement its formula until the proposed resistance/capability alternative is resolved.
+- Gym victories unlock a limited extra training budget beyond ordinary training. ADR-0019 confirms retaining this capacity alongside earned Pokémon passives.
 - The player selects a training focus and earned points are allocated automatically according to it.
 - All eight gym leaders contribute separate rewards to each eligible individual Pokémon. Full gym-related development requires earning all eight.
 - Apply the participation, survival and player-victory conditions from ADR-0016. The initial encounter or a progression-appropriate rematch can earn that leader's reward.
 - Each leader's contribution to a Pokémon's extra budget is counted once. Repeating one leader cannot substitute for a missing leader or increase that same contribution indefinitely.
 - Late recruits can earn the same set of gym contributions through rematches; joining later does not inherently reduce this potential.
 
-The original reward choice selected additional capacity rather than faster ordinary training. The user has now reopened that reward form in ADR-0019. Focus definitions, numerical stat effects and per-stat limits remain open; earned focus-changing rules are selected below.
+The reward choice selects additional capacity rather than faster ordinary training. ADR-0019 resolves the subsequent review by retaining it alongside modest Pokémon-earned passive effects. Focus definitions, numerical stat effects and per-stat limits remain open; earned focus-changing rules are selected below.
 
 IV improvement remains separate from this earned-training budget, and acquired natures remain fixed. Neither the species base-stat policy nor the standard type chart changes.
 
@@ -34,7 +34,7 @@ IV improvement remains separate from this earned-training budget, and acquired n
 
 ## Allocation model
 
-The earlier gym-budget model combined the ordinary training limit with gym contributions; its gym component is now under review in ADR-0019. The selected focus directs allocation of earned points. Capacity, earned points and their allocation must remain distinguishable in implementation and explanations.
+The training-capacity model combines the ordinary training limit with gym contributions; ADR-0019 confirms keeping this model alongside passive rewards. The selected focus directs allocation of earned points. Capacity, earned points and their allocation must remain distinguishable in implementation and explanations.
 
 The exact conversion of points to stats is open. A focus is a player-facing preference, not permission for hidden random allocation or unrestricted manual distribution. Established focuses can be changed later through the earned access rule above, with instant redistribution; exact item/challenge access remains open.
 
@@ -47,7 +47,7 @@ The exact conversion of points to stats is open. A focus is a player-facing pref
 
 ## Consequences
 
-The original extra-budget model gave veterans greater training potential than otherwise comparable same-level Pokémon with only ordinary training. The resistance/capability proposal in ADR-0019 may change that mechanism; the goal of meaningful, recoverable gym experience remains.
+Gym capacity gives veterans greater training potential than otherwise comparable same-level Pokémon with only ordinary training. ADR-0019 also adds earned Pokémon passives; both benefits remain recoverable through the appropriate gym rewards.
 
 Full development entails eight distinct eligible gym victories per Pokémon. This is a completion requirement for the full bonus, not a decision that every Pokémon must have all bonuses to contribute or face the League. Encounter assumptions about training completeness remain open.
 
@@ -74,7 +74,7 @@ No game data, implementation or playtests exist. Future checks should cover:
 ## Open questions
 
 - Ordinary and additional gym budget sizes, whether all leader contributions have equal size, and point-to-stat conversion.
-- Gym reward form in ADR-0019; if the budget is retained, immediate points versus capacity requiring training.
+- Immediate points versus unlocked capacity requiring additional training; the gym budget is retained alongside passive effects.
 - Focus choices and allocation proportions; the later-game limited-item or challenge route for instant redistribution.
 - Ordinary training eligibility, rates and additional post-levelling duration.
 - Rematch access timing, progression tiers and exact teams.
@@ -83,8 +83,12 @@ No game data, implementation or playtests exist. Future checks should cover:
 
 ## Follow-up
 
-Resolve the gym-reward proposal, the focus-change access route and training duration. Then draft a numerical model and prototype plan using the settled boundaries; do not treat untested numbers as balanced.
+Resolve budget filling, passive details in ADR-0019, the focus-change access route and training duration. Then draft a numerical model and prototype plan using the settled boundaries; do not treat untested numbers as balanced.
 
 ## Clarification — 2026-09-05, earned focus changes and reopened gym rewards
 
-The user selected instant redistribution after earning a focus change later in the game, through a limited rare item or a challenge rather than money alone. Ordinary training should usually require focused battles after levelling. The same reply suggested partial type resistance or a unique capability as the gym reward; [ADR-0019](0019-gym-resistances-and-capabilities.md) records this unresolved alternative. No final replacement for the extra gym budget has been selected.
+The user selected instant redistribution after earning a focus change later in the game, through a limited rare item or a challenge rather than money alone. Ordinary training should usually require focused battles after levelling. The same reply suggested partial type resistance or a unique capability as the gym reward; ADR-0019 initially recorded that unresolved alternative; the resolution is recorded below.
+
+## Clarification — 2026-09-05, retain capacity alongside passives
+
+The user selected both extra gym training capacity and modest individual passive effects. [ADR-0019](0019-gym-resistances-and-capabilities.md) now accepts that supplemental system with three capacity slots per Pokémon and capabilities costing one, two or three slots. This resolves the budget review without replacing this record. Immediate versus later filling of unlocked capacity remains open.

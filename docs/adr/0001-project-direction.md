@@ -19,7 +19,7 @@ Recharged Yellow inspired the concept, but its source is unavailable. The user e
 - Introduce the physical/special split and rebalance Pokémon and encounters.
 - Preserve familiar identity and atmosphere; do not target equal strength or universal viability for all Pokémon.
 - Begin with one difficulty setting and level caps.
-- Keep player-facing customisability limited.
+- Keep player-facing customisability limited, including the later explicitly requested training-focus and learned-passive choices in ADRs 0018–0019.
 - Include QoL improvements, especially the ability to adjust battle speed.
 - Do not make access to Recharged Yellow source a project dependency.
 
@@ -48,7 +48,7 @@ No implementation or gameplay validation has occurred.
 - Engine/upstream project and exact mechanics baseline.
 - Starting Pokémon and which Yellow-specific events or presentation to reproduce.
 - Level-cap values, unlock milestones and enforcement behavior.
-- IV safeguards and improvement access; training numbers, earned focus-change access and rematch access within ADRs 0016 and 0018; gym reward form is reopened in proposed ADR-0019. Random improvable IVs, fixed acquired natures and gym eligibility/rematch rules are selected. ADR-0017 selects a trusted core with rotating specialists.
+- IV safeguards and improvement access; training numbers, earned focus-change access and rematch access within ADRs 0016 and 0018; ADR-0019 selects extra capacity plus individual passives, while trainer-wide badge effects remain proposed. Random improvable IVs, fixed acquired natures and gym eligibility/rematch rules are selected. ADR-0017 selects a trusted core with rotating specialists.
 - Numerical category limits (delegated to testing), remaining consumable scope/action rules and detailed AI information mapping beyond ADR-0009.
 - Specific singles/doubles boss assignments and team sizes within ADR-0010; individual move choices and behavior within ADR-0011.
 - Speed presets, animation/audio behavior and other specific QoL features.
@@ -112,4 +112,8 @@ The user selected gym rewards only for Pokémon that entered battle and did not 
 
 ## Clarification — 2026-09-05, earned redistribution and gym reward review
 
-Focus changes unlock later through a limited rare item or a challenge, not money alone, and redistribute points instantly once earned (ADR-0018). Ordinary stat training should usually require additional focused battles after levelling. The user reopened gym reward form by suggesting partial type resistance or a distinct capability; [proposed ADR-0019](0019-gym-resistances-and-capabilities.md) records this without selecting a replacement yet.
+Focus changes unlock later through a limited rare item or a challenge, not money alone, and redistribute points instantly once earned (ADR-0018). Ordinary stat training should usually require additional focused battles after levelling. The user reopened gym reward form by suggesting partial type resistance or a distinct capability; ADR-0019 initially recorded that proposal; its subsequent resolution is recorded below.
+
+## Clarification — 2026-09-05, capacity and individual passives
+
+The user selected both extra gym training capacity and modest learned Pokémon passives with skill-tree or held-item-like character. [ADR-0019](0019-gym-resistances-and-capabilities.md) accepts the user's amended three-slot capacity with capability costs of one, two or three. Capabilities may have benefits and drawbacks and may be earned from gyms, Elite Four and other notable encounters; precise effects and non-gym eligibility remain open. This explicitly adds role customisation to the earlier restrained scope. Trainer-wide badge passives applying to all used Pokémon were suggested as a possibility and remain proposed.

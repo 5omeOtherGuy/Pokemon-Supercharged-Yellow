@@ -14,7 +14,7 @@ The user permits curated cross-generation moves while retaining the original 151
 ## Decision
 
 - Existing official abilities may be reassigned to species that have not officially had them when identity and balance justify the change.
-- Newly invented custom abilities are outside the selected initial approach.
+- Newly invented innate abilities are outside this selected approach. The later, separately authorised gym-earned passive system is scoped in ADR-0019.
 - Start from modern official Pokémon typings and permit carefully justified custom typing changes.
 - Treat these permissions as design tools, not a requirement to alter every Pokémon.
 
@@ -65,3 +65,7 @@ The user's follow-up endorses Fairy for its fit with familiar Pokémon and the i
 ## Clarification — 2026-09-05, fixed chart and species-specific changes
 
 [ADR-0015](0015-standard-chart-and-stat-rebalance.md) selects the standard modern effectiveness chart and restrained base-stat rebalancing with justified exceptions. Typing changes remain permitted on individual identity and balance grounds, without a type-representation quota. Permission to change species typings does not permit custom chart changes.
+
+## Clarification — 2026-09-05, separate learned passives
+
+[ADR-0019](0019-gym-resistances-and-capabilities.md) explicitly permits designing Pokémon-earned passive capabilities in addition to gym training capacity. This extends the project's development systems without replacing the existing-official-ability policy for innate assignments. Exact effects and interactions remain open; trainer-wide badge passives are proposed only.

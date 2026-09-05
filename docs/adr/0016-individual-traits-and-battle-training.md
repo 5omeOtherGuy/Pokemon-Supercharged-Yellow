@@ -3,7 +3,7 @@
 - Status: Accepted
 - Date: 2026-09-05
 - Decision authority: Explicit user answers on IVs, battle-earned development and fixed natures
-- Implementation: Not started — traits and gym rules accepted; ADR-0018 selects focus and training boundaries; gym reward form reopened in proposed ADR-0019
+- Implementation: Not started — traits and gym rules accepted; ADR-0018 selects focus and training boundaries; ADR-0019 accepts extra capacity plus learned Pokémon passives
 - Supersedes: None
 - Superseded by: None
 
@@ -29,7 +29,7 @@ Exact IV distributions, safeguards, improvement access and costs remain open. As
 - Incentivise continued use of individual Pokémon while avoiding excessive penalties for frequent switching.
 - Progression must be clear and understandable, with predictable rewards; it should not feel tedious or random.
 
-ADR-0018 selects automatic focus allocation and all eight leaders contributing separately; its earlier gym-budget choice is now under review in proposed ADR-0019. Numerical rewards, focus definitions and ordinary battle-training credit remain open. Random starting IVs and deterministic training progression are distinct choices.
+ADR-0018 selects automatic focus allocation and all eight leaders contributing separately. ADR-0019 confirms retaining extra gym capacity alongside learned Pokémon passives. Numerical rewards, focus definitions and ordinary battle-training credit remain open. Random starting IVs and deterministic training progression are distinct choices.
 
 ### Gym rewards and rematches
 
@@ -50,15 +50,15 @@ Surviving support Pokémon can qualify. A participant that helps win but faints 
 
 Use the existing hidden-stat information boundary in [ADR-0009](0009-vgc-style-ai-information.md). Do not automatically reveal new training allocations or exact bonuses to boss AI. Public training-history fields, if any, need an explicit mapping.
 
-## Training direction and reopened gym rewards
+## Training direction and supplemental gym passives
 
 [ADR-0018](0018-gym-training-budget-and-focus.md) now records the selected direction:
-- The previously selected extra gym budget is under review in [proposed ADR-0019](0019-gym-resistances-and-capabilities.md), following the user's resistance/capability suggestion.
+- Retain the extra gym budget alongside modest Pokémon-earned passives in [ADR-0019](0019-gym-resistances-and-capabilities.md); use three capacity slots, with capabilities costing one, two or three slots and optionally combining benefits and drawbacks.
 - The player chooses a focus and earned points are allocated automatically.
 - Full gym development requires all eight distinct leader rewards per Pokémon. Each contribution counts once and can be earned through the original battle or a qualifying rematch.
 - Joining late does not prevent earning the same set of gym contributions.
 
-Gym reward form is now reopened. Point-to-stat conversion, numerical caps and initial focus choices remain open. Established focus changes unlock later through a limited rare item or challenge, with instant redistribution once earned. Show eligibility, earned and missing gym contributions, and focus effects clearly.
+The gym reward direction now combines extra capacity and learned Pokémon passives. Point-to-stat conversion, numerical caps and initial focus choices remain open. Established focus changes unlock later through a limited rare item or challenge, with instant redistribution once earned. Show eligibility, earned and missing gym contributions, and focus effects clearly.
 
 ## Alternatives and tradeoffs
 
@@ -68,7 +68,7 @@ Gym reward form is now reopened. Point-to-stat conversion, numerical caps and in
 - Cosmetic records alone: can supplement development but do not meet the requested same-level gameplay benefit.
 - Final-knockout-only and party-wide credit were considered. The user selected field participation plus survival in a won encounter, including surviving support Pokémon but excluding unused reserves and fainted participants.
 
-Automatic focus allocation remains selected in ADR-0018; its extra gym-budget choice is under review in ADR-0019. Numerical formulas and remaining progression details are open. Gym eligibility and progression-appropriate rematches remain as stated above.
+Automatic focus allocation and extra gym capacity remain selected in ADR-0018; ADR-0019 supplements them with individual passive effects. Numerical formulas and remaining progression details are open. Gym eligibility and progression-appropriate rematches remain as stated above.
 
 ## Evidence and validation
 
@@ -94,7 +94,7 @@ No code, battle simulation or timing results exist. Once a mechanism is selected
 
 ## Follow-up
 
-Follow ADR-0018 for allocation and earned focus changes, ADR-0017 for team continuity, and proposed ADR-0019 for the reopened gym-reward discussion. Resolve reward form, numerical limits, access and pacing before implementing the progression mechanism. Accepted policies do not establish tested game balance.
+Follow ADR-0018 for allocation and earned focus changes, ADR-0017 for team continuity, and ADR-0019 for individual passive rewards and the still-proposed trainer-wide badge effects. Resolve numerical limits, concrete effects, access and pacing before implementing the progression mechanism. Accepted policies do not establish tested game balance.
 
 ## Proposal history — 2026-09-05, gym rematches
 
@@ -110,4 +110,4 @@ The user selected limited extra gym training capacity, automatic allocation thro
 
 ## Clarification — 2026-09-05, focus access and gym reward proposal
 
-The user selected later-game earned focus changes with instant redistribution, and additional ordinary training after levelling. Those choices are recorded in ADR-0018. Partial type resistance or a unique capability is proposed as an alternative gym reward in ADR-0019; it is not yet an approved effect or replacement model.
+The user selected later-game earned focus changes with instant redistribution, and additional ordinary training after levelling. Those choices are recorded in ADR-0018. At that stage, partial resistance or a unique capability was proposed in ADR-0019. The later resolution retains capacity and adds modest individual passive capabilities, with the user's amended three-slot capacity model. Elite Four and other notable encounters may also grant capabilities; trainer-wide badge passives remain proposed.

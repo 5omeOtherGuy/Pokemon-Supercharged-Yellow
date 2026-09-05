@@ -25,6 +25,7 @@ ADRs preserve why consequential choices were made. This directory covers softwar
 | [0017](0017-trusted-core-and-boss-mastery.md) | Encourage a trusted core with rotating specialists and retain boss mastery | Accepted |
 | [0018](0018-gym-training-budget-and-focus.md) | Unlock gym training budgets and allocate development through a focus | Accepted |
 | [0019](0019-gym-resistances-and-capabilities.md) | Combine gym training capacity with earned Pokémon capability slots | Accepted |
+| [0020](0020-badge-passives-and-trainer-progression.md) | Retain badge benefits and give trainers progression consistent with their experience | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 

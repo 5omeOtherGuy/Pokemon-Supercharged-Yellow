@@ -94,7 +94,7 @@ No code, battle simulation or timing results exist. Once a mechanism is selected
 
 ## Follow-up
 
-Follow ADR-0018 for allocation and earned focus changes, ADR-0017 for team continuity, and ADR-0019 for individual passive rewards and the still-proposed trainer-wide badge effects. Resolve numerical limits, concrete effects, access and pacing before implementing the progression mechanism. Accepted policies do not establish tested game balance.
+Follow ADR-0018 for allocation and earned focus changes, ADR-0017 for team continuity, ADR-0019 for fixed individual capability rewards, and ADR-0020 for trainer-wide badge scope and selective opponent capability use. Resolve numerical limits, concrete effects, access and pacing before implementing the progression mechanism. Accepted policies do not establish tested game balance.
 
 ## Proposal history — 2026-09-05, gym rematches
 
@@ -110,7 +110,7 @@ The user selected limited extra gym training capacity, automatic allocation thro
 
 ## Clarification — 2026-09-05, focus access and gym reward proposal
 
-The user selected later-game earned focus changes with instant redistribution, and additional ordinary training after levelling. Those choices are recorded in ADR-0018. At that stage, partial resistance or a unique capability was proposed in ADR-0019. The later resolution retains capacity and adds modest individual passive capabilities, with the user's amended three-slot capacity model. Elite Four and other notable encounters may also grant capabilities; trainer-wide badge passives remain proposed.
+The user selected later-game earned focus changes with instant redistribution, and additional ordinary training after levelling. Those choices are recorded in ADR-0018. At that stage, partial resistance or a unique capability was proposed in ADR-0019. The later resolution retains capacity and adds modest individual passive capabilities, with the user's amended three-slot capacity model. Elite Four and other notable encounters may also grant capabilities; trainer-wide badge scope is subsequently accepted in ADR-0020, with exact effects open.
 
 ## Clarification — 2026-09-05, capability reassignment and credit
 

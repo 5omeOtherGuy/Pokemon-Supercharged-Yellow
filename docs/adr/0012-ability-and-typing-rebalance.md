@@ -68,4 +68,4 @@ The user's follow-up endorses Fairy for its fit with familiar Pokémon and the i
 
 ## Clarification — 2026-09-05, separate learned passives
 
-[ADR-0019](0019-gym-resistances-and-capabilities.md) explicitly permits designing Pokémon-earned passive capabilities in addition to gym training capacity. This extends the project's development systems without replacing the existing-official-ability policy for innate assignments. Exact effects and interactions remain open; trainer-wide badge passives are proposed only.
+[ADR-0019](0019-gym-resistances-and-capabilities.md) explicitly permits designing Pokémon-earned passive capabilities in addition to gym training capacity. This extends the project's development systems without replacing the existing-official-ability policy for innate assignments. Exact effects and interactions remain open; ADR-0020 subsequently accepts trainer-wide badge scope, with exact effects still open.

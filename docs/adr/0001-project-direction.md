@@ -48,7 +48,7 @@ No implementation or gameplay validation has occurred.
 - Engine/upstream project and exact mechanics baseline.
 - Starting Pokémon and which Yellow-specific events or presentation to reproduce.
 - Level-cap values, unlock milestones and enforcement behavior.
-- IV safeguards and improvement access; training numbers, earned focus-change access and rematch access within ADRs 0016 and 0018; ADR-0019 selects extra capacity plus individual passives, while trainer-wide badge effects remain proposed. Random improvable IVs, fixed acquired natures and gym eligibility/rematch rules are selected. ADR-0017 selects a trusted core with rotating specialists.
+- IV safeguards and improvement access; training numbers, earned focus-change access and rematch access within ADRs 0016 and 0018; ADR-0019 selects extra capacity plus individual passives, with trainer-wide badge scope and selective opponent progression now accepted in ADR-0020; exact badge effects remain open. Random improvable IVs, fixed acquired natures and gym eligibility/rematch rules are selected. ADR-0017 selects a trusted core with rotating specialists.
 - Numerical category limits (delegated to testing), remaining consumable scope/action rules and detailed AI information mapping beyond ADR-0009.
 - Specific singles/doubles boss assignments and team sizes within ADR-0010; individual move choices and behavior within ADR-0011.
 - Speed presets, animation/audio behavior and other specific QoL features.
@@ -116,8 +116,12 @@ Focus changes unlock later through a limited rare item or a challenge, not money
 
 ## Clarification — 2026-09-05, capacity and individual passives
 
-The user selected both extra gym training capacity and modest learned Pokémon passives with skill-tree or held-item-like character. [ADR-0019](0019-gym-resistances-and-capabilities.md) accepts the user's amended three-slot capacity with capability costs of one, two or three. Capabilities may have benefits and drawbacks and may be earned from gyms, Elite Four and other notable encounters; precise effects remain open; non-gym eligibility is resolved in the later clarification below. This explicitly adds role customisation to the earlier restrained scope. Trainer-wide badge passives applying to all used Pokémon were suggested as a possibility and remain proposed.
+The user selected both extra gym training capacity and modest learned Pokémon passives with skill-tree or held-item-like character. [ADR-0019](0019-gym-resistances-and-capabilities.md) accepts the user's amended three-slot capacity with capability costs of one, two or three. Capabilities may have benefits and drawbacks and may be earned from gyms, Elite Four and other notable encounters; precise effects remain open; non-gym eligibility is resolved in the later clarification below. This explicitly adds role customisation to the earlier restrained scope. Trainer-wide badge passives were suggested as a possibility at that stage; their later scope decision is recorded below.
 
 ## Clarification — 2026-09-05, capability services and eligibility
 
 [ADR-0019](0019-gym-resistances-and-capabilities.md) now fixes free capability reassignment at Pokémon Centers or designated services only, keeps the normal held-item slot separate, and applies field participation, no fainting and encounter victory to all capability rewards, including Elite Four and other notable encounters. Earned later-game focus changes remain a distinct restriction; this does not grant free stat redistribution.
+
+## Clarification — 2026-09-05, fixed capability rewards and badge scope
+
+ADR-0019 now fixes one capability per granting encounter, identical for every qualifying Pokémon. [ADR-0020](0020-badge-passives-and-trainer-progression.md) accepts intended existing badge benefits plus modest combat passives and selective capability use by major bosses and experienced trainers. Slot use must fit experience and story; full loadouts are not the norm, and the player's League accomplishment should matter. The badge reference, exact effects and loadouts remain open.

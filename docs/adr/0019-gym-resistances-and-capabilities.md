@@ -3,7 +3,7 @@
 - Status: Accepted
 - Date: 2026-09-05
 - Decision authority: Explicit user answers on combined rewards, three-slot capability capacity, expanded sources, service-only reassignment, separate held items and universal encounter eligibility
-- Implementation: Not started — Pokémon passive direction accepted; trainer-wide passives remain proposed
+- Implementation: Not started — Pokémon capabilities and fixed encounter rewards accepted; trainer-wide scope accepted in ADR-0020
 - Supersedes: None
 - Superseded by: None
 
@@ -15,7 +15,7 @@ The user initially considered partial type resistance or a unique capability ins
 
 - Retain the limited extra gym training capacity in [ADR-0018](0018-gym-training-budget-and-focus.md).
 - Add modest Pokémon-earned passive capabilities that support further customisation, individual roles and a deeper roleplaying experience.
-- Treat skill-tree passives and held-item effects as design references. This does not yet choose a branching tree, a particular item effect or a full held item's power.
+- Treat skill-tree passives and held-item effects as design references. No branching reward choice is selected: each granting encounter has one fixed capability, the same for every qualifying Pokémon. Particular effects and their power remain open.
 - Each Pokémon has three capacity slots for assigned earned passive capabilities. Each capability costs exactly one, two or three slots; the sum of assigned costs must not exceed three.
 - Valid full-capacity combinations are 1+1+1, 2+1 and 3. Partial use is allowed; three slots are a capacity limit, not a requirement to assign three capabilities or unlock a second/third slot later.
 - A capability may combine positive and negative effects. A drawback does not create extra capacity or a negative slot cost.
@@ -23,9 +23,10 @@ The user initially considered partial type resistance or a unique capability ins
 - Apply the same eligibility at all these sources: the player wins the encounter, the Pokémon entered the field, and it never fainted during that battle. Switched-out survivors and surviving support participants qualify; unused reserves and fainted participants do not.
 - Keep the normal held-item slot in addition to the three capability slots. An ordinary held item does not consume capability capacity.
 - Assigned earned capabilities can be changed freely, without a resource cost, but only at a Pokémon Center or designated service. Do not provide unrestricted reassignment elsewhere or during battle. This changes assignments among already earned capabilities; it does not grant unearned capabilities.
+- Each capability-granting encounter awards one fixed capability, identical for every qualifying Pokémon; there is no species-specific variant or choice of reward at that encounter.
 - Each of the eight leaders contributes a distinct reward. Progression-appropriate rematches let a recruit earn the same rewards; duplicate wins do not replace other leaders' contributions.
 
-All eight leader rewards define full gym-related development, not the complete collection of capabilities from every encounter. The capacity limit means earning additional capabilities expands available choices rather than activating all of them together. Exact reward choices and whether learning involves branches remain open. Expanded capability sources do not automatically grant extra training-budget increments beyond the eight gyms.
+All eight leader rewards define full gym-related development, not the complete collection of capabilities from every encounter. The capacity limit means earning additional capabilities expands available choices rather than activating all of them together. Reward identity is fixed per encounter; player customisation comes from assigning already earned capabilities within capacity. Expanded capability sources do not automatically grant extra training-budget increments beyond the eight gyms.
 
 This supplements ADR-0018; it does not supersede it. The earlier extra-budget review is resolved in favour of retaining that budget.
 
@@ -39,13 +40,13 @@ The standard modern type chart remains selected. Blanket partial resistance is n
 
 Focus changes still require earned later-game access and instantly redistribute training points once earned. Capability reassignment instead follows the free, service-only rule above. Keep these two actions and their explanations distinct.
 
-## Proposed trainer-wide badge passives — not accepted
+## Trainer-wide badge passives and opponents
 
-The user suggested that gym badges may also provide trainer passives applying to all Pokémon they use. This would be a trainer-owned progression track, separate from the individually earned Pokémon rewards.
+[ADR-0020](0020-badge-passives-and-trainer-progression.md) now accepts preserving the intended existing badge benefits and adding modest trainer-wide passive combat benefits. The exact reference and effects remain open.
 
-If adopted, a newly recruited Pokémon could benefit from its trainer's existing badge effects without having personally won those gym battles. That does not grant the recruit its individual gym reward or waive participation/survival eligibility for that reward.
+Trainer-owned effects apply separately from personally earned capabilities. A recruit does not gain an individual gym reward merely because its trainer holds the badge.
 
-Inclusion, effect domain (battle, training or exploration), acquisition rules, simultaneous effects and opponent equivalents remain unresolved. Do not treat this proposed track as approved because the Pokémon-passive policy is Accepted.
+Major bosses and selected experienced trainers may use capabilities within the same capacity limit. Teams and individuals need not fill all slots. Progression must fit trainer experience and story; ADR-0020 records the player's accomplishment goal and local ace example.
 
 ## Alternatives considered
 
@@ -53,17 +54,18 @@ Inclusion, effect domain (battle, training or exploration), acquisition rules, s
 - Primarily small type-damage reductions: not selected as the principal reward design.
 - All earned Pokémon effects active at once: not selected.
 - A fixed one-or-two active-effect limit: discussed initially, then replaced by the user's three-slot model before commitment.
-- Trainer-wide effects: user-proposed, pending clarification.
+- Trainer-wide effects: originally proposed, now accepted in scope through ADR-0020.
+- Reward selection or species-specific variants: not selected; use one fixed capability per granting encounter.
 
 ## Consequences
 
-Evaluate the complete Pokémon: base stats, IVs, fixed nature, earned training, innate ability, held item and active learned passives. Compare interaction strength, not only the value of an effect by itself. Any proposed trainer-wide bonus adds another layer to assess.
+Evaluate the complete Pokémon: base stats, IVs, fixed nature, earned training, innate ability, held item and active learned passives. Compare interaction strength, not only the value of an effect by itself. The trainer-wide bonuses accepted in ADR-0020 add another layer to assess.
 
 Preserve species identity and weaknesses while creating meaningful choices. Examples such as status protection or defensive triggers remain unapproved design candidates, not assigned rewards.
 
 Price and assess combinations, not only isolated effects. Evaluate whether a supposed drawback is a meaningful cost for the build using it; do not assume a nominal penalty necessarily offsets a strong benefit.
 
-A normal held item coexists with the capability loadout, and reassignment is free only at the selected service locations. Exact effect interactions and reward choices within each encounter still need decisions. Define scouting and AI visibility for battle-relevant passives; existing hidden-stat protections do not automatically hide or disclose the new capability fields.
+A normal held item coexists with the capability loadout, and reassignment is free only at the selected service locations. Exact effects and interactions still need decisions; each encounter's reward is fixed for all qualifying Pokémon. Define scouting and AI visibility for battle-relevant passives; existing hidden-stat protections do not automatically hide or disclose the new capability fields.
 
 ## Evidence and validation
 
@@ -75,23 +77,27 @@ No game implementation or balance results exist. Future validation should cover 
 
 - Individual capability costs within the selected one-to-three-slot range, effects and drawbacks.
 - Detailed effect stacking and interactions with held items and innate abilities; the separate normal held-item slot is selected.
-- Fixed encounter rewards versus choices or branches within each source.
+- Exact identity of the single fixed capability granted by each source.
 - Repeat access for missed Elite Four or other notable-encounter capabilities; participation, survival and victory requirements are selected.
 - Designated service locations and access timing, including capability reassignment during an Elite Four sequence.
-- Trainer-wide badge passive inclusion and scope.
-- Concrete effects, magnitudes, stacking rules and opponent equivalents.
+- Exact trainer-wide badge effects, reference behavior and activation policy within ADR-0020.
+- Concrete effects, magnitudes, stacking rules and individual opponent loadouts under ADR-0020.
 - Public information fields for boss scouting and AI.
 
 ## Follow-up
 
-Clarify trainer-wide scope, opponent capability use and reward choices per encounter. Then draft representative one-, two- and three-slot capabilities and assess their combinations alongside held items and the retained training budget.
+Follow ADR-0020 for trainer-wide scope and opponent use. Draft representative one-, two- and three-slot fixed capability rewards and assess their combinations alongside held items, badge passives and the retained training budget.
 
 ## Decision history — 2026-09-05
 
-Initially Proposed to compare partial resistance and capabilities and to review replacing the training budget. Updated to Accepted after the user selected both capacity and individual passive effects, then amended the concurrent limit to three slots with costs of one, two or three. Optional drawbacks and expanded encounter sources are accepted. The earlier one-or-two-effect count was never committed as the final rule. Trainer-wide badge effects remain a proposal; no particular effect or numerical power value is selected.
+Initially Proposed to compare partial resistance and capabilities and to review replacing the training budget. Updated to Accepted after the user selected both capacity and individual passive effects, then amended the concurrent limit to three slots with costs of one, two or three. Optional drawbacks and expanded encounter sources are accepted. The earlier one-or-two-effect count was never committed as the final rule. Trainer-wide badge effects were still a proposal at that stage; ADR-0020 later accepts their scope. No particular effect or numerical power value was selected by that earlier decision.
 
 ## Clarification — 2026-09-05, service reassignment and shared eligibility
 
 The user selected free capability reassignment only at a Pokémon Center or designated service, retention of the normal held-item slot in addition to capability capacity, and the same participation/no-fainting/team-victory eligibility for Elite Four and other notable encounters as for gyms. Ordinary battle experience and training-credit rules are not automatically changed.
 
 Future verification should distinguish focus changes from capability reassignment; reject reassignment outside permitted services and in battle; preserve earned capabilities when unassigned; and enforce the same reward eligibility at every capability-granting encounter. No implementation or runtime tests have occurred.
+
+## Clarification — 2026-09-05, fixed rewards and selective opponent use
+
+The user selected one fixed capability per granting encounter, identical for all qualifying Pokémon. ADR-0020 accepts intended existing badge benefits plus modest combat passives, and major bosses/selected experienced trainers using capabilities with incomplete loadouts where appropriate. Progression must fit trainer experience and preserve the player's sense of accomplishment.

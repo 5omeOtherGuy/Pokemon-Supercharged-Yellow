@@ -14,7 +14,7 @@ The repository contains governance and design documentation only. No engine has 
 - A trusted core with rotating specialists, substantial preparation and repeated attempts to master major bosses. See [experience target](docs/adr/0017-trusted-core-and-boss-mastery.md) and [levelling](docs/adr/0006-substantial-levelling-investment.md).
 - Individual traits, permanent battle training, earned Pokémon capabilities and separate trainer builds. See the [progression ownership map](docs/adr/README.md#progression-ownership).
 - Full boss scouting, bounded AI information, preselected limited consumables and retained loss costs. See [information and supplies](docs/adr/README.md#current-decision-map).
-- Substantial singles and doubles content with Set rules; curated cross-generation moves, justified ability/typing changes, Fairy and the standard modern chart. See the [rules and balance records](docs/adr/README.md#current-decision-map).
+- Substantial singles and doubles content with Set rules; curated cross-generation moves including weather and terrain, justified ability/typing changes, Fairy and the standard modern chart. See the [rules and balance records](docs/adr/README.md#current-decision-map).
 - One initial difficulty, level caps, physical/special split, restrained customisation and adjustable battle speed. See the [project charter](docs/adr/0001-project-direction.md).
 
 Accepted records describe decisions, not implemented or tested features. Specific effects, numerical balance and several product boundaries remain open in the owning records.

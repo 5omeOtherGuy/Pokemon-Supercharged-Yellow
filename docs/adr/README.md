@@ -15,7 +15,7 @@ Read the owning records for complete rules, authority and open questions. This m
 | Main-campaign roster; team continuity and boss mastery | [0004](0004-original-151-roster.md); [0017](0017-trusted-core-and-boss-mastery.md) |
 | Levelling and total preparation | [0006](0006-substantial-levelling-investment.md) |
 | Boss scouting; consumables and loss costs; AI information | [0007](0007-full-boss-scouting.md); [0008](0008-consumable-loadouts-and-loss-costs.md); [0009](0009-vgc-style-ai-information.md) |
-| Battle formats/Set; move curation | [0010](0010-mixed-battles-and-set-rules.md); [0011](0011-curated-moves-across-generations.md) |
+| Battle formats/Set; move curation including weather and terrain | [0010](0010-mixed-battles-and-set-rules.md); [0011](0011-curated-moves-across-generations.md) |
 | Innate abilities/typings; Fairy; type viability; chart/stat boundaries | [0012](0012-ability-and-typing-rebalance.md); [0013](0013-fairy-type-evaluation.md); [0014](0014-type-identity-and-campaign-viability.md); [0015](0015-standard-chart-and-stat-rebalance.md) |
 | Individual traits, development goals and rematch difficulty | [0016](0016-individual-traits-and-battle-training.md) |
 | Pokémon capabilities; trainer builds/reward ownership/NPC progression; stat training | [0019](0019-gym-resistances-and-capabilities.md); [0021](0021-trainer-builds-and-reward-ownership.md); [0023](0023-badge-wide-training-ceilings.md) |

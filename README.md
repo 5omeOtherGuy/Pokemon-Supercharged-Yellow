@@ -16,13 +16,15 @@ Project governance is established. No engine has been selected or imported, no g
 - Preselected battle consumables with one campaign-wide allowance and separate category limits, their numbers chosen through testing; boss defeats cost money and spent consumables.
 - Mixed-category battle supplies are excluded. Both player and boss see each other's complete selected supplies and quantities.
 - Player supplies allow HP healing, status cures, PP restoration and temporary stat boosters, but no revives. Only opposing major bosses use bag consumables, with the same maximum as the player.
+- A substantial mix of singles and doubles, with major bosses in both; Set rules throughout trainer battles.
+- Carefully selected moves from any generation that fit Pokémon identity and balance.
 - One initial difficulty setting.
 - Level caps.
 - Physical/special split.
 - Restrained player customisation and useful quality-of-life improvements, especially adjustable battle speed.
 - Challenging encounters and well-designed Pokémon without making every species equally strong or viable.
 
-See [ADR-0001](docs/adr/0001-project-direction.md) for the initial scope, [ADR-0004](docs/adr/0004-original-151-roster.md) for the roster boundary, and [ADR-0005](docs/adr/0005-team-rotation-and-boss-mastery.md) for team rotation and boss mastery. [ADRs 0006–0008](docs/adr/README.md) define levelling, scouting and consumable/loss policies. [ADR-0009](docs/adr/0009-vgc-style-ai-information.md) defines the boss AI information standard. Detailed implementation remains open; numerical category limits and the overall quota are delegated to balance testing.
+See [ADR-0001](docs/adr/0001-project-direction.md) for the initial scope, [ADR-0004](docs/adr/0004-original-151-roster.md) for the roster boundary, and [ADR-0005](docs/adr/0005-team-rotation-and-boss-mastery.md) for team rotation and boss mastery. [ADRs 0006–0008](docs/adr/README.md) define levelling, scouting and consumable/loss policies. [ADR-0009](docs/adr/0009-vgc-style-ai-information.md) defines the boss AI information standard. [ADRs 0010–0011](docs/adr/README.md) define mixed battle formats, Set rules and cross-generation move curation. Detailed implementation remains open; numerical category limits and the overall quota are delegated to balance testing.
 
 ## Working in this repository
 

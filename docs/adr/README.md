@@ -15,6 +15,8 @@ ADRs preserve why consequential choices were made. This directory covers softwar
 | [0007](0007-full-boss-scouting.md) | Provide full boss team scouting before the first attempt | Accepted |
 | [0008](0008-consumable-loadouts-and-loss-costs.md) | Preselect limited battle consumables and retain loss costs | Accepted |
 | [0009](0009-vgc-style-ai-information.md) | Use VGC-style opponent information for boss AI | Accepted |
+| [0010](0010-mixed-battles-and-set-rules.md) | Use substantial singles and doubles content with Set rules | Accepted |
+| [0011](0011-curated-moves-across-generations.md) | Curate moves from any generation for the original 151 | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 

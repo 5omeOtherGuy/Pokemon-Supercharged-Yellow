@@ -13,7 +13,7 @@ These instructions apply throughout this repository. Read any more specific AGEN
 
 Build a familiar Kanto adventure with substantially greater strategic depth and challenge. Preserve Pokémon identities and the atmosphere remembered from childhood. The StarCraft II balance-team comparison describes a quality ambition, not an affiliation or evidence of balance.
 
-The authoritative initial requirements are in ADR-0001, with refinements in accepted ADRs 0004–0009. In particular:
+The authoritative initial requirements are in ADR-0001, with refinements in accepted ADRs 0004–0011. In particular:
 - Main-campaign species are restricted to the original 151; forms and postgame scope remain open.
 - Frequent team rebuilding and repeated attempts to master major bosses are intended for the target returning player. Do not impose forced losses or mandatory team changes.
 - Levelling a newly caught Pokémon to the cap should normally require substantial training (roughly 20–30 minutes or more); preparation systems and reference speed remain open.
@@ -22,13 +22,15 @@ The authoritative initial requirements are in ADR-0001, with refinements in acce
 - Boss defeats cost money and spent consumables. Non-held battle consumables have one fixed campaign-wide, preselected allowance; choose its number through balance testing, not the earlier example of three.
 - Player battle supplies may include HP healing, status cures, PP restoration and temporary stat boosters; revives are excluded. Only major bosses among opposing trainers use bag consumables, with the same maximum as the player.
 - Consumable duplicates are restricted by functional category; determine separate numerical caps through balance testing. Exclude items combining categories from preselected battle supplies. Both sides see each other's complete selected consumables and quantities; pending item-use actions stay private.
+- Use a substantial campaign mix of singles and doubles, including major bosses in both. Use Set rules throughout trainer battles; no free Shift-style switch after an opposing knockout.
+- Curate moves from any generation when they fit the original 151's identities and campaign balance. This does not import every move or settle move versions, abilities, typings or forms.
 - Physical/special split is required.
 - Launch with one difficulty setting and level caps.
 - Keep player-facing customisation restrained; adjustable battle speed and useful QoL are required.
 - Pokémon need meaningful strengths, weaknesses and roles; equal power or universal viability is not the goal.
 - Recharged Yellow is inspiration, not a source-code dependency.
 
-Do not silently adopt earlier assistant suggestions as requirements. Engine choice, forms/postgame roster, exact mechanics generation, cap values, IV/EV/nature policy, Set mode, remaining consumable selection/scope details, training/scouting implementation, starters, Yellow-specific events, speed presets and prototype boundaries remain unresolved.
+Do not silently adopt earlier assistant suggestions as requirements. Engine choice, forms/postgame roster, exact mechanics generation, cap values, IV/EV/nature policy, detailed battle-format assignments, remaining consumable selection/scope details, training/scouting implementation, starters, Yellow-specific events, speed presets and prototype boundaries remain unresolved.
 
 ## Ownership and changes
 

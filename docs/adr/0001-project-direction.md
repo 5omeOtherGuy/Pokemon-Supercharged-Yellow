@@ -49,7 +49,8 @@ No implementation or gameplay validation has occurred.
 - Starting Pokémon and which Yellow-specific events or presentation to reproduce.
 - Level-cap values, unlock milestones and enforcement behavior.
 - IVs, EVs, nature handling and team-preparation systems.
-- Set mode, numerical category limits, mixed-effect consumables, battle scope and detailed AI information mapping beyond ADR-0009.
+- Numerical category limits (delegated to testing), remaining consumable scope/action rules and detailed AI information mapping beyond ADR-0009.
+- Specific singles/doubles boss assignments and team sizes within ADR-0010; individual move choices and behavior within ADR-0011.
 - Speed presets, animation/audio behavior and other specific QoL features.
 - Initial playable milestone, postgame scope and supported release targets.
 
@@ -72,3 +73,7 @@ The user selected substantial levelling investment ([ADR-0006](0006-substantial-
 ## Clarification — 2026-09-05, design interview round 4
 
 The user chose category-based consumable duplicate limits, full boss bag-loadout visibility, and official VGC tournament information for boss AI. See [ADR-0008](0008-consumable-loadouts-and-loss-costs.md), [ADR-0007](0007-full-boss-scouting.md) and [ADR-0009](0009-vgc-style-ai-information.md). Exact category caps and campaign-specific information extensions remain open; these choices do not select the battle format.
+
+## Clarification — 2026-09-05, design interview rounds 5–6
+
+Round 5 resolved category-limit tuning, exclusion of mixed-category battle supplies and mutual consumable-loadout visibility in ADRs 0008–0009. Round 6 accepts a substantial mix of singles and doubles with major bosses in both, Set rules throughout trainer battles ([ADR-0010](0010-mixed-battles-and-set-rules.md)), and carefully selected moves from any generation ([ADR-0011](0011-curated-moves-across-generations.md)). These do not select a mechanics generation, exact boss formats, abilities, typings or alternate forms. Implementation remains unstarted.

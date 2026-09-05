@@ -6,7 +6,7 @@ Reviewed base: [`66c17faf1292626ae5f0ec70531aaf1b2a871ec1`](https://github.com/5
 
 The audit changed no ADR status or product decision. At its completion there were **18 Accepted, 2 Proposed and 4 Superseded** records. “Accepted” is decision status, not implementation or validation status.
 
-**Subsequent resolution — 2026-09-05:** [ADR-0025](adr/0025-android-emulation-platform.md) now resolves the platform portion of F5: Android emulator play is required, GBA and NDS are eligible, and original-console hardware support is not required. The audit counts and coverage in this report describe the original review; Yellow-specific content, inherited badge benefits and passive disclosure remain open.
+**Subsequent resolutions — 2026-09-05:** [ADR-0025](adr/0025-android-emulation-platform.md) resolves the platform portion of F5; [ADR-0026](adr/0026-yellow-kanto-content-baseline.md) resolves its content baseline, including Pikachu as starter and Kanto polish without a current Sevii Islands plan. F5 is resolved sufficiently for foundation investigation. The audit counts and coverage in this report describe the original review; inherited badge benefits and passive disclosure remain open.
 
 ## Coverage
 
@@ -73,7 +73,7 @@ This supports the existing field/exact-stat distinction. The nature/stat-alignme
 
 Recommended resolution: identify required play targets and essential Yellow elements, distinguishing requirements from nice-to-have content. Candidate source inspection and reuse/toolchain research can proceed now; final foundation selection should use those answers. The suggested Brock/Misty slice remains unaccepted, and postgame roster/content remain open.
 
-Follow-up: ADR-0025 resolves play targets and hardware scope. Essential Yellow elements remain the owner decision in this finding; source selection remains an engineering investigation.
+Follow-up disposition: **Resolved by user decisions in ADRs 0025–0026.** Android play targets are established. The content baseline is FireRed/LeafGreen's Kanto map with necessary Yellow adaptations, using Recharged Yellow as the reference hack. Detailed reference inventory and source selection remain engineering investigation; the first playable milestone remains unselected.
 
 ### F6. “Existing badge benefits” lacks a reference
 
@@ -121,9 +121,10 @@ Recommend comparing poor allowed traits, typical role-focused builds and the str
 
 Resolve these in dependency order; no answer is needed to finish this documentation review.
 
-1. **Before selecting the foundation:** essential Yellow presentation/starter/event requirements (F5). Platform scope is now resolved by ADR-0025; exact Android validation configurations can follow candidate investigation.
-2. **Before implementing badge effects:** intended reference game/version or exact inherited benefits (F6).
-3. **Before implementing passive-aware scouting/AI:** accept or revise ADR-0024's reciprocal active-effect disclosure (F7).
+1. **Before implementing badge effects:** intended reference game/version or exact inherited benefits (F6).
+2. **Before implementing passive-aware scouting/AI:** accept or revise ADR-0024's reciprocal active-effect disclosure (F7).
+
+F5's platform and principal content decisions are resolved by ADRs 0025–0026. Exact Android validation configurations and the detailed Yellow reference inventory can follow candidate investigation.
 
 The first playable boundary should be chosen after the foundation comparison makes cost concrete. Brock/Misty is a candidate, not a commitment. Prepare F8's remaining battle-scope choices with that slice; do not turn postgame, numerical budgets or every implementation detail into another interview now.
 

@@ -42,7 +42,7 @@ Future validation should audit all campaign acquisition and opponent-team paths 
 
 - Other battle-system mechanics, if proposed, need separate decisions; regional variants and Mega Evolution are excluded from the main campaign.
 - Postgame roster scope.
-- Encounter distribution, starter access and legendary timing.
+- Specific encounter distribution, access to other starters and legendary timing; ADR-0026 selects Pikachu as the starting Pokémon.
 
 ## Follow-up
 
@@ -51,3 +51,7 @@ Resolve campaign availability before encounter design; the original-form boundar
 ## Clarification — 2026-09-05, design interview round 7
 
 The user selected: original forms only, with no regional variants or Mega Evolutions in the main campaign. This resolves the previously open form choice. The species restriction and open postgame scope remain unchanged; ordinary evolution among eligible original species is not removed by this clarification. Verify all player-access and trainer paths against the form boundary when an engine exists.
+
+## Clarification — 2026-09-05, Yellow content baseline
+
+[ADR-0026](0026-yellow-kanto-content-baseline.md) selects Pikachu as starter and permits wild encounter changes while preferring fidelity to Yellow where practical. It prioritises Kanto polish with no current Sevii Islands plan. The species/form boundary remains unchanged; other starter acquisition and future postgame roster remain open.

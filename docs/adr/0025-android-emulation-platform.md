@@ -44,8 +44,10 @@ Future validation must document a tested Android device/OS and emulator/core ver
 
 - Foundation/base game selection and evidence for comparative development effort.
 - Exact Android validation targets and acceptable performance, to be established with a candidate build.
-- Essential Yellow presentation, starter and event requirements remain separate in ADR-0001.
+- Detailed Yellow content/reference inventory under the subsequently accepted ADR-0026; its principal content and Pikachu-starter requirements are resolved.
 
 ## Follow-up
 
-Apply these platform constraints during the source comparison. Continue the design discussion with essential Yellow elements; do not reopen platform choice merely because an existing candidate uses GBA.
+Apply these platform constraints together with [ADR-0026's content baseline](0026-yellow-kanto-content-baseline.md) during the source comparison. Do not reopen platform choice merely because an existing candidate uses GBA.
+
+Subsequent clarification, 2026-09-05: ADR-0026 resolves the principal Yellow content requirements without changing this platform policy.

@@ -9,6 +9,7 @@ The repository contains governance and design documentation only. No engine has 
 ## Design direction
 
 - Android emulator play is required; GBA and NDS foundations are eligible, and original-console hardware support is not required. See [platform requirements](docs/adr/0025-android-emulation-platform.md).
+- Use FireRed/LeafGreen's Kanto map and layout, adjusted where necessary to fit Yellow, with Pikachu as starter and Yellow's main encounters and plot anchors. Recharged Yellow is the reference hack. Trainer content can change substantially outside those anchors; wild encounters should remain familiar where practical. Polish Kanto before extras; no Sevii Islands are currently planned. See [content baseline](docs/adr/0026-yellow-kanto-content-baseline.md).
 - Original 151, original forms only in the main campaign; no regional variants or Mega Evolutions. See [roster](docs/adr/0004-original-151-roster.md).
 - A trusted core with rotating specialists, substantial preparation and repeated attempts to master major bosses. See [experience target](docs/adr/0017-trusted-core-and-boss-mastery.md) and [levelling](docs/adr/0006-substantial-levelling-investment.md).
 - Individual traits, permanent battle training, earned Pokémon capabilities and separate trainer builds. See the [progression ownership map](docs/adr/README.md#progression-ownership).
@@ -26,7 +27,7 @@ Accepted records describe decisions, not implemented or tested features. Specifi
 - [Design review](docs/design-review.md): audit of ADRs 0001–0024, fixes, remaining decisions and recommended next work; prepared against the [review brief](docs/design-review-brief.md).
 - [Foundation proposal](docs/adr/0003-source-foundation.md): a source audit, not an accepted engine choice.
 
-Documentation is ready for foundation investigation under the Android/GBA-or-NDS constraints in ADR-0025. Essential Yellow presentation requirements remain open before foundation selection; the first playable milestone remains unaccepted. The review separates those owner decisions from engineering investigations and balance testing.
+Documentation is ready for foundation investigation under the platform and content constraints in ADRs 0025–0026. The first playable milestone remains unaccepted. The review separates remaining owner decisions from engineering investigations and balance testing.
 
 ## Build and testing
 

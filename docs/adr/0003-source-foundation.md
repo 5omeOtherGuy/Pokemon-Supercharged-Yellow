@@ -19,6 +19,8 @@ Propose auditing the FireRed source ecosystem first, including pret/pokefirered,
 
 [ADR-0025](0025-android-emulation-platform.md) subsequently requires Android emulator play and explicitly permits NDS as well as GBA. Keep the named GBA projects as initial research leads, and assess NDS alternatives where they could reduce development effort while meeting the accepted requirements. Neither the user's GBA-ease expectation nor this shortlist selects a ROM platform.
 
+[ADR-0026](0026-yellow-kanto-content-baseline.md) now defines the content target: FireRed/LeafGreen's Kanto map/layout with necessary Yellow adaptations, Yellow's main encounters and plot anchors, and Pikachu as starter. Recharged Yellow is the reference hack, with no dependency on its source. Include the cost of that rendition and the accepted encounter changes in every candidate comparison. No Sevii Islands are currently planned.
+
 Select and pin a foundation only after inspecting the relevant code and reuse requirements, building it reproducibly and testing representative behavior. No candidate is selected by this ADR.
 
 ## Alternatives considered
@@ -53,7 +55,7 @@ No source foundation has been compiled, imported or tested in this project.
 - Work needed for milestone caps and battle-speed controls.
 - Extensibility for the accepted ruleset and progression systems; see the audit scope below.
 - Save behavior, toolchain requirements and test support.
-- Effort needed to reproduce desired Yellow elements.
+- Verified effort to deliver ADR-0026's Yellow/Kanto baseline, including the Pikachu start and required system access.
 
 ## Follow-up
 
@@ -68,7 +70,7 @@ No source foundation has been compiled, imported or tested in this project.
 
 The initial split/caps/speed shortlist predates the later progression decisions. Under the documentation-review task, expand the eventual engineering comparison to include:
 
-- Android emulator play under ADR-0025, with GBA and NDS both eligible and no original-hardware requirement. Minimum Yellow-specific content/presentation still needs clarification; see [review finding F5](../design-review.md#f5-platform-and-yellow-identity-remain-unconfirmed). The [intended badge reference](../design-review.md#f6-existing-badge-benefits-lacks-a-reference) also remains open.
+- Android emulator play under ADR-0025 and the Yellow/Kanto content baseline in ADR-0026. These resolve [review finding F5](../design-review.md#f5-platform-and-yellow-identity-remain-unconfirmed); the [intended badge reference](../design-review.md#f6-existing-badge-benefits-lacks-a-reference) remains open.
 - Both battle formats and Set rules; required move/ability/Fairy/chart support; acquisition, evolution and relearning paths for eligible original forms.
 - Permanent per-stat training at the level cap, trainer-wide badge ceilings, individual capability rewards and separate trainer budgets ([ownership map](README.md#progression-ownership)). Inspect battle-end eligibility and reward persistence rather than assuming standard EV machinery fits.
 - Preselected bag supplies and loss accounting, data-backed scouting and an AI observation boundary capable of handling custom effects. ADR-0024 remains a proposal for extra disclosure fields.
@@ -77,3 +79,5 @@ The initial split/caps/speed shortlist predates the later progression decisions.
 Record each capability as inspected, demonstrated, missing or unverified at a pinned revision. This is an investigation checklist, not a claim that any listed foundation supports it. Public-documentation claims above remain preliminary; this audit did not import or build an engine.
 
 Subsequent clarification, 2026-09-05: ADR-0025 settles the platform constraints and broadens candidate eligibility to NDS. Verify Android playability for the eventual candidate; current use of RetroArch/mGBA is not an exclusive emulator choice. This foundation proposal remains Proposed.
+
+Subsequent content clarification, 2026-09-05: ADR-0026 resolves the principal Yellow identity requirements. Detailed map/script comparison is engineering investigation; the owner need not choose a foundation or enumerate every familiar event before that work begins.

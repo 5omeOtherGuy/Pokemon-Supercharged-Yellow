@@ -47,7 +47,7 @@ Use the [ADR reading map](README.md#current-decision-map) for the canonical poli
 
 ## Open questions
 
-Still unresolved here: source foundation and exact Android device/emulator validation targets; starter access and Yellow-specific events/presentation; level-cap values and enforcement; speed presets and other QoL; the first playable milestone and postgame scope. [ADR-0025](0025-android-emulation-platform.md) requires Android emulator play, allows GBA or NDS foundations and does not require original-console hardware support. System-specific open questions belong in their owning ADRs.
+Still unresolved here: source foundation and exact Android validation targets; detailed content/reference inventory; level-cap values and enforcement; speed presets and other QoL; the first playable milestone and future postgame scope. [ADR-0025](0025-android-emulation-platform.md) requires Android emulator play and permits GBA or NDS without original-hardware support. [ADR-0026](0026-yellow-kanto-content-baseline.md) selects the Yellow Kanto baseline, Pikachu starter and Kanto polish before extras, with no Sevii Islands currently planned. System-specific open questions belong in their owning ADRs.
 
 ## Follow-up
 
@@ -64,4 +64,6 @@ Resolve open questions when they affect concrete work; a complete game specifica
 
 Editorial audit, 2026-09-05: consolidated the repeated clarification log into these references without replacing a decision. The [complete pre-audit chronology](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/blob/66c17faf1292626ae5f0ec70531aaf1b2a871ec1/docs/adr/0001-project-direction.md) remains in Git; each owning record retains its rationale and evidence. See the [review](../design-review.md) for remaining work.
 
-Subsequent platform clarification, 2026-09-05: ADR-0025 resolves the play-platform portion of the review. The user requires Android emulator compatibility, accepts GBA or NDS based on development suitability, and does not require cartridge/physical-console use. Yellow-specific content and the foundation itself remain open.
+Subsequent platform clarification, 2026-09-05: ADR-0025 resolves the play-platform portion of the review. The user requires Android emulator compatibility, accepts GBA or NDS based on development suitability, and does not require cartridge/physical-console use. Yellow-specific content was still open at that point.
+
+Subsequent content clarification, 2026-09-05: ADR-0026 selects FireRed/LeafGreen's Kanto map/layout, adjusted where necessary for Yellow, with Yellow's main encounters and plot anchors and Pikachu as starter. The user identifies Recharged Yellow as the reference hack. This permits encounter changes within those boundaries and prioritises Kanto polish without a Sevii Islands expansion. Source selection remains open.

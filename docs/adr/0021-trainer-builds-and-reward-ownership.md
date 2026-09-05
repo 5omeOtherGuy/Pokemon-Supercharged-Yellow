@@ -20,7 +20,7 @@ ADR-0020 accepted intended existing badge benefits, modest additional combat pas
 - Permitted design directions include increased EXP from battles and modest combat benefits, potentially stat boosts. These are categories, not approved numerical effects or a completed perk list.
 - Trainer passives must express something the trainer knows or does for the team. Coaching, preparation and training expertise are illustrative design rationales, not approved individual perks.
 - Pokémon capabilities express skills learned by that individual. Ownership, descriptions and mechanics must make the distinction understandable within the game's fiction.
-- Trainer-owned effects can benefit recruits without giving them personally earned capabilities or gym training rewards.
+- Trainer-owned effects can benefit recruits without giving them personally earned capabilities or filled training points. Badge-wide training-ceiling access is automatic under ADR-0023.
 - The number of active trainer passives, their capacity model, progression and any change cost remain open. Do not import the Pokémon three-slot model automatically. Existing badge benefits are not automatically placed inside the additional-passive selection budget.
 
 ### Reward sources
@@ -44,7 +44,7 @@ These are encounter-design constraints, not an automatic scaling algorithm. Exac
 
 ## Relationship to other systems
 
-[ADR-0019](0019-gym-resistances-and-capabilities.md) governs Pokémon capability costs, free service-only reassignment and the separate held-item slot. [ADR-0022](0022-permanent-training-and-flexible-focus.md) governs permanent stat training and flexible focus. Selecting a trainer build does not redistribute Pokémon training points or grant individual rewards.
+[ADR-0019](0019-gym-resistances-and-capabilities.md) governs Pokémon capability costs, free service-only reassignment and the separate held-item slot. [ADR-0023](0023-badge-wide-training-ceilings.md) governs permanent stat training and flexible focus. Selecting a trainer build does not redistribute Pokémon training points or grant individual capabilities. Badge-stage ceilings are automatic progression unlocks, separate from the selected additional-passive build.
 
 Which opposing trainers use trainer-owned passives is still unresolved; the accepted opponent rules above concern Pokémon capabilities.
 
@@ -80,3 +80,7 @@ No implementation or balance results exist. Future checks must cover ownership, 
 ## Follow-up
 
 Specify capacity and information policy, then draft representative trainer and Pokémon effects with explicit ownership rationales. Verify the inherited badge baseline before implementing it.
+
+## Clarification — 2026-09-05, automatic badge ceilings
+
+[ADR-0023](0023-badge-wide-training-ceilings.md) clarifies that badge-based training capacity applies player-wide, including to recruits, without assigning a trainer passive. Individual Pokémon still earn their own points and capabilities.

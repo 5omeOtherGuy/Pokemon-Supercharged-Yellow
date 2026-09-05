@@ -48,7 +48,7 @@ No implementation or gameplay validation has occurred.
 - Engine/upstream project and exact mechanics baseline.
 - Starting Pokémon and which Yellow-specific events or presentation to reproduce.
 - Level-cap values, unlock milestones and enforcement behavior.
-- IV safeguards and improvement access; training numbers, per-stat gym capacity and rematch access within ADRs 0016 and 0022; ADR-0019 selects extra capacity plus individual passives, with trainer builds, reward ownership and selective opponent progression accepted in ADR-0021; exact badge effects and trainer build capacity remain open. Random improvable IVs, fixed acquired natures and gym eligibility/rematch rules are selected. ADR-0017 selects a trusted core with rotating specialists.
+- IV safeguards and improvement access; training numbers, trainer-wide badge-stage ceilings and capability-rematch access within ADRs 0016 and 0023; ADR-0019 selects extra capacity plus individual passives, with trainer builds, reward ownership and selective opponent progression accepted in ADR-0021; exact badge effects and trainer build capacity remain open. Random improvable IVs, fixed acquired natures and gym eligibility/rematch rules are selected. ADR-0017 selects a trusted core with rotating specialists.
 - Numerical category limits (delegated to testing), remaining consumable scope/action rules and detailed AI information mapping beyond ADR-0009.
 - Specific singles/doubles boss assignments and team sizes within ADR-0010; individual move choices and behavior within ADR-0011.
 - Speed presets, animation/audio behavior and other specific QoL features.
@@ -131,3 +131,7 @@ ADR-0019 now fixes one capability per granting encounter, identical for every qu
 [ADR-0021](0021-trainer-builds-and-reward-ownership.md) supersedes ADR-0020: additional trainer passives form a limited build selected at a Pokémon Center and may support training/EXP as well as modest combat benefits. Trainer expertise must be distinct from individual Pokémon skills. Non-repeatable story encounters grant trainer passives, never Pokémon capabilities.
 
 [ADR-0022](0022-permanent-training-and-flexible-focus.md) supersedes ADR-0018: focus changes on the fly and directs future gains, while earned points never relocate. Every stat has a training maximum and a Pokémon can theoretically reach all of them; relevant-stat completion is the normal late-game target and all-stat completion should be difficult. Extra gym capacity raises individual training ceilings to the next gym stage, analogous to level caps; numerical stage limits and missed-reward handling remain open. Earlier focus-access and redistribution statements above preserve history only.
+
+## Clarification — 2026-09-05, player-wide badge training stages
+
+[ADR-0023](0023-badge-wide-training-ceilings.md) supersedes ADR-0022's individual-ceiling interpretation while retaining permanent gains and flexible focus. The trainer's badges unlock training ceilings for all Pokémon, including future recruits; personal gym participation is unnecessary for capacity. Training should permit limited survival and Speed adjustments without allowing excessive pre-gym stat growth. Individual participation, no fainting and victory still govern earned capabilities. Earlier statements requiring each Pokémon to earn eight capacity contributions are historical.

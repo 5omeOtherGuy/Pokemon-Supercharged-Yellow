@@ -27,7 +27,8 @@ ADRs preserve why consequential choices were made. This directory covers softwar
 | [0019](0019-gym-resistances-and-capabilities.md) | Combine gym training capacity with earned Pokémon capability slots | Accepted |
 | [0020](0020-badge-passives-and-trainer-progression.md) | Retain badge benefits and give trainers progression consistent with their experience | Superseded |
 | [0021](0021-trainer-builds-and-reward-ownership.md) | Select trainer builds and separate trainer rewards from Pokémon capabilities | Accepted |
-| [0022](0022-permanent-training-and-flexible-focus.md) | Keep training gains permanent and let focus direct future growth | Accepted |
+| [0022](0022-permanent-training-and-flexible-focus.md) | Keep training gains permanent and let focus direct future growth | Superseded |
+| [0023](0023-badge-wide-training-ceilings.md) | Unlock training ceilings trainer-wide through gym badges | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 

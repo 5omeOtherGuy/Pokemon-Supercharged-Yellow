@@ -3,7 +3,7 @@
 - Status: Accepted
 - Date: 2026-09-05
 - Decision authority: Explicit user answers on combined rewards, three-slot capability capacity, expanded sources, service-only reassignment, separate held items and universal encounter eligibility
-- Implementation: Not started — Pokémon capabilities and fixed encounter rewards accepted; trainer builds in ADR-0021; permanent training in ADR-0022
+- Implementation: Not started — Pokémon capabilities and fixed encounter rewards accepted; trainer builds in ADR-0021; permanent training in ADR-0023
 - Supersedes: None
 - Superseded by: None
 
@@ -13,7 +13,7 @@ The user initially considered partial type resistance or a unique capability ins
 
 ## Decision
 
-- Retain the limited extra gym training capacity in [ADR-0022](0022-permanent-training-and-flexible-focus.md).
+- Retain the trainer-wide, badge-unlocked training ceilings in [ADR-0023](0023-badge-wide-training-ceilings.md). No personal gym participation is required for ceiling access.
 - Add modest Pokémon-earned passive capabilities that support further customisation, individual roles and a deeper roleplaying experience.
 - Treat skill-tree passives and held-item effects as design references. No branching reward choice is selected: each granting encounter has one fixed capability, the same for every qualifying Pokémon. Particular effects and their power remain open.
 - Each Pokémon has three capacity slots for assigned earned passive capabilities. Each capability costs exactly one, two or three slots; the sum of assigned costs must not exceed three.
@@ -26,9 +26,9 @@ The user initially considered partial type resistance or a unique capability ins
 - Each capability-granting encounter awards one fixed capability, identical for every qualifying Pokémon; there is no species-specific variant or choice of reward at that encounter.
 - Each of the eight leaders contributes a distinct reward. Progression-appropriate rematches let a recruit earn the same rewards; duplicate wins do not replace other leaders' contributions.
 
-All eight leader rewards define full gym-related development, not the complete collection of capabilities from every encounter. The capacity limit means earning additional capabilities expands available choices rather than activating all of them together. Reward identity is fixed per encounter; player customisation comes from assigning already earned capabilities within capacity. Expanded capability sources do not automatically grant extra training-budget increments beyond the eight gyms.
+All eight personal leader rewards define the full collection of gym capabilities, not training-ceiling access or the complete collection of capabilities from every encounter. The capacity limit means earning additional capabilities expands available choices rather than activating all of them together. Reward identity is fixed per encounter; player customisation comes from assigning already earned capabilities within capacity. Expanded capability sources do not automatically grant extra training-budget increments beyond the eight gyms.
 
-This originally supplemented ADR-0018. ADR-0022 now supersedes that training record while retaining extra gym capacity alongside this capability system.
+This originally supplemented ADR-0018. ADR-0023 is now the current training policy after ADR-0022: capacity is unlocked trainer-wide through badges, alongside this individually earned capability system.
 
 ## Scope alongside existing abilities and customisation
 
@@ -38,13 +38,13 @@ The earlier restrained-customisation goal now explicitly includes this requested
 
 The standard modern type chart remains selected. Blanket partial resistance is not the chosen primary reward model; no specific damage-reduction effect or chart change is selected here.
 
-Under ADR-0022, focus may change on the fly and only directs future gains; existing stat points never relocate. Capability reassignment follows the free, service-only rule above. Keep these actions distinct.
+Under ADR-0023, focus may change on the fly and only directs future gains; existing stat points never relocate. Capability reassignment follows the free, service-only rule above. Keep these actions distinct.
 
 ## Trainer-wide badge passives and opponents
 
 [ADR-0021](0021-trainer-builds-and-reward-ownership.md) accepts intended existing badge benefits and a limited selectable trainer build at a Pokémon Center, with training/EXP and modest combat benefits. Trainer expertise must be distinct from individually learned capabilities. The exact reference, effects and trainer capacity remain open.
 
-Trainer-owned effects apply separately from personally earned capabilities. A recruit does not gain an individual gym reward merely because its trainer holds the badge.
+Trainer-owned effects apply separately from personally earned capabilities. A recruit gains access to the trainer's current training ceiling through badge ownership, but does not gain an individual capability merely because its trainer holds the badge.
 
 Major bosses and selected experienced trainers may use capabilities within the same capacity limit. Teams and individuals need not fill all slots. Progression must fit trainer experience and story; ADR-0021 records the player's accomplishment goal and local ace example.
 
@@ -105,3 +105,7 @@ The user selected one fixed capability per granting encounter, identical for all
 ## Clarification — 2026-09-05, reward ownership and revised training
 
 ADR-0021 limits individual capability sources to repeatable encounters and assigns non-repeatable story passive rewards to the trainer. ADR-0022 replaces earned focus changes and redistribution with flexible focus directing future permanent gains. Neither changes the three-slot capability system or its free service-only reassignment rule.
+
+## Clarification — 2026-09-05, global ceiling versus personal capability
+
+[ADR-0023](0023-badge-wide-training-ceilings.md) makes stat-training capacity trainer-wide through badge ownership. Personal participation, no fainting and victory remain conditions for capability rewards; the earlier broad description of individual gym development does not require recruits to earn stat ceilings through rematches.

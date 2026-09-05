@@ -1,11 +1,11 @@
 # ADR-0022: Keep training gains permanent and let focus direct future growth
 
-- Status: Accepted
+- Status: Superseded
 - Date: 2026-09-05
 - Decision authority: Explicit user revision of training focus, permanent allocations, per-stat limits and late-game development expectations
 - Implementation: Not started — growth policy chosen; numerical model unresolved
 - Supersedes: [ADR-0018](0018-gym-training-budget-and-focus.md)
-- Superseded by: None
+- Superseded by: [ADR-0023](0023-badge-wide-training-ceilings.md)
 
 ## Context
 
@@ -81,3 +81,7 @@ Specify numerical per-stat ceilings by gym stage and resolve missed-reward handl
 ## Clarification — 2026-09-05, gym-stage ceilings
 
 Before this record was committed, the user clarified that gym-earned capacity raises the maximum to the next gym stage, analogous to the Pokémon level cap. This selects staged ceiling unlocks rather than an unspecified extra pool. The existing individual eligibility, eight distinct contributions and rematch catch-up rules remain; the exact interaction between missing earlier contributions and later stages still needs a decision.
+
+## Supersession — 2026-09-05, trainer-wide ceilings
+
+[ADR-0023](0023-badge-wide-training-ceilings.md) corrects the individual-unlock interpretation: badges raise training ceilings player-wide, including for recruits. Personal participation and survival remain capability-reward conditions only. Permanent training gains and flexible focus are carried forward. Earlier individual-capacity rules here are historical, not current requirements.

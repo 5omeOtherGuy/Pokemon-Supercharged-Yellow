@@ -37,6 +37,15 @@ This record replaces that individual capacity requirement and retains the chosen
 - Exact per-stat limits, growth rates, focus options and point-to-stat conversion remain open. Do not assume equal caps, a particular main-series EV formula or a specific diminishing-return curve.
 - On-the-fly focus changes concern future training; they do not change battle stats instantly. Exact UI timing, including whether focus can be changed during a battle, is an implementation detail still to resolve.
 
+### Ordinary stat-training eligibility
+
+- A Pokémon earns ordinary stat-training points from a battle only if it entered the field, never fainted at any point in that battle, and its team won.
+- Switched-out survivors qualify; staying active on the final turn or scoring a knockout is not required. Unused reserves do not qualify.
+- Fainting disqualifies that Pokémon from this battle's training award even if it is revived. A team defeat grants no ordinary training points from that battle.
+- These outcomes do not remove points earned from earlier battles. Existing allocations remain permanent.
+- This selects eligibility, not the award size or which opponent encounters provide training. Resolve the complete battle outcome before finalising its training award.
+- Ordinary level EXP and IV-improvement rules are separate and are not changed by this decision. Badge-wide ceiling access also remains independent of participation and survival.
+
 ### Limited tactical preparation
 
 - Training should offer bounded tactical adjustments, such as enough Defense to survive a particular attack or enough Speed to move before a particular opponent.
@@ -79,6 +88,8 @@ Future validation should check:
 - Badge acquisition does not fill training points or relocate existing allocations.
 - Changing focus preserves earned points and directs future gains.
 - Every training award path respects the current per-stat ceiling.
+- Surviving field participants receive training credit after a win, including switched-out support participants; unused reserves, fainted/revived participants and all participants in a lost battle receive none.
+- Ineligible battle outcomes preserve points earned from earlier battles; no early per-knockout award bypasses the final eligibility check.
 - Duplicate rematches do not raise badge-based ceilings.
 - Role-focused and maximum stage-legal spreads retain challenging singles and doubles encounters.
 - Representative survival and Speed thresholds allow useful but limited adjustments without erasing species weaknesses.
@@ -87,7 +98,7 @@ Future validation should check:
 
 - Numerical per-stat ceilings by badge stage and point-to-stat conversion.
 - How badge order maps to stages if the eventual campaign permits gyms out of sequence.
-- Ordinary training credit: participation, fainting, victory and opponent eligibility.
+- Which opponent encounters grant ordinary training points and how opponent strength affects the award; participation, no fainting and team victory are required.
 - Focus choices, gain rates and handling a focused stat already at its cap.
 - Total preparation duration and opponent training assumptions.
 - Whether players receive in-game help assessing specific survival and Speed thresholds.
@@ -96,3 +107,7 @@ Future validation should check:
 ## Follow-up
 
 Draft a provisional badge-stage table and evaluate its actual stat impact at the corresponding level caps. Compare targeted preparation, typical role-focused development and maximum stage-legal training. Do not label untested values balanced.
+
+## Clarification — 2026-09-05, ordinary training credit
+
+The user selected ordinary training points only for Pokémon that entered battle, never fainted, and belonged to the winning team. This resolves the previously open participation/outcome policy without changing ordinary EXP, IV improvement or badge-wide ceiling access. No implementation or runtime tests have occurred.

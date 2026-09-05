@@ -58,3 +58,7 @@ Implement the accepted custom consumable-information extension within an explici
 ## Clarification — 2026-09-05, design interview round 5
 
 The user confirmed: both sides see complete consumable loadouts. This is a campaign-specific extension to the VGC reference, recorded jointly with [ADR-0008](0008-consumable-loadouts-and-loss-costs.md), not a claim that official VGC includes bag supplies. Hidden statistics and pending actions remain protected.
+
+## Clarification — 2026-09-05, AI reliability and passive information
+
+The user tentatively suggested AI might need all information to avoid glitches, while explicitly expressing uncertainty. This is not approval to remove the accepted hidden-stat or pending-action boundaries. [ADR-0024](0024-passive-scouting-and-ai-observations.md) proposes reciprocal active-passive disclosure and separates complete battle-resolution state from bounded decision observations. Exact new fields remain proposed; engine-specific integration and reliability checks remain necessary.

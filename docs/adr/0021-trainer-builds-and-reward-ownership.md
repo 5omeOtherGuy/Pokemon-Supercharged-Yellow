@@ -91,7 +91,7 @@ No implementation or balance results exist. Future checks must cover ownership, 
 - Intended reference badge effects and their interaction with selected additional passives.
 - Starting trainer capacity, numerical badge-stage increases, final budget, individual passive costs and effects, magnitudes, stacking and reassignment costs.
 - Specific eligible NPCs, their capacity budgets and passive loadouts, with background justification.
-- Public scouting and AI information fields for both passive systems.
+- Public scouting and AI information fields for both passive systems; [ADR-0024](0024-passive-scouting-and-ai-observations.md) proposes reciprocal active-effect disclosure, pending acceptance.
 - Repeat access details, rematch tiers and progression triggers.
 - How post-League accomplishment is reflected within the eventual postgame scope.
 

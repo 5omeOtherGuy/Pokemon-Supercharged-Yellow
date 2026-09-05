@@ -29,6 +29,7 @@ ADRs preserve why consequential choices were made. This directory covers softwar
 | [0021](0021-trainer-builds-and-reward-ownership.md) | Select trainer builds and separate trainer rewards from Pokémon capabilities | Accepted |
 | [0022](0022-permanent-training-and-flexible-focus.md) | Keep training gains permanent and let focus direct future growth | Superseded |
 | [0023](0023-badge-wide-training-ceilings.md) | Unlock training ceilings trainer-wide through gym badges | Accepted |
+| [0024](0024-passive-scouting-and-ai-observations.md) | Propose public active passives and bounded AI observations | Proposed |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 

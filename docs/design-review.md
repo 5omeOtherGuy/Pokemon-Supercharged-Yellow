@@ -1,30 +1,52 @@
-# ADR design review — 2026-09-05
+# ADR design review and decision handoff — 2026-09-05
 
-The current decisions are coherent after following their supersession chains. The audit found stale current-facing references, duplicated policy and incomplete source evidence; it did not find an unresolved pair of accepted decisions that requires silently choosing one over the other. Preparation burden and combined progression strength remain substantial, untested design risks.
+The ADR audit and authorised documentation changes are complete. The current decisions are coherent after following their supersession chains. Stale guidance, duplication and source-evidence defects were corrected; no unresolved contradiction between accepted decisions was found. The subsequent owner discussion resolved platform/content requirements and passive disclosure. Automatic badge stat boosts remain the immediate owner policy question. Foundation investigation can proceed; preparation burden and combined progression strength still require playable evidence.
 
 Reviewed base: [`66c17faf1292626ae5f0ec70531aaf1b2a871ec1`](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/66c17faf1292626ae5f0ec70531aaf1b2a871ec1). Local `main` was first fast-forwarded from `fbc89ae` to that fetched `origin/main`. Scope: all 24 ADRs, index/template, root instructions/README, [review brief](design-review-brief.md), relevant Git history and the external evidence described below. The tracked tree contains documentation/governance only; no engine, verified build or playable prototype exists.
 
-The audit changed no ADR status or product decision. At its completion there were **18 Accepted, 2 Proposed and 4 Superseded** records. “Accepted” is decision status, not implementation or validation status.
+The initial audit changed no ADR status or product decision: it ended with **18 Accepted, 2 Proposed and 4 Superseded** records. Subsequent explicit user decisions added ADRs 0025–0026, accepted ADR-0024 and clarified existing records. The current 26-record set has **21 Accepted, 1 Proposed and 4 Superseded** records. ADR-0003 is the sole remaining proposal. “Accepted” means decided, not implemented or validated.
 
-**Subsequent resolutions — 2026-09-05:** [ADR-0025](adr/0025-android-emulation-platform.md) resolves the platform portion of F5; [ADR-0026](adr/0026-yellow-kanto-content-baseline.md) resolves its content baseline, including Pikachu as starter and Kanto polish without a current Sevii Islands plan. The user has also accepted [ADR-0024](adr/0024-passive-scouting-and-ai-observations.md), resolving F7's reciprocal active-effect disclosure. ADR-0011 now requires weather/terrain moves, forgettable HMs and reusable TMs. Later decisions require all original 151 in one playthrough without trading (ADR-0004), no obedience restrictions (ADR-0021), and Mew under the truck (ADR-0026). Automatic badge stat boosts remain undecided. The audit counts and coverage below describe the original review; current totals are 21 Accepted, 1 Proposed and 4 Superseded.
+## Handoff state
+
+- Decision snapshot: `3fbdb7d7f534b4dc0e8c692f04c4056857732799`; this report refresh follows that snapshot without changing an ADR.
+- Branch: `codex/adr-audit`.
+- Retained worktree: `/home/someotherguy/projects/Pokemon-Supercharged-Yellow-worktrees/adr-audit`.
+- Original checkout: `/home/someotherguy/projects/Pokemon-Supercharged-Yellow`, still on `main` at the synced audit base `66c17fa`.
+- Changes are committed locally on the task branch; nothing has been pushed or merged. The commit sequence is listed below.
+- Scope remains documentation/governance. No engine import, game implementation, playable validation or generated build targets are part of this handoff.
+
+Read the owning ADRs through the [current reading map](adr/README.md#current-decision-map). The original [review brief](design-review-brief.md) is historical task context; its unresolved platform/content statements have since been answered.
+
+## Owner decisions after the initial audit
+
+These are explicit user decisions recorded during the follow-up, not new recommendations from this report. The table summarises the changes; the linked records own their full scope and rationale.
+
+| Area | Accepted direction | Record |
+| --- | --- | --- |
+| Play platform | Android emulator play is required. GBA or NDS is eligible; the current RetroArch/mGBA setup is not exclusive. Physical-console/cartridge compatibility is not required. No foundation is selected. | [0025](adr/0025-android-emulation-platform.md) |
+| Kanto baseline | FireRed/LeafGreen's Kanto map/layout, adjusted for Yellow; preserve Yellow's main encounters and plot anchors. Recharged Yellow is the reference hack, with no source dependency or wholesale feature adoption. Pikachu starts the game. Polish Kanto first; no current Sevii Islands plan. Other mainline Kanto versions may inspire improvements. | [0026](adr/0026-yellow-kanto-content-baseline.md) |
+| Encounters and collection | Trainers outside main encounters/plot anchors may change substantially. Prefer familiar Yellow wild distribution where practical. All original 151 must be obtainable on one save in one playthrough, with no player or NPC trading and solo alternatives to trade-dependent acquisition/evolution. Original-form boundaries remain. Mew is under the truck. | [0004](adr/0004-original-151-roster.md), [0026](adr/0026-yellow-kanto-content-baseline.md) |
+| Moves and usability | Cross-generation curation explicitly includes weather/terrain moves and required mechanics. HMs must be forgettable; TMs reusable. Specific moves, effect versions and species assignments remain unselected. Forgetting a field move must not strand the player. | [0011](adr/0011-curated-moves-across-generations.md) |
+| Obedience | No obedience restrictions. The existing level-cap policy remains. This answer did not settle automatic badge stat boosts. | [0021](adr/0021-trainer-builds-and-reward-ownership.md) |
+| Passive disclosure | ADR-0024 is now Accepted: reveal active boss trainer passives and assigned Pokémon capabilities with precise effects before the first attempt, and give boss AI equivalent player fields. Preserve protection of inactive collections, exact player stats/training, committed actions and future random outcomes. | [0024](adr/0024-passive-scouting-and-ai-observations.md) |
 
 ## Coverage
 
-Every numbered record was read in full, including historical decisions, unresolved questions and proposals. Unchanged records were reviewed too.
+Every original ADR was read in full, including historical decisions and proposals; unchanged records were reviewed too. Subsequent amendments and ADRs 0025–0026 were reconciled with the existing decisions. This table reports current status and distinguishes later owner resolutions from the initial editorial audit.
 
-| ADR | Status retained | Audit outcome |
+| ADR | Current status | Audit outcome and subsequent resolution |
 | --- | --- | --- |
 | [0001](adr/0001-project-direction.md) | Accepted | Charter shortened; later policy and history linked to owners (F1–F2). |
 | [0002](adr/0002-decision-records.md) | Accepted | Workflow retained; no new ADR/tooling needed for editorial corrections. |
 | [0003](adr/0003-source-foundation.md) | Proposed | Foundation remains unselected; audit scope updated for later systems (F5, F12). |
-| [0004](adr/0004-original-151-roster.md) | Accepted | Eligibility is not universal acquisition; original-form restriction preserved (F11). |
+| [0004](adr/0004-original-151-roster.md) | Accepted | Original-form restriction preserved; later extended to complete solo collection of all 151 without trading (F11). |
 | [0005](adr/0005-team-rotation-and-boss-mastery.md) | Superseded | Preserved historical turnover target; current owner is 0017. |
 | [0006](adr/0006-substantial-levelling-investment.md) | Accepted | Removed stale redistribution/capacity guidance; total preparation still open (F1, F10). |
-| [0007](adr/0007-full-boss-scouting.md) | Accepted | Existing fields retained; passive/stat extensions remain open (F7–F8). |
+| [0007](adr/0007-full-boss-scouting.md) | Accepted | Existing fields retained; active-passive extension later accepted through 0024. Exact boss stats and presentation remain open (F7–F8). |
 | [0008](adr/0008-consumable-loadouts-and-loss-costs.md) | Accepted | Clarifications consolidated; quota examples and unresolved scope retained (F3, F8, F10). |
 | [0009](adr/0009-vgc-style-ai-information.md) | Accepted | Official evidence verified; interpretation and protected fields preserved (F3–F4, F7). |
 | [0010](adr/0010-mixed-battles-and-set-rules.md) | Accepted | Mixed formats and trainer Set policy retained; party/action details open (F8). |
-| [0011](adr/0011-curated-moves-across-generations.md) | Accepted | Move-specific scope retained; unrelated follow-ups linked (F11–F12). |
+| [0011](adr/0011-curated-moves-across-generations.md) | Accepted | Move curation retained; later weather/terrain, forgettable-HM and reusable-TM requirements recorded (F11–F12). |
 | [0012](adr/0012-ability-and-typing-rebalance.md) | Accepted | Innate ability policy separated from custom earned effects (F2, F11). |
 | [0013](adr/0013-fairy-type-evaluation.md) | Accepted | Contextual endorsement retained; chart history consolidated; hypotheses remain untested (F3, F11). |
 | [0014](adr/0014-type-identity-and-campaign-viability.md) | Accepted | Interests and type-level goals preserved without species buff promises (F11). |
@@ -34,14 +56,18 @@ Every numbered record was read in full, including historical decisions, unresolv
 | [0018](adr/0018-gym-training-budget-and-focus.md) | Superseded | Original reset/budget rules preserved; navigation follows 0022 to 0023 (F1–F2). |
 | [0019](adr/0019-gym-resistances-and-capabilities.md) | Accepted | Canonical capability rules consolidated, including service access and fixed rewards (F2, F7, F9–F11). |
 | [0020](adr/0020-badge-passives-and-trainer-progression.md) | Superseded | Historical narrower trainer scope preserved; current owner is 0021. |
-| [0021](adr/0021-trainer-builds-and-reward-ownership.md) | Accepted | Trainer ownership/budgets/NPC rules retained; clarification history shortened (F2, F6–F11). |
+| [0021](adr/0021-trainer-builds-and-reward-ownership.md) | Accepted | Trainer ownership/budgets/NPC rules retained; later obedience removal recorded. Automatic badge boosts remain open (F2, F6–F11). |
 | [0022](adr/0022-permanent-training-and-flexible-focus.md) | Superseded | Permanent-growth history and replaced individual-ceiling interpretation preserved. |
 | [0023](adr/0023-badge-wide-training-ceilings.md) | Accepted | Current ceiling/point/focus/eligibility rules retained; duplicate capabilities linked (F1–F2, F9–F12). |
-| [0024](adr/0024-passive-scouting-and-ai-observations.md) | Proposed | Pinned source example rechecked; disclosure remains unaccepted (F7, F12). |
+| [0024](adr/0024-passive-scouting-and-ai-observations.md) | Accepted | Pinned source example rechecked; initially Proposed, then explicitly accepted by the user (F7, F12). |
+| [0025](adr/0025-android-emulation-platform.md) | Accepted | Added after the audit: Android target, GBA/NDS eligibility and no physical-hardware requirement resolve platform scope (F5). |
+| [0026](adr/0026-yellow-kanto-content-baseline.md) | Accepted | Added after the audit: FRLG/Yellow content baseline, Pikachu, Kanto-first scope and later Mew-under-truck decision (F5, F11). |
 
 ## Findings and dispositions
 
 P1 matters before foundation selection or a meaningful playable system; P2 matters before implementing or tuning the affected detail. A risk is not evidence that the design has failed.
+
+Current disposition: F1–F4 are corrected documentation/evidence issues; F5 and F7 are resolved by the owner; F6 is partially resolved with automatic boosts still undecided; F8 needs concrete later gameplay choices; F9/F12 need engineering investigation; F10/F11 need playtesting supported by source and acquisition audits. Original findings and their evidence remain below for traceability.
 
 ### F1. Superseded rules remained in current guidance
 
@@ -65,31 +91,33 @@ Resolution: added the [current reading and ownership maps](adr/README.md#current
 
 **P1 — Fixed; source-evidence defect.** ADR-0009 relied on indexed passages and cited sections 2.4–2.4.1. The accessible [official handbook](https://mcdn.pokemon.com/pokemon-prod/raw/upload/v1/live/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-vgc-tournament-handbook-en.pdf), revision 2026-05-21, places team-list disclosure in **2.5–2.5.1, pages 7–8**. Full relevant text and the page-8 rendering were checked; the retrieved PDF hash is recorded in the ADR.
 
-This supports the existing field/exact-stat distinction. The nature/stat-alignment translation still needs an engine field mapping; fixed natures are already selected in ADR-0016. No VGC battle-format or other game-specific mechanics were imported. Player disclosure of boss nature/stats remains open in ADR-0007, so reciprocal disclosure beyond accepted supplies must not be assumed.
+This supports the existing field/exact-stat distinction. The nature/stat-alignment translation still needs an engine field mapping; fixed natures are already selected in ADR-0016. No VGC battle-format or other game-specific mechanics were imported. Player disclosure of boss nature/stats remains open in ADR-0007. The subsequently accepted active-passive fields in ADR-0024 are a project extension, not an implication of the VGC source.
 
-### F5. Platform and Yellow identity remain unconfirmed
+<a id="f5-platform-and-yellow-identity-remain-unconfirmed"></a>
 
-**P1 — Needs user decision before foundation selection.** [0001](adr/0001-project-direction.md), [0003](adr/0003-source-foundation.md) and the [brief](design-review-brief.md) do not select hardware/emulator targets, starter policy or the minimum Yellow-specific presentation/events. A FireRed/Emerald shortlist is an engineering proposal, not platform authority. Kanto familiarity alone cannot price the required content work.
+### F5. Platform and Yellow identity — resolved
 
-Recommended resolution: identify required play targets and essential Yellow elements, distinguishing requirements from nice-to-have content. Candidate source inspection and reuse/toolchain research can proceed now; final foundation selection should use those answers. The suggested Brock/Misty slice remains unaccepted, and postgame roster/content remain open.
+**P1 — Resolved by owner decisions after the audit.** At the reviewed base, [0001](adr/0001-project-direction.md), [0003](adr/0003-source-foundation.md) and the [brief](design-review-brief.md) left play targets, starter policy and minimum Yellow content unresolved. The FireRed/Emerald shortlist was an engineering proposal; it could not establish those requirements or the content-porting cost.
 
-Follow-up disposition: **Resolved by user decisions in ADRs 0025–0026.** Android play targets are established. The content baseline is FireRed/LeafGreen's Kanto map with necessary Yellow adaptations, using Recharged Yellow as the reference hack. Detailed reference inventory and source selection remain engineering investigation; the first playable milestone remains unselected.
+ADRs 0025–0026 now establish the platform and content requirements in the owner-decision table above. Detailed map/script comparison, exact Android validation configurations and foundation suitability are engineering work. The suggested Brock/Misty milestone remains unaccepted; complete collection does not specify pre-League availability or detailed post-League content.
 
-### F6. “Existing badge benefits” lacks a reference
+<a id="f6-existing-badge-benefits-lacks-a-reference"></a>
 
-**P1 — Needs user decision before inherited badge behavior is implemented.** [0020](adr/0020-badge-passives-and-trainer-progression.md) and its replacement [0021](adr/0021-trainer-builds-and-reward-ownership.md) retain intended existing benefits without identifying the game/version or effects. Importing a candidate engine's badge system could silently select bonuses, progression rules or bugs and then stack extra trainer effects on top.
+### F6. Automatic badge stat boosts remain undecided
 
-Recommended resolution: name the intended reference or describe the benefits to retain; engineering should then inventory that version's actual behavior and propose explicit treatment. No specific multiplier or bug is approved. Keep inherited benefits, automatic training ceilings and the additional trainer-passive budget separate.
+**P1 — Partially resolved; owner decision needed before automatic badge boosts are implemented.** [0020](adr/0020-badge-passives-and-trainer-progression.md) and its replacement [0021](adr/0021-trainer-builds-and-reward-ownership.md) originally retained intended existing benefits without identifying exact effects. Importing a candidate's badge system could silently select bonuses or bugs and stack trainer effects on top.
 
-Follow-up: the user recalled badge permissions for particular HMs and expressed uncertainty about other benefits. [ADR-0021's pinned Yellow evidence](adr/0021-trainer-builds-and-reward-ownership.md#clarification-and-badge-evidence--2026-09-05) confirms that the original game also had traded-Pokémon obedience checks and automatic stat boosts. The user subsequently removed all obedience restrictions and trading. Automatic stat boosts and the exact field-permission mapping remain unresolved. The separately explicit forgettable-HM/reusable-TM requirements belong in ADR-0011.
+The user recalled HM field permissions and was unsure about other benefits. [ADR-0021's pinned Yellow evidence](adr/0021-trainer-builds-and-reward-ownership.md#clarification-and-badge-evidence--2026-09-05) identifies additional obedience checks and automatic stat boosts. The user then explicitly removed obedience restrictions and trading, but did not answer the automatic-boost question.
 
-### F7. Active passive disclosure remains a product proposal
+Recommendation still awaiting acceptance: omit automatic badge stat boosts and use the agreed training/trainer-build progression for combat growth. No multiplier or bug behavior is approved. Verify the intended badge-to-field-permission mapping during the content/source audit and flag material departures. Keep field access, training ceilings and trainer-passive capacity distinct. HM forgettability and TM reuse are already decided in ADR-0011.
 
-**P1 — Needs user decision before a passive-aware boss prototype.** [0024](adr/0024-passive-scouting-and-ai-observations.md) proposes both sides seeing active trainer passives and assigned Pokémon capabilities, with effect details, while hiding inactive collections. [0007](adr/0007-full-boss-scouting.md) accepts preparation and existing scouting fields; neither it nor uncertainty about AI glitches accepts the extra fields or unlimited knowledge.
+<a id="f7-active-passive-disclosure-remains-a-product-proposal"></a>
 
-Recommendation: accept reciprocal active-loadout disclosure for predictable preparation. Player-only disclosure and discovery during combat remain alternatives, with asymmetry or reduced preparation. Preserve [0009](adr/0009-vgc-style-ai-information.md)'s hidden-stat/pending-action/RNG limits whichever option is chosen. Correct battle resolution and AI observation filtering require engineering work independently of this product choice.
+### F7. Reciprocal active-passive disclosure — accepted
 
-Follow-up disposition: **Resolved by explicit user acceptance of ADR-0024 on 2026-09-05.** The recommendation above is now accepted policy. Scouting presentation, timing, source integration and validation remain work; no additional hidden-data access was approved.
+**P1 — Resolved by explicit user acceptance of ADR-0024.** At audit completion, preparation goals and concern about AI glitches did not establish consent to additional disclosure fields. The report recommended reciprocal active-loadout disclosure, with player-only disclosure and discovery during combat retained as alternatives in the proposal history.
+
+The user subsequently accepted that recommendation: both sides receive active trainer-passive and assigned-capability fields for boss battles, with precise effects, while inactive collections and [0009](adr/0009-vgc-style-ai-information.md)'s exact-stat/pending-action/RNG protections remain. This is now an accepted policy, not an open choice. Scouting presentation, timing, source integration and validation remain work; acceptance does not demonstrate AI correctness.
 
 ### F8. Battle-entry and action rules are not a complete contract
 
@@ -125,13 +153,15 @@ Follow-up: ADR-0004 now extends the original eligibility-only policy to require 
 
 ## Pressing owner decisions
 
-Resolve these in dependency order; no answer is needed to finish this documentation review.
+**Immediate policy question: retain or omit automatic badge stat boosts (F6)?** The recommendation is to omit them; the owner has not accepted or rejected it. No answer is needed to complete this documentation handoff or begin foundation investigation.
 
-Before implementing inherited badge effects, decide whether to retain automatic stat boosts and verify the intended field-permission mapping (F6). Obedience restrictions are removed. HM access was the user's recalled benefit; uncertainty about automatic boosts is not acceptance of them.
+Keep later decisions in the relevant work rather than reopening the completed interview:
 
-F5's platform/content decisions and F7's reciprocal active-effect disclosure are resolved. Exact Android validation configurations and the detailed Yellow reference inventory can follow candidate investigation. HM forgettability and TM reuse are also resolved in ADR-0011; the engineering audit must check that forgetting field moves cannot strand the player.
+- Before learnset design: permission for moves outside a species' official learnsets, custom moves and changes to move values remains open in ADR-0011. Weather/terrain inclusion does not resolve those permissions.
+- Before a combat slice: choose its playable boundary, then present F8's remaining party, supply and action-scope alternatives with concrete costs. Brock/Misty remains a suggestion. Exact boss numerical-stat disclosure is also unselected.
+- During content design: specify solo evolution/acquisition methods, legendary and other-starter timing, Mew's encounter trigger and recovery from failed unique encounters. All 151 must be obtainable in one run; they need not all be available before the League. No Sevii expansion has been approved.
 
-The first playable boundary should be chosen after the foundation comparison makes cost concrete. Brock/Misty is a candidate, not a commitment. Prepare F8's remaining battle-scope choices with that slice; do not turn postgame, numerical budgets or every implementation detail into another interview now.
+Android configurations, source-field mappings, save/reward transactions and a reference inventory are engineering investigations. Budgets, numerical effects, acquisition pacing and total preparation time need design proposals and playtesting; they are not reasons to seek blanket reapproval. Preserve all accepted progression and information limits during those investigations.
 
 ## Recommended next sequence
 
@@ -140,12 +170,27 @@ The first playable boundary should be chosen after the foundation comparison mak
 3. **Baseline verification:** after selection, establish reproducible build, boot, save/load and target checks. Record exactly what was compiled, run and observed. Resolve the mechanics baseline and prototype scope; a compile alone is not playability.
 4. **Playable validation:** implement a bounded slice exercising relevant singles/doubles encounters, caps, speed, training/rewards, supplies, scouting and the approved information contract. Preserve proposed assumptions visibly. Check legal actions, hidden-data invariance, reward transactions and save persistence, then run human preparation/difficulty playtests for F10–F11. Tune caps/costs/rates using that evidence.
 
-No engine import, game code, simulation or prototype work was performed by this audit.
+No engine import, game code, simulation or prototype work was performed by this audit. Integration or publication of this local branch is not authorised by the request to prepare a handoff.
+
+## Local commit handoff
+
+The complete decision/documentation sequence is on `codex/adr-audit`, based on `66c17faf1292626ae5f0ec70531aaf1b2a871ec1`. These six commits precede the report-refresh commit that contains this handoff. Review the retained branch before any separately authorised integration; an agent reading only the original `main` checkout will not see these changes.
+
+| Commit | Change |
+| --- | --- |
+| `acf4559b07a66f65b33b92054194becf61dd08aa` | Original ADR audit, consolidation, history preservation and evidence corrections. |
+| `28506fb49acaf601416a17445e4c6ae2d84522c2` | Android requirement and GBA/NDS eligibility in ADR-0025. |
+| `e3eec78fc86749694abf7cc2efe8bff6fd3f9d67` | FRLG Kanto with Yellow adaptations and Recharged Yellow reference in ADR-0026. |
+| `48d456b102ad2bfdfe01fa4da8e11641fbba773d` | Explicit weather/terrain move requirement. |
+| `863cc23c728958198cacbf9a7e0aabbbe1791e45` | Accepted passive disclosure, forgettable HMs/reusable TMs and pinned badge evidence. |
+| `3fbdb7d7f534b4dc0e8c692f04c4056857732799` | Complete solo collection, no trading/obedience restrictions and Mew under the truck. |
+
+Across that sequence, 27 tracked files changed, confined to `AGENTS.md`, `README.md`, the ADR directory and this report. The original brief is preserved. No ROMs, player saves, engine dependencies, local bootstrap or task-ledger files are committed. The task worktree is retained and has no task build targets or running build/test processes to clean up.
 
 ## Verification performed
 
-- Read all 24 ADRs, including all four superseded and both proposed records; inspected the historical commits cited above for option mappings and decision transitions.
-- Checked unique four-digit IDs against filenames/titles, all index rows/statuses, required metadata/sections, reciprocal supersession links and acyclic chains. Statuses match the reviewed base.
-- Checked relative Markdown paths and heading fragments throughout tracked documentation, including the new report; verified local commit/path targets for repository history links. External references were selectively reviewed as described above, not all HTTP-tested.
-- Reviewed the complete documentation diff for retained intent, current-policy references, unresolved questions and explicitly provisional examples. Superseded decision bodies were preserved; only navigation around them changed.
-- Ran `git diff --check`. No game/build/runtime/balance tests exist or were claimed. No generated build targets or source dependencies were introduced. The local instruction bootstrap and task ledger are excluded from the commit.
+- Initial audit: read all 24 ADRs, including four superseded and two proposed records; traced the historical commits for option meanings and decision transitions. Checked 224 relative links/anchors and 28 local Git-history targets at that stage.
+- Follow-ups: reconciled the two new accepted ADRs and later amendments. The only status change among the original 24 is the explicitly authorised acceptance of ADR-0024. Supersession chains remain 0005 → 0017, 0018 → 0022 → 0023 and 0020 → 0021.
+- Handoff validation: checked all 26 IDs, filenames/titles, report/index statuses, decision-authority/implementation metadata, reciprocal acyclic supersession and 253 local Markdown links/anchors, including preserved links to the renamed F5–F7 sections. Confirmed the report refresh changes no ADR or gameplay decision.
+- Reviewed the original and follow-up diffs for authority, preserved history and unresolved scope. Rechecked the four superseded decision/rationale bodies against the original base; only marked historical/supersession navigation changed. Rechecked 22 distinct local Git-history targets, all six handoff commits and the 27-file change scope. External evidence was selectively inspected as described in F4, F6 and F12; this is not an all-URL availability check.
+- Ran working-tree and staged `git diff --check`. No game/build/runtime/balance tests were run or claimed. Source snippets are evidence only; no engine has been compiled, imported or tested for this project.

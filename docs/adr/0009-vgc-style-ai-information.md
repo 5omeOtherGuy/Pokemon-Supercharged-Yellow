@@ -2,7 +2,7 @@
 
 - Status: Accepted
 - Date: 2026-09-05
-- Decision authority: User selected official VGC tournament information in design interview round 4; documented adaptation below
+- Decision authority: User selected official VGC tournament information in round 4 and mutual consumable visibility in round 5; documented adaptation below
 - Implementation: Not started — information policy only
 - Supersedes: None
 - Superseded by: None
@@ -20,7 +20,7 @@ Use an open-team-list information boundary for boss AI.
 - Do not directly disclose the player's exact numerical stats or underlying IV/EV/stat allocations.
 - The AI may reason from permitted team information and observable battle events. Estimates and deductions must remain distinguishable from direct hidden-data access.
 - As the engineering translation of a human opponent's information boundary, do not let the AI read the player's committed action, switch target or item choice for the current turn before choosing its own action, or inspect future random outcomes.
-- Boss access to the player's custom bag-consumable loadout remains undecided. The user has separately confirmed player access to the boss's loadout.
+- As an explicitly accepted campaign extension, both sides see the other's complete selected bag consumables and quantities before battle. This does not reveal which consumable, target or other action the opponent has chosen for the current turn.
 
 This is the recorded 2026-09-05 interpretation, not automatic adoption of future rulebook updates. Additional public-information fields must be mapped explicitly before implementation.
 
@@ -46,11 +46,15 @@ No engine or AI code has been implemented or tested. Future checks should demons
 
 ## Open questions
 
-- Does the boss see the player's selected custom bag consumables and quantities?
+- Selection-lock timing and keeping the visible consumable loadout synchronised with actual available supplies.
 - Remaining public fields, including level/form details, and reciprocal additions to boss scouting.
 - Observable HP precision, stat inference, memory across attempts and ordinary-trainer AI.
 - Choice commitment and information filtering in the selected engine.
 
 ## Follow-up
 
-Clarify the custom consumable-information extension, then implement an explicit field-level information contract against a verified upstream engine. Preserve uncertainty for inferred opponent statistics.
+Implement the accepted custom consumable-information extension within an explicit field-level information contract against a verified upstream engine. Preserve uncertainty for inferred opponent statistics.
+
+## Clarification — 2026-09-05, design interview round 5
+
+The user confirmed: both sides see complete consumable loadouts. This is a campaign-specific extension to the VGC reference, recorded jointly with [ADR-0008](0008-consumable-loadouts-and-loss-costs.md), not a claim that official VGC includes bag supplies. Hidden statistics and pending actions remain protected.

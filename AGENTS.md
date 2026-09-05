@@ -21,14 +21,14 @@ The authoritative initial requirements are in ADR-0001, with refinements in acce
 - Boss AI follows the VGC open-team-list information boundary in ADR-0009; do not import VGC battle-format rules. Exact opponent stats, hidden allocations, pending player actions and future RNG are not direct AI inputs.
 - Boss defeats cost money and spent consumables. Non-held battle consumables have one fixed campaign-wide, preselected allowance; choose its number through balance testing, not the earlier example of three.
 - Player battle supplies may include HP healing, status cures, PP restoration and temporary stat boosters; revives are excluded. Only major bosses among opposing trainers use bag consumables, with the same maximum as the player.
-- Consumable duplicates are restricted by functional category. Exact category caps, mixed-effect handling and boss visibility of player supplies remain open.
+- Consumable duplicates are restricted by functional category; determine separate numerical caps through balance testing. Exclude items combining categories from preselected battle supplies. Both sides see each other's complete selected consumables and quantities; pending item-use actions stay private.
 - Physical/special split is required.
 - Launch with one difficulty setting and level caps.
 - Keep player-facing customisation restrained; adjustable battle speed and useful QoL are required.
 - Pokémon need meaningful strengths, weaknesses and roles; equal power or universal viability is not the goal.
 - Recharged Yellow is inspiration, not a source-code dependency.
 
-Do not silently adopt earlier assistant suggestions as requirements. Engine choice, forms/postgame roster, exact mechanics generation, cap values, IV/EV/nature policy, Set mode, consumable selection/scope and information rules, training/scouting implementation, starters, Yellow-specific events, speed presets and prototype boundaries remain unresolved.
+Do not silently adopt earlier assistant suggestions as requirements. Engine choice, forms/postgame roster, exact mechanics generation, cap values, IV/EV/nature policy, Set mode, remaining consumable selection/scope details, training/scouting implementation, starters, Yellow-specific events, speed presets and prototype boundaries remain unresolved.
 
 ## Ownership and changes
 

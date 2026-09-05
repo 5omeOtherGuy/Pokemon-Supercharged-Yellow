@@ -43,7 +43,7 @@ No implementation or gameplay validation has occurred.
 
 ## Open questions
 
-- Forms/transformations, postgame roster and main-campaign species availability (species eligibility resolved in ADR-0004).
+- Postgame roster, main-campaign species availability and other battle mechanics; original forms only, no regional variants or Mega Evolution, as resolved in ADR-0004.
 - Training/scouting implementation and retry logistics beyond the policies accepted in ADRs 0006–0008.
 - Engine/upstream project and exact mechanics baseline.
 - Starting Pokémon and which Yellow-specific events or presentation to reproduce.
@@ -77,3 +77,11 @@ The user chose category-based consumable duplicate limits, full boss bag-loadout
 ## Clarification — 2026-09-05, design interview rounds 5–6
 
 Round 5 resolved category-limit tuning, exclusion of mixed-category battle supplies and mutual consumable-loadout visibility in ADRs 0008–0009. Round 6 accepts a substantial mix of singles and doubles with major bosses in both, Set rules throughout trainer battles ([ADR-0010](0010-mixed-battles-and-set-rules.md)), and carefully selected moves from any generation ([ADR-0011](0011-curated-moves-across-generations.md)). These do not select a mechanics generation, exact boss formats, abilities, typings or alternate forms. Implementation remains unstarted.
+
+## Clarification — 2026-09-05, design interview round 7
+
+[ADR-0012](0012-ability-and-typing-rebalance.md) permits reassignment of existing official abilities and carefully justified typing changes starting from modern official typings. [ADR-0004](0004-original-151-roster.md) now requires original forms only, excluding regional variants and Mega Evolutions from the main campaign. These are design boundaries; specific changes and implementation remain pending.
+
+## Clarification — 2026-09-05, Fairy discussion
+
+The user explicitly requested discussion of Fairy's viability after round 7. The modern-typing starting point does not settle Fairy inclusion; see [proposed ADR-0013](0013-fairy-type-evaluation.md). Existing ability-reassignment and original-form decisions remain accepted.

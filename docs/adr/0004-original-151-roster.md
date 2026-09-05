@@ -2,7 +2,7 @@
 
 - Status: Accepted
 - Date: 2026-09-05
-- Decision authority: Explicit user answer in design interview round 1
+- Decision authority: Explicit user answers in design interview rounds 1 and 7
 - Implementation: Not started — design decision only
 - Supersedes: None
 - Superseded by: None
@@ -14,6 +14,8 @@
 ## Decision
 
 Restrict main-campaign species eligibility to the original 151 Pokémon. Later evolutions, pre-evolutions and unrelated species outside that set are excluded from the main campaign, including opposing trainer rosters.
+
+Use original forms only in the main campaign. Regional variants and Mega Evolutions are excluded, including opposing trainer teams. Ability and typing changes permitted by [ADR-0012](0012-ability-and-typing-rebalance.md) apply to these original forms; they do not require adding alternate forms.
 
 This establishes an eligibility boundary, not a promise that every eligible species can be caught before the League. It does not choose encounter locations, starter access, legendary availability or a mechanics generation.
 
@@ -34,14 +36,18 @@ Any source foundation with a larger database will need encounter, evolution, gif
 
 User answer, 2026-09-05: "Strictly the original 151", in response to the main-campaign roster question. No game implementation or runtime checks have occurred.
 
-Future validation should audit all campaign acquisition and opponent-team paths against the agreed species pool, including transformations if later enabled.
+Future validation should audit all campaign acquisition and opponent-team paths against the agreed species pool, including any scripts, items or mechanics that could expose excluded regional variants or Mega Evolutions.
 
 ## Open questions
 
-- Forms and temporary transformations of those species, including regional forms and Mega Evolution, require separate clarification; they are not implicitly enabled by sharing a species identity.
+- Other battle-system mechanics, if proposed, need separate decisions; regional variants and Mega Evolution are excluded from the main campaign.
 - Postgame roster scope.
 - Encounter distribution, starter access and legendary timing.
 
 ## Follow-up
 
-Resolve forms and campaign availability before encounter design. Use this constraint during the source-foundation audit. The roster question in ADR-0001 is resolved for main-campaign species eligibility.
+Resolve campaign availability before encounter design; the original-form boundary is now settled. Use this constraint during the source-foundation audit. The roster question in ADR-0001 is resolved for main-campaign species eligibility.
+
+## Clarification — 2026-09-05, design interview round 7
+
+The user selected: original forms only, with no regional variants or Mega Evolutions in the main campaign. This resolves the previously open form choice. The species restriction and open postgame scope remain unchanged; ordinary evolution among eligible original species is not removed by this clarification. Verify all player-access and trainer paths against the form boundary when an engine exists.

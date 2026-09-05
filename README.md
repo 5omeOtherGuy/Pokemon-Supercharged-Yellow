@@ -8,7 +8,7 @@ Project governance is established. No engine has been selected or imported, no g
 
 ## Confirmed direction
 
-- Original 151 species only in the main campaign.
+- Original 151 species in original forms only in the main campaign; no regional variants or Mega Evolutions.
 - Frequent team rebuilding and repeated attempts to master major bosses.
 - Substantial levelling investment for newly caught Pokémon: roughly 20–30 minutes or more.
 - Full boss team, move, ability, held-item and bag-consumable scouting before the first attempt.
@@ -18,13 +18,14 @@ Project governance is established. No engine has been selected or imported, no g
 - Player supplies allow HP healing, status cures, PP restoration and temporary stat boosters, but no revives. Only opposing major bosses use bag consumables, with the same maximum as the player.
 - A substantial mix of singles and doubles, with major bosses in both; Set rules throughout trainer battles.
 - Carefully selected moves from any generation that fit Pokémon identity and balance.
+- Justified reassignment of existing abilities and custom typing changes from a modern official baseline; Fairy inclusion is under discussion in [proposed ADR-0013](docs/adr/0013-fairy-type-evaluation.md).
 - One initial difficulty setting.
 - Level caps.
 - Physical/special split.
 - Restrained player customisation and useful quality-of-life improvements, especially adjustable battle speed.
 - Challenging encounters and well-designed Pokémon without making every species equally strong or viable.
 
-See [ADR-0001](docs/adr/0001-project-direction.md) for the initial scope, [ADR-0004](docs/adr/0004-original-151-roster.md) for the roster boundary, and [ADR-0005](docs/adr/0005-team-rotation-and-boss-mastery.md) for team rotation and boss mastery. [ADRs 0006–0008](docs/adr/README.md) define levelling, scouting and consumable/loss policies. [ADR-0009](docs/adr/0009-vgc-style-ai-information.md) defines the boss AI information standard. [ADRs 0010–0011](docs/adr/README.md) define mixed battle formats, Set rules and cross-generation move curation. Detailed implementation remains open; numerical category limits and the overall quota are delegated to balance testing.
+See [ADR-0001](docs/adr/0001-project-direction.md) for the initial scope, [ADR-0004](docs/adr/0004-original-151-roster.md) for the roster boundary, and [ADR-0005](docs/adr/0005-team-rotation-and-boss-mastery.md) for team rotation and boss mastery. [ADRs 0006–0008](docs/adr/README.md) define levelling, scouting and consumable/loss policies. [ADR-0009](docs/adr/0009-vgc-style-ai-information.md) defines the boss AI information standard. [ADRs 0010–0011](docs/adr/README.md) define mixed battle formats, Set rules and cross-generation move curation. [ADR-0012](docs/adr/0012-ability-and-typing-rebalance.md) defines ability/typing changes; ADR-0004 now excludes regional and Mega forms. Detailed implementation remains open; numerical category limits and the overall quota are delegated to balance testing.
 
 ## Working in this repository
 

@@ -17,6 +17,8 @@ ADRs preserve why consequential choices were made. This directory covers softwar
 | [0009](0009-vgc-style-ai-information.md) | Use VGC-style opponent information for boss AI | Accepted |
 | [0010](0010-mixed-battles-and-set-rules.md) | Use substantial singles and doubles content with Set rules | Accepted |
 | [0011](0011-curated-moves-across-generations.md) | Curate moves from any generation for the original 151 | Accepted |
+| [0012](0012-ability-and-typing-rebalance.md) | Reassign existing abilities and permit justified typing changes | Accepted |
+| [0013](0013-fairy-type-evaluation.md) | Evaluate Fairy for the original-151 campaign | Proposed |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 

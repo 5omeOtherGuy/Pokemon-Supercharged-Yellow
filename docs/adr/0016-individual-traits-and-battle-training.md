@@ -29,7 +29,7 @@ Exact IV distributions, safeguards, improvement access and costs remain open. As
 - Incentivise continued use of individual Pokémon while avoiding excessive penalties for frequent switching.
 - Progression must be clear and understandable, with predictable rewards; it should not feel tedious or random.
 
-ADR-0023 selects automatic focus allocation and trainer-wide badge-stage training ceilings. ADR-0019 retains individually earned capabilities alongside this global capacity progression. Ordinary training credit requires field participation, no fainting and a team victory under ADR-0023. Numerical rewards, focus definitions and eligible opponent encounters remain open. Random starting IVs and deterministic training progression are distinct choices.
+ADR-0023 selects automatic focus allocation and trainer-wide badge-stage training ceilings. ADR-0019 retains individually earned capabilities alongside this global capacity progression. Ordinary training credit requires field participation, no fainting and a team victory under ADR-0023. Reward amounts follow main-series EXP-style scaling; the exact baseline, conversion, focus definitions and encounter edge cases remain open. Random starting IVs and deterministic training progression are distinct choices.
 
 ### Individual gym capabilities and rematches
 
@@ -85,7 +85,7 @@ No code, battle simulation or timing results exist. Once a mechanism is selected
 ## Open questions
 
 - Gym-rematch access timing, exact progression-appropriate teams and interaction with ordinary training.
-- Eligible opponent encounters and award amounts for ordinary training, plus other non-capability rewards from non-gym bosses. ADR-0023 selects participation/no-fainting/victory for ordinary stat-training credit; ADR-0019 applies these conditions to capability rewards.
+- Exact EXP baseline, conversion, modifiers and encounter edge cases for ordinary training, plus other non-capability rewards from non-gym bosses. ADR-0023 selects EXP-style reward scaling with participation/no-fainting/victory eligibility; ADR-0019 applies those eligibility conditions to capability rewards.
 - Numerical IV safeguards, costs, access timing and targeted IV adjustment.
 - Numerical growth formula, focus definitions, permanent allocation, gain rates and badge-stage limits within ADR-0023.
 - Whether bosses and ordinary trainers use comparable training bonuses.
@@ -127,3 +127,7 @@ ADR-0019 fixes free reassignment of earned capabilities only at Pokémon Centers
 ## Clarification — 2026-09-05, ordinary training eligibility selected
 
 The user now applies field participation, never fainting and team victory to ordinary stat-training points as well as capability eligibility. Switched-out survivors qualify; unused reserves and fainted participants do not. Losing or fainting never removes previously earned points. Earlier notes leaving ordinary training credit open are historical. Ordinary EXP and IV improvement remain separate, and trainer-wide training ceilings still follow badges regardless of individual battle outcomes. See [ADR-0023](0023-badge-wide-training-ceilings.md).
+
+## Clarification — 2026-09-05, ordinary reward scaling
+
+The user selected main-series battle EXP as the model for ordinary stat-training reward scaling. ADR-0023 records the distinction between this reward-value policy, the existing survival/victory eligibility and badge-stage ceilings. Exact formula and conversion remain open; training must continue at the level cap.

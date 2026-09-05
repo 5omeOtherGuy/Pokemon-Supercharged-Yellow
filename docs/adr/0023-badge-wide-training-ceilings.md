@@ -46,6 +46,15 @@ This record replaces that individual capacity requirement and retains the chosen
 - This selects eligibility, not the award size or which opponent encounters provide training. Resolve the complete battle outcome before finalising its training award.
 - Ordinary level EXP and IV-improvement rules are separate and are not changed by this decision. Badge-wide ceiling access also remains independent of participation and survival.
 
+### EXP-style training rewards
+
+- Scale ordinary stat-training rewards like regular battle EXP in the main-series Pokémon games. The user's reference selects an EXP-based approach to opponent reward value, rather than an equal award for every victory or a new minimum-challenge cutoff.
+- Use the chosen main-series EXP baseline to determine how opponent level and experience yield affect training progress. Do not treat subjective encounter difficulty as an independently selected reward formula.
+- The exact reference generation, recipient-level scaling, conversion from EXP-based reward value to training points, rounding and modifiers remain unresolved. This does not select one EXP as one stat-training point.
+- Preserve this project's stricter ordinary-training eligibility: entered battle, never fainted and team victory. Referencing EXP reward scaling does not import EXP Share or other eligibility rules into stat training.
+- Training must remain available at the campaign level cap, as already required by post-levelling focused training. Base its reward on the battle's EXP value before level-cap suppression rather than the amount of level EXP actually added. This is an implementation constraint derived from the existing pacing decision.
+- Earned training remains bounded by the current badge-stage per-stat ceiling. EXP-style scaling does not grant room beyond that ceiling.
+
 ### Limited tactical preparation
 
 - Training should offer bounded tactical adjustments, such as enough Defense to survive a particular attack or enough Speed to move before a particular opponent.
@@ -91,6 +100,8 @@ Future validation should check:
 - Surviving field participants receive training credit after a win, including switched-out support participants; unused reserves, fainted/revived participants and all participants in a lost battle receive none.
 - Ineligible battle outcomes preserve points earned from earlier battles; no early per-knockout award bypasses the final eligibility check.
 - Duplicate rematches do not raise badge-based ceilings.
+- Rewards follow the selected EXP baseline across opponent levels and yields, while retaining the stricter training eligibility.
+- A Pokémon at the level cap still earns training when eligible and below its stat-training ceiling.
 - Role-focused and maximum stage-legal spreads retain challenging singles and doubles encounters.
 - Representative survival and Speed thresholds allow useful but limited adjustments without erasing species weaknesses.
 
@@ -98,8 +109,8 @@ Future validation should check:
 
 - Numerical per-stat ceilings by badge stage and point-to-stat conversion.
 - How badge order maps to stages if the eventual campaign permits gyms out of sequence.
-- Which opponent encounters grant ordinary training points and how opponent strength affects the award; participation, no fainting and team victory are required.
-- Focus choices, gain rates and handling a focused stat already at its cap.
+- Exact main-series EXP reference and training-point conversion, including recipient-level scaling, rounding and which EXP modifiers affect training. No separate minimum-challenge cutoff is selected.
+- Focus choices, gain-rate tuning, eligible encounter edge cases such as catches or scripted outcomes, and handling a focused stat already at its cap.
 - Total preparation duration and opponent training assumptions.
 - Whether players receive in-game help assessing specific survival and Speed thresholds.
 - Rematch access for capabilities and later postgame progression.
@@ -111,3 +122,9 @@ Draft a provisional badge-stage table and evaluate its actual stat impact at the
 ## Clarification — 2026-09-05, ordinary training credit
 
 The user selected ordinary training points only for Pokémon that entered battle, never fainted, and belonged to the winning team. This resolves the previously open participation/outcome policy without changing ordinary EXP, IV improvement or badge-wide ceiling access. No implementation or runtime tests have occurred.
+
+## Clarification — 2026-09-05, EXP-style reward scaling
+
+Asked how useful much weaker opponents should be for stat training, the user answered: "Same as regular exp gain in the main pokemon games." This accepts EXP-style scaling, without selecting an exact generation or numerical conversion.
+
+[Bulbapedia's experience reference](https://bulbapedia.bulbagarden.net/wiki/Experience), inspected 2026-09-05, distinguishes flat and recipient-level-scaled main-series formulas. This is a secondary overview supporting the need to pin a baseline, not a verified implementation source or acceptance of a particular formula. Before implementing, inspect the selected baseline and record its exact version/source. No code or balance tests exist.

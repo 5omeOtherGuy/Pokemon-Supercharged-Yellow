@@ -42,11 +42,11 @@ Under ADR-0023, focus may change on the fly and only directs future gains; exist
 
 ## Trainer-wide badge passives and opponents
 
-[ADR-0021](0021-trainer-builds-and-reward-ownership.md) accepts intended existing badge benefits and a limited selectable trainer build at a Pokémon Center, with training/EXP and modest combat benefits. Trainer expertise must be distinct from individually learned capabilities. Trainer passives use a separate shared capacity budget, with stronger passives costing more. The exact reference, effects, budget size, costs and progression remain open.
+[ADR-0021](0021-trainer-builds-and-reward-ownership.md) accepts intended existing badge benefits and a limited selectable trainer build at a Pokémon Center, with training/EXP and modest combat benefits. Trainer expertise must be distinct from individually learned capabilities. Trainer passives use a separate shared capacity budget, with stronger passives costing more. Trainer capacity grows through gym badges. The exact reference, effects, starting budget, numerical badge increments and costs remain open.
 
 Trainer-owned effects apply separately from personally earned capabilities. A recruit gains access to the trainer's current training ceiling through badge ownership, but does not gain an individual capability merely because its trainer holds the badge.
 
-Major bosses and selected experienced trainers may use capabilities within the same capacity limit. Teams and individuals need not fill all slots. Progression must fit trainer experience and story; ADR-0021 records the player's accomplishment goal and local ace example.
+Major bosses and selected experienced trainers use trainer-wide builds consistent with their backgrounds under ADR-0021. Separately, their Pokémon may use capabilities within the same three-slot capacity limit. Teams and individuals need not fill all slots. Progression must fit trainer experience and story; ADR-0021 records the player's accomplishment goal and local ace example.
 
 ## Alternatives considered
 
@@ -80,7 +80,7 @@ No game implementation or balance results exist. Future validation should cover 
 - Exact identity of the single fixed capability granted by each source.
 - Concrete repeat-access arrangements for Elite Four and other capability sources; non-repeatable story encounters cannot grant Pokémon capabilities.
 - Designated service locations and access timing, including capability reassignment during an Elite Four sequence.
-- Exact trainer-passive effects, reference badge behavior, numerical budget, costs and progression within ADR-0021; weighted shared capacity and selection at a Pokémon Center are accepted.
+- Exact trainer-passive effects, reference badge behavior, starting budget, badge increments, costs and NPC loadouts within ADR-0021; weighted shared capacity, growth through badges, selection at a Pokémon Center and use by major bosses/selected experienced trainers are accepted.
 - Concrete effects, magnitudes, stacking rules and individual opponent loadouts under ADR-0021.
 - Public information fields for boss scouting and AI.
 

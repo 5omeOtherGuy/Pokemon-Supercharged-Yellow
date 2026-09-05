@@ -22,7 +22,9 @@ ADR-0020 accepted intended existing badge benefits, modest additional combat pas
 - Trainer passives must express something the trainer knows or does for the team. Coaching, preparation and training expertise are illustrative design rationales, not approved individual perks.
 - Pokémon capabilities express skills learned by that individual. Ownership, descriptions and mechanics must make the distinction understandable within the game's fiction.
 - Trainer-owned effects can benefit recruits without giving them personally earned capabilities or filled training points. Badge-wide training-ceiling access is automatic under ADR-0023.
-- The shared-budget model is selected; its numerical size, individual costs, progression and any reassignment cost remain open. Capacity cost governs simultaneous assignment and does not itself mean spending money or consumable resources.
+- Trainer passive capacity grows through gym badge acquisition. The starting budget, numerical increases and final campaign budget remain open; equal increments or an exact increase for every badge are not yet specified.
+- The shared-budget model and badge-based growth are selected; numerical values, individual passive costs and any reassignment cost remain open. Capacity cost governs simultaneous assignment and does not itself mean spending money or consumable resources.
+- Additional passive choices may still come from notable story rewards. Unlocking a passive and increasing capacity are different rewards; this decision selects gym badges as the capacity-growth route.
 - Keep trainer capacity separate from each Pokémon's three capability slots. No trainer budget of three or trainer cost range of one to three is selected. Existing badge benefits are not automatically placed inside the additional-passive selection budget.
 
 ### Reward sources
@@ -44,17 +46,28 @@ ADR-0020 accepted intended existing badge benefits, modest additional combat pas
 
 These are encounter-design constraints, not an automatic scaling algorithm. Exact progression triggers, rematch tiers and loadouts remain open. They do not impose a lower formal slot cap on weaker trainers, require specific player slots to stay empty, or remove the intended challenge from major encounters.
 
+### Opponent trainer-passive builds
+
+- Major bosses and selected experienced trainers use trainer-wide passive builds consistent with their backgrounds.
+- Design these builds around the trainer's experience, role and established accomplishments. Selection does not require every ordinary trainer to have a build.
+- Use the shared capacity accounting for these builds; specific NPC budgets, costs and assigned effects remain to be designed.
+- Do not automatically mirror the player's current budget or loadout. A trainer's background must justify its development; numerical NPC progression and rematch adjustments remain open.
+- Trainer-owned passive builds and the Pokémon capabilities described above remain separate systems, even when the same opponent uses both.
+
 ## Relationship to other systems
 
 [ADR-0019](0019-gym-resistances-and-capabilities.md) governs Pokémon capability costs, free service-only reassignment and the separate held-item slot. [ADR-0023](0023-badge-wide-training-ceilings.md) governs permanent stat training and flexible focus. Selecting a trainer build does not redistribute Pokémon training points or grant individual capabilities. Badge-stage ceilings are automatic progression unlocks, separate from the selected additional-passive build.
 
-Which opposing trainers use trainer-owned passives is still unresolved; the accepted opponent rules above concern Pokémon capabilities.
+Major bosses and selected experienced trainers now use both systems where justified by their backgrounds. Their trainer passives consume trainer capacity, while each Pokémon's assigned capabilities consume that Pokémon's own capacity.
 
 ## Alternatives considered
 
 - Combat-only scope for additional trainer benefits: replaced by explicit permission for training/EXP benefits as well.
 - Automatically activate every additional trainer passive: not selected; the player chooses within a shared capacity budget.
 - A fixed number of equally priced active trainer passives: not selected; stronger passives consume more capacity.
+- Keep trainer capacity fixed throughout the campaign: not selected; badges expand it.
+- Increase capacity through badges plus unrelated notable accomplishments: not selected as the growth route; story encounters may still unlock passive choices.
+- Player-exclusive or major-boss-only trainer builds: not selected; selected experienced trainers also use them.
 - Give Pokémon capabilities from non-repeatable story encounters and devise catch-up substitutes: not selected; those encounters award trainer passives instead.
 - Treat trainer and individual passives as interchangeable effects with different labels: inconsistent with the requested distinction.
 - Give every opponent complete capability loadouts: remains rejected.
@@ -76,15 +89,15 @@ No implementation or balance results exist. Future checks must cover ownership, 
 ## Open questions
 
 - Intended reference badge effects and their interaction with selected additional passives.
-- Numerical trainer capacity, whether/how it grows, individual passive costs and effects, magnitudes, stacking and reassignment costs; the shared-budget model is selected.
-- Which opposing trainers use trainer passives.
+- Starting trainer capacity, numerical badge-stage increases, final budget, individual passive costs and effects, magnitudes, stacking and reassignment costs.
+- Specific eligible NPCs, their capacity budgets and passive loadouts, with background justification.
 - Public scouting and AI information fields for both passive systems.
 - Repeat access details, rematch tiers and progression triggers.
 - How post-League accomplishment is reflected within the eventual postgame scope.
 
 ## Follow-up
 
-Specify numerical capacity, its progression and information policy, then draft representative trainer and Pokémon effects with explicit ownership rationales. Verify the inherited badge baseline before implementing it.
+Specify numerical badge-based capacity growth and information policy, then draft representative player and NPC trainer builds plus Pokémon effects with explicit ownership and background rationales. Verify the inherited badge baseline before implementing it.
 
 ## Clarification — 2026-09-05, automatic badge ceilings
 
@@ -95,3 +108,9 @@ Specify numerical capacity, its progression and information policy, then draft r
 The user selected a shared capacity budget with stronger trainer passives costing more. This resolves the capacity model without selecting a budget size, cost range or progression schedule. Trainer capacity and Pokémon capability capacity remain separate.
 
 Future validation should reject assignments above the trainer budget, calculate active cost correctly when changing builds at the Pokémon Center, and check combinations alongside individual capabilities and held items. Badge-wide training ceilings remain automatic and do not require assigning a passive. No game implementation or balance tests exist.
+
+## Clarification — 2026-09-05, badge growth and opposing trainer builds
+
+The user selected gym badges as the source of trainer passive capacity growth, and major bosses plus selected experienced trainers for trainer-wide builds consistent with their backgrounds. Earlier notes leaving the growth route or opponent category open are historical; numerical budgets and concrete loadouts remain unresolved.
+
+Future validation should check badge-based budget changes, prevent duplicate badge/rematch growth, keep story passive unlocks separate from capacity increases, enforce each trainer's assigned budget, and assess opponent builds against their backgrounds and both battle formats. No implementation or playtest results exist.

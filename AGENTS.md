@@ -13,16 +13,19 @@ These instructions apply throughout this repository. Read any more specific AGEN
 
 Build a familiar Kanto adventure with substantially greater strategic depth and challenge. Preserve Pokémon identities and the atmosphere remembered from childhood. The StarCraft II balance-team comparison describes a quality ambition, not an affiliation or evidence of balance.
 
-The authoritative initial requirements are in ADR-0001, with roster and challenge decisions in ADR-0004 and ADR-0005. In particular:
+The authoritative initial requirements are in ADR-0001, with refinements in accepted ADRs 0004–0008. In particular:
 - Main-campaign species are restricted to the original 151; forms and postgame scope remain open.
 - Frequent team rebuilding and repeated attempts to master major bosses are intended for the target returning player. Do not impose forced losses or mandatory team changes.
+- Levelling a newly caught Pokémon to the cap should normally require substantial training (roughly 20–30 minutes or more); preparation systems and reference speed remain open.
+- Full boss teams, moves, abilities and held items must be available in-game before the first attempt.
+- Boss defeats cost money and spent consumables. Non-held battle consumables have a fixed, preselected allowance; three is an example, not an accepted quota.
 - Physical/special split is required.
 - Launch with one difficulty setting and level caps.
 - Keep player-facing customisation restrained; adjustable battle speed and useful QoL are required.
 - Pokémon need meaningful strengths, weaknesses and roles; equal power or universal viability is not the goal.
 - Recharged Yellow is inspiration, not a source-code dependency.
 
-Do not silently adopt earlier assistant suggestions as requirements. Engine choice, forms/postgame roster, exact mechanics generation, cap values, IV/EV/nature policy, Set mode, bag-item restrictions, starters, Yellow-specific events, speed presets and prototype boundaries remain unresolved.
+Do not silently adopt earlier assistant suggestions as requirements. Engine choice, forms/postgame roster, exact mechanics generation, cap values, IV/EV/nature policy, Set mode, detailed consumable/opponent rules, training/scouting implementation, starters, Yellow-specific events, speed presets and prototype boundaries remain unresolved.
 
 ## Ownership and changes
 

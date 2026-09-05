@@ -51,13 +51,17 @@ No encounters have been implemented or playtested. Future playtests should disti
 
 ## Open questions
 
-- Time and resources needed to prepare a replacement Pokémon.
+- Training activities, experience sharing and resource access within ADR-0006's levelling-time target.
 - IV/EV/nature and move-relearning systems.
-- Boss information available before the first attempt and after defeat.
-- Retry location, healing, consumed-item restoration and loss penalties.
+- Scouting implementation and information beyond ADR-0007's accepted fields.
+- Retry location, healing, penalty amounts and item rules beyond ADR-0008.
 - AI information rules and predictability.
 - How the opening teaches required concepts and how ordinary trainers differ from bosses.
 
 ## Follow-up
 
-Use the next interview round to clarify preparation, scouting and retries. Resolve battle rules and AI before specifying boss teams. This refines the challenge requirement in ADR-0001 without changing its other constraints.
+Continue the interview to resolve detailed training, scouting, item and retry systems. Resolve battle rules and AI before specifying boss teams. This refines the challenge requirement in ADR-0001 without changing its other constraints.
+
+## Clarification — 2026-09-05, design interview round 2
+
+The user selected substantial levelling investment ([ADR-0006](0006-substantial-levelling-investment.md)), full boss scouting before the first attempt ([ADR-0007](0007-full-boss-scouting.md)), and money/item loss costs with preselected limited battle consumables ([ADR-0008](0008-consumable-loadouts-and-loss-costs.md)). Three consumables remains an example. These refine the existing direction; implementation has not started.

@@ -44,12 +44,12 @@ No implementation or gameplay validation has occurred.
 ## Open questions
 
 - Forms/transformations, postgame roster and main-campaign species availability (species eligibility resolved in ADR-0004).
-- Preparation effort, boss information and retry systems supporting ADR-0005.
+- Training/scouting implementation and retry logistics beyond the policies accepted in ADRs 0006–0008.
 - Engine/upstream project and exact mechanics baseline.
 - Starting Pokémon and which Yellow-specific events or presentation to reproduce.
 - Level-cap values, unlock milestones and enforcement behavior.
 - IVs, EVs, nature handling and team-preparation systems.
-- Set mode, bag-item restrictions and AI information policy.
+- Set mode, detailed consumable/opponent rules and AI information policy.
 - Speed presets, animation/audio behavior and other specific QoL features.
 - Initial playable milestone, postgame scope and supported release targets.
 
@@ -60,3 +60,7 @@ Use these constraints in the foundation audit and later design decisions. Resolv
 ## Clarification — 2026-09-05, design interview round 1
 
 The main-campaign species boundary is now the original 151: [ADR-0004](0004-original-151-roster.md). Frequent team rebuilding and repeated boss attempts are accepted experience targets: [ADR-0005](0005-team-rotation-and-boss-mastery.md). These clarify previously open scope and challenge questions; the original requirements above remain in effect. Implementation has not started.
+
+## Clarification — 2026-09-05, design interview round 2
+
+The user selected substantial levelling investment ([ADR-0006](0006-substantial-levelling-investment.md)), full boss scouting before the first attempt ([ADR-0007](0007-full-boss-scouting.md)), and money/item loss costs with preselected limited battle consumables ([ADR-0008](0008-consumable-loadouts-and-loss-costs.md)). Three consumables remains an example. These refine the existing direction; implementation has not started.

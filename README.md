@@ -10,13 +10,16 @@ Project governance is established. No engine has been selected or imported, no g
 
 - Original 151 species only in the main campaign.
 - Frequent team rebuilding and repeated attempts to master major bosses.
+- Substantial levelling investment for newly caught Pokémon: roughly 20–30 minutes or more.
+- Full boss team, move, ability and held-item scouting before the first attempt.
+- Preselected, limited battle consumables; boss defeats cost money and spent consumables.
 - One initial difficulty setting.
 - Level caps.
 - Physical/special split.
 - Restrained player customisation and useful quality-of-life improvements, especially adjustable battle speed.
 - Challenging encounters and well-designed Pokémon without making every species equally strong or viable.
 
-See [ADR-0001](docs/adr/0001-project-direction.md) for the initial scope, [ADR-0004](docs/adr/0004-original-151-roster.md) for the roster boundary, and [ADR-0005](docs/adr/0005-team-rotation-and-boss-mastery.md) for team rotation and boss mastery. Preparation, scouting and retry systems remain open.
+See [ADR-0001](docs/adr/0001-project-direction.md) for the initial scope, [ADR-0004](docs/adr/0004-original-151-roster.md) for the roster boundary, and [ADR-0005](docs/adr/0005-team-rotation-and-boss-mastery.md) for team rotation and boss mastery. [ADRs 0006–0008](docs/adr/README.md) define levelling, scouting and consumable/loss policies. Their detailed implementation, including the item quota, remains open.
 
 ## Working in this repository
 

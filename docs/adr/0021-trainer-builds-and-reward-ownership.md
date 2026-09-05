@@ -16,12 +16,14 @@ ADR-0020 accepted intended existing badge benefits, modest additional combat pas
 ### Trainer builds and ownership
 
 - Preserve the intended existing badge benefits. The reference game/version and exact inherited effects still require an audit; no engine is selected and no particular inherited multiplier or bug behavior is accepted.
-- Additional trainer passives form a selectable build: choose a limited subset at a Pokémon Center to suit the current activity and opponents.
+- Additional trainer passives form a selectable build at a Pokémon Center, constrained by one shared trainer capacity budget.
+- Each selected passive consumes capacity; stronger passives cost more. The sum of active passive costs must not exceed the trainer's available budget. The active count can vary with the chosen combination.
 - Permitted design directions include increased EXP from battles and modest combat benefits, potentially stat boosts. These are categories, not approved numerical effects or a completed perk list.
 - Trainer passives must express something the trainer knows or does for the team. Coaching, preparation and training expertise are illustrative design rationales, not approved individual perks.
 - Pokémon capabilities express skills learned by that individual. Ownership, descriptions and mechanics must make the distinction understandable within the game's fiction.
 - Trainer-owned effects can benefit recruits without giving them personally earned capabilities or filled training points. Badge-wide training-ceiling access is automatic under ADR-0023.
-- The number of active trainer passives, their capacity model, progression and any change cost remain open. Do not import the Pokémon three-slot model automatically. Existing badge benefits are not automatically placed inside the additional-passive selection budget.
+- The shared-budget model is selected; its numerical size, individual costs, progression and any reassignment cost remain open. Capacity cost governs simultaneous assignment and does not itself mean spending money or consumable resources.
+- Keep trainer capacity separate from each Pokémon's three capability slots. No trainer budget of three or trainer cost range of one to three is selected. Existing badge benefits are not automatically placed inside the additional-passive selection budget.
 
 ### Reward sources
 
@@ -51,7 +53,8 @@ Which opposing trainers use trainer-owned passives is still unresolved; the acce
 ## Alternatives considered
 
 - Combat-only scope for additional trainer benefits: replaced by explicit permission for training/EXP benefits as well.
-- Automatically activate every additional trainer passive: not selected; the player chooses a limited subset.
+- Automatically activate every additional trainer passive: not selected; the player chooses within a shared capacity budget.
+- A fixed number of equally priced active trainer passives: not selected; stronger passives consume more capacity.
 - Give Pokémon capabilities from non-repeatable story encounters and devise catch-up substitutes: not selected; those encounters award trainer passives instead.
 - Treat trainer and individual passives as interchangeable effects with different labels: inconsistent with the requested distinction.
 - Give every opponent complete capability loadouts: remains rejected.
@@ -59,6 +62,8 @@ Which opposing trainers use trainer-owned passives is still unresolved; the acce
 ## Consequences
 
 Trainer builds support preparation for training or particular opponents while individual Pokémon retain personal development. Repeatable sources protect future recruits from permanently missing capabilities.
+
+Assess trainer passive costs both individually and in combination. A higher isolated cost does not establish that a combination is balanced; compare effects across the whole team and different activities.
 
 Assess the combined effects of trainer passives, individual capabilities, held items, innate abilities and stat training. EXP effects must be considered against the substantial levelling target; no revised time target is selected.
 
@@ -71,7 +76,7 @@ No implementation or balance results exist. Future checks must cover ownership, 
 ## Open questions
 
 - Intended reference badge effects and their interaction with selected additional passives.
-- Trainer build capacity, progression, individual effects, magnitudes, stacking and change costs.
+- Numerical trainer capacity, whether/how it grows, individual passive costs and effects, magnitudes, stacking and reassignment costs; the shared-budget model is selected.
 - Which opposing trainers use trainer passives.
 - Public scouting and AI information fields for both passive systems.
 - Repeat access details, rematch tiers and progression triggers.
@@ -79,8 +84,14 @@ No implementation or balance results exist. Future checks must cover ownership, 
 
 ## Follow-up
 
-Specify capacity and information policy, then draft representative trainer and Pokémon effects with explicit ownership rationales. Verify the inherited badge baseline before implementing it.
+Specify numerical capacity, its progression and information policy, then draft representative trainer and Pokémon effects with explicit ownership rationales. Verify the inherited badge baseline before implementing it.
 
 ## Clarification — 2026-09-05, automatic badge ceilings
 
 [ADR-0023](0023-badge-wide-training-ceilings.md) clarifies that badge-based training capacity applies player-wide, including to recruits, without assigning a trainer passive. Individual Pokémon still earn their own points and capabilities.
+
+## Clarification — 2026-09-05, weighted trainer capacity
+
+The user selected a shared capacity budget with stronger trainer passives costing more. This resolves the capacity model without selecting a budget size, cost range or progression schedule. Trainer capacity and Pokémon capability capacity remain separate.
+
+Future validation should reject assignments above the trainer budget, calculate active cost correctly when changing builds at the Pokémon Center, and check combinations alongside individual capabilities and held items. Badge-wide training ceilings remain automatic and do not require assigning a passive. No game implementation or balance tests exist.

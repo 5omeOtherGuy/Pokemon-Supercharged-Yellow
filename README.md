@@ -44,7 +44,7 @@ See [ADR-0001](docs/adr/0001-project-direction.md) for the initial scope, [ADR-0
 - [ADR template](docs/adr/template.md): starting point for a new decision.
 - [Foundation proposal](docs/adr/0003-source-foundation.md): the next engineering investigation; not an accepted engine choice.
 
-The recommended next implementation task is to audit source foundations, verify a reproducible baseline build, and record the selection with evidence. The physical/special split, caps and speed controls are the first technical capabilities to prove. The exact playable milestone remains to be decided.
+The next requested task is a fresh-session review and streamlining of all ADRs; follow the [design review brief](docs/design-review-brief.md). After that review, the recommended engineering task is to audit source foundations, verify a reproducible baseline build, and record the selection with evidence. The physical/special split, caps and speed controls are the first technical capabilities to prove. The exact playable milestone remains to be decided.
 
 ## Build and testing
 

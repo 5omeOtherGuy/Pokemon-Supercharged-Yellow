@@ -17,6 +17,8 @@ A feature list is not evidence that the relevant implementation works or is suit
 
 Propose auditing the FireRed source ecosystem first, including pret/pokefirered, Deokishisu/FRLG-Plus and egalleta/FRLG-2Plus. Compare the necessary effort with an Emerald expansion foundation if the FireRed candidates have material limitations.
 
+[ADR-0025](0025-android-emulation-platform.md) subsequently requires Android emulator play and explicitly permits NDS as well as GBA. Keep the named GBA projects as initial research leads, and assess NDS alternatives where they could reduce development effort while meeting the accepted requirements. Neither the user's GBA-ease expectation nor this shortlist selects a ROM platform.
+
 Select and pin a foundation only after inspecting the relevant code and reuse requirements, building it reproducibly and testing representative behavior. No candidate is selected by this ADR.
 
 ## Alternatives considered
@@ -24,6 +26,7 @@ Select and pin a foundation only after inspecting the relevant code and reuse re
 - pret/pokefirered: existing Kanto campaign; modern mechanics and QoL integration remain work to assess.
 - FRLG-Plus or FRLG-2Plus: potentially useful existing QoL and split work; inherited features, implementation coverage, maintenance and compatibility need inspection.
 - rh-hideout/pokeemerald-expansion: modern mechanics toolkit; the Kanto content path and integration cost need explicit assessment.
+- NDS source foundations: permitted by ADR-0025; specific candidates, source maturity, required content/mechanics work and Android screen/control/performance fit need investigation.
 - Modifying the Recharged Yellow binary as the main foundation: lacks the editable upstream source and reproducibility desired for ongoing development.
 
 ## Consequences
@@ -65,10 +68,12 @@ No source foundation has been compiled, imported or tested in this project.
 
 The initial split/caps/speed shortlist predates the later progression decisions. Under the documentation-review task, expand the eventual engineering comparison to include:
 
-- The owner's platform/hardware targets and minimum Yellow-specific content/presentation; these are not established by the candidate list. See [review finding F5](../design-review.md#f5-platform-and-yellow-identity-remain-unconfirmed). The [intended badge reference](../design-review.md#f6-existing-badge-benefits-lacks-a-reference) also remains open.
+- Android emulator play under ADR-0025, with GBA and NDS both eligible and no original-hardware requirement. Minimum Yellow-specific content/presentation still needs clarification; see [review finding F5](../design-review.md#f5-platform-and-yellow-identity-remain-unconfirmed). The [intended badge reference](../design-review.md#f6-existing-badge-benefits-lacks-a-reference) also remains open.
 - Both battle formats and Set rules; required move/ability/Fairy/chart support; acquisition, evolution and relearning paths for eligible original forms.
 - Permanent per-stat training at the level cap, trainer-wide badge ceilings, individual capability rewards and separate trainer budgets ([ownership map](README.md#progression-ownership)). Inspect battle-end eligibility and reward persistence rather than assuming standard EV machinery fits.
 - Preselected bag supplies and loss accounting, data-backed scouting and an AI observation boundary capable of handling custom effects. ADR-0024 remains a proposal for extra disclosure fields.
 - Save-data space/versioning for individual points, traits and capability collections, trainer unlocks/builds, and settings; storage/evolution transitions and reward transactions.
 
 Record each capability as inspected, demonstrated, missing or unverified at a pinned revision. This is an investigation checklist, not a claim that any listed foundation supports it. Public-documentation claims above remain preliminary; this audit did not import or build an engine.
+
+Subsequent clarification, 2026-09-05: ADR-0025 settles the platform constraints and broadens candidate eligibility to NDS. Verify Android playability for the eventual candidate; current use of RetroArch/mGBA is not an exclusive emulator choice. This foundation proposal remains Proposed.

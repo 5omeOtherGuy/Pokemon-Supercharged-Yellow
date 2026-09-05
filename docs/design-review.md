@@ -4,7 +4,9 @@ The current decisions are coherent after following their supersession chains. Th
 
 Reviewed base: [`66c17faf1292626ae5f0ec70531aaf1b2a871ec1`](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/66c17faf1292626ae5f0ec70531aaf1b2a871ec1). Local `main` was first fast-forwarded from `fbc89ae` to that fetched `origin/main`. Scope: all 24 ADRs, index/template, root instructions/README, [review brief](design-review-brief.md), relevant Git history and the external evidence described below. The tracked tree contains documentation/governance only; no engine, verified build or playable prototype exists.
 
-No ADR status or product decision changed. There remain **18 Accepted, 2 Proposed and 4 Superseded** records. “Accepted” is decision status, not implementation or validation status.
+The audit changed no ADR status or product decision. At its completion there were **18 Accepted, 2 Proposed and 4 Superseded** records. “Accepted” is decision status, not implementation or validation status.
+
+**Subsequent resolution — 2026-09-05:** [ADR-0025](adr/0025-android-emulation-platform.md) now resolves the platform portion of F5: Android emulator play is required, GBA and NDS are eligible, and original-console hardware support is not required. The audit counts and coverage in this report describe the original review; Yellow-specific content, inherited badge benefits and passive disclosure remain open.
 
 ## Coverage
 
@@ -71,6 +73,8 @@ This supports the existing field/exact-stat distinction. The nature/stat-alignme
 
 Recommended resolution: identify required play targets and essential Yellow elements, distinguishing requirements from nice-to-have content. Candidate source inspection and reuse/toolchain research can proceed now; final foundation selection should use those answers. The suggested Brock/Misty slice remains unaccepted, and postgame roster/content remain open.
 
+Follow-up: ADR-0025 resolves play targets and hardware scope. Essential Yellow elements remain the owner decision in this finding; source selection remains an engineering investigation.
+
 ### F6. “Existing badge benefits” lacks a reference
 
 **P1 — Needs user decision before inherited badge behavior is implemented.** [0020](adr/0020-badge-passives-and-trainer-progression.md) and its replacement [0021](adr/0021-trainer-builds-and-reward-ownership.md) retain intended existing benefits without identifying the game/version or effects. Importing a candidate engine's badge system could silently select bonuses, progression rules or bugs and then stack extra trainer effects on top.
@@ -117,7 +121,7 @@ Recommend comparing poor allowed traits, typical role-focused builds and the str
 
 Resolve these in dependency order; no answer is needed to finish this documentation review.
 
-1. **Before selecting the foundation:** required platform/hardware/emulators and essential Yellow presentation/starter/event requirements (F5).
+1. **Before selecting the foundation:** essential Yellow presentation/starter/event requirements (F5). Platform scope is now resolved by ADR-0025; exact Android validation configurations can follow candidate investigation.
 2. **Before implementing badge effects:** intended reference game/version or exact inherited benefits (F6).
 3. **Before implementing passive-aware scouting/AI:** accept or revise ADR-0024's reciprocal active-effect disclosure (F7).
 

@@ -10,6 +10,7 @@ Read the owning records for complete rules, authority and open questions. This m
 | --- | --- |
 | Charter; decision workflow | [0001](0001-project-direction.md); [0002](0002-decision-records.md) |
 | Source foundation | [0003](0003-source-foundation.md), **Proposed** |
+| Android play target; eligible ROM platforms | [0025](0025-android-emulation-platform.md) |
 | Main-campaign roster; team continuity and boss mastery | [0004](0004-original-151-roster.md); [0017](0017-trusted-core-and-boss-mastery.md) |
 | Levelling and total preparation | [0006](0006-substantial-levelling-investment.md) |
 | Boss scouting; consumables and loss costs; AI information | [0007](0007-full-boss-scouting.md); [0008](0008-consumable-loadouts-and-loss-costs.md); [0009](0009-vgc-style-ai-information.md) |
@@ -62,6 +63,7 @@ Ordinary level EXP, stat-training reward value and stat-training eligibility are
 | [0022](0022-permanent-training-and-flexible-focus.md) | Keep training gains permanent and let focus direct future growth | Superseded |
 | [0023](0023-badge-wide-training-ceilings.md) | Unlock training ceilings trainer-wide through gym badges | Accepted |
 | [0024](0024-passive-scouting-and-ai-observations.md) | Propose public active passives and bounded AI observations | Proposed |
+| [0025](0025-android-emulation-platform.md) | Target Android emulation while allowing GBA or NDS foundations | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 
@@ -102,3 +104,5 @@ Check that filenames and IDs agree, IDs are unique, index statuses match records
 ## Review history
 
 The [2026-09-05 design review](../design-review.md) covers all 24 records at `66c17fa`, including proposals and superseded decisions. It records editorial corrections, evidence limits and remaining work. No ADR status changed in that audit.
+
+The subsequent platform clarification is recorded in ADR-0025. It resolves the Android play target and permits GBA/NDS candidates without choosing a foundation.

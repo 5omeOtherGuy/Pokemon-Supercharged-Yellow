@@ -47,7 +47,7 @@ Use the [ADR reading map](README.md#current-decision-map) for the canonical poli
 
 ## Open questions
 
-Still unresolved here: engine/platform and supported release targets; starter access and Yellow-specific events/presentation; level-cap values and enforcement; speed presets and other QoL; the first playable milestone and postgame scope. System-specific open questions belong in their owning ADRs.
+Still unresolved here: source foundation and exact Android device/emulator validation targets; starter access and Yellow-specific events/presentation; level-cap values and enforcement; speed presets and other QoL; the first playable milestone and postgame scope. [ADR-0025](0025-android-emulation-platform.md) requires Android emulator play, allows GBA or NDS foundations and does not require original-console hardware support. System-specific open questions belong in their owning ADRs.
 
 ## Follow-up
 
@@ -63,3 +63,5 @@ Resolve open questions when they affect concrete work; a complete game specifica
 - ADR-0024 remains Proposed. Preparation goals and uncertainty about AI reliability did not accept unrestricted hidden-state access or the proposed active-passive disclosure fields.
 
 Editorial audit, 2026-09-05: consolidated the repeated clarification log into these references without replacing a decision. The [complete pre-audit chronology](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/blob/66c17faf1292626ae5f0ec70531aaf1b2a871ec1/docs/adr/0001-project-direction.md) remains in Git; each owning record retains its rationale and evidence. See the [review](../design-review.md) for remaining work.
+
+Subsequent platform clarification, 2026-09-05: ADR-0025 resolves the play-platform portion of the review. The user requires Android emulator compatibility, accepts GBA or NDS based on development suitability, and does not require cartridge/physical-console use. Yellow-specific content and the foundation itself remain open.

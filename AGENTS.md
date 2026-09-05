@@ -17,7 +17,7 @@ The [project charter](docs/adr/0001-project-direction.md) and the accepted recor
 
 Use the [progression ownership map](docs/adr/README.md#progression-ownership) to distinguish badge-wide ceilings, personal training points, Pokémon capabilities and trainer builds. Follow supersession links: ADR-0005 → ADR-0017; ADR-0018 → ADR-0022 → ADR-0023; ADR-0020 → ADR-0021. Historical decisions are not current constraints.
 
-Do not silently adopt assistant suggestions as requirements. ADR-0003 is a foundation proposal and ADR-0024 is a passive-disclosure proposal. The [design review](docs/design-review.md) records remaining product questions, engineering investigations and playtest needs; its recommendations are not accepted gameplay decisions.
+Do not silently adopt assistant suggestions as requirements. ADR-0003 remains a foundation proposal; ADR-0024's passive-disclosure policy was subsequently accepted by the user. The [design review](docs/design-review.md) distinguishes the original audit from later resolutions; its remaining recommendations are not accepted gameplay decisions.
 
 ## Ownership and changes
 

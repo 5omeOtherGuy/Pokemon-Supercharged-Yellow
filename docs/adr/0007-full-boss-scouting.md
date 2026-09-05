@@ -15,6 +15,8 @@
 
 Make the boss's full team, moves, abilities and held items available in-game before the first attempt. Players need not lose to obtain these details. Also reveal the boss's complete selected bag consumables and quantities, as confirmed in interview round 4. This establishes available information, not a requirement to open a scouting screen.
 
+[ADR-0024](0024-passive-scouting-and-ai-observations.md) subsequently adds accepted disclosure of active boss trainer passives and assigned Pokémon capabilities, with precise effect descriptions and reciprocal AI access to equivalent player fields.
+
 ## Alternatives considered
 
 Theme and strategic hints only, or species/levels with other details hidden. The user selected full team information.
@@ -45,6 +47,6 @@ Resolve presentation and remaining information fields before implementing scouti
 
 Interview round 2 selected full team/move/ability/held-item scouting; round 4 added the complete boss bag loadout and quantities, recorded jointly in [ADR-0008](0008-consumable-loadouts-and-loss-costs.md). ADR-0009 owns the separately requested AI information standard.
 
-The later preparation/public-gym-information statement led to [ADR-0024](0024-passive-scouting-and-ai-observations.md), which proposes reciprocal active trainer-passive and assigned-capability disclosure. That extension remains Proposed; it is not an accepted scouting field.
+The later preparation/public-gym-information statement led to ADR-0024's reciprocal active trainer-passive and assigned-capability proposal. It remained Proposed during the audit; the user subsequently accepted it on 2026-09-05. Exact numerical boss-stat disclosure remains open.
 
 Editorial audit: consolidated duplicate clarifications; accepted fields and unresolved stat/level disclosure are unchanged.

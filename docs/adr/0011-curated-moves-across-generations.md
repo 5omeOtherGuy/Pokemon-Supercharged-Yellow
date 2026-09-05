@@ -2,7 +2,7 @@
 
 - Status: Accepted
 - Date: 2026-09-05
-- Decision authority: Explicit user answer in design interview round 6 and subsequent weather/terrain clarification
+- Decision authority: Explicit user answer in design interview round 6 and subsequent weather/terrain and HM/TM clarifications
 - Implementation: Not started — move-selection policy only
 - Supersedes: None
 - Superseded by: None
@@ -19,6 +19,8 @@ Include weather and terrain moves to broaden strategic options, implementing the
 
 Cross-generation curation does not require importing every move, every modern learnset or unrelated mechanics. It does not establish a particular generation's version of a move, approve custom moves, or decide whether a species may receive a move it has never learned officially.
 
+HM moves must be forgettable; HM status must not make a learned move permanent. TMs must be reusable: teaching a compatible Pokémon must not consume the TM, so an acquired TM can be used again. Acquisition and species compatibility remain separate policies.
+
 ## Alternatives considered
 
 Restrict the move pool to Generation 3 or earlier, or to Generation 1 only with balance adjustments. The user selected cross-generation curation.
@@ -33,6 +35,8 @@ For weather and terrain, verify activation, duration, replacement and coexistenc
 
 This leaves species eligibility unchanged and does not approve new abilities, typings, alternate forms or generation-specific transformation systems.
 
+Forgetting an HM must not strand the player or make required campaign progress impossible. Verify a reachable way to restore a required field move or another valid traversal path, including after save/load and party changes. Reusable TMs shift availability control to acquisition timing and learnset eligibility. These requirements do not remove badge checks for field use or select replacement field tools.
+
 ## Evidence and validation
 
 User answer on 2026-09-05: "Use carefully selected moves from any generation when they fit identity and balance."
@@ -44,7 +48,7 @@ Weather and terrain move categories are explicitly required; individual moves an
 - Specific moves and versions of their effects, including weather/terrain rules and campaign availability.
 - Permission to grant species moves outside their official learnsets.
 - Custom moves and changes to existing move values.
-- Move acquisition, relearning and TM/tutor policies.
+- Move acquisition and relearning, HM-forgetting interface, TM distribution/compatibility and tutor policies. HM forgettability and TM reuse are decided.
 
 ## Follow-up
 
@@ -57,3 +61,7 @@ Resolve remaining move-specific boundaries as needed, audit move support in cand
 ## Clarification — 2026-09-05, weather and terrain
 
 The user explicitly requested integrating weather and terrain moves if absent, to make the move pool more interesting. This makes their inclusion a requirement within the existing cross-generation policy. It does not select every such move, a mechanics generation, particular species assignments or automatic weather/terrain on routes and boss arenas.
+
+## Clarification — 2026-09-05, HM/TM usability
+
+The user explicitly stated: "HMs must be forgettable, TMs must be reusable." This resolves those usability policies without selecting a move-deletion service, relearning cost, TM locations or universal TM compatibility. Verify forgetting/replacement, safe restoration of required field access, repeat TM teaching and item persistence when an engine exists. No HM/TM behavior has been implemented or tested.

@@ -49,7 +49,7 @@ Assess the complete combination of species stats, IVs, fixed nature, permanent t
 
 Service-only reassignment can add preparation travel and matters during sequences such as the Elite Four. Repeatable sources must remain accessible after story changes. Neither full collections nor full active capacity are mandatory for every useful Pokémon.
 
-Scouting and AI visibility of active capabilities are not settled by hidden-stat protection. [ADR-0024](0024-passive-scouting-and-ai-observations.md) remains the proposal for those fields.
+[ADR-0024](0024-passive-scouting-and-ai-observations.md), subsequently accepted by the user, makes assigned capabilities public to both sides of boss battles while protecting unassigned collections and the existing hidden-stat boundary.
 
 ## Evidence and validation
 
@@ -62,7 +62,7 @@ No implementation or balance results exist. Future checks should cover all slot 
 - Specific fixed capability rewards, costs within 1–3, benefits, drawbacks and stacking with other effects.
 - Duplicate-award handling and repeat-access arrangements for each source, including Elite Four and story changes.
 - Designated services and access timing, including reassignment during League sequences.
-- Active-effect disclosure under ADR-0024. Trainer-passive effects and budgets belong in ADR-0021.
+- Scouting presentation and commitment/refresh timing under ADR-0024's accepted active-effect disclosure. Trainer-passive effects and budgets belong in ADR-0021.
 
 ## Follow-up
 

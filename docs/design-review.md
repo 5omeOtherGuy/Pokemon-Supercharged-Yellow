@@ -6,7 +6,7 @@ Reviewed base: [`66c17faf1292626ae5f0ec70531aaf1b2a871ec1`](https://github.com/5
 
 The audit changed no ADR status or product decision. At its completion there were **18 Accepted, 2 Proposed and 4 Superseded** records. “Accepted” is decision status, not implementation or validation status.
 
-**Subsequent resolutions — 2026-09-05:** [ADR-0025](adr/0025-android-emulation-platform.md) resolves the platform portion of F5; [ADR-0026](adr/0026-yellow-kanto-content-baseline.md) resolves its content baseline, including Pikachu as starter and Kanto polish without a current Sevii Islands plan. F5 is resolved sufficiently for foundation investigation. The audit counts and coverage in this report describe the original review; inherited badge benefits and passive disclosure remain open.
+**Subsequent resolutions — 2026-09-05:** [ADR-0025](adr/0025-android-emulation-platform.md) resolves the platform portion of F5; [ADR-0026](adr/0026-yellow-kanto-content-baseline.md) resolves its content baseline, including Pikachu as starter and Kanto polish without a current Sevii Islands plan. The user has also accepted [ADR-0024](adr/0024-passive-scouting-and-ai-observations.md), resolving F7's reciprocal active-effect disclosure. ADR-0011 now requires weather/terrain moves, forgettable HMs and reusable TMs. F6 is narrowed by the user's HM-access recollection, but other inherited badge effects remain undecided. The audit counts and coverage below describe the original review; current totals are 21 Accepted, 1 Proposed and 4 Superseded.
 
 ## Coverage
 
@@ -81,11 +81,15 @@ Follow-up disposition: **Resolved by user decisions in ADRs 0025–0026.** Andro
 
 Recommended resolution: name the intended reference or describe the benefits to retain; engineering should then inventory that version's actual behavior and propose explicit treatment. No specific multiplier or bug is approved. Keep inherited benefits, automatic training ceilings and the additional trainer-passive budget separate.
 
+Follow-up: the user recalled badge permissions for particular HMs and expressed uncertainty about other benefits. [ADR-0021's pinned Yellow evidence](adr/0021-trainer-builds-and-reward-ownership.md#clarification-and-badge-evidence--2026-09-05) confirms that the original game also had traded-Pokémon obedience checks and automatic stat boosts. Their retention/removal and the exact field-permission mapping remain unresolved. The separately explicit forgettable-HM/reusable-TM requirements belong in ADR-0011.
+
 ### F7. Active passive disclosure remains a product proposal
 
 **P1 — Needs user decision before a passive-aware boss prototype.** [0024](adr/0024-passive-scouting-and-ai-observations.md) proposes both sides seeing active trainer passives and assigned Pokémon capabilities, with effect details, while hiding inactive collections. [0007](adr/0007-full-boss-scouting.md) accepts preparation and existing scouting fields; neither it nor uncertainty about AI glitches accepts the extra fields or unlimited knowledge.
 
 Recommendation: accept reciprocal active-loadout disclosure for predictable preparation. Player-only disclosure and discovery during combat remain alternatives, with asymmetry or reduced preparation. Preserve [0009](adr/0009-vgc-style-ai-information.md)'s hidden-stat/pending-action/RNG limits whichever option is chosen. Correct battle resolution and AI observation filtering require engineering work independently of this product choice.
+
+Follow-up disposition: **Resolved by explicit user acceptance of ADR-0024 on 2026-09-05.** The recommendation above is now accepted policy. Scouting presentation, timing, source integration and validation remain work; no additional hidden-data access was approved.
 
 ### F8. Battle-entry and action rules are not a complete contract
 
@@ -121,16 +125,15 @@ Recommend comparing poor allowed traits, typical role-focused builds and the str
 
 Resolve these in dependency order; no answer is needed to finish this documentation review.
 
-1. **Before implementing badge effects:** intended reference game/version or exact inherited benefits (F6).
-2. **Before implementing passive-aware scouting/AI:** accept or revise ADR-0024's reciprocal active-effect disclosure (F7).
+Before implementing inherited badge effects, decide whether to retain automatic stat boosts and badge-based traded-Pokémon obedience, and verify the intended field-permission mapping (F6). HM access was the user's recalled benefit; uncertainty about other benefits is not acceptance of them.
 
-F5's platform and principal content decisions are resolved by ADRs 0025–0026. Exact Android validation configurations and the detailed Yellow reference inventory can follow candidate investigation.
+F5's platform/content decisions and F7's reciprocal active-effect disclosure are resolved. Exact Android validation configurations and the detailed Yellow reference inventory can follow candidate investigation. HM forgettability and TM reuse are also resolved in ADR-0011; the engineering audit must check that forgetting field moves cannot strand the player.
 
 The first playable boundary should be chosen after the foundation comparison makes cost concrete. Brock/Misty is a candidate, not a commitment. Prepare F8's remaining battle-scope choices with that slice; do not turn postgame, numerical budgets or every implementation detail into another interview now.
 
 ## Recommended next sequence
 
-1. **Documentation readiness:** this audit is complete; use the current reading/ownership map and preserved history. Proposed records stay Proposed. No further cleanup or blanket reapproval is needed to investigate foundations.
+1. **Documentation readiness:** this audit is complete; use the current reading/ownership map and subsequent owner resolutions. ADR-0003 remains Proposed; ADR-0024 is now Accepted. No further cleanup or blanket reapproval is needed to investigate foundations.
 2. **Foundation investigation:** inspect and pin candidate sources, reuse terms, toolchains and actual mechanisms using ADR-0003's expanded checklist. This read-only work can proceed without further clarification. Combine findings with F5's requirements before selecting/importing a foundation in a separately authorised engineering task.
 3. **Baseline verification:** after selection, establish reproducible build, boot, save/load and target checks. Record exactly what was compiled, run and observed. Resolve the mechanics baseline and prototype scope; a compile alone is not playability.
 4. **Playable validation:** implement a bounded slice exercising relevant singles/doubles encounters, caps, speed, training/rewards, supplies, scouting and the approved information contract. Preserve proposed assumptions visibly. Check legal actions, hidden-data invariance, reward transactions and save persistence, then run human preparation/difficulty playtests for F10–F11. Tune caps/costs/rates using that evidence.

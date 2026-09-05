@@ -71,9 +71,9 @@ No source foundation has been compiled, imported or tested in this project.
 The initial split/caps/speed shortlist predates the later progression decisions. Under the documentation-review task, expand the eventual engineering comparison to include:
 
 - Android emulator play under ADR-0025 and the Yellow/Kanto content baseline in ADR-0026. These resolve [review finding F5](../design-review.md#f5-platform-and-yellow-identity-remain-unconfirmed); the [intended badge reference](../design-review.md#f6-existing-badge-benefits-lacks-a-reference) remains open.
-- Both battle formats and Set rules; required move/ability/Fairy/chart support, including weather and terrain moves and their field mechanics under ADR-0011; acquisition, evolution and relearning paths for eligible original forms.
+- Both battle formats and Set rules; required move/ability/Fairy/chart support, including weather and terrain moves and their field mechanics under ADR-0011; acquisition, evolution and relearning paths for eligible original forms, forgettable HMs with safe field progression and reusable TMs.
 - Permanent per-stat training at the level cap, trainer-wide badge ceilings, individual capability rewards and separate trainer budgets ([ownership map](README.md#progression-ownership)). Inspect battle-end eligibility and reward persistence rather than assuming standard EV machinery fits.
-- Preselected bag supplies and loss accounting, data-backed scouting and an AI observation boundary capable of handling custom effects. ADR-0024 remains a proposal for extra disclosure fields.
+- Preselected bag supplies and loss accounting, data-backed scouting and an AI observation boundary capable of handling custom effects. ADR-0024 now accepts reciprocal active-effect disclosure; inspect those fields alongside the existing hidden-information protections.
 - Save-data space/versioning for individual points, traits and capability collections, trainer unlocks/builds, and settings; storage/evolution transitions and reward transactions.
 
 Record each capability as inspected, demonstrated, missing or unverified at a pinned revision. This is an investigation checklist, not a claim that any listed foundation supports it. Public-documentation claims above remain preliminary; this audit did not import or build an engine.

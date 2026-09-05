@@ -15,7 +15,7 @@ ADR-0020 accepted intended existing badge benefits, modest additional combat pas
 
 ### Trainer builds and ownership
 
-- Preserve the intended existing badge benefits. The reference game/version and exact inherited effects still require an audit; no engine is selected and no particular inherited multiplier or bug behavior is accepted.
+- Preserve the intended existing badge benefits. The user subsequently identified permission to use particular HMs as the benefit they remembered and expressed uncertainty about others. Treat that as context for badge-gated field access, not approval to inherit automatic stat boosts, obedience rules or bugs. Exact inherited effects and the field-permission mapping remain to be settled; see the evidence below.
 - Additional trainer passives form a selectable build at a Pokémon Center, constrained by one shared trainer capacity budget.
 - Each selected passive consumes capacity; stronger passives cost more. The sum of active passive costs must not exceed the trainer's available budget. The active count can vary with the chosen combination.
 - Permitted design directions include increased EXP from battles and modest combat benefits, potentially stat boosts. These are categories, not approved numerical effects or a completed perk list.
@@ -86,10 +86,10 @@ No implementation or balance results exist. Future checks must cover ownership, 
 
 ## Open questions
 
-- Intended reference badge effects and their interaction with selected additional passives.
+- Whether to retain automatic badge stat boosts or badge-based traded-Pokémon obedience rules; exact field-permission mapping and interaction with selected additional passives.
 - Starting trainer capacity, numerical badge-stage increases, final budget, individual passive costs and effects, magnitudes, stacking and reassignment costs.
 - Specific eligible NPCs, their capacity budgets and passive loadouts, with background justification.
-- Public scouting and AI information fields for both passive systems; [ADR-0024](0024-passive-scouting-and-ai-observations.md) proposes reciprocal active-effect disclosure, pending acceptance.
+- Scouting presentation and loadout commitment/refresh timing under [ADR-0024](0024-passive-scouting-and-ai-observations.md), which now accepts reciprocal active-effect disclosure.
 - Repeat access details, rematch tiers and progression triggers.
 - How post-League accomplishment is reflected within the eventual postgame scope.
 
@@ -104,3 +104,14 @@ Specify numerical badge-based capacity growth and information policy, then draft
 [d0db39c](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/d0db39c) selected weighted shared trainer capacity. [d3d0fb7](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/d3d0fb7) selected badge-based growth and major bosses/selected experienced trainers for trainer builds. These resolved the capacity model, growth route and opponent category, not numerical budgets or effects.
 
 Editorial audit: consolidated the clarification log and duplicate capability rules while retaining this record as the owner of trainer builds, passive source ownership and NPC progression.
+
+## Clarification and badge evidence — 2026-09-05
+
+The user recalled badges allowing particular HMs and was unsure about other benefits. That recollection does not choose all effects from Yellow, FireRed/LeafGreen or Recharged Yellow. The separately explicit HM-forgetting/TM-reuse requirements are recorded in ADR-0011. The user also accepted ADR-0024's reciprocal active-effect disclosure.
+
+Yellow source inspected at pret/pokeyellow commit `e89ead154b9968aa50eed9328ff2b38b6c194382` on 2026-09-05:
+
+- [Badge-house dialogue](https://github.com/pret/pokeyellow/blob/e89ead154b9968aa50eed9328ff2b38b6c194382/text/CeruleanBadgeHouse.asm) and its [second text file](https://github.com/pret/pokeyellow/blob/e89ead154b9968aa50eed9328ff2b38b6c194382/text/CeruleanBadgeHouse_2.asm) describe badge permissions for Flash, Cut, Fly, Strength and Surf.
+- [Battle core](https://github.com/pret/pokeyellow/blob/e89ead154b9968aa50eed9328ff2b38b6c194382/engine/battle/core.asm): `CheckForDisobedience` (lines 3999–4052) checks a traded Pokémon's original-trainer ID, level and badges; `ApplyBadgeStatBoosts` (lines 6639–6690) applies badge-dependent 1.125× stat boosts outside link battles. These are additional original-game effects, not project requirements. The dialogue and code disagree about which badges boost Defense/Speed; do not use dialogue alone to select battle behavior.
+
+This is read-only historical evidence, not a selected engine, full badge implementation audit or playtest. Present retaining/removing automatic boosts and obedience behavior as explicit choices; preserve the already accepted training-ceiling and trainer-capacity progression independently.

@@ -15,11 +15,11 @@ Read the owning records for complete rules, authority and open questions. This m
 | Main-campaign roster; team continuity and boss mastery | [0004](0004-original-151-roster.md); [0017](0017-trusted-core-and-boss-mastery.md) |
 | Levelling and total preparation | [0006](0006-substantial-levelling-investment.md) |
 | Boss scouting; consumables and loss costs; AI information | [0007](0007-full-boss-scouting.md); [0008](0008-consumable-loadouts-and-loss-costs.md); [0009](0009-vgc-style-ai-information.md) |
-| Battle formats/Set; move curation including weather and terrain | [0010](0010-mixed-battles-and-set-rules.md); [0011](0011-curated-moves-across-generations.md) |
+| Battle formats/Set; move curation, weather/terrain and HM/TM usability | [0010](0010-mixed-battles-and-set-rules.md); [0011](0011-curated-moves-across-generations.md) |
 | Innate abilities/typings; Fairy; type viability; chart/stat boundaries | [0012](0012-ability-and-typing-rebalance.md); [0013](0013-fairy-type-evaluation.md); [0014](0014-type-identity-and-campaign-viability.md); [0015](0015-standard-chart-and-stat-rebalance.md) |
 | Individual traits, development goals and rematch difficulty | [0016](0016-individual-traits-and-battle-training.md) |
 | Pokémon capabilities; trainer builds/reward ownership/NPC progression; stat training | [0019](0019-gym-resistances-and-capabilities.md); [0021](0021-trainer-builds-and-reward-ownership.md); [0023](0023-badge-wide-training-ceilings.md) |
-| Active-passive scouting and AI observations | [0024](0024-passive-scouting-and-ai-observations.md), **Proposed** |
+| Active-passive scouting and AI observations | [0024](0024-passive-scouting-and-ai-observations.md) |
 
 Supersession chains: 0005 → 0017; 0018 → 0022 → 0023; 0020 → 0021. Follow them to current policy; preserved records describe the decisions and questions of their time.
 
@@ -32,7 +32,7 @@ Supersession chains: 0005 → 0017; 0018 → 0022 → 0023; 0020 → 0021. Follo
 | Training points and focus | Individual permanent stat development | Surviving field participants in a won battle earn points; freely changing focus directs future gains only | [0023](0023-badge-wide-training-ceilings.md) |
 | Pokémon capabilities | Individual earned passive collection and assigned loadout | Repeatable fixed encounter rewards; three slots with costs of 1–3; free reassignment at a Center/designated service | [0019](0019-gym-resistances-and-capabilities.md) |
 | Trainer passives and capacity | Trainer expertise expressed through a selected build, separate from Pokémon slots | Shared weighted budget grows through badges; select at a Center; numbers and reassignment cost open | [0021](0021-trainer-builds-and-reward-ownership.md) |
-| Inherited badge benefits | Intended reference-game benefits, separate from the additional trainer build | Reference and exact effects still unresolved | [0021](0021-trainer-builds-and-reward-ownership.md) |
+| Inherited badge benefits | Field permissions were the user's recalled benefit, separate from the additional trainer build | Exact mapping and retention of automatic stat boosts/obedience rules remain unresolved | [0021](0021-trainer-builds-and-reward-ownership.md) |
 
 Ordinary level EXP, stat-training reward value and stat-training eligibility are separate. A capability is also distinct from an innate ability and the normal held-item slot. “Capacity” alone is ambiguous: name the training ceiling, Pokémon capability capacity or trainer-passive budget.
 
@@ -63,7 +63,7 @@ Ordinary level EXP, stat-training reward value and stat-training eligibility are
 | [0021](0021-trainer-builds-and-reward-ownership.md) | Select trainer builds and separate trainer rewards from Pokémon capabilities | Accepted |
 | [0022](0022-permanent-training-and-flexible-focus.md) | Keep training gains permanent and let focus direct future growth | Superseded |
 | [0023](0023-badge-wide-training-ceilings.md) | Unlock training ceilings trainer-wide through gym badges | Accepted |
-| [0024](0024-passive-scouting-and-ai-observations.md) | Propose public active passives and bounded AI observations | Proposed |
+| [0024](0024-passive-scouting-and-ai-observations.md) | Disclose active passives and bound AI observations | Accepted |
 | [0025](0025-android-emulation-platform.md) | Target Android emulation while allowing GBA or NDS foundations | Accepted |
 | [0026](0026-yellow-kanto-content-baseline.md) | Use FireRed/LeafGreen Kanto for the Yellow content baseline | Accepted |
 
@@ -110,3 +110,5 @@ The [2026-09-05 design review](../design-review.md) covers all 24 records at `66
 The subsequent platform clarification is recorded in ADR-0025. It resolves the Android play target and permits GBA/NDS candidates without choosing a foundation.
 
 ADR-0026 subsequently establishes FireRed/LeafGreen's Kanto map with necessary Yellow adaptations, Recharged Yellow as the reference hack, Pikachu as starter and Kanto polish before extras, with no Sevii Islands currently planned. Together these resolve the review's platform/content question; source selection is still open.
+
+The user subsequently accepted ADR-0024's reciprocal active-effect disclosure, resolving F7. ADR-0011 records the later weather/terrain and forgettable-HM/reusable-TM requirements. ADR-0021 narrows F6 using the user's HM-access recollection and pinned Yellow evidence; other inherited badge effects remain undecided. Current totals are 21 Accepted, 1 Proposed and 4 Superseded records.

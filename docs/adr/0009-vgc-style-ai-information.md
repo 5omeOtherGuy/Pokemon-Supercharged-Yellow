@@ -21,6 +21,7 @@ Use an open-team-list information boundary for boss AI.
 - The AI may reason from permitted team information and observable battle events. Estimates and deductions must remain distinguishable from direct hidden-data access.
 - As the engineering translation of a human opponent's information boundary, do not let the AI read the player's committed action, switch target or item choice for the current turn before choosing its own action, or inspect future random outcomes.
 - As an explicitly accepted campaign extension, both sides see the other's complete selected bag consumables and quantities before battle. This does not reveal which consumable, target or other action the opponent has chosen for the current turn.
+- The subsequently accepted [ADR-0024](0024-passive-scouting-and-ai-observations.md) adds reciprocal active trainer-passive and assigned-capability disclosure as a project extension, retaining the hidden-information limits above.
 
 This is the recorded 2026-09-05 interpretation, not automatic adoption of future rulebook updates. Additional public-information fields must be mapped explicitly before implementation.
 
@@ -49,7 +50,7 @@ No AI code has been implemented or tested. Future verification must hold permitt
 - Exact nature/stat-alignment representation, remaining public fields such as level/form details, and reciprocal additions to boss scouting. Player access to boss natures and exact stats remains open under ADR-0007.
 - Observable HP precision, stat inference, memory across attempts and ordinary-trainer AI.
 - Loadout locking, choice commitment and information filtering in the selected engine.
-- Additional active-passive fields proposed in ADR-0024.
+- Engine mapping of the active-passive fields accepted in ADR-0024.
 
 ## Follow-up
 
@@ -59,6 +60,6 @@ Map each accepted field into an explicit information contract against a verified
 
 Round 4 requested the VGC standard; [eccdd70](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/eccdd70) recorded the adaptation. Round 5 explicitly added mutual consumable visibility as a campaign extension, not an official VGC rule.
 
-The later tentative suggestion that AI might need all information for reliability did not reverse hidden-stat or pending-action protections. [ADR-0024](0024-passive-scouting-and-ai-observations.md) proposes new active-effect disclosure and an implementation approach; it remains Proposed.
+The later tentative suggestion that AI might need all information for reliability did not reverse hidden-stat or pending-action protections. ADR-0024 initially proposed active-effect disclosure and an implementation approach; the user explicitly accepted reciprocal disclosure on 2026-09-05, preserving those protections.
 
 Editorial audit: replaced incomplete indexed-PDF evidence with the accessible official handbook and corrected the earlier 2.4–2.4.1 section citation to 2.5–2.5.1. The original [team-list form](https://www.pokemon.com/static-assets/content-assets/cms2/pdf/play-pokemon/rules/play-pokemon-vg-team-list.pdf) remains a historical reference; its full body was not verified and is no longer needed as proof of the listed fields. No accepted information boundary changed.

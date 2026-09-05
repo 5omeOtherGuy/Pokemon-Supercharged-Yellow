@@ -3,7 +3,7 @@
 - Status: Accepted
 - Date: 2026-09-05
 - Decision authority: Explicit user answers on IVs, battle-earned development and fixed natures
-- Implementation: Not started — traits, development goals and gym rules accepted; reward formula remains proposed
+- Implementation: Not started — traits and gym rules accepted; ADR-0018 selects budget and allocation boundaries, with numbers and progression details open
 - Supersedes: None
 - Superseded by: None
 
@@ -29,7 +29,7 @@ Exact IV distributions, safeguards, improvement access and costs remain open. As
 - Incentivise continued use of individual Pokémon while avoiding excessive penalties for frequent switching.
 - Progression must be clear and understandable, with predictable rewards; it should not feel tedious or random.
 
-These are accepted experience requirements. They do not yet select traditional EVs, an allocation interface, additional stat currencies, permanent exclusive rewards, reward amounts or a final growth formula. Gym eligibility is selected below; ordinary battle-training credit remains open. Random starting IVs and deterministic training progression are distinct choices.
+These experience requirements are refined in ADR-0018: gyms unlock limited extra training capacity, points follow a selected focus automatically, and all eight leaders contribute separately. Numerical rewards, focus definitions, reward filling and ordinary battle-training credit remain open. Random starting IVs and deterministic training progression are distinct choices.
 
 ### Gym rewards and rematches
 
@@ -50,30 +50,25 @@ Surviving support Pokémon can qualify. A participant that helps win but faints 
 
 Use the existing hidden-stat information boundary in [ADR-0009](0009-vgc-style-ai-information.md). Do not automatically reveal new training allocations or exact bonuses to boss AI. Public training-history fields, if any, need an explicit mapping.
 
-## Proposed reward mechanism — not yet accepted
+## Selected budget mechanism
 
-The gym-rematch route and eligibility above are accepted. A bounded training-point pool remains a candidate:
-- Ordinary eligible battles grant predictable progress; qualifying boss victories grant a meaningful bonus.
-- Show the reward conditions, current progress, maximum and stat effects in-game.
-- Let the player direct earned development toward the Pokémon's role; the interface and reallocation rules remain open.
-- Give comparable Pokémon the same eventual training ceiling. Use the selected gym-rematch catch-up route: a later recruit can earn the same gym reward a veteran previously received.
-- Track gym rewards per individual Pokémon and gym milestone. Award each qualifying reward once to that Pokémon, whether obtained in the original fight or a rematch. Already rewarded veterans can help recruits without earning a duplicate reward.
-- Apply the selected gym rule: field participation, no fainting and a player victory. Surviving support Pokémon qualify without needing a knockout.
-- Use the selected stronger rematch teams suited to campaign progress. Access timing, progression tiers and exact teams remain open; replaying unchanged early teams with temporary player downlevelling was not selected.
+[ADR-0018](0018-gym-training-budget-and-focus.md) now records the selected direction:
+- Gym victories unlock a limited extra training budget beyond ordinary training.
+- The player chooses a focus and earned points are allocated automatically.
+- Full gym development requires all eight distinct leader rewards per Pokémon. Each contribution counts once and can be earned through the original battle or a qualifying rematch.
+- Joining late does not prevent earning the same set of gym contributions.
 
-The intended benefit is a real veteran advantage before equivalent training, with no permanently lost potential solely from joining late. This shared-ceiling proposal does not satisfy an interpretation requiring a veteran to remain stronger after both Pokémon complete equivalent training; that tradeoff must be decided explicitly.
-
-A candidate illustration: two otherwise identical level-30 Pokémon differ in earned training, so the one with several gym victories is stronger. A late recruit could eventually close that gap by winning the relevant gym rematches and earning the same rewards. Gym rematches and their general difficulty direction are selected; point values, caps, access and exact teams remain open.
+The earlier training-point proposal is refined by these choices. Capacity is distinct from earned points: immediate filling of unlocked capacity, point-to-stat conversion, focus-changing and numerical caps remain open. Show eligibility, earned and missing gym contributions, and focus effects clearly.
 
 ## Alternatives and tradeoffs
 
-- Bosses accelerate a shared training pool: simple and recoverable, but the numerical distinction can disappear once both Pokémon are fully trained.
-- Boss experience unlocks recoverable mastery rewards through equivalent challenges: gives boss-like experience a distinct role, with more progression rules to explain.
+- Bosses only accelerate a shared ordinary training pool: considered but not selected; ADR-0018 grants additional capacity.
+- Boss experience unlocks additional recoverable training capacity: selected through eight separate gym rewards and rematches in ADR-0018.
 - Campaign-only, permanently exclusive stat rewards: preserves a lifelong veteran advantage but risks penalising late catches and missed opportunities.
 - Cosmetic records alone: can supplement development but do not meet the requested same-level gameplay benefit.
 - Final-knockout-only and party-wide credit were considered. The user selected field participation plus survival in a won encounter, including surviving support Pokémon but excluding unused reserves and fainted participants.
 
-Reward-formula alternatives remain under consideration. Gym eligibility and progression-appropriate rematches are settled as stated above.
+The extra-budget and automatic-focus mechanism is selected in ADR-0018. Numerical formulas and remaining progression details are still open. Gym eligibility and progression-appropriate rematches remain as stated above.
 
 ## Evidence and validation
 
@@ -92,14 +87,14 @@ No code, battle simulation or timing results exist. Once a mechanism is selected
 - Gym-rematch access timing, exact progression-appropriate teams and interaction with ordinary training.
 - Ordinary battle-training credit and non-gym boss reward policies; gym eligibility is settled.
 - Numerical IV safeguards, costs, access timing and targeted IV adjustment.
-- Growth formula, allocations, reallocation, progression caps and boss milestones.
+- Numerical growth formula, focus definitions, redistribution, reward filling and limits within ADR-0018; eight distinct gym contributions are selected.
 - Whether bosses and ordinary trainers use comparable training bonuses.
 - Training overlap with levelling, rematch access and late-game catch-up.
 - Treatment of gifts, eggs and evolution for acquired traits and earned progression.
 
 ## Follow-up
 
-Resolve reward form, limits, allocation and rematch access before implementing the progression mechanism. Follow ADR-0017 for team continuity. Do not implement the proposed training-points system merely because this requirements record is Accepted.
+Follow ADR-0018 for the selected budget and allocation direction and ADR-0017 for team continuity. Resolve numerical limits, reward filling, focus changes and rematch access before implementing the progression mechanism. Accepted policies do not establish tested game balance.
 
 ## Proposal history — 2026-09-05, gym rematches
 
@@ -107,4 +102,8 @@ While this record was being drafted, the user suggested rematching gym leaders t
 
 ## Clarification — 2026-09-05, accepted gym rules
 
-The user selected only Pokémon that entered battle and did not faint for the reward after victory, and stronger rematch teams suited to current campaign progress. These replace the earlier open eligibility and difficulty questions. The trusted-core choice is in ADR-0017. Per-Pokémon milestone tracking, duplicate-award rules, allocations and numerical limits remain proposed or unresolved; the gym rules do not settle the complete reward economy.
+The user selected only Pokémon that entered battle and did not faint for the reward after victory, and stronger rematch teams suited to current campaign progress. These replace the earlier open eligibility and difficulty questions. The trusted-core choice is in ADR-0017. At that stage, per-Pokémon milestones, duplicate-award rules, allocations and numerical limits remained proposed or unresolved; later choices are recorded below.
+
+## Clarification — 2026-09-05, budget and allocation selected
+
+The user selected limited extra gym training capacity, automatic allocation through a chosen focus and all eight leaders contributing separate rewards. [ADR-0018](0018-gym-training-budget-and-focus.md) records these choices, resolving the earlier proposal's core direction. Exact budget sizes, filling of unlocked capacity, focus changes and remaining progression rules stay open.

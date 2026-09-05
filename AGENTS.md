@@ -13,13 +13,14 @@ These instructions apply throughout this repository. Read any more specific AGEN
 
 Build a familiar Kanto adventure with substantially greater strategic depth and challenge. Preserve Pokémon identities and the atmosphere remembered from childhood. The StarCraft II balance-team comparison describes a quality ambition, not an affiliation or evidence of balance.
 
-The authoritative initial requirements are in ADR-0001, with refinements in accepted ADRs 0004 and 0006–0017. ADR-0005 is superseded by ADR-0017. In particular:
+The authoritative initial requirements are in ADR-0001, with refinements in accepted ADRs 0004 and 0006–0018. ADR-0005 is superseded by ADR-0017. In particular:
 - Main-campaign species are restricted to the original 151 in their original forms. No regional variants or Mega Evolutions, including opponent teams. Postgame scope remains open.
 - Encourage a trusted core with rotating specialists (ADR-0017, superseding ADR-0005). Repeated attempts to master major bosses remain intended. Do not enforce a fixed core size, forced losses or mandatory team changes.
 - Levelling a newly caught Pokémon to the cap should normally require substantial training (roughly 20–30 minutes or more); total preparation burden, training overlap and reference speed remain open.
 - Use random, improvable IVs with a safeguard against randomisation making a Pokémon unusable, and keep its acquired nature and nature-based stat effects fixed (ADR-0016). Exact IV bounds and improvement methods remain open.
-- Reward battle use, especially boss experience, through clear, predictable development beyond level. Reward continuity without excessive rotation penalties or tedious training. ADR-0016 accepts these goals and gym rules, not its proposed training-points mechanism; reward formula, ceilings and access timing remain open.
+- Reward battle use, especially boss experience, through clear, predictable development beyond level. Reward continuity without excessive rotation penalties or tedious training. ADR-0016 defines traits and gym eligibility; ADR-0018 selects a limited extra gym training budget, automatic allocation through a chosen focus, and separate contributions from all eight leaders. Numerical limits, reward filling, focus changes and access timing remain open.
 - Gym rewards require a player victory, field participation and no fainting during that battle. Switched-out survivors qualify; unused reserves and fainted participants do not. Use stronger gym-rematch teams suited to campaign progress so recruits can earn the same gym rewards as veterans (ADR-0016).
+- Full gym-related development requires each individual Pokémon to earn all eight leader rewards. Count each leader's budget contribution once; rematches recover missed rewards, and repeated wins against one leader cannot replace another's contribution (ADR-0018).
 - Full boss teams, moves, abilities, held items and selected bag consumables/quantities must be available in-game before the first attempt.
 - Boss AI follows the VGC open-team-list information boundary in ADR-0009; do not import VGC battle-format rules. Exact opponent stats, hidden allocations, pending player actions and future RNG are not direct AI inputs.
 - Boss defeats cost money and spent consumables. Non-held battle consumables have one fixed campaign-wide, preselected allowance; choose its number through balance testing, not the earlier example of three.
@@ -34,7 +35,7 @@ The authoritative initial requirements are in ADR-0001, with refinements in acce
 - Pokémon need meaningful strengths, weaknesses and roles; equal power or universal viability is not the goal. Each type should feel distinct and playable. Extend Bug usefulness and address late-game Flying concerns such as Pidgeot (ADR-0014); player favourites are evaluation interests, not automatic buff targets. There is no type-representation quota: justify retypings per species. Use stat redistribution and modest strength changes primarily; substantial changes require a documented exceptional or necessary case (ADR-0015).
 - Recharged Yellow is inspiration, not a source-code dependency.
 
-Do not silently adopt earlier assistant suggestions as requirements. Engine choice, postgame roster, exact mechanics generation, cap values, IV safeguards and improvement access, battle-training mechanism, detailed battle-format assignments, remaining consumable selection/scope details, training/scouting implementation, starters, Yellow-specific events, speed presets and prototype boundaries remain unresolved.
+Do not silently adopt earlier assistant suggestions as requirements. Engine choice, postgame roster, exact mechanics generation, cap values, IV safeguards and improvement access, battle-training numbers and remaining progression details, detailed battle-format assignments, remaining consumable selection/scope details, training/scouting implementation, starters, Yellow-specific events, speed presets and prototype boundaries remain unresolved.
 
 ## Ownership and changes
 

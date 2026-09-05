@@ -12,8 +12,9 @@ Project governance is established. No engine has been selected or imported, no g
 - Keep a trusted core and rotate specialists for different bosses; repeated attempts and boss mastery remain central ([ADR-0017](docs/adr/0017-trusted-core-and-boss-mastery.md)).
 - Substantial levelling investment for newly caught Pokémon: roughly 20–30 minutes or more; total preparation time and overlap remain open.
 - Random IVs that can be improved, with a safeguard against unusable random outcomes; acquired natures and their stat effects remain fixed.
-- Clear, predictable battle-earned development, especially from boss experience, rewarding continuity without excessive penalties for rotation. The exact reward formula and training system remain to be designed.
+- Clear, predictable battle-earned development, especially from boss experience, rewarding continuity without excessive penalties for rotation. Gym victories unlock a limited extra training budget beyond ordinary training; points follow a player-selected focus automatically ([ADR-0018](docs/adr/0018-gym-training-budget-and-focus.md)). Numerical limits and remaining progression details are open.
 - Gym rewards require a player victory, field participation and no fainting during that battle. Stronger rematch teams suited to campaign progress let recruits earn the same gym rewards as veterans ([ADR-0016](docs/adr/0016-individual-traits-and-battle-training.md)).
+- Full gym-related development requires all eight distinct leader rewards per Pokémon. Rematches let recruits earn missing rewards; each leader's budget contribution counts once.
 - Full boss team, move, ability, held-item and bag-consumable scouting before the first attempt.
 - VGC-style open-team-list information for boss AI, with hidden stats and pending actions protected.
 - Preselected battle consumables with one campaign-wide allowance and separate category limits, their numbers chosen through testing; boss defeats cost money and spent consumables.

@@ -23,6 +23,7 @@ ADRs preserve why consequential choices were made. This directory covers softwar
 | [0015](0015-standard-chart-and-stat-rebalance.md) | Keep the standard modern chart and use restrained stat rebalancing | Accepted |
 | [0016](0016-individual-traits-and-battle-training.md) | Preserve individual traits and reward battle experience | Accepted |
 | [0017](0017-trusted-core-and-boss-mastery.md) | Encourage a trusted core with rotating specialists and retain boss mastery | Accepted |
+| [0018](0018-gym-training-budget-and-focus.md) | Unlock gym training budgets and allocate development through a focus | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 

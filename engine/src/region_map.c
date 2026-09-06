@@ -1422,6 +1422,9 @@ static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
 
 static u8 GetMapsecType(mapsec_u16_t mapSecId)
 {
+    if (P_SC_KANTO_RULES && GetRegionMapType(mapSecId) != REGION_MAP_KANTO)
+        return MAPSECTYPE_NONE;
+
     switch (mapSecId)
     {
     case MAPSEC_NONE:
@@ -2501,6 +2504,9 @@ static void CB_ExitFlyMap(void)
 
 u32 FilterFlyDestination(struct RegionMap* regionMap)
 {
+    if (P_SC_KANTO_RULES && GetMapsecType(regionMap->mapSecId) != MAPSECTYPE_CITY_CANFLY)
+        return WARP_ID_NONE;
+
     switch (regionMap->mapSecId)
     {
     case MAPSEC_SOUTHERN_ISLAND:
@@ -2521,6 +2527,9 @@ u32 FilterFlyDestination(struct RegionMap* regionMap)
 
 void SetFlyDestination(struct RegionMap* regionMap)
 {
+    if (P_SC_KANTO_RULES && GetMapsecType(regionMap->mapSecId) != MAPSECTYPE_CITY_CANFLY)
+        return;
+
     u32 flyDestination = FilterFlyDestination(regionMap);
 
     if (flyDestination != WARP_ID_NONE)

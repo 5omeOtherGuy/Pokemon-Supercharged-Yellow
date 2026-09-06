@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_field.h"
 #include "main.h"
 #include "bike.h"
 #include "event_data.h"
@@ -1615,6 +1616,9 @@ enum Gender GetPlayerAvatarGenderByGraphicsId(u16 gfxId)
 
 bool8 PartyHasMonWithSurf(void)
 {
+    if (P_SC_KANTO_RULES)
+        return !TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) && ScFieldFindUser(FIELD_MOVE_SURF) != PARTY_SIZE;
+
     u8 i;
 
     if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))

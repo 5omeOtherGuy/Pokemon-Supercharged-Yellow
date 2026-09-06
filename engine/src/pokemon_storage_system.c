@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_field.h"
 #include "malloc.h"
 #include "bg.h"
 #include "data.h"
@@ -6653,6 +6654,13 @@ static void InitCanReleaseMonVars(void)
             sStorage->releaseBoxId = StorageGetCurrentBox();
         }
         sStorage->releaseBoxPos = sCursorPosition;
+    }
+
+    if (P_SC_KANTO_RULES)
+    {
+        sStorage->releaseStatusResolved = TRUE;
+        sStorage->canReleaseMon = ScFieldCanRelease(&sStorage->tempMon.box, sStorage->releaseBoxId, sStorage->releaseBoxPos);
+        return;
     }
 
     GetRestrictedReleaseMoves(sStorage->restrictedMoveList);

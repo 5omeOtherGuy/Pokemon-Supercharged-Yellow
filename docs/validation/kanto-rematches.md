@@ -109,7 +109,7 @@ charging remained 0 instead of 99, and defeated Ben resolved to 0 instead of 1.
 The coordinator retained `build/sc-rematches-red.log`. Source RED `1fdcb4c9`
 required the missing Kanto map/party coverage before implementation `aeb9f247`.
 
-All 29 existing content tests and five rematch host tests pass:
+All 29 existing content tests and six rematch host tests pass:
 
 - Real table entries resolve to persistent mainland outdoor objects and their
   existing first/rematch script branches, preserving singles/doubles and no bags.
@@ -121,6 +121,8 @@ All 29 existing content tests and five rematch host tests pass:
 - The actual scanner functions handle 64 templates with 16 live objects, missing
   objects, sentinel IDs, stale maps, invalid sprites, graphics IDs above255,
   noncontiguous local IDs, NULL scripts and a malformed template count.
+- The counted native wrapper rejects empty results, a missing second bag test,
+  expected failures and command failures, and requires the campaign build option.
 - The actual dispatch function preserves first battles, rejects ineligible or
   underfilled doubles without battle/consumption, then resolves the full trainer
   ID on a valid retry. Its script-stack dependencies are boundary spies.
@@ -143,7 +145,8 @@ party lookup. The coordinator's data-selection hooks let `SC_TEST_CAMPAIGN=1`
 use the actual campaign trainer table and retain the ordinary fixture table when
 the option is off. All four rematch cases compile only in that explicit campaign configuration.
 The counted wrapper selects `BUILD=firered SC_TEST_CAMPAIGN=1` and requires exactly
-four passing groups, rejecting an empty or mismatched filter.
+four passing groups, rejecting an empty or mismatched filter. It then runs the
+strengthened actual authored-bag test separately and requires exactly one pass.
 
 The native file defines four campaign groups for real step charging, table resolution,
 high-ID badge/readiness and actual battle-exit cleanup, plus packed expiry and

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "sc_battle.h"
 #include "sc_progression.h"
+#include "sc_supplies.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_anim_scripts.h"
@@ -9321,6 +9322,16 @@ void TryRestoreHeldItems(void)
         if (gBattleStruct->itemLost[B_TRAINER_PLAYER][i].stolen || returnNPCItems)
         {
             enum Item lostItem = gBattleStruct->itemLost[B_TRAINER_PLAYER][i].originalItem;
+
+            if (ScSuppliesWasHeldConsumed(B_TRAINER_PLAYER, i, lostItem))
+            {
+                // Recycle/Pickup may have legitimately restored the original item.
+                if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_HELD_ITEM) == lostItem)
+                    continue;
+                // Preserve consumption; the existing trainer rule still returns
+                // any different item acquired from an NPC during this battle.
+                lostItem = ITEM_NONE;
+            }
 
             if (GetItemPocket(lostItem) == POCKET_BERRIES && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_HELD_ITEM) != lostItem)
                 lostItem = ITEM_NONE;

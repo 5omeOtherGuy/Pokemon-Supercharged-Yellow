@@ -3,6 +3,7 @@
 #include "sc_ai.h"
 #include "sc_battle.h"
 #include "sc_progression.h"
+#include "sc_supplies.h"
 #include "fake_rtc.h"
 #include "gpu_regs.h"
 #include "load_save.h"
@@ -361,6 +362,7 @@ top:
         ScAiEnableForTests(FALSE);
         ScEffectsEnableForTests(FALSE);
         ScProgressionEnableForTests(FALSE);
+        ScSuppliesEnableForTests(FALSE);
         ScEndDelayedDamage();
 
         gTestRunnerState.state = STATE_NEXT_TEST;

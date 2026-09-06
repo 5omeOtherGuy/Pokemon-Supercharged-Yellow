@@ -3,10 +3,20 @@
 #include "event_data.h"
 #include "caps.h"
 #include "pokemon.h"
+#include "sc_progression_core.h"
 
 
 u32 GetCurrentLevelCap(void)
 {
+    if (IS_FRLG)
+    {
+        u32 badges = 0, i;
+        const u16 flags[] = {FLAG_BADGE01_GET, FLAG_BADGE02_GET, FLAG_BADGE03_GET,
+            FLAG_BADGE04_GET, FLAG_BADGE05_GET, FLAG_BADGE06_GET, FLAG_BADGE07_GET, FLAG_BADGE08_GET};
+        for (i = 0; i < ARRAY_COUNT(flags); i++)
+            badges += FlagGet(flags[i]) != 0;
+        return ScLevelCap(badges, FlagGet(FLAG_IS_CHAMPION));
+    }
     static const u32 sLevelCapFlagMap[][2] =
     {
         {FLAG_BADGE01_GET, 15},

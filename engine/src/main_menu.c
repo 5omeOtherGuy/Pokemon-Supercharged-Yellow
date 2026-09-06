@@ -665,8 +665,16 @@ static void Task_MainMenuCheckSaveFile(u8 taskId)
                 tMenuType++;
             gTasks[taskId].func = Task_MainMenuCheckBattery;
             break;
+        case SAVE_STATUS_INCOMPATIBLE:
+            CreateMainMenuErrorWindow(COMPOUND_STRING("This save uses a different game/version.\nBack it up before starting a new game."));
+            tMenuType = HAS_NO_SAVED_GAME;
+            gTasks[taskId].func = Task_WaitForSaveFileErrorWindow;
+            break;
         case SAVE_STATUS_CORRUPT:
-            CreateMainMenuErrorWindow(gText_SaveFileErased);
+            if (IS_FRLG)
+                CreateMainMenuErrorWindow(COMPOUND_STRING("No valid Supercharged save was found.\nKeep a backup before starting anew."));
+            else
+                CreateMainMenuErrorWindow(gText_SaveFileErased);
             tMenuType = HAS_NO_SAVED_GAME;
             gTasks[taskId].func = Task_WaitForSaveFileErrorWindow;
             break;

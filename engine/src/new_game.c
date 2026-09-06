@@ -177,6 +177,9 @@ void NewGameInitData(void)
     ClearFrontierRecord();
     ClearSav1();
     ClearSav3();
+#if IS_FRLG
+    ScInitTrainerProgress(&gSaveBlock3Ptr->sc);
+#endif
     ClearAllMail();
     gSaveBlock2Ptr->specialSaveWarpFlags = 0;
     gSaveBlock2Ptr->gcnLinkFlags = 0;

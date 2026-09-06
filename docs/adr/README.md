@@ -69,6 +69,7 @@ Ordinary level EXP, stat-training reward value and stat-training eligibility are
 | [0026](0026-yellow-kanto-content-baseline.md) | Use FireRed/LeafGreen Kanto for the Yellow content baseline | Accepted |
 | [0027](0027-campaign-and-battle-contract.md) | Complete Kanto with explicit battle and field rules | Accepted |
 | [0028](0028-pinned-kanto-foundation.md) | Build on the pinned expansion Kanto port | Accepted |
+| [0029](0029-progression-and-save-layout.md) | Bound permanent development and version its save data | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 
@@ -123,3 +124,5 @@ The next clarification requires all original 151 to be obtainable in one playthr
 The owner authorizes full implementation, autonomous outstanding choices and publication. ADR-0027 resolves the campaign endpoint, battle-entry scope and inherited badge policies. Earlier owner-question and review-only wording is historical; use later records for resolved choices and [project status](../project-status.md) for verified implementation. There are now 22 Accepted, 1 Proposed and 4 Superseded records.
 
 ADR-0028 selects the audited expansion Kanto port and supersedes the earlier foundation proposal. Current totals: 23 Accepted and 5 Superseded records. Runtime foundation evidence is separate from game completion.
+
+ADR-0029 selects provisional numerical progression and a versioned save layout. Current totals: 24 Accepted and 5 Superseded; balance and cartridge integration are still pending.

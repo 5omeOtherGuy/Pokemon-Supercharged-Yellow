@@ -18,6 +18,7 @@
 #include "constants/abilities.h"
 #include "contest_effect.h"
 #include "constants/trainers.h"
+#include "sc_progression_core.h"
 
 #define GET_BASE_SPECIES_ID(speciesId) (GetFormSpeciesId(speciesId, 0))
 #define FORM_SPECIES_END (0xffff)
@@ -125,6 +126,10 @@ enum MonData {
     MON_DATA_GIGANTAMAX_FACTOR,
     MON_DATA_TERA_TYPE,
     MON_DATA_EVOLUTION_TRACKER,
+    MON_DATA_SC_EARNED_CAPABILITIES,
+    MON_DATA_SC_ACTIVE_CAPABILITIES,
+    MON_DATA_SC_FOCUS,
+    MON_DATA_SC_TRAINING_REMAINDER,
 };
 
 #define BLOCK_AI_DYNAMAX 15 // Used as dynamax level value by the AI to indicate this mon shouldn't dynamax
@@ -175,6 +180,7 @@ struct PokemonSubstruct2
     u8 speedEV;
     u8 spAttackEV;
     u8 spDefenseEV;
+    // Kanto reuses these bytes through MON_DATA_SC_*; retain the original layout.
     u8 cool;
     u8 beauty;
     u8 cute;

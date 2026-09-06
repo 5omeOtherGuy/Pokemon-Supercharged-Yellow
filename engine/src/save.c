@@ -13,7 +13,7 @@
 #include "link.h"
 #include "constants/game_stat.h"
 
-static u16 CalculateChecksum(void *, u16);
+static u16 CalculateChecksum(const void *, u16);
 static bool8 ReadFlashSector(u8, struct SaveSector *);
 static u8 GetSaveValidStatus(const struct SaveSectorLocation *);
 static u8 CopySaveSlotData(u16, struct SaveSectorLocation *);
@@ -490,7 +490,6 @@ static u8 TryLoadSaveSlot(u16 sectorId, struct SaveSectorLocation *locations)
 static u8 CopySaveSlotData(u16 sectorId, struct SaveSectorLocation *locations)
 {
     u16 i;
-    u16 checksum;
     u16 slotOffset = NUM_SECTORS_PER_SLOT * (gSaveCounter % NUM_SAVE_SLOTS);
     u16 id;
 
@@ -502,10 +501,8 @@ static u8 CopySaveSlotData(u16 sectorId, struct SaveSectorLocation *locations)
         if (id == 0)
             gLastWrittenSector = i;
 
-        checksum = CalculateChecksum(gReadWriteSector->data, locations[id].size);
-
-        // Only copy data for sectors whose signature and checksum fields are correct
-        if (gReadWriteSector->signature == SECTOR_SIGNATURE && gReadWriteSector->checksum == checksum)
+        // Validate before indexing locations: a corrupt ID is not a valid pointer.
+        if (ScIsValidSaveSector(gReadWriteSector, locations))
         {
             u16 j;
             for (j = 0; j < locations[id].size; j++)
@@ -517,14 +514,32 @@ static u8 CopySaveSlotData(u16 sectorId, struct SaveSectorLocation *locations)
     return SAVE_STATUS_OK;
 }
 
+bool32 ScIsValidSaveSector(const struct SaveSector *sector, const struct SaveSectorLocation *locations)
+{
+    if (sector->signature != SECTOR_SIGNATURE || sector->id >= NUM_SECTORS_PER_SLOT)
+        return FALSE;
+    if (sector->checksum != CalculateChecksum(sector->data, locations[sector->id].size))
+        return FALSE;
+#if IS_FRLG
+    if (sector->id == 0)
+    {
+        struct ScTrainerProgress progress;
+        memcpy(&progress, sector->saveBlock3Chunk, sizeof(progress));
+        if (!ScValidateTrainerProgress(&progress))
+            return FALSE;
+    }
+#endif
+    return TRUE;
+}
+
 static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
 {
     u16 i;
-    u16 checksum;
     u32 saveSlot1Counter = 0;
     u32 saveSlot2Counter = 0;
     u32 validSectorFlags = 0;
     bool8 signatureValid = FALSE;
+    bool8 incompatible = FALSE;
     u8 saveSlot1Status;
     u8 saveSlot2Status;
 
@@ -535,8 +550,16 @@ static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
         if (gReadWriteSector->signature == SECTOR_SIGNATURE)
         {
             signatureValid = TRUE;
-            checksum = CalculateChecksum(gReadWriteSector->data, locations[gReadWriteSector->id].size);
-            if (gReadWriteSector->checksum == checksum)
+#if IS_FRLG
+            if (gReadWriteSector->id == 0)
+            {
+                struct ScTrainerProgress progress;
+                memcpy(&progress, gReadWriteSector->saveBlock3Chunk, sizeof(progress));
+                if (progress.magic != SC_SAVE_MAGIC || progress.version != SC_SAVE_VERSION)
+                    incompatible = TRUE;
+            }
+#endif
+            if (ScIsValidSaveSector(gReadWriteSector, locations))
             {
                 saveSlot1Counter = gReadWriteSector->counter;
                 validSectorFlags |= 1 << gReadWriteSector->id;
@@ -567,8 +590,16 @@ static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
         if (gReadWriteSector->signature == SECTOR_SIGNATURE)
         {
             signatureValid = TRUE;
-            checksum = CalculateChecksum(gReadWriteSector->data, locations[gReadWriteSector->id].size);
-            if (gReadWriteSector->checksum == checksum)
+#if IS_FRLG
+            if (gReadWriteSector->id == 0)
+            {
+                struct ScTrainerProgress progress;
+                memcpy(&progress, gReadWriteSector->saveBlock3Chunk, sizeof(progress));
+                if (progress.magic != SC_SAVE_MAGIC || progress.version != SC_SAVE_VERSION)
+                    incompatible = TRUE;
+            }
+#endif
+            if (ScIsValidSaveSector(gReadWriteSector, locations))
             {
                 saveSlot2Counter = gReadWriteSector->counter;
                 validSectorFlags |= 1 << gReadWriteSector->id;
@@ -639,7 +670,7 @@ static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
     // Both slots errored
     gSaveCounter = 0;
     gLastWrittenSector = 0;
-    return SAVE_STATUS_CORRUPT;
+    return incompatible ? SAVE_STATUS_INCOMPATIBLE : SAVE_STATUS_CORRUPT;
 }
 
 static u8 TryLoadSaveSector(u8 sectorId, u8 *data, u16 size)
@@ -677,14 +708,14 @@ static bool8 ReadFlashSector(u8 sectorId, struct SaveSector *sector)
     return TRUE;
 }
 
-static u16 CalculateChecksum(void *data, u16 size)
+static u16 CalculateChecksum(const void *data, u16 size)
 {
     u16 i;
     u32 checksum = 0;
 
     for (i = 0; i < (size / 4); i++)
     {
-        checksum += *((u32 *)data);
+        checksum += *((const u32 *)data);
         data += sizeof(u32);
     }
 
@@ -1083,5 +1114,9 @@ static void CopyToSaveBlock3(u32 sectorId, struct SaveSector *sector)
 static void CopyFromSaveBlock3(u32 sectorId, struct SaveSector *sector)
 {
     u32 size = SaveBlock3Size(sectorId);
+#if IS_FRLG
+    if (sectorId == 0)
+        ScSealTrainerProgress(&gSaveblock3.sc);
+#endif
     memcpy(sector->saveBlock3Chunk, (u8 *)&gSaveblock3 + (sectorId * SAVE_BLOCK_3_CHUNK_SIZE), size);
 }

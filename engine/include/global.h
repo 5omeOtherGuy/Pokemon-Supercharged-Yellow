@@ -253,9 +253,13 @@ struct NPCFollower
 
 #include "constants/items.h"
 #define ITEM_FLAGS_COUNT ((ITEMS_COUNT / 8) + ((ITEMS_COUNT % 8) ? 1 : 0))
+#include "sc_progression_core.h"
 
 struct SaveBlock3
 {
+#if IS_FRLG
+    struct ScTrainerProgress sc;
+#endif
 #if OW_USE_FAKE_RTC
     struct SiiRtcInfo fakeRTC;
 #endif

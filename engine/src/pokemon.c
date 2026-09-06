@@ -1013,6 +1013,12 @@ void CreateBoxMon(struct BoxPokemon *boxMon, enum Species species, u8 level, u32
     SetBoxMonData(boxMon, MON_DATA_POKEBALL, &value);
     SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
 
+    if (IS_FRLG)
+    {
+        value = SC_FOCUS_BALANCED;
+        SetBoxMonData(boxMon, MON_DATA_SC_FOCUS, &value);
+    }
+
     value = boxMon->personality & 0x1;
     enum Type teraType = value == 0 ? GetSpeciesType(species, 0) : GetSpeciesType(species, 1);
     SetBoxMonData(boxMon, MON_DATA_TERA_TYPE, &teraType);
@@ -2171,21 +2177,33 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             retVal = GetSubstruct2(boxMon)->spDefenseEV;
             break;
         case MON_DATA_COOL:
-            retVal = GetSubstruct2(boxMon)->cool;
+            retVal = IS_FRLG ? 0 : GetSubstruct2(boxMon)->cool;
             break;
         case MON_DATA_BEAUTY:
-            retVal = GetSubstruct2(boxMon)->beauty;
+            retVal = IS_FRLG ? 0 : GetSubstruct2(boxMon)->beauty;
             break;
         case MON_DATA_CUTE:
-            retVal = GetSubstruct2(boxMon)->cute;
+            retVal = IS_FRLG ? 0 : GetSubstruct2(boxMon)->cute;
             break;
         case MON_DATA_SMART:
-            retVal = GetSubstruct2(boxMon)->smart;
+            retVal = IS_FRLG ? 0 : GetSubstruct2(boxMon)->smart;
             break;
         case MON_DATA_TOUGH:
-            retVal = GetSubstruct2(boxMon)->tough;
+            retVal = IS_FRLG ? 0 : GetSubstruct2(boxMon)->tough;
             break;
         case MON_DATA_SHEEN:
+            retVal = IS_FRLG ? 0 : GetSubstruct2(boxMon)->sheen;
+            break;
+        case MON_DATA_SC_EARNED_CAPABILITIES:
+            retVal = (GetSubstruct2(boxMon)->cool | (GetSubstruct2(boxMon)->beauty << 8));
+            break;
+        case MON_DATA_SC_ACTIVE_CAPABILITIES:
+            retVal = (GetSubstruct2(boxMon)->cute | (GetSubstruct2(boxMon)->smart << 8));
+            break;
+        case MON_DATA_SC_FOCUS:
+            retVal = GetSubstruct2(boxMon)->tough;
+            break;
+        case MON_DATA_SC_TRAINING_REMAINDER:
             retVal = GetSubstruct2(boxMon)->sheen;
             break;
         case MON_DATA_POKERUS:
@@ -2486,7 +2504,7 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_HIDDEN_NATURE:
         {
             u32 nature = GetNatureFromPersonality(boxMon->personality);
-            retVal = nature ^ boxMon->hiddenNatureModifier;
+            retVal = P_SC_KANTO_RULES ? nature : nature ^ boxMon->hiddenNatureModifier;
             break;
         }
         case MON_DATA_DAYS_SINCE_FORM_CHANGE:
@@ -2686,21 +2704,41 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             SET8(GetSubstruct2(boxMon)->spDefenseEV);
             break;
         case MON_DATA_COOL:
-            SET8(GetSubstruct2(boxMon)->cool);
+            if (!IS_FRLG)
+                SET8(GetSubstruct2(boxMon)->cool);
             break;
         case MON_DATA_BEAUTY:
-            SET8(GetSubstruct2(boxMon)->beauty);
+            if (!IS_FRLG)
+                SET8(GetSubstruct2(boxMon)->beauty);
             break;
         case MON_DATA_CUTE:
-            SET8(GetSubstruct2(boxMon)->cute);
+            if (!IS_FRLG)
+                SET8(GetSubstruct2(boxMon)->cute);
             break;
         case MON_DATA_SMART:
-            SET8(GetSubstruct2(boxMon)->smart);
+            if (!IS_FRLG)
+                SET8(GetSubstruct2(boxMon)->smart);
             break;
         case MON_DATA_TOUGH:
-            SET8(GetSubstruct2(boxMon)->tough);
+            if (!IS_FRLG)
+                SET8(GetSubstruct2(boxMon)->tough);
             break;
         case MON_DATA_SHEEN:
+            if (!IS_FRLG)
+                SET8(GetSubstruct2(boxMon)->sheen);
+            break;
+        case MON_DATA_SC_EARNED_CAPABILITIES:
+            GetSubstruct2(boxMon)->cool = data[0];
+            GetSubstruct2(boxMon)->beauty = data[1];
+            break;
+        case MON_DATA_SC_ACTIVE_CAPABILITIES:
+            GetSubstruct2(boxMon)->cute = data[0];
+            GetSubstruct2(boxMon)->smart = data[1];
+            break;
+        case MON_DATA_SC_FOCUS:
+            SET8(GetSubstruct2(boxMon)->tough);
+            break;
+        case MON_DATA_SC_TRAINING_REMAINDER:
             SET8(GetSubstruct2(boxMon)->sheen);
             break;
         case MON_DATA_POKERUS:
@@ -2920,7 +2958,7 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             u32 nature = GetNatureFromPersonality(boxMon->personality);
             u32 hiddenNature;
             SET8(hiddenNature);
-            boxMon->hiddenNatureModifier = nature ^ hiddenNature;
+            boxMon->hiddenNatureModifier = P_SC_KANTO_RULES ? 0 : nature ^ hiddenNature;
             break;
         }
         case MON_DATA_DAYS_SINCE_FORM_CHANGE:
@@ -3334,6 +3372,8 @@ const u16 *GetSpeciesFormTable(enum Species species)
 
 const struct FormChange *GetSpeciesFormChanges(enum Species species)
 {
+    if (P_SC_KANTO_RULES)
+        return NULL;
     const struct FormChange *formChanges = gSpeciesInfo[SanitizeSpeciesId(species)].formChangeTable;
     if (formChanges == NULL)
         return gSpeciesInfo[SPECIES_NONE].formChangeTable;
@@ -3479,6 +3519,10 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, enum Item item, u8 partyIndex, 
 
     // Get item effect
     itemEffect = GetItemEffect(item);
+    if (P_SC_KANTO_RULES && ((itemEffect[4] & (ITEM4_EV_HP | ITEM4_EV_ATK))
+        || (itemEffect[5] & (ITEM5_EV_DEF | ITEM5_EV_SPEED | ITEM5_EV_SPDEF | ITEM5_EV_SPATK))
+        || item == ITEM_FRESH_START_MOCHI))
+        return TRUE;
     isLevelUpItem = (itemEffect[3] & ITEM3_LEVEL_UP) != 0;
     levelBefore = GetMonData(mon, MON_DATA_LEVEL, NULL);
 
@@ -6506,7 +6550,7 @@ enum Species GetSpeciesPreEvolution(enum Species species)
 
     for (i = SPECIES_BULBASAUR; i < NUM_SPECIES; i++)
     {
-        if (!IsSpeciesEnabled(i))
+        if ((P_SC_KANTO_RULES && i > SPECIES_MEW) || !IsSpeciesEnabled(i))
             continue;
 
         const struct Evolution *evolutions = GetSpeciesEvolutions(i);

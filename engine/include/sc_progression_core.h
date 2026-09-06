@@ -28,7 +28,7 @@ struct ScTrainerProgress
 };
 
 /* Reuses the six contest-condition bytes without expanding an 80-byte BoxPokemon. */
-struct ScMonProgress
+struct __attribute__((packed)) ScMonProgress
 {
     uint16_t earnedCapabilities;
     uint16_t activeCapabilities;

@@ -15,7 +15,7 @@ class CatalogTests(unittest.TestCase):
             (temporary / "global.h").write_text('''
 #include <stdint.h>
 typedef uint8_t u8; typedef uint16_t u16; typedef uint32_t u32;
-#define _(x) x
+#define _(x) ((const u8 *)(x))
 #define ARRAY_COUNT(x) (sizeof(x)/sizeof((x)[0]))
 #define TRUE 1
 #define FALSE 0
@@ -65,7 +65,8 @@ int main(void) {
             if source.exists():
                 command.append(str(source))
             command += ["-o", str(temporary / "probe")]
-            subprocess.run(command, check=True, capture_output=True, text=True)
+            result = subprocess.run(command, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
             subprocess.run([str(temporary / "probe")], check=True)
 
 

@@ -1,5 +1,6 @@
 #include "global.h"
 #include "battle.h"
+#include "data.h"
 #include "item.h"
 #include "main.h"
 #include "sc_supplies.h"
@@ -42,4 +43,26 @@ TEST("SC supplies: unavailable reselection is atomic and preparation consumes no
     RemoveBagItem(ITEM_POTION, 1);
     EXPECT_EQ(ScSuppliesGetPlayerLoadout(shown, counts), 2);
     EXPECT_EQ(ScValidateTrainerProgress(&gSaveBlock3Ptr->sc), 1);
+}
+
+TEST("SC supplies: every authored opponent bag is major-only and within unit/category caps")
+{
+    for (u32 trainer = 0; trainer < TRAINERS_COUNT; trainer++)
+    {
+        const enum Item *items = GetTrainerItemsFromId(trainer);
+        struct ScSupplyPlan plan = {0};
+        unsigned categories[SC_SUPPLY_SLOTS] = {0};
+        u32 count = 0;
+        for (u32 i = 0; i < MAX_TRAINER_ITEMS; i++)
+        {
+            if (items[i] == ITEM_NONE) continue;
+            EXPECT(ScSuppliesIsMajorTrainer(trainer));
+            EXPECT(count < SC_SUPPLY_SLOTS);
+            if (count >= SC_SUPPLY_SLOTS) break;
+            plan.items[count] = items[i];
+            plan.quantities[count] = 1;
+            categories[count++] = ScSuppliesCategory(items[i]);
+        }
+        EXPECT(ScSupplyPlanValid(&plan, categories));
+    }
 }

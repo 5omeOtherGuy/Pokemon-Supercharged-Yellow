@@ -8,18 +8,14 @@ CinnabarIsland_PokemonLab_ExperimentRoom_Frlg_MapScripts::
 CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_Garett::
 	lock
 	faceplayer
-	setvar VAR_0x8008, INGAME_TRADE_SEEL
-	call EventScript_GetInGameTradeSpeciesInfo
-	goto_if_set FLAG_DID_SEELOR_TRADE, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_AlreadyTraded
-	msgbox Trade_Text_LookingForMonWannaTradeForMon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_DeclineTrade
-	call EventScript_ChooseMonForInGameTrade
-	goto_if_ge VAR_0x8004, PARTY_SIZE, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_DeclineTrade
-	call EventScript_GetInGameTradeSpecies
-	goto_if_ne VAR_RESULT, VAR_0x8009, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_NotRequestedMon
-	call EventScript_DoInGameTrade
-	msgbox Trade_Text_HeyThanks
+	goto_if_set FLAG_DID_SEELOR_TRADE, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_Garett_ScEnd
+	msgbox ScY_Text_Adoption, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_Garett_ScEnd
+	givemon SPECIES_SEEL, 15
+	goto_if_eq VAR_RESULT, 2, Common_EventScript_NoMoreRoomForPokemon
 	setflag FLAG_DID_SEELOR_TRADE
+	msgbox ScY_Text_Adopted
+CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_Garett_ScEnd::
 	release
 	end
 

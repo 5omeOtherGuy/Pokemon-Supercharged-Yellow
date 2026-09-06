@@ -6807,44 +6807,59 @@ AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Purple
 
 Dewgong
-Level: 65
+Level: 64
+Ability: Ice Body
+Nature: Calm
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Ice Beam
-- Surf
-- Hail
-- Safeguard
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Snowscape
+- Icy Wind
+- Brine
+- Protect
 
 Cloyster
-Level: 65
+Level: 64
+Ability: Skill Link
+Nature: Adamant
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Spikes
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Icicle Spear
+- Razor Shell
+- Ice Shard
 - Protect
-- Hail
-- Dive
 
 Slowbro
-Level: 65
+Level: 64
+Ability: Own Tempo
+Nature: Bold
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Ice Beam
-- Surf
-- Amnesia
-- Yawn
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Water Pulse
+- Psychic
+- Slack Off
+- Protect
 
 Jynx
-Level: 65
+Level: 64
+Ability: Dry Skin
+Nature: Timid
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Ice Punch
-- Double Slap
-- Lovely Kiss
-- Attract
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Ice Beam
+- Psychic
+- Fake Tears
+- Protect
 
 Lapras @ Sitrus Berry
 Level: 65
+Ability: Water Absorb
+Nature: Modest
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Confuse Ray
-- Ice Beam
-- Surf
-- Body Slam
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Freeze Dry
+- Hydro Pump
+- Helping Hand
+- Protect
 
 === TRAINER_ELITE_FOUR_BRUNO ===
 Name: BRUNO
@@ -6858,43 +6873,58 @@ AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Green
 
 Onix
-Level: 66
+Level: 65
+Ability: Sturdy
+Nature: Impish
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Stealth Rock
+- Body Press
+- Rock Slide
 - Earthquake
-- Rock Tomb
-- Iron Tail
-- Roar
 
 Hitmonchan
-Level: 66
+Level: 65
+Ability: Iron Fist
+Nature: Adamant
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Sky Uppercut
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Close Combat
 - Mach Punch
-- Rock Tomb
-- Counter
+- Ice Punch
+- Thunder Punch
 
 Hitmonlee
-Level: 66
+Level: 65
+Ability: Limber
+Nature: Jolly
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Mega Kick
-- Foresight
-- Brick Break
-- Facade
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Close Combat
+- Blaze Kick
+- Sucker Punch
+- Fake Out
 
 Onix
-Level: 66
+Level: 65
+Ability: Rock Head
+Nature: Impish
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Body Press
 - Double Edge
+- Stone Edge
 - Earthquake
-- Iron Tail
-- Sand Tomb
 
 Machamp @ Sitrus Berry
 Level: 66
+Ability: No Guard
+Nature: Adamant
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Cross Chop
+- Knock Off
 - Bulk Up
-- Scary Face
 - Rock Tomb
 
 === TRAINER_ELITE_FOUR_AGATHA ===
@@ -6909,44 +6939,59 @@ AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Pink
 
 Gengar
-Level: 67
+Level: 66
+Ability: Cursed Body
+Nature: Timid
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Shadow Punch
-- Confuse Ray
-- Toxic
-- Double Team
-
-Golbat
-Level: 67
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Confuse Ray
-- Poison Fang
-- Air Cutter
-- Bite
-
-Haunter
-Level: 67
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Hypnosis
-- Dream Eater
-- Curse
-- Mean Look
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Shadow Ball
+- Sludge Bomb
+- Thunderbolt
+- Protect
 
 Arbok
-Level: 67
+Level: 66
+Ability: Intimidate
+Nature: Careful
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Sludge Bomb
-- Screech
-- Iron Tail
-- Bite
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Glare
+- Poison Jab
+- Sucker Punch
+- Protect
+
+Golbat
+Level: 66
+Ability: Inner Focus
+Nature: Jolly
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Tailwind
+- Aerial Ace
+- Leech Life
+- Roost
+
+Haunter
+Level: 66
+Ability: Levitate
+Nature: Timid
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Hex
+- Will O Wisp
+- Taunt
+- Protect
 
 Gengar @ Sitrus Berry
 Level: 67
+Ability: Cursed Body
+Nature: Modest
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Shadow Ball
 - Sludge Bomb
-- Hypnosis
-- Nightmare
+- Will O Wisp
+- Protect
 
 === TRAINER_ELITE_FOUR_LANCE ===
 Name: LANCE
@@ -6960,44 +7005,59 @@ AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Blue
 
 Gyarados
-Level: 68
+Level: 67
+Ability: Intimidate
+Nature: Adamant
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Hyper Beam
-- Dragon Rage
-- Twister
-- Bite
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Waterfall
+- Ice Fang
+- Crunch
+- Dragon Dance
 
-Dragonair
-Level: 68
+Dragonair @ Eviolite
+Level: 67
+Ability: Shed Skin
+Nature: Calm
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Hyper Beam
-- Safeguard
-- Dragon Rage
-- Outrage
-
-Dragonair
-Level: 68
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Hyper Beam
-- Safeguard
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Thunder Wave
+- Dragon Pulse
+- Surf
+- Safeguard
+
+Dragonair @ Eviolite
+Level: 67
+Ability: Shed Skin
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Dragon Dance
 - Outrage
+- Aqua Tail
+- Protect
 
 Aerodactyl
-Level: 68
+Level: 67
+Ability: Pressure
+Nature: Jolly
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Hyper Beam
-- Ancient Power
-- Wing Attack
-- Scary Face
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Rock Slide
+- Aerial Ace
+- Taunt
+- Roost
 
 Dragonite @ Sitrus Berry
 Level: 68
+Ability: Inner Focus
+Nature: Adamant
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Hyper Beam
-- Safeguard
-- Outrage
-- Wing Attack
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Dragon Dance
+- Dragon Claw
+- Fire Punch
+- Roost
 
 === TRAINER_LEADER_BROCK ===
 Name: BROCK
@@ -7761,53 +7821,71 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Yellow
 
-Pidgeot
-Level: 59
+Sandslash
+Level: 66
+Ability: Sand Rush
+Nature: Adamant
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Aerial Ace
-- Feather Dance
-- Sand Attack
-- Whirlwind
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Earthquake
+- Knock Off
+- Rapid Spin
+- Swords Dance
 
 Alakazam
-Level: 57
+Level: 66
+Ability: Magic Guard
+Nature: Timid
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Psychic
-- Future Sight
+- Shadow Ball
 - Recover
-- Reflect
-
-Rhydon
-Level: 59
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Take Down
-- Earthquake
-- Rock Tomb
-- Scary Face
-
-Arcanine
-Level: 59
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Extreme Speed
-- Flamethrower
-- Roar
-- Bite
+- Calm Mind
 
 Exeggutor
-Level: 61
+Level: 67
+Ability: Chlorophyll
+Nature: Bold
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Giga Drain
-- Egg Bomb
-- Sleep Powder
+- Psychic
+- Synthesis
+- Leech Seed
+
+Ninetales
+Level: 67
+Ability: Flash Fire
+Nature: Timid
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Flamethrower
+- Will O Wisp
+- Extrasensory
+- Protect
+
+Magneton
+Level: 67
+Ability: Sturdy
+Nature: Modest
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Thunderbolt
+- Flash Cannon
+- Thunder Wave
 - Light Screen
 
-Blastoise @ Sitrus Berry
-Level: 63
+Vaporeon @ Sitrus Berry
+Level: 68
+Ability: Water Absorb
+Nature: Bold
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hydro Pump
-- Rain Dance
-- Skull Bash
-- Bite
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Surf
+- Ice Beam
+- Haze
+- Protect
 
 === TRAINER_CHAMPION_FIRST_BULBASAUR ===
 Name: TERRY
@@ -7820,53 +7898,71 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Yellow
 
-Pidgeot
-Level: 59
+Sandslash
+Level: 66
+Ability: Sand Rush
+Nature: Adamant
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Aerial Ace
-- Feather Dance
-- Sand Attack
-- Whirlwind
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Earthquake
+- Knock Off
+- Rapid Spin
+- Swords Dance
 
 Alakazam
-Level: 57
+Level: 66
+Ability: Magic Guard
+Nature: Timid
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Psychic
-- Future Sight
-- Recover
+- Shadow Ball
 - Reflect
+- Recover
 
-Rhydon
-Level: 59
+Exeggutor
+Level: 67
+Ability: Chlorophyll
+Nature: Modest
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Take Down
-- Earthquake
-- Rock Tomb
-- Scary Face
-
-Gyarados
-Level: 59
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hydro Pump
-- Dragon Rage
-- Bite
-- Thrash
-
-Arcanine
-Level: 61
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Extreme Speed
-- Flamethrower
-- Roar
-- Bite
-
-Venusaur @ Sitrus Berry
-Level: 63
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Solar Beam
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Giga Drain
+- Psychic
+- Psychic Terrain
 - Synthesis
-- Sunny Day
-- Growth
+
+Cloyster
+Level: 67
+Ability: Skill Link
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Icicle Spear
+- Razor Shell
+- Shell Smash
+- Ice Shard
+
+Magneton
+Level: 67
+Ability: Sturdy
+Nature: Modest
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Thunderbolt
+- Flash Cannon
+- Thunder Wave
+- Light Screen
+
+Flareon @ Sitrus Berry
+Level: 68
+Ability: Flash Fire
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Flare Blitz
+- Superpower
+- Flame Charge
+- Protect
 
 === TRAINER_CHAMPION_FIRST_CHARMANDER ===
 Name: TERRY
@@ -7879,53 +7975,71 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Yellow
 
-Pidgeot
-Level: 59
+Sandslash
+Level: 66
+Ability: Sand Rush
+Nature: Adamant
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Aerial Ace
-- Feather Dance
-- Sand Attack
-- Whirlwind
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Earthquake
+- Knock Off
+- Rapid Spin
+- Swords Dance
 
 Alakazam
-Level: 57
+Level: 66
+Ability: Magic Guard
+Nature: Timid
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Psychic
-- Future Sight
+- Shadow Ball
 - Recover
-- Reflect
-
-Rhydon
-Level: 59
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Take Down
-- Earthquake
-- Rock Tomb
-- Scary Face
+- Calm Mind
 
 Exeggutor
-Level: 59
+Level: 67
+Ability: Chlorophyll
+Nature: Modest
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Giga Drain
-- Egg Bomb
-- Sleep Powder
-- Light Screen
+- Psychic
+- Synthesis
+- Sunny Day
 
-Gyarados
-Level: 61
+Cloyster
+Level: 67
+Ability: Skill Link
+Nature: Adamant
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hydro Pump
-- Dragon Rage
-- Bite
-- Thrash
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Icicle Spear
+- Razor Shell
+- Ice Shard
+- Protect
 
-Charizard @ Sitrus Berry
-Level: 63
+Ninetales
+Level: 67
+Ability: Drought
+Nature: Timid
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Fire Blast
-- Aerial Ace
-- Slash
-- Fire Spin
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Flamethrower
+- Will O Wisp
+- Extrasensory
+- Protect
+
+Jolteon @ Sitrus Berry
+Level: 68
+Ability: Volt Absorb
+Nature: Timid
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Thunderbolt
+- Shadow Ball
+- Thunder Wave
+- Protect
 
 === TRAINER_CHANNELER_PATRICIA ===
 Name: PATRICIA
@@ -13383,44 +13497,59 @@ AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Purple
 
 Dewgong
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Ice Beam
-- Surf
-- Signal Beam
-- Double Team
+Level: 71
+Ability: Ice Body
+Nature: Calm
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Snowscape
+- Icy Wind
+- Encore
+- Brine
 
 Cloyster
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Ice Beam
-- Surf
-- Supersonic
-- Rain Dance
+Level: 72
+Ability: Skill Link
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Icicle Spear
+- Razor Shell
+- Shell Smash
+- Protect
 
-Dewgong
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Blizzard
-- Earthquake
-- Double Edge
-- Rock Slide
+Slowbro
+Level: 72
+Ability: Own Tempo
+Nature: Bold
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Water Pulse
+- Psychic
+- Slack Off
+- Protect
 
 Jynx
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Ice Beam
+Level: 73
+Ability: Dry Skin
+Nature: Timid
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Blizzard
 - Psychic
-- Lovely Kiss
-- Attract
+- Fake Tears
+- Protect
 
-Lapras @ Cheri Berry
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Ice Beam
-- Surf
-- Psychic
-- Thunder
+Lapras @ Sitrus Berry
+Level: 74
+Ability: Water Absorb
+Nature: Modest
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Freeze Dry
+- Hydro Pump
+- Helping Hand
+- Protect
 
 === TRAINER_ELITE_FOUR_BRUNO_2 ===
 Name: BRUNO
@@ -13434,44 +13563,59 @@ AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Green
 
 Onix
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Level: 72
+Ability: Sturdy
+Nature: Impish
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Stealth Rock
+- Body Press
+- Rock Slide
 - Earthquake
-- Iron Tail
-- Crunch
-- Rock Tomb
 
 Hitmonchan
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Sky Uppercut
+Level: 73
+Ability: Iron Fist
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Close Combat
 - Mach Punch
-- Rock Slide
-- Counter
+- Ice Punch
+- Thunder Punch
 
 Hitmonlee
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Mega Kick
-- Foresight
-- Earthquake
-- Rock Slide
+Level: 73
+Ability: Limber
+Nature: Jolly
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Close Combat
+- Blaze Kick
+- Sucker Punch
+- Fake Out
 
 Onix
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Level: 73
+Ability: Rock Head
+Nature: Impish
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Body Press
+- Curse
+- Stone Edge
 - Earthquake
-- Iron Tail
-- Crunch
-- Dragon Breath
 
-Machamp @ Persim Berry
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Machamp @ Sitrus Berry
+Level: 74
+Ability: No Guard
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Cross Chop
-- Earthquake
-- Brick Break
-- Rock Slide
+- Knock Off
+- Bulk Up
+- Rock Tomb
 
 === TRAINER_ELITE_FOUR_AGATHA_2 ===
 Name: AGATHA
@@ -13485,44 +13629,59 @@ AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Pink
 
 Gengar
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Level: 73
+Ability: Cursed Body
+Nature: Timid
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Shadow Ball
-- Psychic
-- Confuse Ray
-- Hypnosis
-
-Golbat
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Sludge Bomb
-- Air Cutter
-- Shadow Ball
-- Confuse Ray
-
-Haunter
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Shadow Ball
-- Psychic
 - Thunderbolt
-- Attract
+- Protect
 
 Arbok
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Sludge Bomb
-- Earthquake
-- Giga Drain
-- Double Team
+Level: 73
+Ability: Intimidate
+Nature: Careful
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Glare
+- Poison Jab
+- Sucker Punch
+- Protect
 
-Gengar @ Chesto Berry
+Golbat
+Level: 73
+Ability: Inner Focus
+Nature: Jolly
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Tailwind
+- Aerial Ace
+- Leech Life
+- Haze
+
+Haunter
+Level: 74
+Ability: Levitate
+Nature: Timid
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Hex
+- Will O Wisp
+- Taunt
+- Protect
+
+Gengar @ Sitrus Berry
 Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Shadow Ball
-- Psychic
-- Thunderbolt
+Ability: Cursed Body
+Nature: Modest
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Hex
 - Sludge Bomb
+- Thunderbolt
+- Protect
 
 === TRAINER_ELITE_FOUR_LANCE_2 ===
 Name: LANCE
@@ -13536,44 +13695,59 @@ AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Blue
 
 Gyarados
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hyper Beam
+Level: 73
+Ability: Intimidate
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Waterfall
+- Ice Fang
+- Crunch
 - Dragon Dance
-- Earthquake
+
+Dragonair @ Eviolite
+Level: 73
+Ability: Shed Skin
+Nature: Calm
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Thunder Wave
+- Dragon Pulse
+- Surf
+- Safeguard
 
 Dragonite
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hyper Beam
-- Earthquake
-- Dragon Claw
-- Flamethrower
-
-Seadra
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hyper Beam
+Level: 74
+Ability: Inner Focus
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Dragon Dance
-- Surf
-- Ice Beam
+- Outrage
+- Aqua Tail
+- Fire Punch
 
 Aerodactyl
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hyper Beam
-- Ancient Power
+Level: 74
+Ability: Pressure
+Nature: Jolly
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Rock Slide
 - Aerial Ace
-- Earthquake
+- Taunt
+- Roost
 
-Dragonite @ Persim Berry
+Dragonite @ Sitrus Berry
 Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hyper Beam
-- Outrage
-- Thunderbolt
-- Ice Beam
+Ability: Multiscale
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Dragon Dance
+- Dragon Claw
+- Earthquake
+- Roost
 
 === TRAINER_CHAMPION_REMATCH_SQUIRTLE ===
 Name: TERRY
@@ -13586,53 +13760,71 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Yellow
 
-Pinsir
-Level: 72
+Sandslash
+Level: 73
+Ability: Sand Rush
+Nature: Adamant
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Megahorn
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Earthquake
-- Counter
+- Knock Off
 - Rock Tomb
+- Swords Dance
 
 Alakazam
 Level: 73
+Ability: Magic Guard
+Nature: Timid
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Psychic
 - Shadow Ball
+- Recover
 - Calm Mind
-- Reflect
-
-Rhydon
-Level: 72
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Crunch
-- Earthquake
-- Thunderbolt
-- Aerial Ace
-
-Arcanine
-Level: 73
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Extreme Speed
-- Overheat
-- Aerial Ace
-- Iron Tail
 
 Exeggutor
-Level: 73
+Level: 74
+Ability: Chlorophyll
+Nature: Bold
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Giga Drain
 - Psychic
-- Sleep Powder
+- Synthesis
+- Leech Seed
+
+Ninetales
+Level: 74
+Ability: Flash Fire
+Nature: Timid
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Flamethrower
+- Will O Wisp
+- Extrasensory
+- Nasty Plot
+
+Magneton
+Level: 74
+Ability: Analytic
+Nature: Modest
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Thunderbolt
+- Flash Cannon
+- Thunder Wave
 - Light Screen
 
-Blastoise @ Sitrus Berry
+Vaporeon @ Sitrus Berry
 Level: 75
+Ability: Water Absorb
+Nature: Bold
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hydro Pump
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Surf
 - Ice Beam
-- Earthquake
-- Rain Dance
+- Haze
+- Acid Armor
 
 === TRAINER_CHAMPION_REMATCH_BULBASAUR ===
 Name: TERRY
@@ -13645,53 +13837,71 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Yellow
 
-Pinsir
-Level: 72
+Sandslash
+Level: 73
+Ability: Sand Rush
+Nature: Adamant
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Megahorn
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Earthquake
-- Counter
+- Knock Off
 - Rock Tomb
+- Swords Dance
 
 Alakazam
 Level: 73
+Ability: Magic Guard
+Nature: Timid
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Psychic
 - Shadow Ball
-- Calm Mind
 - Reflect
+- Recover
 
-Rhydon
-Level: 72
+Exeggutor
+Level: 74
+Ability: Chlorophyll
+Nature: Modest
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Crunch
-- Earthquake
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Giga Drain
+- Psychic
+- Psychic Terrain
+- Synthesis
+
+Cloyster
+Level: 74
+Ability: Skill Link
+Nature: Adamant
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Icicle Spear
+- Razor Shell
+- Shell Smash
+- Ice Shard
+
+Magneton
+Level: 74
+Ability: Analytic
+Nature: Modest
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Thunderbolt
-- Aerial Ace
+- Flash Cannon
+- Thunder Wave
+- Light Screen
 
-Gyarados
-Level: 73
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hydro Pump
-- Dragon Dance
-- Earthquake
-- Hyper Beam
-
-Arcanine
-Level: 73
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Extreme Speed
-- Overheat
-- Aerial Ace
-- Iron Tail
-
-Venusaur @ Sitrus Berry
+Flareon @ Sitrus Berry
 Level: 75
+Ability: Flash Fire
+Nature: Adamant
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Solar Beam
-- Sludge Bomb
-- Earthquake
-- Sunny Day
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Flare Blitz
+- Superpower
+- Flame Charge
+- Protect
 
 === TRAINER_CHAMPION_REMATCH_CHARMANDER ===
 Name: TERRY
@@ -13704,53 +13914,71 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 Mugshot: Yellow
 
-Pinsir
-Level: 72
+Sandslash
+Level: 73
+Ability: Sand Rush
+Nature: Adamant
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Megahorn
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Earthquake
-- Counter
+- Knock Off
 - Rock Tomb
+- Swords Dance
 
 Alakazam
 Level: 73
+Ability: Magic Guard
+Nature: Timid
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Psychic
 - Shadow Ball
+- Recover
 - Calm Mind
-- Reflect
-
-Rhydon
-Level: 72
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Crunch
-- Earthquake
-- Thunderbolt
-- Aerial Ace
 
 Exeggutor
-Level: 73
+Level: 74
+Ability: Chlorophyll
+Nature: Modest
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Giga Drain
 - Psychic
-- Sleep Powder
-- Light Screen
+- Synthesis
+- Sunny Day
 
-Gyarados
-Level: 73
+Cloyster
+Level: 74
+Ability: Skill Link
+Nature: Adamant
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Hydro Pump
-- Dragon Dance
-- Earthquake
-- Hyper Beam
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Icicle Spear
+- Razor Shell
+- Shell Smash
+- Ice Shard
 
-Charizard @ Sitrus Berry
+Ninetales
+Level: 74
+Ability: Drought
+Nature: Timid
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Flamethrower
+- Will O Wisp
+- Extrasensory
+- Nasty Plot
+
+Jolteon @ Sitrus Berry
 Level: 75
+Ability: Volt Absorb
+Nature: Timid
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Fire Blast
-- Dragon Claw
-- Aerial Ace
-- Earthquake
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Thunderbolt
+- Shadow Ball
+- Thunder Wave
+- Protect
 
 === TRAINER_CUE_BALL_PAXTON ===
 Name: PAXTON

@@ -30,7 +30,10 @@ LavenderTown_PokemonCenter_1F_Text_RocketsDoAnythingForMoney::
 	.string "TEAM ROCKET will do anything for\n"
 	.string "the sake of money!\p"
 	.string "There is no job too dirty, no deed\n"
-	.string "too heinous, no crime too wicked!$"
+	.string "too heinous, no crime too wicked!\p"
+	.string "The development lounge is upstairs.\n"
+	.string "Prepare your moves, abilities and\l"
+	.string "earned builds there before battle.$"
 
 LavenderTown_PokemonCenter_1F_Text_CubonesMotherKilledByRockets::
 	.string "I saw CUBONE's mother trying to\n"

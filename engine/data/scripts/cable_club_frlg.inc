@@ -1688,7 +1688,17 @@ Text_AppearsToBeUndergoingAdjustments::
 	.string "adjustments…$"
 
 ScSafety_CenterLounge::
-	msgbox ScSafety_CenterLoungeText, MSGBOX_NPC
+	lockall
+	faceplayer
+	msgbox ScSafety_CenterLoungeText
+	closemessage
+	special ScShowCenterServices
+	waitstate
+	releaseall
 	end
 ScSafety_CenterLoungeText::
-	.string "Rest here before your next match.\nThe services downstairs can help\pyou prepare your team for KANTO.$"
+	.string "Welcome to the development lounge!\n"
+	.string "Prepare your team and trainer build.\p"
+	.string "Assignments, abilities and move\n"
+	.string "relearning are free. IV improvements\l"
+	.string "use your shared Practice Points.$"

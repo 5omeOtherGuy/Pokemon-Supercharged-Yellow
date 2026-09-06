@@ -30,7 +30,10 @@ FuchsiaCity_PokemonCenter_1F_Text_CantBecomeGoodTrainerWithOneMon::
 	.string "You can't become a good TRAINER\n"
 	.string "with just one strong POKéMON.\p"
 	.string "But raising many POKéMON evenly\n"
-	.string "is no easy task, either.$"
+	.string "is no easy task, either.\p"
+	.string "The development lounge is upstairs.\n"
+	.string "Prepare your moves, abilities and\l"
+	.string "earned builds there before battle.$"
 
 FuchsiaCity_PokemonCenter_1F_Text_PokemonLeagueWestOfViridian::
 	.string "There's a narrow trail west of\n"

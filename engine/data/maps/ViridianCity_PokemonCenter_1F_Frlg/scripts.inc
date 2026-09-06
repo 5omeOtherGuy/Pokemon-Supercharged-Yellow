@@ -30,7 +30,10 @@ ViridianCity_PokemonCenter_1F_Text_FeelFreeToUsePC::
 	.string "Please feel free to use that PC in\n"
 	.string "the corner.\p"
 	.string "The receptionist told me so.\n"
-	.string "It's so kind of her!$"
+	.string "It's so kind of her!\p"
+	.string "The development lounge is upstairs.\n"
+	.string "Prepare your moves, abilities and\l"
+	.string "earned builds there before battle.$"
 
 ViridianCity_PokemonCenter_1F_Text_PokeCenterInEveryTown::
 	.string "There's a POKéMON CENTER in every\n"

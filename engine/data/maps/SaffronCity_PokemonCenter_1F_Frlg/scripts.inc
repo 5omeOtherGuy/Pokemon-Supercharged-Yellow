@@ -37,7 +37,10 @@ SaffronCity_PokemonCenter_1F_EventScript_YoungsterRocketsGone::
 
 SaffronCity_PokemonCenter_1F_Text_GrowthRatesDifferBySpecies::
 	.string "POKéMON growth rates differ from\n"
-	.string "species to species.$"
+	.string "species to species.\p"
+	.string "The development lounge is upstairs.\n"
+	.string "Prepare your moves, abilities and\l"
+	.string "earned builds there before battle.$"
 
 SaffronCity_PokemonCenter_1F_Text_SilphCoVictimOfFame::
 	.string "SILPH CO. is widely known to all.\p"

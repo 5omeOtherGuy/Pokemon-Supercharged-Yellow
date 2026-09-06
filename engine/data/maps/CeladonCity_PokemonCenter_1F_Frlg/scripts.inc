@@ -35,7 +35,10 @@ CeladonCity_PokemonCenter_1F_Text_PokeFluteAwakensSleepingMons::
 CeladonCity_PokemonCenter_1F_Text_RodeHereFromFuchsia::
 	.string "I rode here from FUCHSIA.\p"
 	.string "It's an uphill ride on CYCLING\n"
-	.string "ROAD, so I'm exhausted.$"
+	.string "ROAD, so I'm exhausted.\p"
+	.string "The development lounge is upstairs.\n"
+	.string "Prepare your moves, abilities and\l"
+	.string "earned builds there before battle.$"
 
 CeladonCity_PokemonCenter_1F_Text_GoToCyclingRoadIfIHadBike::
 	.string "If I had a BIKE, I would go to\n"

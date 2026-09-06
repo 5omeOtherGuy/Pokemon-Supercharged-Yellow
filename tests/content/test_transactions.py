@@ -52,4 +52,17 @@ class ContentTransactionTests(unittest.TestCase):
         self.assertNotIn('FLAG_WORLD_MAP_ONE_ISLAND',vm.flags)
         self.assertEqual(vm.vars['VAR_MAP_SCENE_CINNABAR_ISLAND'],2)
 
+    def test_cerulean_decline_does_not_close_route22_challenge(self):
+        vm=ScriptVM(ENGINE);vm.accept=0
+        vm.vars.update(VAR_STARTER_MON=0,VAR_TEMP_1=0,VAR_MAP_SCENE_ROUTE22=1)
+        vm.run('CeruleanCity_EventScript_Rival')
+        self.assertEqual(vm.vars['VAR_MAP_SCENE_ROUTE22'],1)
+        self.assertEqual(vm.battles,[])
+    def test_silph_giovanni_decline_does_not_displace_him(self):
+        vm=ScriptVM(ENGINE);vm.accept=0;vm.vars['VAR_TEMP_1']=0
+        vm.flags.add('FLAG_SC_DUO_4')
+        vm.run('SilphCo_11F_EventScript_BattleGiovanni')
+        self.assertEqual(vm.battles,[])
+        self.assertEqual(vm.movements,[])
+
 if __name__=='__main__':unittest.main()

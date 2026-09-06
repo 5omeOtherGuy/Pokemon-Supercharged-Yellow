@@ -57,6 +57,19 @@ unsigned ScSetTrainingFocus(struct ScMonProgress *mon, unsigned focus)
     return 1;
 }
 
+static unsigned FocusStat(const struct ScMonProgress *mon, const uint8_t training[SC_STAT_COUNT])
+{
+    unsigned stat = mon->focus, i;
+    if (stat == SC_FOCUS_BALANCED)
+    {
+        stat = 0;
+        for (i = 1; i < SC_STAT_COUNT; i++)
+            if (training[i] < training[stat])
+                stat = i;
+    }
+    return stat;
+}
+
 unsigned ScApplyTraining(struct ScMonProgress *mon, uint8_t training[SC_STAT_COUNT], unsigned ceiling, uint32_t fraction)
 {
     unsigned points, remainder, awarded = 0;
@@ -68,14 +81,7 @@ unsigned ScApplyTraining(struct ScMonProgress *mon, uint8_t training[SC_STAT_COU
     mon->trainingRemainder = remainder & 255;
     while (points != 0)
     {
-        unsigned stat = mon->focus, i;
-        if (stat == SC_FOCUS_BALANCED)
-        {
-            stat = 0;
-            for (i = 1; i < SC_STAT_COUNT; i++)
-                if (training[i] < training[stat])
-                    stat = i;
-        }
+        unsigned stat = FocusStat(mon, training);
         if (training[stat] >= ceiling)
         {
             mon->trainingRemainder = 0;
@@ -85,6 +91,8 @@ unsigned ScApplyTraining(struct ScMonProgress *mon, uint8_t training[SC_STAT_COU
         awarded++;
         points--;
     }
+    if (training[FocusStat(mon, training)] >= ceiling)
+        mon->trainingRemainder = 0;
     return awarded;
 }
 

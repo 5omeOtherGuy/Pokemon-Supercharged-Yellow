@@ -136,16 +136,27 @@ u32 ScGetNpcCapabilities(u16 trainerId, u32 partyIndex)
 {
     u32 gym;
     u32 elite;
-    u32 size;
+    u32 size, ace = 0, support;
+    const struct TrainerMon *party;
     if (trainerId >= TRAINERS_COUNT)
         return 0;
     size = GetTrainerPartySizeFromId(trainerId);
     if (partyIndex >= size || size == 0 || size > 6)
         return 0;
+    party = GetTrainerPartyFromId(trainerId);
+    if (!party)
+        return 0;
+    // Opening order is tactical: the signature/highest-level mon need not be
+    // last. Resolve the ace from actual levels; use the last mon in a tie.
+    for (u32 i = 1; i < size; i++)
+        if (party[i].lvl >= party[ace].lvl)
+            ace = i;
+    // Keep the separate partial supporting loadout on a different teammate.
+    support = ace == size - 1 ? size - 2 : size - 1;
     gym = GymIndex(trainerId);
     if (gym < ARRAY_COUNT(sGymIds))
     {
-        if (partyIndex == size - 1)
+        if (partyIndex == ace)
         {
             u32 mask = 1u << gym;
             if (trainerId >= SC_GYM_REMATCH_FIRST && (trainerId - SC_GYM_REMATCH_FIRST) % 3 == 2
@@ -153,24 +164,24 @@ u32 ScGetNpcCapabilities(u16 trainerId, u32 partyIndex)
                 mask |= 1u << (gym == SC_CAP_BRACE ? SC_CAP_FLOW : SC_CAP_BRACE);
             return mask;
         }
-        if (partyIndex == size - 2 && (gym >= 4 || trainerId >= SC_GYM_REMATCH_FIRST))
+        if (partyIndex == support && (gym >= 4 || trainerId >= SC_GYM_REMATCH_FIRST))
             return 1u << (gym % 2 ? SC_CAP_FLOW : SC_CAP_BRACE);
         return 0;
     }
     elite = EliteIndex(trainerId);
     if (elite < 4)
     {
-        if (partyIndex == size - 1)
+        if (partyIndex == ace)
             return 1u << (8 + elite);
-        if (partyIndex == size - 2)
+        if (partyIndex == support)
             return 1u << (elite % 2 ? SC_CAP_BRACE : SC_CAP_FLOW);
         return 0;
     }
     if (IsChampion(trainerId))
     {
-        if (partyIndex == size - 1)
+        if (partyIndex == ace)
             return (1u << SC_CAP_MOMENTUM) | (1u << SC_CAP_BRACE);
-        if (partyIndex == size - 2)
+        if (partyIndex == support)
             return 1u << SC_CAP_FOCUS;
     }
     return 0;

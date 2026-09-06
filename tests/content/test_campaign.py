@@ -54,4 +54,24 @@ class CampaignDataTests(unittest.TestCase):
                 self.assertRegex(data[name], r'(?m)^Double Battle: Yes$')
                 self.assertGreaterEqual(len(re.findall(r'^Level:',data[name],re.M)),2)
 
+    def test_all_151_have_kanto_acquisition_or_evolution_path(self):
+        parents=json.loads((ROOT/'tests/content/gen1_evolution_parents.json').read_text())
+        encounter_groups=json.loads((ENGINE/'src/data/wild_encounters.json').read_text())['wild_encounter_groups']
+        acquired=set()
+        for encounter in encounter_groups[0]['encounters']:
+            name=encounter['map']
+            if not encounter.get('base_label','').endswith('_FireRed'):continue
+            if any(x in name for x in ['ISLAND','MT_EMBER']) and not any(x in name for x in ['CINNABAR','SEAFOAM']):continue
+            for field in ['land_mons','water_mons','fishing_mons']:
+                acquired.update(mon['species'][8:] for mon in encounter.get(field,{}).get('mons',[]))
+        for file in (ENGINE/'data/maps').glob('*_Frlg/scripts.inc'):
+            if any(x in file.parent.name for x in ['Island','MtEmber']) and not any(x in file.parent.name for x in ['CinnabarIsland','SeafoamIslands']):continue
+            acquired.update(re.findall(r'(?:givemon|setwildbattle) SPECIES_(\w+)',file.read_text()))
+        prize=(ENGINE/'data/maps/CeladonCity_GameCorner_PrizeRoom_Frlg/scripts.inc').read_text()
+        self.assertIn('setvar VAR_TEMP_1, SPECIES_PORYGON',prize)
+        acquired.add('PORYGON')
+        for _ in range(3):
+            acquired.update(child for child,parent in parents.items() if parent in acquired)
+        self.assertEqual(ALLOWED-{normalized(x) for x in acquired},set())
+
 if __name__=='__main__': unittest.main()

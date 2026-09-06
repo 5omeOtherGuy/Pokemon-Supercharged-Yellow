@@ -8,11 +8,11 @@ from pathlib import Path
 
 class ScriptVM:
     def __init__(self, engine):
-        self.code={}
+        self.code={'Common_EventScript_NopReturn':['return']}
         for file in (Path(engine)/'data/maps').glob('*_Frlg/scripts.inc'):
             for label,body in re.findall(r'^(\w+)::\n(.*?)(?=^\w+::|\Z)',file.read_text(),re.M|re.S):
                 self.code[label]=[x.strip() for x in body.splitlines() if x.strip() and not x.lstrip().startswith('@')]
-        self.flags=set();self.vars={};self.gifts=[];self.battles=[]
+        self.flags=set();self.vars={};self.gifts=[];self.battles=[];self.defeated=set()
         self.answer=1;self.gift_result=0;self.outcome='B_OUTCOME_CAUGHT';self.accept=1
     def value(self,x):
         if x in self.vars:return self.vars[x]
@@ -41,6 +41,13 @@ class ScriptVM:
             elif op in {'goto_if_set','goto_if_unset'}:
                 condition=args[0] in self.flags
                 if condition == (op=='goto_if_set'):label,i=args[1],0
+            elif op in {'goto_if_defeated','goto_if_not_defeated'}:
+                if (args[0] in self.defeated)==(op=='goto_if_defeated'):label,i=args[1],0
+            elif op in {'call_if_set','call_if_unset'}:
+                if (args[0] in self.flags)==(op=='call_if_set'):stack.append((label,i));label,i=args[1],0
+            elif op.startswith('call_if_'):
+                a,b=self.value(args[0]),self.value(args[1]);condition={'eq':lambda:a==b,'ne':lambda:a!=b,'lt':lambda:a<b,'ge':lambda:a>=b,'le':lambda:a<=b,'gt':lambda:a>b}[op[8:]]()
+                if condition:stack.append((label,i));label,i=args[2],0
             elif op.startswith('goto_if_'):
                 a,b=self.value(args[0]),self.value(args[1]);condition={'eq':lambda:a==b,'ne':lambda:a!=b,'lt':lambda:a<b,'ge':lambda:a>=b,'le':lambda:a<=b,'gt':lambda:a>b}[op[8:]]()
                 if condition:label,i=args[2],0

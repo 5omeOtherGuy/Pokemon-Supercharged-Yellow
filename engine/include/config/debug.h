@@ -1,7 +1,7 @@
 #ifndef GUARD_CONFIG_DEBUG_H
 #define GUARD_CONFIG_DEBUG_H
 
-#include "sc_campaign.h"
+#include "config/sc_campaign.h"
 
 // Overworld Debug
 #define DEBUG_OVERWORLD_MENU            DISABLED_ON_RELEASE // Enables an overworld debug menu to change flags, variables, giving Pokémon and more, accessed by holding R and pressing START while in the overworld by default.

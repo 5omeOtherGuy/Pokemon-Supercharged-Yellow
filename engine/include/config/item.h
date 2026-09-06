@@ -1,7 +1,7 @@
 #ifndef GUARD_CONFIG_ITEM_H
 #define GUARD_CONFIG_ITEM_H
 
-#include "sc_campaign.h"
+#include "config/sc_campaign.h"
 
 // Item config
 #define I_SHINY_CHARM_ADDITIONAL_ROLLS  2           // The amount of additional Shiny rolls if the player has the Shiny Charm. Set it to 0 to disable the Shiny Charm's effects.

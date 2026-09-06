@@ -1,7 +1,7 @@
 #ifndef GUARD_CONFIG_POKEMON_H
 #define GUARD_CONFIG_POKEMON_H
 
-#include "sc_campaign.h"
+#include "config/sc_campaign.h"
 
 // Species data settings
 #define P_UPDATED_TYPES             GEN_LATEST  // Some Pokémon have received type updates after their introduction.

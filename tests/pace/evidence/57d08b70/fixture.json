@@ -1,0 +1,11 @@
+{
+  "provenance": "diagnostic ROM script fixture; NOT organic progress",
+  "source_sha256": "d6bcb4354386456fd2a36bd857df0b7e4876954981f6a79f900f03d10c47da7e",
+  "elf_sha256": "1e783e95250e0e9e6addb82068583a4d277d9f2649f9d9408cc1651377a50dcd",
+  "fixture_sha256": "0d16533f501c8248945542af4ef1d72c15b3822612d2e7774ab2138eda2fffc6",
+  "script_address": "0x834409e",
+  "original_bytes": "6a5a2b58020601df403408a0210d8000000701cd403408210d8001000701d6403408684f0100a70e38085100006c",
+  "fixture_bytes": "6923fd4a200a00061900050014f80100030000000f000f000f000f000f000f00b681000200000000000000b76b02",
+  "player": "Pikachu5, nature3, male, IV15 each",
+  "opponent": "Magikarp2, ordinary scripted-wild traits"
+}

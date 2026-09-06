@@ -1,0 +1,12 @@
+{
+  "preset": "norm",
+  "saved_pace": 1,
+  "begin_frame": 19173,
+  "end_frame": 20124,
+  "measured_frames": 951,
+  "scope": "move acceptance through return to field; decision/intro excluded",
+  "input_policy": "one-frame A pulse every30 frames advances messages",
+  "outcome": 1,
+  "party_before": "8b955fc894eff2e5cadddfd5d7dce9ff00000202bbd5ffffffffff00d81600001f22a82ff0c75a331f7aad2d060aad2d627aad2d1f48ac2d1f7aad2d1f7aad2d1f7aab2d327a8a2d4b7acf2d3764b3330000000005ff130013000c0009000e0009000a00",
+  "party_after": "8b955fc894eff2e5cadddfd5d7dce9ff00000202bbd5ffffffffff00dc1e00001f22a82ff0c75a331f7aad2d060aad2d9d7aad2d1f48ac2d1f7aad2d1f7aad2d1f7aab25327a8a2d4b7acf2d3764b0330000000005ff130013000c0009000e0009000a00"
+}

@@ -1,0 +1,22 @@
+run 2100 0
+run 12 8
+run 300 0
+screenshot build/pace/quick-save2/continue-menu.png
+run 12 1
+run 600 0
+read 0x03000178 4
+screenshot build/pace/quick-save2/continue-loaded.png
+read 0x020073c0 48
+run 12 8
+run 90 0
+screenshot build/pace/quick-save2/restart-start-menu.png
+run 12 128
+run 30 0
+run 12 128
+run 30 0
+run 12 128
+run 30 0
+run 12 1
+run 120 0
+screenshot build/pace/quick-save2/restored-options.png
+quit

@@ -100,3 +100,7 @@ Seven source-evaluation tests pass: staged shop paths, early/late stock, solo be
 **Light Ball integration dependency:** the acceptance guard currently fails because wild Pikachu has `itemRare = ITEM_LIGHT_BALL`, and the FireRed Viridian Forest table retains a level-five Pikachu slot. A shop-only badge gate would be bypassable. The coordinator will remove the rare-held assignment while preserving wild Pikachu; `check_light_ball_access.py` must pass in the integrated source. The earlier audit assumption that there was no wild Pikachu was corrected before this handoff.
 
 Required actual checks include ordinary first victory, trainer sight after defeat, repeated consent/cancel and prize payouts, shops and full-bag behavior, badge-gated stock, lost/consumed-item replacement, nurse discovery and zero-money recovery on both sides of Mt. Moon. Android navigation and complete campaign economic/balance pacing remain untested. Record total time and failed attempts for a trusted team and rotating recruits; do not infer enjoyable preparation from these price tables.
+
+## Integration follow-up — 2026-09-06
+
+The coordinator removed the base Pikachu rare-held Light Ball assignment at `cc2448f0`; wild Pikachu remains available. The explicit access guard now passes. [ADR-0034](../adr/0034-preparation-economy-and-equipment-access.md) records the accepted economy policy. The earlier dependency above describes the worker handoff state.

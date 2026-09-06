@@ -3,7 +3,7 @@
 - Status: Accepted
 - Date: 2026-09-06
 - Decision authority: Usability and engineering choices delegated by the owner's full-project mandate
-- Implementation: Native timing-helper test and production build pass; actual timing, presentation, audio and saved-setting checks pending
+- Implementation: Native helper/build, actual three-preset sequence and QUICK save/restart checks pass; broader timing, Android/audio and human checks pending
 - Supersedes: None
 - Superseded by: None
 
@@ -24,3 +24,7 @@ The fastest settings may materially reduce training time. Measure the preparatio
 ## Verification
 
 The native test checks field isolation, all three factors, upward rounding, minimum waits, zero/short waits, invalid settings and saturated bar arithmetic. A production build compiles the Options branch and real battle hooks. Neither establishes animation completion, readability, audio quality or an observed duration ratio. Required follow-up: exercise Options, save/restart, compare the same battle at each preset using actual emulated frames, inspect messages and animations, and validate Android controls/audio and human preparation time.
+
+## Implementation evidence — 2026-09-06
+
+[Actual pacing validation](../validation/battle-pace.md) records951/891/831 emulated frames for one controlled Thunder Shock sequence at NORM/FAST/QUICK, identical resulting party data, and normal QUICK save/restart persistence. The boundary is move acceptance to battle-mode exit; field redraw and decision time are excluded. No audio or human pacing conclusion follows.

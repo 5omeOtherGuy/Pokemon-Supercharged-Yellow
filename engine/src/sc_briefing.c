@@ -147,6 +147,10 @@ bool32 ScBriefingCanAccept(const struct ScBriefingModel *model, u32 healthyCount
 u32 ScBriefingNavigate(const struct ScBriefingModel *model, struct ScBriefingView *view, u16 keys)
 {
     u32 rows = 1;
+    if (keys & L_BUTTON)
+        keys |= DPAD_LEFT;
+    if (keys & R_BUTTON)
+        keys |= DPAD_RIGHT;
     if (keys & B_BUTTON)
     {
         if (view->screen <= SC_BRIEF_TRAINER || model->error)

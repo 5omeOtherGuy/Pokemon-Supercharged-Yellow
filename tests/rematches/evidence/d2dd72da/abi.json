@@ -1,0 +1,17 @@
+{
+  "source": "#include \"global.h\"\n#include \"constants/flags.h\"\n#include \"constants/items.h\"\n#include \"constants/opponents.h\"\n#include \"pokemon.h\"\nconst unsigned rematchesAbi[] = {offsetof(struct SaveBlock1, money),offsetof(struct SaveBlock1, flags),offsetof(struct SaveBlock1, trainerRematchStepCounter),offsetof(struct SaveBlock1, trainerRematches),offsetof(struct SaveBlock1, bag.keyItems),BAG_KEYITEMS_COUNT,offsetof(struct SaveBlock2, encryptionKey),FLAG_GOT_VS_SEEKER,FLAG_SYS_VS_SEEKER_CHARGING,TRAINER_FLAGS_START + TRAINER_YOUNGSTER_EDDIE,ITEM_VS_SEEKER,sizeof(struct Pokemon)};\n",
+  "values": {
+    "money": 1168,
+    "flags": 4720,
+    "charge": 2504,
+    "readiness": 2506,
+    "key_items": 1496,
+    "key_capacity": 30,
+    "encryption_key": 172,
+    "gift_flag": 658,
+    "charging_flag": 2049,
+    "eddie_flag": 1289,
+    "vs_seeker_item": 714,
+    "party_mon_size": 100
+  }
+}

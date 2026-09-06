@@ -1,0 +1,26 @@
+{
+  "provenance": "Diagnostic ROM fixture; NOT organic progress or balance evidence",
+  "source_revision": "d2dd72dae3be97c094e7f7d5be80456b505aae49",
+  "source_sha256": "f98b9b8d02ddd0d9a35f6baf2a81750a42c4c89cf525e8411c9dfe927f556acd",
+  "elf_sha256": "8cfa881f978aa3b1ff35494d91928272adc9a2a4e4b29ba3771711583554edfe",
+  "fixture_sha256": "a8dee56a919fd9227ae4e39fabe9096bfac813d8c126e42809160f2a7a3a7cab",
+  "scenario": "gift-to-rematch",
+  "target_script": "VermilionCity_PokemonCenter_1F_EventScript_VSSeekerWoman",
+  "target_address": "0x834e531",
+  "patch_address": "0x8344c17",
+  "patch_assembly": "\tlockall\n\tsetflag FLAG_BADGE01_GET\n\tgivemon SPECIES_MEWTWO, 21, nature=NATURE_MODEST, gender=0, hpIv=15, atkIv=15, defIv=15, speedIv=15, spAtkIv=15, spDefIv=15\n\tgivemon SPECIES_PIKACHU, 21, nature=NATURE_MODEST, gender=0, hpIv=15, atkIv=15, defIv=15, speedIv=15, spAtkIv=15, spDefIv=15\n\tsetflag FLAG_SYS_POKEMON_GET\n\twarp MAP_VERMILION_CITY_POKEMON_CENTER_1F, 255, 6, 5\n\twaitstate\n\treleaseall\n\tend\n",
+  "original_bytes": "6a5a2b58020601584c3408a0210d8000000701464c3408210d80010007014f4c3408684f0100471738085100006c020f00b14c34080904030f00214d34080904030f00924d3408090468041c1238080f",
+  "patch_bytes": "6929200823d94a200a00069600150014f801000f0000000f000f000f000f000f000f0023d94a200a00061900150014f801000f0000000f000f000f000f000f000f00292808392b01ff06000500276b02",
+  "setup": {
+    "cash": "unchanged",
+    "pokemon": "Mewtwo and Pikachu Lv21, Modest, IV15 in all stats, current default moves",
+    "badges": [
+      "Boulder"
+    ],
+    "rematch_state": "unchanged: no flags, charge, readiness or inventory injected",
+    "map": "MAP_VERMILION_CITY_POKEMON_CENTER_1F",
+    "x": 6,
+    "y": 5
+  },
+  "generated_map_header_sha256": "7a65c426117e3c29f9f0a99f34ae8b67d55a89b23f4127b338211aebd5be01f2"
+}

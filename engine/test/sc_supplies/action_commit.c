@@ -72,6 +72,27 @@ SINGLE_BATTLE_TEST("SC item action: stale full HP cancels reservation without sp
 }
 
 #if SC_TEST_TOOLS
+SINGLE_BATTLE_TEST("SC owner action: simulated Potion turn heals and spends one item with free quota")
+{
+    GIVEN {
+        gMain.inBattle = FALSE;
+        ScInitTrainerProgress(&gSaveBlock3Ptr->sc);
+        EXPECT(ScDebugSetOption(SC_DEBUG_FREE_SUPPLIES, TRUE));
+        GIVE_PLAYER_ITEM(ITEM_POTION, 3);
+        PLAYER(SPECIES_PIKACHU) { HP(1); MaxHP(100); Moves(MOVE_SPLASH); }
+        OPPONENT(SPECIES_MAGIKARP) { Moves(MOVE_SPLASH); }
+    } WHEN {
+        TURN { USE_ITEM(player, ITEM_POTION, partyIndex: 0); MOVE(opponent, MOVE_SPLASH); }
+    } SCENE {
+        HP_BAR(player);
+        MESSAGE("Pikachu had its HP restored.");
+    } THEN {
+        EXPECT_EQ(player->hp, 21);
+        EXPECT_EQ(CountTotalItemQuantityInBag(ITEM_POTION), 2);
+        ScInitTrainerProgress(&gSaveBlock3Ptr->sc);
+    }
+}
+
 TEST("SC owner hook: actual Rare Candy cap and encrypted bag honor reversible switches")
 {
     gMain.inBattle = FALSE;

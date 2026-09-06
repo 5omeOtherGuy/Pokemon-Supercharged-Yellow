@@ -10,6 +10,8 @@ BUILD = ROOT / "build" / "progression"
 class ProgressionCoreTests(unittest.TestCase):
     def test_persistent_growth_and_reward_rules(self):
         BUILD.mkdir(parents=True, exist_ok=True)
+        for profile in BUILD.glob("core_test-*.gcda"):
+            profile.unlink()
         subprocess.run(
             ["cc", "-std=c11", "-Wall", "-Wextra", "-Werror", "--coverage", "-O0",
              "-I", str(ROOT / "engine" / "include"),

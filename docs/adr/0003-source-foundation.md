@@ -1,11 +1,11 @@
 # ADR-0003: Select a source foundation through a build audit
 
-- Status: Proposed
+- Status: Superseded
 - Date: 2026-09-05
 - Decision authority: Assistant engineering proposal; final foundation selection not yet made
-- Implementation: Not started — preliminary documentation research only
+- Implementation: Historical proposal; completed selection and evidence are in ADR-0028
 - Supersedes: None
-- Superseded by: None
+- Superseded by: [ADR-0028](0028-pinned-kanto-foundation.md)
 
 ## Context
 

@@ -10,7 +10,7 @@ Read the owning records for complete rules, authority and open questions. This m
 | --- | --- |
 | Execution boundaries; battle-entry and field rules | [0027](0027-campaign-and-battle-contract.md) |
 | Charter; decision workflow | [0001](0001-project-direction.md); [0002](0002-decision-records.md) |
-| Source foundation | [0003](0003-source-foundation.md), **Proposed** |
+| Source foundation | [0028](0028-pinned-kanto-foundation.md); historical proposal [0003](0003-source-foundation.md) |
 | Android play target; eligible ROM platforms | [0025](0025-android-emulation-platform.md) |
 | Yellow/Kanto content baseline; starter; current expansion scope | [0026](0026-yellow-kanto-content-baseline.md) |
 | Main-campaign roster; complete solo collection/no trading; team continuity and boss mastery | [0004](0004-original-151-roster.md); [0017](0017-trusted-core-and-boss-mastery.md) |
@@ -22,7 +22,7 @@ Read the owning records for complete rules, authority and open questions. This m
 | Pokémon capabilities; trainer builds/reward ownership/NPC progression; stat training | [0019](0019-gym-resistances-and-capabilities.md); [0021](0021-trainer-builds-and-reward-ownership.md); [0023](0023-badge-wide-training-ceilings.md) |
 | Active-passive scouting and AI observations | [0024](0024-passive-scouting-and-ai-observations.md) |
 
-Supersession chains: 0005 → 0017; 0018 → 0022 → 0023; 0020 → 0021. Follow them to current policy; preserved records describe the decisions and questions of their time.
+Supersession chains: 0003 → 0028; 0005 → 0017; 0018 → 0022 → 0023; 0020 → 0021. Follow them to current policy; preserved records describe the decisions and questions of their time.
 
 ## Progression ownership
 
@@ -43,7 +43,7 @@ Ordinary level EXP, stat-training reward value and stat-training eligibility are
 | --- | --- | --- |
 | [0001](0001-project-direction.md) | Project direction and confirmed constraints | Accepted |
 | [0002](0002-decision-records.md) | Use repository decision records | Accepted |
-| [0003](0003-source-foundation.md) | Select a source foundation through a build audit | Proposed |
+| [0003](0003-source-foundation.md) | Select a source foundation through a build audit | Superseded |
 | [0004](0004-original-151-roster.md) | Restrict the main campaign roster to the original 151 | Accepted |
 | [0005](0005-team-rotation-and-boss-mastery.md) | Build the campaign around team rotation and boss mastery | Superseded |
 | [0006](0006-substantial-levelling-investment.md) | Preserve substantial levelling investment | Accepted |
@@ -68,6 +68,7 @@ Ordinary level EXP, stat-training reward value and stat-training eligibility are
 | [0025](0025-android-emulation-platform.md) | Target Android emulation while allowing GBA or NDS foundations | Accepted |
 | [0026](0026-yellow-kanto-content-baseline.md) | Use FireRed/LeafGreen Kanto for the Yellow content baseline | Accepted |
 | [0027](0027-campaign-and-battle-contract.md) | Complete Kanto with explicit battle and field rules | Accepted |
+| [0028](0028-pinned-kanto-foundation.md) | Build on the pinned expansion Kanto port | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 
@@ -120,3 +121,5 @@ The next clarification requires all original 151 to be obtainable in one playthr
 ## Execution mandate — 2026-09-06
 
 The owner authorizes full implementation, autonomous outstanding choices and publication. ADR-0027 resolves the campaign endpoint, battle-entry scope and inherited badge policies. Earlier owner-question and review-only wording is historical; use later records for resolved choices and [project status](../project-status.md) for verified implementation. There are now 22 Accepted, 1 Proposed and 4 Superseded records.
+
+ADR-0028 selects the audited expansion Kanto port and supersedes the earlier foundation proposal. Current totals: 23 Accepted and 5 Superseded records. Runtime foundation evidence is separate from game completion.

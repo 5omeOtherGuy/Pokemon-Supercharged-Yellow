@@ -100,12 +100,12 @@ bool32 IsNationalPokedexEnabled(void)
 
 bool32 IsMysteryEventEnabled(void)
 {
-    return FlagGet(FLAG_SYS_MYSTERY_EVENT_ENABLE);
+    return !P_SC_KANTO_RULES && FlagGet(FLAG_SYS_MYSTERY_EVENT_ENABLE);
 }
 
 bool32 IsMysteryGiftEnabled(void)
 {
-    return FlagGet(FLAG_SYS_MYSTERY_GIFT_ENABLE);
+    return !P_SC_KANTO_RULES && FlagGet(FLAG_SYS_MYSTERY_GIFT_ENABLE);
 }
 
 void ClearMysteryGiftFlags(void)

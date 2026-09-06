@@ -1,6 +1,7 @@
 """Execute production service transactions against narrow native game adapters."""
 from pathlib import Path
 import subprocess
+import os
 import tempfile
 import unittest
 
@@ -127,8 +128,12 @@ int main(void) {
             model=ROOT/'engine/src/sc_services_model.c'
             if model.exists(): sources.append(model)
             cmd=['cc','-std=c11','-Wall','-Wextra','-Werror','-I',str(tmp),'-I',str(ROOT/'engine/include'),str(tmp/'probe.c'),*map(str,sources),'-o',str(tmp/'probe')]
+            if os.environ.get('SC_SERVICES_COVERAGE'):
+                cmd.insert(1, '--coverage')
             compiled=subprocess.run(cmd,capture_output=True,text=True)
             self.assertEqual(compiled.returncode,0,compiled.stderr)
             subprocess.run([str(tmp/'probe')],check=True)
+            if os.environ.get('SC_SERVICES_COVERAGE'):
+                subprocess.run(['gcov','-b','-c',str(tmp/'probe-sc_services_model.gcno')],cwd=tmp,check=True)
 
 if __name__=='__main__':unittest.main()

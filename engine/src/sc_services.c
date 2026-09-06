@@ -31,7 +31,7 @@ enum ServicePage
     PAGE_CAPABILITIES, PAGE_TRAINER, PAGE_EFFECT, PAGE_ABILITIES,
     PAGE_ABILITY_DETAIL, PAGE_IVS, PAGE_IV_CONFIRM, PAGE_MOVES,
     PAGE_MOVE_DETAIL, PAGE_REPLACE_MOVE, PAGE_SUPPLIES, PAGE_SUPPLY_PICK,
-    PAGE_HELP, PAGE_NOTICE,
+    PAGE_HELP, PAGE_EFFECT_RULES, PAGE_NOTICE,
 };
 
 static EWRAM_DATA struct
@@ -352,7 +352,7 @@ static void Draw(void)
         Print(3, 0, info->name); Print(3, 14, COMPOUND_STRING("Cost:")); Number(36, 14, info->cost);
         Print(62, 14, ActiveMask(trainer) & (1u << sUi.selection) ? COMPOUND_STRING("Active") : OwnedMask(trainer) & (1u << sUi.selection) ? COMPOUND_STRING("Owned; inactive") : COMPOUND_STRING("Not earned"));
         Description(info->description, 31, 6);
-        Print(3, 113, COMPOUND_STRING("Multipliers stack; each step rounds down."));
+        Print(3, 113, COMPOUND_STRING("SELECT: stacking and damage rules"));
         Footer(sUi.center ? COMPOUND_STRING("A assign/remove  UP/DOWN scroll  B back") : COMPOUND_STRING("UP/DOWN scroll  B back")); break;
     }
     case PAGE_ABILITIES:
@@ -397,6 +397,10 @@ static void Draw(void)
     case PAGE_SUPPLY_PICK:
         Print(3, 0, COMPOUND_STRING("Choose an owned legal supply")); Print(3, 14, COMPOUND_STRING("Each choice fills one unit."));
         Footer(COMPOUND_STRING("A choose  B back")); break;
+    case PAGE_EFFECT_RULES:
+        Print(3, 0, COMPOUND_STRING("Public effect rules"));
+        Description(COMPOUND_STRING("Percentage effects combine multiplicatively with integer rounding. Damage multipliers apply to calculated move damage. Fixed, level-based, reflected, fractional and one-hit-KO damage remain unchanged. Speed, healing and immunity effects follow their own stated conditions. Only assigned capabilities and active trainer passives apply. Merely owning an effect does not activate it."), 20, 8);
+        Footer(COMPOUND_STRING("UP/DOWN scroll  B back")); break;
     case PAGE_HELP:
         Print(3, 0, COMPOUND_STRING("Development and ownership"));
         Description(COMPOUND_STRING("Badges raise every POKéMON's training ceiling, not its points. Surviving field participants earn permanent training after a win. Focus directs future points only. A full focused stat discards gains, including fractions. Balanced focus fills the least-trained stat and discards only when all are full. Capabilities belong to the individual and require repeatable boss victories. Trainer passives belong to you. Assign both freely here, within separate budgets. Practice Points are your shared battle-win resource for IV improvements, including recruits. Nature stays fixed."), 20, 8);
@@ -429,7 +433,7 @@ static void Back(void)
     case PAGE_NOTICE: sUi.page = sUi.returnPage; sUi.cursor = sUi.returnCursor; sUi.scroll = 0; break;
     case PAGE_PARTY: case PAGE_SUPPLIES: Go(PAGE_HOME); break;
     case PAGE_TRAINER: Go(sUi.center ? PAGE_HOME : PAGE_MON); break;
-    case PAGE_HELP: Go(sUi.returnPage); break;
+    case PAGE_HELP: case PAGE_EFFECT_RULES: Go(sUi.returnPage); break;
     case PAGE_FOCUS: Go(PAGE_TRAINING); break;
     case PAGE_EFFECT: Go(sUi.effectKind ? PAGE_TRAINER : PAGE_CAPABILITIES); sUi.cursor = sUi.selection; break;
     case PAGE_ABILITY_DETAIL: Go(PAGE_ABILITIES); LoadAbilities(); break;
@@ -515,6 +519,7 @@ static void CB2_Services(void)
     if (keys & B_BUTTON) Back();
     else if (keys & A_BUTTON) Select();
     else if ((keys & START_BUTTON) && sUi.page == PAGE_SUPPLIES) SetSupply(SC_SUPPLY_SLOTS, ITEM_NONE);
+    else if ((keys & SELECT_BUTTON) && sUi.page == PAGE_EFFECT) { sUi.returnPage = PAGE_EFFECT; Go(PAGE_EFFECT_RULES); }
     else if ((keys & SELECT_BUTTON) && sUi.page == PAGE_FOCUS) { sUi.returnPage = PAGE_FOCUS; Go(PAGE_HELP); }
     else if (keys & (DPAD_UP | DPAD_DOWN))
     {

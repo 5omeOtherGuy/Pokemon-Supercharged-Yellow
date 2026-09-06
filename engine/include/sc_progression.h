@@ -9,6 +9,7 @@ bool32 ScProgressionEnabled(void);
 void ScProgressionEnableForTests(bool32 enabled);
 #endif
 u32 ScGetBadgeCount(void);
+void ScRefreshTrainerUnlocks(void);
 void ScReadMonProgress(struct Pokemon *mon, struct ScMonProgress *out);
 void ScWriteMonProgress(struct Pokemon *mon, const struct ScMonProgress *progress);
 void ScProgressionBeginBattle(void);

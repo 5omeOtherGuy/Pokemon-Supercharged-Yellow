@@ -70,6 +70,14 @@ static u32 EliteIndex(u16 id)
     return 4;
 }
 
+u32 ScGetEncounterCapability(u16 trainerId)
+{
+    u32 gym = GymIndex(trainerId), elite = EliteIndex(trainerId);
+    if (gym < 8)
+        return gym;
+    return elite < 4 ? 8 + elite : ARRAY_COUNT(gScCapabilityInfo);
+}
+
 static u32 IsChampion(u16 id)
 {
     return (id >= TRAINER_CHAMPION_FIRST_SQUIRTLE && id <= TRAINER_CHAMPION_FIRST_CHARMANDER)

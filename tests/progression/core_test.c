@@ -9,10 +9,29 @@ int main(void)
     const unsigned ceilings[] = {24, 32, 40, 48, 56, 64, 72, 80, 96};
     struct ScMonProgress mon = {0};
     struct ScBattleParticipation battle;
+    struct ScTrainerProgress save;
     unsigned char training[6] = {0};
     unsigned char before[6];
     unsigned i;
 
+    assert(sizeof(save) == 48);
+    memset(&save, 0, sizeof(save));
+    assert(!ScValidateTrainerProgress(&save));
+    ScInitTrainerProgress(&save);
+    assert(ScValidateTrainerProgress(&save));
+    save.activePassives = 1;
+    assert(!ScValidateTrainerProgress(&save));
+    ScSealTrainerProgress(&save);
+    assert(ScValidateTrainerProgress(&save));
+    for (i = 0; i < sizeof(save); i++)
+    {
+        ((unsigned char *)&save)[i] ^= 1;
+        assert(!ScValidateTrainerProgress(&save));
+        ((unsigned char *)&save)[i] ^= 1;
+    }
+    save.version++;
+    ScSealTrainerProgress(&save);
+    assert(!ScValidateTrainerProgress(&save));
     assert(sizeof(mon) == 6); /* Preserve the boxed Pokemon's existing six-byte field. */
     for (i = 0; i < 9; i++)
     {

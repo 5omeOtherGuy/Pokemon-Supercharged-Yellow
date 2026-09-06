@@ -546,3 +546,9 @@ PalletTown_Text_PressStartToOpenMenuCopy::
 	.string "Press START to open the MENU!$"
 
 
+
+ScY_Text_Adoption::
+	.string "I'm looking for a caring TRAINER.\n"
+	.string "Will you give my POKéMON a home?$"
+ScY_Text_Adopted::
+	.string "Take good care of your new friend!$"

@@ -1393,7 +1393,17 @@ bool32 GetRematchFromScriptPointer(const u8 *data)
     return FALSE;
 #else
     TrainerBattleParameter *temp = (TrainerBattleParameter*)(data + TRAINERBATTLE_OPCODE_OFFSET);
-    return ShouldTryRematchBattleForTrainerId(temp->params.opponentA);
+    if (!ShouldTryRematchBattleForTrainerId(temp->params.opponentA))
+        return FALSE;
+#ifdef FIRERED
+    // This helper is the automatic sight path. A refused double rematch must
+    // leave the player free to move/use the Bag, without consuming readiness.
+    // The manual interaction retains its ordinary two-Pokemon refusal message.
+    if (GetTrainerBattleType(temp->params.opponentA) == TRAINER_BATTLE_TYPE_DOUBLES
+     && !HasEnoughMonsForDoubleBattle2())
+        return FALSE;
+#endif
+    return TRUE;
 #endif
 }
 

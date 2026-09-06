@@ -47,6 +47,8 @@ int main(void)
     assert(training[2] == 1 && mon.trainingRemainder == 0);
     assert(ScApplyTraining(&mon, training, 24, 30 * 256) == 23);
     assert(training[2] == 24 && mon.trainingRemainder == 0);
+    assert(ScApplyTraining(&mon, training, 24, 128) == 0);
+    assert(mon.trainingRemainder == 0); /* no fractional bank at the ceiling */
     memcpy(before, training, sizeof(training));
     assert(ScSetTrainingFocus(&mon, 3));
     assert(memcmp(before, training, sizeof(training)) == 0);

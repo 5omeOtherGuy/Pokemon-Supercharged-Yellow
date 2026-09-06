@@ -3,6 +3,7 @@
 #include "battle_anim.h"
 #include "battle_ai_main.h"
 #include "sc_ai.h"
+#include "sc_battle.h"
 #include "battle_ai_record.h"
 #include "battle_arena.h"
 #include "battle_controllers.h"
@@ -4450,7 +4451,7 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
     if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SWAMP)
         speed /= 4;
 
-    return speed;
+    return ScApplySpeedEffects(battler, speed);
 }
 
 s32 GetChosenMovePriority(enum BattlerId battler, enum Ability ability)

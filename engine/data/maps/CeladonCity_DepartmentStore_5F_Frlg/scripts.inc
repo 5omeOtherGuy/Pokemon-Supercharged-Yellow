@@ -41,43 +41,90 @@ CeladonCity_DepartmentStore_5F_EventScript_ClerkVitamins::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart CeladonCity_DepartmentStore_5F_Vitamins
+	goto_if_set FLAG_BADGE04_GET, ScEconomy_Celadon_ExperiencedStock
+	pokemart ScEconomy_Celadon_Equipment
+	goto ScEconomy_Celadon_Finish
+
+ScEconomy_Celadon_ExperiencedStock::
+	pokemart ScEconomy_Celadon_EquipmentPlus
+ScEconomy_Celadon_Finish::
 	msgbox gText_PleaseComeAgain
 	release
 	end
 
 	.align 2
-CeladonCity_DepartmentStore_5F_Vitamins::
-	.2byte ITEM_HP_UP
-	.2byte ITEM_PROTEIN
-	.2byte ITEM_IRON
-	.2byte ITEM_CALCIUM
-	.2byte ITEM_ZINC
-	.2byte ITEM_CARBOS
+ScEconomy_Celadon_Equipment::
+	.2byte ITEM_SILK_SCARF
+	.2byte ITEM_CHARCOAL
+	.2byte ITEM_MYSTIC_WATER
+	.2byte ITEM_MAGNET
+	.2byte ITEM_MIRACLE_SEED
+	.2byte ITEM_NEVER_MELT_ICE
+	.2byte ITEM_BLACK_BELT
+	.2byte ITEM_POISON_BARB
+	.2byte ITEM_SOFT_SAND
+	.2byte ITEM_SHARP_BEAK
+	.2byte ITEM_TWISTED_SPOON
+	.2byte ITEM_SILVER_POWDER
+	.2byte ITEM_HARD_STONE
+	.2byte ITEM_SPELL_TAG
+	.2byte ITEM_DRAGON_FANG
+	.2byte ITEM_BLACK_GLASSES
+	.2byte ITEM_METAL_COAT
+	.2byte ITEM_FAIRY_FEATHER
+	.2byte ITEM_EVIOLITE
+	.2byte ITEM_FOCUS_SASH
+	.2byte ITEM_AIR_BALLOON
+	.2byte ITEM_LIGHT_CLAY
 	.2byte ITEM_NONE
-	release
-	end
+
+	.align 2
+ScEconomy_Celadon_EquipmentPlus::
+	.2byte ITEM_SILK_SCARF
+	.2byte ITEM_CHARCOAL
+	.2byte ITEM_MYSTIC_WATER
+	.2byte ITEM_MAGNET
+	.2byte ITEM_MIRACLE_SEED
+	.2byte ITEM_NEVER_MELT_ICE
+	.2byte ITEM_BLACK_BELT
+	.2byte ITEM_POISON_BARB
+	.2byte ITEM_SOFT_SAND
+	.2byte ITEM_SHARP_BEAK
+	.2byte ITEM_TWISTED_SPOON
+	.2byte ITEM_SILVER_POWDER
+	.2byte ITEM_HARD_STONE
+	.2byte ITEM_SPELL_TAG
+	.2byte ITEM_DRAGON_FANG
+	.2byte ITEM_BLACK_GLASSES
+	.2byte ITEM_METAL_COAT
+	.2byte ITEM_FAIRY_FEATHER
+	.2byte ITEM_EVIOLITE
+	.2byte ITEM_FOCUS_SASH
+	.2byte ITEM_AIR_BALLOON
+	.2byte ITEM_LIGHT_CLAY
+	.2byte ITEM_LIGHT_BALL
+	.2byte ITEM_NONE
 
 CeladonCity_DepartmentStore_5F_Text_ExplainStatEnhancers::
-	.string "POKéMON stat enhancers can be\n"
-	.string "bought only here.\p"
-	.string "HP UP increases the base HP of a\n"
-	.string "POKéMON.\p"
-	.string "CALCIUM raises the base SP. ATK\n"
-	.string "stat of one POKéMON.\p"
-	.string "ZINC boosts the base SP. DEF stat\n"
-	.string "of one POKéMON.\p"
-	.string "CARBOS enhances the base SPEED\n"
-	.string "stat.$"
+	.string "Held equipment supports a battle\n"
+	.string "plan. Each partner holds one item.\p"
+	.string "A FOCUS SASH needs full HP.\n"
+	.string "AIR BALLOON avoids GROUND moves\l"
+	.string "until another attack bursts it.\p"
+	.string "Both are consumed when triggered.\n"
+	.string "You can always buy replacements.$"
 
 CeladonCity_DepartmentStore_5F_Text_HereForStatEnhancers::
-	.string "I'm here for POKéMON stat\n"
-	.string "enhancers.\p"
-	.string "PROTEIN increases the base ATTACK\n"
-	.string "power.\p"
-	.string "IRON increases the base DEFENSE\n"
-	.string "stat.$"
+	.string "After four badges, this clerk also\n"
+	.string "stocks LIGHT BALL for PIKACHU.\p"
+	.string "It doubles PIKACHU's ATTACK and\n"
+	.string "SP. ATK, but gives no extra bulk.\p"
+	.string "RAICHU gains speed and durability.\n"
+	.string "Either partner has a place on a team.\p"
+	.string "Training points come from victories.\n"
+	.string "The CENTER lounge changes builds\l"
+	.string "and improves individual potential.$"
 
 CeladonCity_DepartmentStore_5F_Text_Drugstore::
-	.string "5F: DRUGSTORE$"
+	.string "5F: BATTLE EQUIPMENT & X ITEMS$"
 

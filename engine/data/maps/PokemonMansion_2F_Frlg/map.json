@@ -41,7 +41,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PokemonMansion_2F_EventScript_ItemCalcium",
+      "script": "ScEconomy_PokemonMansion_2F_EventScript_ItemCalcium_ETHER",
       "flag": "FLAG_HIDE_POKEMON_MANSION_2F_CALCIUM"
     },
     {
@@ -55,7 +55,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PokemonMansion_2F_EventScript_ItemZinc",
+      "script": "ScEconomy_PokemonMansion_2F_EventScript_ItemZinc_LUM_BERRY",
       "flag": "FLAG_HIDE_POKEMON_MANSION_2F_ZINC"
     },
     {
@@ -69,7 +69,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PokemonMansion_2F_EventScript_ItemHPUp",
+      "script": "ScEconomy_PokemonMansion_2F_EventScript_ItemHPUp_SITRUS_BERRY",
       "flag": "FLAG_HIDE_POKEMON_MANSION_2F_HP_UP"
     }
   ],

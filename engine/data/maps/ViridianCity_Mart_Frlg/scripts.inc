@@ -66,6 +66,10 @@ ViridianCity_Mart_Items::
 	.2byte ITEM_POTION
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_ORAN_BERRY
+	.2byte ITEM_CHERI_BERRY
+	.2byte ITEM_CHESTO_BERRY
+	.2byte ITEM_PECHA_BERRY
 	.2byte ITEM_NONE
 	release
 	end
@@ -105,7 +109,9 @@ ViridianCity_Mart_Text_ShopDoesGoodBusinessInAntidotes::
 	.string "ANTIDOTES, I've heard.$"
 
 ViridianCity_Mart_Text_GotToBuySomePotions::
-	.string "I've got to buy some POTIONS.\p"
-	.string "You never know when your POKéMON\n"
-	.string "will need quick healing.$"
+	.string "POTIONS and held ORAN BERRIES\n"
+	.string "help in different ways.\p"
+	.string "If money runs low, BUG CATCHER\n"
+	.string "RICK in VIRIDIAN FOREST offers\l"
+	.string "free practice rematches after a win.$"
 

@@ -386,3 +386,7 @@ ScY_Decline_SilphCo_7F::
 	addobject LOCALID_SILPH_CO_RIVAL
 	fadescreen FADE_FROM_BLACK
 	goto ScY_DeclineBoss
+
+ScEconomy_SilphCo_7F_EventScript_ItemCalcium_ETHER::
+	finditem ITEM_ETHER
+	end

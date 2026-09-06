@@ -60,7 +60,7 @@ Route13_Text_GwenPostBattle::
 	.string "to toughen them up.$"
 
 Route13_Text_AlmaIntro::
-	.string "I found CARBOS in a cave once\n"
+	.string "I found an ETHER in a cave once\n"
 	.string "while I was spelunking.$"
 
 Route13_Text_AlmaDefeat::
@@ -68,7 +68,7 @@ Route13_Text_AlmaDefeat::
 	.string "I just messed up!$"
 
 Route13_Text_AlmaPostBattle::
-	.string "CARBOS boosted the SPEED of my\n"
+	.string "The ETHER restored the PP of my\n"
 	.string "POKéMON.$"
 
 Route13_Text_PerryIntro::

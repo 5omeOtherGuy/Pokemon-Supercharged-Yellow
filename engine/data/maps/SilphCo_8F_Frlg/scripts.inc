@@ -87,3 +87,7 @@ SilphCo_8F_Text_ToRocketBossMonsAreTools::
 	.string "be used.\p"
 	.string "What will happen if that tyrant\n"
 	.string "takes over our company…$"
+
+ScEconomy_SilphCo_8F_EventScript_ItemIron_AIR_BALLOON::
+	finditem ITEM_AIR_BALLOON
+	end

@@ -11,6 +11,7 @@ ViridianCity_PokemonCenter_1F_EventScript_Nurse::
 	lock
 	faceplayer
 	call EventScript_PkmnCenterNurse_Frlg
+	msgbox ScEconomy_Viridian_UpstairsHint
 	release
 	end
 
@@ -27,13 +28,12 @@ ViridianCity_PokemonCenter_1F_EventScript_Youngster::
 	end
 
 ViridianCity_PokemonCenter_1F_Text_FeelFreeToUsePC::
-	.string "Please feel free to use that PC in\n"
-	.string "the corner.\p"
-	.string "The receptionist told me so.\n"
-	.string "It's so kind of her!\p"
 	.string "The development lounge is upstairs.\n"
-	.string "Prepare your moves, abilities and\l"
-	.string "earned builds there before battle.$"
+	.string "Free move relearning, ability\l"
+	.string "choices and earned builds await!\p"
+	.string "The PC in the corner stores your\n"
+	.string "partners. Keep a trusted team,\l"
+	.string "and prepare specialists as needed.$"
 
 ViridianCity_PokemonCenter_1F_Text_PokeCenterInEveryTown::
 	.string "There's a POKéMON CENTER in every\n"
@@ -46,4 +46,10 @@ ViridianCity_PokemonCenter_1F_Text_PokeCentersHealMons::
 	.string "hurt, or fainted POKéMON.\p"
 	.string "They make all POKéMON completely\n"
 	.string "healthy.$"
+
+
+ScEconomy_Viridian_UpstairsHint::
+	.string "Preparing for a trainer battle?\n"
+	.string "The upstairs lounge helps with\l"
+	.string "moves, abilities and supplies.$"
 

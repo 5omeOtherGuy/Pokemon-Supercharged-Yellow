@@ -39,9 +39,23 @@ ViridianForest_EventScript_ExitSign::
 	end
 
 ViridianForest_EventScript_Rick::
-	trainerbattle_single TRAINER_BUG_CATCHER_RICK, ViridianForest_Text_RickIntro, ViridianForest_Text_RickDefeat
-	msgbox ViridianForest_Text_RickPostBattle, MSGBOX_AUTOCLOSE
+	trainerbattle_single TRAINER_BUG_CATCHER_RICK, ViridianForest_Text_RickIntro, ViridianForest_Text_RickDefeat, ScEconomy_TRAINER_BUG_CATCHER_RICK_FirstWin
+	lock
+	faceplayer
+	msgbox ScEconomy_TRAINER_BUG_CATCHER_RICK_Ask, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, ScEconomy_TRAINER_BUG_CATCHER_RICK_Finish
+	trainerbattle_no_intro TRAINER_BUG_CATCHER_RICK, ViridianForest_Text_RickDefeat
+ScEconomy_TRAINER_BUG_CATCHER_RICK_FirstWin::
+	msgbox ViridianForest_Text_RickPostBattle
+ScEconomy_TRAINER_BUG_CATCHER_RICK_Finish::
+	release
 	end
+
+ScEconomy_TRAINER_BUG_CATCHER_RICK_Ask::
+	.string "Want a practice rematch? No fee.\n"
+	.string "Same team and ordinary prize money.\p"
+	.string "We can practise again whenever\n"
+	.string "you talk to me. Ready?$"
 
 ViridianForest_EventScript_Doug::
 	trainerbattle_single TRAINER_BUG_CATCHER_DOUG, ViridianForest_Text_DougIntro, ViridianForest_Text_DougDefeat
@@ -78,8 +92,10 @@ ViridianForest_Text_RickDefeat::
 	.string "No!\nCATERPIE can't hack it!$"
 
 ViridianForest_Text_RickPostBattle::
-	.string "Ssh! You'll scare the bugs away.\n"
-	.string "Another time, okay?$"
+	.string "Talk to me again for a practice\n"
+	.string "rematch with this same team.\p"
+	.string "There is no fee. Winning earns\n"
+	.string "ordinary prize money and training.$"
 
 ViridianForest_Text_DougIntro::
 	.string "Yo!\n"

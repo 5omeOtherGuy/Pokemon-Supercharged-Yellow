@@ -168,3 +168,7 @@ SilphCo_6F_Text_FloorSign::
 	.string "SILPH CO. HEAD OFFICE\n"
 	.string "6F$"
 
+
+ScEconomy_SilphCo_6F_EventScript_ItemHPUp_SITRUS_BERRY::
+	finditem ITEM_SITRUS_BERRY
+	end

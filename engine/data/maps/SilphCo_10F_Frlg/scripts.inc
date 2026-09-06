@@ -66,3 +66,7 @@ SilphCo_10F_Text_FloorSign::
 	.string "SILPH CO. HEAD OFFICE\n"
 	.string "10F$"
 
+
+ScEconomy_SilphCo_10F_EventScript_ItemCarbos_LEPPA_BERRY::
+	finditem ITEM_LEPPA_BERRY
+	end

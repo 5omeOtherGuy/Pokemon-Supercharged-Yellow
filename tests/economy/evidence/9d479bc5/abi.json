@@ -1,0 +1,16 @@
+{
+  "source": "#include \"global.h\"\n#include \"constants/flags.h\"\n#include \"constants/items.h\"\nconst unsigned economyAbi[] = {offsetof(struct SaveBlock1, money),offsetof(struct SaveBlock1, flags),offsetof(struct SaveBlock2, encryptionKey),FLAG_BADGE04_GET,FLAG_GOT_VS_SEEKER,ITEM_VS_SEEKER,BAG_KEYITEMS_COUNT,ITEM_FOCUS_SASH,ITEM_LIGHT_BALL,ITEM_SITRUS_BERRY,ITEM_AIR_BALLOON};\n",
+  "values": {
+    "money": 1168,
+    "flags": 4720,
+    "encryption_key": 172,
+    "badge04": 2083,
+    "vs_seeker_flag": 658,
+    "vs_seeker_item": 714,
+    "key_capacity": 30,
+    "focus_sash": 481,
+    "light_ball": 392,
+    "sitrus": 523,
+    "air_balloon": 497
+  }
+}

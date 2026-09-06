@@ -1,0 +1,17 @@
+{
+  "provenance": "Second actual fresh-save replay of gift fixture",
+  "source_revision_full": "9d479bc5705e1818da2bbf87ad500d35ce230c92",
+  "responses_identical": true,
+  "responses_sha256": "70a3fcf8e45ca403379c3f603f95317f1a6dbb9b8957f984e298cac9d778956b",
+  "screenshots": {
+    "arrival.png": "b3a85d19185f54fa1edfba6392ec7c844aad5b702844c0ed6466ed19f1977882",
+    "free-exit.png": "a58e295b31937689992b66962feddcc65c81cc032142546a14a1c74683fa628f",
+    "full-bag-failure.png": "58d57b2f512a935b9a0d62c2b9bc8413bf1cc3fef248d9d411f956b895472baf",
+    "full-bag-intro.png": "176c6bfadf53dca83252ef53b4a9450c7014fc0ef9f25b965f58939d7a92c347",
+    "full-bag-result.png": "b232dd84574e1d745dc3c849dbd1475ad41161f7a7318e5ee8b9ace96bf18550",
+    "gift-claimed.png": "9fc9186d3ded68f9d1e71a2eb49027204db208f57c8223eafbb2ac5ab0f7279c",
+    "repeat-conversation.png": "de0edcba989099de6040a40763c4ba794991c49425744971cfdc97ddc9e50e68",
+    "repeat-no-second-gift.png": "1919066067e3bc10d3fd91324953cf0afeaf307313d11180e5f86b47b4795a9d",
+    "space-freed-retry.png": "0acc45f4276eccbb02f160327a7ae48662458414636ed8216c69b429df723851"
+  }
+}

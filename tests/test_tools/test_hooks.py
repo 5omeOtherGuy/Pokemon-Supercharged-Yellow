@@ -50,6 +50,48 @@ def execute(code, extra_sources=()):
 
 
 class CheatHooks(unittest.TestCase):
+    def test_held_consumables_restore_after_trainer_and_wild_battles_only_when_enabled(self):
+        fixture = r'''
+#include "constants/items.h"
+#define B_TRAINERS_KNOCK_OFF_ITEMS 1
+#define B_RESTORE_HELD_BATTLE_ITEMS 9
+#define B_RETURN_STOLEN_NPC_ITEMS 5
+#define GEN_5 5
+#define GEN_9 9
+#define BATTLE_TYPE_TRAINER 1
+#define B_TRAINER_PLAYER 0
+#define PARTY_SIZE 6
+#define POCKET_BERRIES 1
+#define MON_DATA_HELD_ITEM 1
+static u32 gBattleTypeFlags=1;
+static struct Pokemon {enum Item held;} gParties[4][6];
+static struct {struct {enum Item originalItem;u8 stolen;} itemLost[4][6];} battle,*gBattleStruct=&battle;
+static u32 GetMonData(struct Pokemon *p,u32 field){return p->held;}
+static void SetMonData(struct Pokemon *p,u32 field,const enum Item *value){p->held=*value;}
+static u32 GetItemPocket(enum Item id){return id==ITEM_SITRUS_BERRY?POCKET_BERRIES:0;}
+static bool32 ScSuppliesWasHeldConsumed(u32 trainer,u32 slot,enum Item item){return item!=ITEM_NONE;}
+'''
+        cases = r'''
+int main(void){
+ battle.itemLost[0][0].originalItem=ITEM_FOCUS_SASH;battle.itemLost[0][1].originalItem=ITEM_SITRUS_BERRY;
+ TryRestoreHeldItems();assert(!gParties[0][0].held && !gParties[0][1].held);
+ cheats=1;TryRestoreHeldItems();assert(gParties[0][0].held==ITEM_FOCUS_SASH && gParties[0][1].held==ITEM_SITRUS_BERRY);
+ gBattleTypeFlags=0;gParties[0][0].held=gParties[0][1].held=ITEM_NONE;
+ gParties[0][2].held=ITEM_ORAN_BERRY;TryRestoreHeldItems();
+ assert(gParties[0][0].held==ITEM_FOCUS_SASH && gParties[0][1].held==ITEM_SITRUS_BERRY);
+ assert(gParties[0][2].held==ITEM_ORAN_BERRY);
+}
+'''
+        execute(OPTIONS + fixture + body("battle_util.c", "void TryRestoreHeldItems(void)") + cases)
+
+    def test_trainer_avoidance_switch_only_short_circuits_automatic_sight(self):
+        prefix = body("trainer_see.c", "bool8 CheckForTrainersWantingBattle(void)").split("    gNoOfApproachingTrainers = 0;", 1)[0]
+        execute(OPTIONS + "\n#define OBJECT_EVENTS_COUNT 16\n#define OW_FLAG_NO_TRAINER_SEE 0\nstatic bool32 FlagGet(u32 f){return FALSE;}\n" + prefix + r'''
+ return TRUE;
+}
+int main(void){assert(CheckForTrainersWantingBattle());cheats=16;assert(!CheckForTrainersWantingBattle());cheats=0;assert(CheckForTrainersWantingBattle());}
+''')
+
     def test_infinite_owned_items_preserves_keys_and_inventory_validation(self):
         fixture = r'''
 #include "constants/items.h"

@@ -9,6 +9,10 @@
 
 TEST("SC rematches: Vermilion item charges without five badges and saturates")
 {
+    const u16 badgeFlags[] = {FLAG_BADGE01_GET,FLAG_BADGE02_GET,FLAG_BADGE03_GET,FLAG_BADGE04_GET,
+        FLAG_BADGE05_GET,FLAG_BADGE06_GET,FLAG_BADGE07_GET,FLAG_BADGE08_GET};
+    bool32 badges[8];
+    for (u32 i = 0; i < 8; i++) { badges[i] = FlagGet(badgeFlags[i]); FlagClear(badgeFlags[i]); }
     u16 previous = gSaveBlock1Ptr->trainerRematchStepCounter;
     bool32 owned = CheckBagHasItem(ITEM_VS_SEEKER, 1);
     bool32 charging = FlagGet(FLAG_SYS_VS_SEEKER_CHARGING);
@@ -24,6 +28,7 @@ TEST("SC rematches: Vermilion item charges without five badges and saturates")
     gSaveBlock1Ptr->trainerRematchStepCounter = previous;
     if (charging) FlagSet(FLAG_SYS_VS_SEEKER_CHARGING);
     if (!owned) RemoveBagItem(ITEM_VS_SEEKER, 1);
+    for (u32 i = 0; i < 8; i++) if (badges[i]) FlagSet(badgeFlags[i]);
 }
 
 TEST("SC rematches: first route parties resolve full trainer IDs without Hoenn milestones")

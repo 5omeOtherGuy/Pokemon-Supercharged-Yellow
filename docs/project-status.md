@@ -1,6 +1,6 @@
 # Implementation and release evidence
 
-Updated 2026-09-06. **The game is not complete and no Supercharged Yellow release is playable yet.** This file is the current execution record; the earlier design review is historical.
+Updated 2026-09-06. **The game is not complete and no Supercharged Yellow release is ready.** Integrated builds and native mechanics tests are intermediate results. This file is the current execution record; the earlier design review is historical.
 
 ## Authority and scope
 
@@ -20,13 +20,13 @@ Completion includes the Yellow adventure across FRLG Kanto, all agreed systems a
 | Required outcome | Current evidence | Remaining acceptance |
 | --- | --- | --- |
 | Foundation and reproducible build | Selected/imported expansion pin `7644501f3065b38aea2cfc64b5b58ca011bce4f5`; unmodified build/battle/save passed; see ADR-0028 | Complete project build and independent clean reproducibility check |
-| Yellow/Kanto campaign | FRLG campaign imported; Yellow events and collection routes in progress | Play from new game through League; verify anchors, all gates, repeat access and recovery |
-| Battle mechanics, split, Fairy, weather/terrain, Set and speed | Modern engine imported; three upstream Electric Terrain tests passed | Functional and interaction regression tests, UI/AI correctness and measured speed behavior |
-| Levels, traits, training, capabilities and trainer builds | Accepted policies; no project implementation | All reward/outcome paths, ceilings, persistence, services and effect combinations |
-| Supplies, loss economy, scouting and AI information | Legacy AI hidden-stat reads confirmed; new public-observation implementation in progress | Entry/locking/action/outcome tests; authoritative disclosure; hidden-data invariance |
-| Encounters and balance | Campaign and roster curation in progress; no measured balance | Stage-legal accessible teams in both formats, strongest legal builds, poor traits, specialist burden and retesting |
-| Complete collection and required rematches | No implemented acquisition route | All 151 on one save; branches, solo evolutions, missed-encounter recovery and all eight personal gym rewards |
-| Save integrity | Unmodified foundation save/reload passed; custom schema still pending | Party/box/evolution/reload, reward transaction and failure/recovery tests |
+| Yellow/Kanto campaign | Pikachu/Eevee opening, gifts, Jessie/James, mainland gates and collection source implemented; 16 content tests pass | Play from new game through League; verify anchors, all gates, repeat access and recovery |
+| Battle mechanics, split, Fairy, weather/terrain, Set and speed | Modern engine, Set, public damage/status/speed/recovery effects implemented; 102-group worker regression has 92 passes and 10 intentional checks | Broader relevant interactions, complete UI correctness, adjustable battle-speed implementation and measurement |
+| Levels, traits, training, capabilities and trainer builds | Encrypted metadata, whole-victory reward transaction and service model/UI implemented; 6 limit tests pass, including EXP/candy/Day Care/IV floor/NPC ceilings | Faint/revive/loss/source-reward battle integration, ordinary service UI, persistence and preparation-time validation |
+| Supplies, loss economy, scouting and AI information | Canonical NPC briefing, public-observation AI, quota/reservation/consumption source and hooks implemented; diagnostic briefing inspected in mGBA | Complete actual selection/cancellation/outcome journeys, loss economy, populated acceptance, organic briefing and service discovery |
+| Encounters and balance | 151-roster moves/abilities/stat curation source tested; inherited League moveset weaknesses found and refinement underway | Stage-legal accessible teams in both formats, strongest legal builds, poor traits, specialist burden and retesting |
+| Complete collection and required rematches | All-151 source acquisition manifest, solo evolutions, Mew truck, encounter retries and 24 gym rematches implemented | All 151 on one save; branch/recovery traversal, required rematches and all 12 personal rewards |
+| Save integrity | Custom 48-byte record, native encrypted party/box layout and sector integrity pass; actual save selector rejects torn counters and falls back | Ordinary custom-format party/box/evolution/reload, reward transaction and failure/recovery UI tests |
 | Actual gameplay | Unmodified opening, rival victory and save/reload played and independently replayed; no Supercharged campaign validation | Complete organic journey plus clearly labeled diagnostic fixtures and regressions |
 | Human experience | No playtester results | Returning-player difficulty, learning, preparation timing, identity and enjoyment evidence; iterate and retest |
 | Android | Android 11/API30 x86_64 VM boots; RetroArch1.22.2/mGBA core loads, game untested | Record actual Android OS/device or VM and emulator versions; controls/readability/battles/speed/audio/in-game save tests |
@@ -34,6 +34,8 @@ Completion includes the Yellow adventure across FRLG Kanto, all agreed systems a
 
 ## Work in progress
 
-The integration checkout remains on `main`; implementation uses `agent/full-game` in a separate worktree. Native leaf workers implement campaign content, roster curation and fair AI. The real mGBA control harness and its opening/save replay are integrated. Local task allocation and recovery state live in the common Git directory’s `info/agent-tasks.md` and `info/full-game/`; those local records are not release evidence.
+The integration checkout remains on `main`; implementation uses `agent/full-game` in a separate worktree. Current workers refine the League and perform service/ordinary-opening runtime checks while the coordinator integrates progression and regression coverage. Local task allocation and recovery state live in the common Git directory's `info/agent-tasks.md` and `info/full-game/`; those local records are not release evidence.
+
+Focused records: [battle effects](validation/battle-effects.md), [AI](validation/fair-ai.md), [supplies](validation/battle-supplies.md), [boss briefing](validation/boss-briefing.md), [field access](validation/field-access.md), [campaign safety](validation/campaign-safety.md), [emulator harness and foundation opening](validation/emulator-harness.md). A 13-group combined native run passed service transactions, supply classification/restoration, cap and training cases; a subsequent 6-group limits run additionally covered Day Care overflow/fees, Preparation field healing and authored NPC ceilings. These do not establish a complete player journey.
 
 No human playtest, Android game test, simulated balance result or unperformed test is claimed. Evidence will be added with exact source/artifact revisions and commands as each check runs. External validation requirements do not excuse leaving independent implementation unfinished.

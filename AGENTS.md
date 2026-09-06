@@ -7,7 +7,7 @@ These instructions apply throughout this repository. Read any more specific AGEN
 1. Read README.md and docs/adr/README.md.
 2. Read accepted ADRs relevant to the task, and any proposals the task touches. Proposed ADRs are not approved requirements.
 3. Inspect the relevant source, upstream version and working-tree status before making claims or changes.
-4. Establish what is actually implemented. This repository currently contains project governance only; no engine, build command or playable prototype has been verified.
+4. Establish what is actually implemented from source and [project status](docs/project-status.md). The pinned GBA foundation and campaign systems are being integrated; compilation and focused native tests do not establish a finished game.
 
 ## Product intent
 
@@ -17,7 +17,7 @@ The [project charter](docs/adr/0001-project-direction.md) and the accepted recor
 
 Use the [progression ownership map](docs/adr/README.md#progression-ownership) to distinguish badge-wide ceilings, personal training points, Pokémon capabilities and trainer builds. Follow supersession links: ADR-0005 → ADR-0017; ADR-0018 → ADR-0022 → ADR-0023; ADR-0020 → ADR-0021. Historical decisions are not current constraints.
 
-Do not silently adopt assistant suggestions as requirements. ADR-0003 remains a foundation proposal; ADR-0024's passive-disclosure policy was subsequently accepted by the user. The [design review](docs/design-review.md) distinguishes the original audit from later resolutions; its remaining recommendations are not accepted gameplay decisions.
+Do not silently adopt assistant suggestions as requirements. ADR-0028 supersedes ADR-0003's foundation proposal. The owner accepted ADR-0024's passive-disclosure policy and subsequently delegated remaining implementation choices through the full-project mandate. The [design review](docs/design-review.md) distinguishes its original audit from later resolutions; use current ADRs and implementation evidence.
 
 ## Ownership and changes
 
@@ -61,7 +61,7 @@ For major encounters, examine several plausible player teams, including ordinary
 
 - Use relevant existing checks first. Add tests for meaningful mechanics, progression or regression risks; do not add tests that merely repeat the implementation.
 - Documentation-only work needs consistency, status and link checks, not game tests.
-- When engine work begins, document and verify the actual build/test commands before adding them here. Pin the toolchain and upstream revision for reproducibility.
+- Use the verified commands in README.md and the relevant validation record. Pin the toolchain and upstream revision for reproducibility. Check the native runner's executed count; an empty filter may exit successfully.
 - For the split, check damage, categories, UI, AI and affected item/ability/status interactions.
 - For caps, cover every applicable experience/level path and milestone unlock.
 - For speed controls, check battle duration, text readability, animation completion, audio and saved settings. Do not call shortened delays an exact 2×/4× speed without measurement.

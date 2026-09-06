@@ -9,6 +9,7 @@ Read the owning records for complete rules, authority and open questions. This m
 | Area | Current records |
 | --- | --- |
 | Execution boundaries; battle-entry and field rules | [0027](0027-campaign-and-battle-contract.md) |
+| Numerical progression, saves, AI architecture and training services | [0029](0029-progression-and-save-layout.md); [0030](0030-public-observation-ai.md); [0031](0031-training-services-and-individual-traits.md) |
 | Charter; decision workflow | [0001](0001-project-direction.md); [0002](0002-decision-records.md) |
 | Source foundation | [0028](0028-pinned-kanto-foundation.md); historical proposal [0003](0003-source-foundation.md) |
 | Android play target; eligible ROM platforms | [0025](0025-android-emulation-platform.md) |
@@ -70,6 +71,8 @@ Ordinary level EXP, stat-training reward value and stat-training eligibility are
 | [0027](0027-campaign-and-battle-contract.md) | Complete Kanto with explicit battle and field rules | Accepted |
 | [0028](0028-pinned-kanto-foundation.md) | Build on the pinned expansion Kanto port | Accepted |
 | [0029](0029-progression-and-save-layout.md) | Bound permanent development and version its save data | Accepted |
+| [0030](0030-public-observation-ai.md) | Choose actions from a bounded public observation | Accepted |
+| [0031](0031-training-services-and-individual-traits.md) | Make individual development inspectable and serviceable | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 
@@ -105,7 +108,7 @@ Use ISO dates (YYYY-MM-DD). Cite upstream repository paths and exact commits/tag
 
 ## Verification for documentation changes
 
-Check that filenames and IDs agree, IDs are unique, index statuses match records, relative links resolve, and accepted claims have an identified decision authority. Inspect the diff for accidental scope changes. No build or test command exists until the chosen foundation supplies a verified one.
+Check that filenames and IDs agree, IDs are unique, index statuses match records, relative links resolve, and accepted claims have an identified decision authority. Inspect the diff for accidental scope changes. Follow the current build and validation documentation for implementation changes.
 
 ## Review history
 
@@ -126,3 +129,5 @@ The owner authorizes full implementation, autonomous outstanding choices and pub
 ADR-0028 selects the audited expansion Kanto port and supersedes the earlier foundation proposal. Current totals: 23 Accepted and 5 Superseded records. Runtime foundation evidence is separate from game completion.
 
 ADR-0029 selects provisional numerical progression and a versioned save layout. Current totals: 24 Accepted and 5 Superseded; balance and cartridge integration are still pending.
+
+ADRs 0030–0031 select the public-observation AI architecture and individual-development services. Current totals: 26 Accepted and 5 Superseded; implementation and validation states are tracked separately.

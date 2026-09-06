@@ -4,7 +4,7 @@ The campaign trainer controller uses `sc_ai.c` rather than the upstream predicti
 
 ## Information boundary
 
-The adapter may read the AI's own exact active/bench state and its remaining `gBattleHistory->trainerItems` inventory. For the player, it uses public species/form, level, displayed nature, moves, ability, held item, types, status icon, stat stages, visible field effects and the existing 48-pixel HP bar. It estimates ordinary stats using species, level, median IV 16 and zero training, with public nature modifiers. Estimated HP is projected from the visible bar; exact HP within a bar band does not enter evaluation.
+The adapter may read the AI's own exact active/bench state and its remaining `gBattleHistory->trainerItems` inventory. For the player, it uses public species/form, level, displayed nature, moves, ability, held item, types, status icon, stat stages, visible field effects and the existing 48-pixel HP bar. It estimates ordinary stats using species, level, median IV 23 and zero training, with public nature modifiers. Estimated HP is projected from the visible bar; exact HP within a bar band does not enter evaluation.
 
 Player IVs, EVs, training, numeric stats, unsupported injected mint alignment, selected actions, move targets, switches, item choices and future RNG are outside the observation. The adapter never installs estimated Pokémon into authoritative battle or party data. It does not call the upstream damage simulator. It uses the project's public active-effect API and a separate API for the AI's prospective switch-in effects; neither may expose inactive player collections.
 
@@ -44,3 +44,7 @@ The initial test implementation exceeded the runner's private 1,024-byte stack, 
 Host scorer coverage is 100% of 40 executable lines and 82.14% of branch outcomes; ARM adapter line coverage is not measured. The TEST=1 adapter object uses 15,124 bytes of text and 1,620 bytes of static EWRAM. The neutral fixture deliberately fails compilation with `TESTING=0`.
 
 Real capability-provider integration, including inactive-collection invariance and non-neutral effect-driven decisions, must be rerun by the integrating branch. No Android, hardware, whole-campaign or human balance claim follows from these tests.
+
+## Integrated follow-up — 2026-09-06
+
+The real public-effect providers are now linked and tested. The battle-effects worker's final suite at `571a200c` executed 102 groups: 92 ordinary passes and 10 intentional framework/teardown checks, with no unexpected failures or skips. All 11 AI groups passed, including a Brace-driven physical/special choice and invariance to undisclosed supply reservations. The public generic IV prior is now 23, matching ADR-0031's 15–31 creation range; it still reads no player IVs. See [battle-effects validation](battle-effects.md) for exact source dependencies and commands. Full campaign tactics and human balance remain unvalidated.

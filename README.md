@@ -4,7 +4,7 @@ A Kanto ROM-hack project inspired by Pokémon Recharged Yellow: familiar Pokémo
 
 ## Current state
 
-The repository contains governance and design documentation only. No engine has been selected or imported, no game build has been verified, and no playable prototype exists. Recharged Yellow source was reported unavailable in the project brief and is not a dependency.
+The GBA engine, Yellow campaign source and Supercharged systems are being integrated and tested. **The complete game and release are not ready.** See [project status](docs/project-status.md) for implemented features, executed checks and remaining requirements. Recharged Yellow is a design reference, not a source dependency.
 
 ## Design direction
 
@@ -17,7 +17,7 @@ The repository contains governance and design documentation only. No engine has 
 - Substantial singles and doubles content with Set rules; curated cross-generation moves including weather and terrain, forgettable HMs, reusable TMs, justified ability/typing changes, Fairy and the standard modern chart. See the [rules and balance records](docs/adr/README.md#current-decision-map).
 - One initial difficulty, level caps, physical/special split, restrained customisation and adjustable battle speed. See the [project charter](docs/adr/0001-project-direction.md).
 
-Accepted records describe decisions, not implemented or tested features. Specific effects, numerical balance and several product boundaries remain open in the owning records.
+Accepted records describe decisions, not proof of implementation or balance. Later execution ADRs select the foundation, campaign boundaries, progression numbers, AI architecture and services. Numerical tuning remains subject to gameplay and human testing.
 
 ## Working in this repository
 
@@ -25,14 +25,22 @@ Accepted records describe decisions, not implemented or tested features. Specifi
 - [ADR index, reading map and lifecycle](docs/adr/README.md): current policies and preserved history.
 - [ADR template](docs/adr/template.md): starting point for consequential decisions.
 - [Design review](docs/design-review.md): audit of ADRs 0001–0024, fixes, remaining decisions and recommended next work; prepared against the [review brief](docs/design-review-brief.md).
-- [Foundation proposal](docs/adr/0003-source-foundation.md): a source audit, not an accepted engine choice.
+- [Foundation decision](docs/adr/0028-pinned-kanto-foundation.md): pinned source, toolchain and audit evidence.
 
-Documentation is ready for foundation investigation under the platform and content constraints in ADRs 0025–0026. The first playable milestone remains unaccepted. The review separates remaining owner decisions from engineering investigations and balance testing.
+The owner's full-project execution mandate supersedes the review brief's documentation-only scope. Historical proposals and review findings remain preserved; follow their later resolutions.
 
 ## Build and testing
 
-There are no verified game build or test commands. Add reproducible setup instructions after the foundation audit. Documentation checks do not establish playable status.
+The reference Ubuntu toolchain is ARM GCC 13.2.1 20231009, binutils 2.42 and newlib 4.4.0. Install `build-essential`, `binutils-arm-none-eabi`, `gcc-arm-none-eabi`, `libnewlib-arm-none-eabi`, `libpng-dev`, `libelf-dev`, `libmgba-dev`, `git` and `python3`. The imported source is pinned in [UPSTREAM.md](UPSTREAM.md).
+
+```sh
+make -C engine firered -j2
+make -C engine BUILD=firered TESTS='SC *' check -j2
+python3 -m unittest discover -s tests/progression -v
+```
+
+The build produces local `engine/pokefirered.gba`; that inherited filename does not certify a release. Native tests execute real GBA code in mGBA. Check the executed count: the runner can return success for an empty filter. The [validation records](docs/project-status.md) distinguish native, host, diagnostic-fixture and ordinary gameplay evidence. A second clean reproducibility build and complete release validation remain pending.
 
 ## Contributions and distribution
 
-Preserve upstream attribution and evaluate reuse terms before importing code or assets. No project-wide license has been selected. Keep ROM images, saves and credentials out of Git. Patch format, base-ROM checksum and supported release targets remain to be documented when packaging is implemented.
+Preserve upstream attribution and component notices; see [UPSTREAM.md](UPSTREAM.md). No project-wide license has been selected. Keep ROM images, saves and credentials out of Git. No release patch is published yet. Packaging must identify the exact supported base checksum and prove patch application, saves and Android playability before release.

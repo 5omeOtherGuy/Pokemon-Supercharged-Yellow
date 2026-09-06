@@ -6,6 +6,26 @@
 #define SC_STAT_COUNT 6
 #define SC_FOCUS_BALANCED 6
 #define SC_CAPABILITY_COUNT 12
+#define SC_SAVE_VERSION 1
+#define SC_SAVE_MAGIC UINT32_C(0x53435931)
+#define SC_SUPPLY_SLOTS 3
+
+/* Fits entirely within one 116-byte SaveBlock3 sector tail. Its own CRC protects
+ * these bytes because the upstream sector checksum covers only the main data. */
+struct ScTrainerProgress
+{
+    uint32_t magic;
+    uint16_t version;
+    uint16_t size;
+    uint32_t unlockedPassives;
+    uint32_t activePassives;
+    uint32_t practiceExp;
+    uint16_t supplyItems[SC_SUPPLY_SLOTS];
+    uint8_t supplyQuantities[SC_SUPPLY_SLOTS];
+    uint8_t battleSpeed;
+    uint16_t checksum;
+    uint32_t reserved[4];
+};
 
 /* Reuses the six contest-condition bytes without expanding an 80-byte BoxPokemon. */
 struct ScMonProgress
@@ -36,5 +56,8 @@ unsigned ScCapabilityCost(unsigned capability);
 unsigned ScEarnCapability(struct ScMonProgress *mon, unsigned capability);
 unsigned ScAssignCapabilities(struct ScMonProgress *mon, unsigned assignment);
 uint32_t ScTrainingFraction(uint32_t expValue, unsigned recipientLevel);
+void ScInitTrainerProgress(struct ScTrainerProgress *save);
+void ScSealTrainerProgress(struct ScTrainerProgress *save);
+unsigned ScValidateTrainerProgress(const struct ScTrainerProgress *save);
 
 #endif

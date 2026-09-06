@@ -1,4 +1,5 @@
 #include "sc_progression_core.h"
+#include <stddef.h>
 
 static unsigned BadgeStage(unsigned badges)
 {
@@ -140,4 +141,48 @@ uint32_t ScTrainingFraction(uint32_t expValue, unsigned recipientLevel)
     if (expValue / denominator > UINT32_MAX / 256)
         return UINT32_MAX;
     return expValue / denominator * 256 + (expValue % denominator) * 256 / denominator;
+}
+
+static uint16_t TrainerProgressChecksum(const struct ScTrainerProgress *save)
+{
+    const uint8_t *bytes = (const uint8_t *)save;
+    uint16_t crc = 0xffff;
+    unsigned i, bit;
+    for (i = 0; i < sizeof(*save); i++)
+    {
+        if (i == offsetof(struct ScTrainerProgress, checksum)
+            || i == offsetof(struct ScTrainerProgress, checksum) + 1)
+            continue;
+        crc ^= (uint16_t)bytes[i] << 8;
+        for (bit = 0; bit < 8; bit++)
+            crc = (crc & 0x8000) ? (crc << 1) ^ 0x1021 : crc << 1;
+    }
+    return crc;
+}
+
+void ScSealTrainerProgress(struct ScTrainerProgress *save)
+{
+    save->checksum = TrainerProgressChecksum(save);
+}
+
+void ScInitTrainerProgress(struct ScTrainerProgress *save)
+{
+    uint8_t *bytes = (uint8_t *)save;
+    unsigned i;
+    for (i = 0; i < sizeof(*save); i++)
+        bytes[i] = 0;
+    save->magic = SC_SAVE_MAGIC;
+    save->version = SC_SAVE_VERSION;
+    save->size = sizeof(*save);
+    save->unlockedPassives = 3;
+    save->battleSpeed = 1;
+    ScSealTrainerProgress(save);
+}
+
+unsigned ScValidateTrainerProgress(const struct ScTrainerProgress *save)
+{
+    return save->magic == SC_SAVE_MAGIC
+        && save->version == SC_SAVE_VERSION
+        && save->size == sizeof(*save)
+        && save->checksum == TrainerProgressChecksum(save);
 }

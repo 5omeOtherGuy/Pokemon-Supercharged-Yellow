@@ -6,6 +6,8 @@ A Kanto ROM-hack project inspired by Pokémon Recharged Yellow: familiar Pokémo
 
 The GBA engine, Yellow campaign source and Supercharged systems are being integrated and tested. **The complete game and release are not ready.** See [project status](docs/project-status.md) for implemented features, executed checks and remaining requirements. Recharged Yellow is a design reference, not a source dependency.
 
+The current delivery target is an **owner playtest build with PC cheat tools**, under the owner's coding-first direction. See [player instructions](docs/player-playtest.md), [PC shortcuts](docs/testing-cheats.md) and [validation](docs/validation/owner-playtest.md). Agent-controlled campaign walkthroughs are paused; coding, automated tests and bounded battle simulations support the owner's playtesting.
+
 ## Design direction
 
 - Android emulator play is required; GBA and NDS foundations are eligible, and original-console hardware support is not required. See [platform requirements](docs/adr/0025-android-emulation-platform.md).
@@ -35,9 +37,19 @@ The reference Ubuntu toolchain is ARM GCC 13.2.1 20231009, binutils 2.42 and new
 
 ```sh
 make -C engine firered -j2
-make -C engine BUILD=firered TESTS='SC *' check -j2
+bash tests/effects/run_native.sh
+bash tests/test_tools/run_native.sh
+bash tests/simulation/run_native.sh
 python3 -m unittest discover -s tests/progression -v
 ```
+
+To build and package the private owner version with a second clean-source reproducibility check:
+
+```sh
+python3 tools/build_playtest.py --repro-check
+```
+
+It outputs a local `.gba`, ZIP, guides and manifest in ignored `dist/owner-playtest/`. The explicit `SC_TEST_TOOLS=1` build uses separate output/object paths; ordinary builds default to zero. Do not publish the local ROM or ZIP. A public release patch remains separate work.
 
 The build produces local `engine/pokefirered.gba`; that inherited filename does not certify a release. Native tests execute real GBA code in mGBA. Check the executed count: the runner can return success for an empty filter. The [validation records](docs/project-status.md) distinguish native, host, diagnostic-fixture and ordinary gameplay evidence. A second clean reproducibility build and complete release validation remain pending.
 

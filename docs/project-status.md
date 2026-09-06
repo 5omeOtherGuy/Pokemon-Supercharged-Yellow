@@ -8,6 +8,8 @@ The owner’s 2026-09-06 mandate authorizes full implementation, autonomous outs
 
 Completion includes the Yellow adventure across FRLG Kanto, all agreed systems and progression, the League, progression-appropriate gym rematches, repeat access to individual rewards, all 151 obtainable on one save without trading, and Mew under the truck. Kanto post-League collection/rematches are in scope; Sevii is not. A prototype, simulator or successful compilation is an intermediate result.
 
+The owner's later 2026-09-06 instruction changes the immediate priority: finish coding as far as practical, use automated battle simulations instead of agent-controlled playthroughs, and provide a playable PC-cheat build for their testing. [ADR-0036](adr/0036-owner-playtest-tools-and-automated-validation.md) records this test-build exception. Full human/campaign acceptance remains open but does not block handing the owner a clearly identified test build.
+
 ## Verified starting point
 
 - Inspected and fetched repository: `b0022d34030efda2d79e581b16d860ca932b0277`, clean `main` matching `origin/main`.
@@ -34,11 +36,11 @@ Completion includes the Yellow adventure across FRLG Kanto, all agreed systems a
 
 ## Work in progress
 
-The integration checkout remains on `main`; implementation uses `agent/full-game` in a separate worktree. Current workers continue the ordinary journey toward Brock, exercise actual Kanto Vs. Seeker fixtures, and refine the Yellow title presentation. The coordinator integrates evidence, fixes and remaining player experience work. Local task allocation and recovery state live in the common Git directory's `info/agent-tasks.md` and `info/full-game/`; those local records are not release evidence.
+The integration checkout remains on `main`; implementation uses `agent/full-game` in a separate worktree. Agent-controlled gameplay has stopped, with prior saves/evidence preserved. The PC editor, shortcuts and bounded simulations are implemented; the coordinator is integrating native regressions and preparing the local owner build. See [owner validation](validation/owner-playtest.md) for current results and [player instructions](player-playtest.md) for using it. Local task allocation and recovery state remain in the common Git directory's `info/agent-tasks.md` and `info/full-game/`.
 
 Focused records: [battle effects](validation/battle-effects.md), [AI](validation/fair-ai.md), [supplies](validation/battle-supplies.md), [boss briefing](validation/boss-briefing.md), [field access](validation/field-access.md), [campaign safety](validation/campaign-safety.md), [emulator harness and foundation opening](validation/emulator-harness.md), [Yellow opening](validation/yellow-opening.md), [Center services](validation/center-services.md), [battle pacing](validation/battle-pace.md), [boss teams](balance/campaign-bosses.md), [League](balance/champion-finale.md), [economy](balance/campaign-economy.md), [economy runtime](validation/campaign-economy.md), [ordinary trainers](balance/ordinary-trainers.md), [Kanto rematches](validation/kanto-rematches.md), [Android runtime](validation/android-runtime.md). A 13-group combined native run passed service transactions, supply classification/restoration, cap and training cases; a subsequent 6-group limits run additionally covered Day Care overflow/fees, Preparation field healing and authored NPC ceilings. These do not establish a complete player journey.
 
-No human playtest, completed Android acceptance, simulated balance result or unperformed test is claimed. Evidence will be added with exact source/artifact revisions and commands as each check runs. External validation requirements do not excuse leaving independent implementation unfinished.
+No human playtest, completed Android acceptance, full-battle win-rate study or unperformed test is claimed. Evidence will be added with exact source/artifact revisions and commands as each check runs. External validation requirements do not excuse leaving independent implementation unfinished.
 
 ## Latest integration checks
 

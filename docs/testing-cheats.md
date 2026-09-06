@@ -2,7 +2,7 @@
 
 These shortcuts are for the owner's coding-first test build (ADR-0036). They intentionally bypass campaign restrictions. They do not establish a completed playthrough or balanced game.
 
-Build with `make -C engine BUILD=firered SC_TEST_TOOLS=1 -j2`. The coordinator's build configuration produces `engine/pokefirered-playtest.gba` and isolates its object files from the ordinary build. `SC_TEST_TOOLS` defaults to zero. The inherited Hoenn developer menus remain disabled.
+Build with `make -C engine BUILD=firered SC_TEST_TOOLS=1 -j2`. The build configuration produces `engine/pokefirered-playtest.gba` and isolates its object files from the ordinary build. `SC_TEST_TOOLS` defaults to zero. The inherited Hoenn developer menus remain disabled.
 
 ## Open and operate
 
@@ -44,12 +44,12 @@ All switches start OFF. Their bits occupy `ScTrainerProgress.reserved[0]`; no sa
 | Free player battle supplies | Waive the player's trainer-battle selection/quota restrictions. NPC supply limits remain. |
 | Avoid trainer sight | Suppress automatic sight-triggered battles; direct interaction remains available. |
 
-The coordinating change owns the gameplay hook implementation. The switch query API is `ScDebugOptionEnabled(enum ScDebugOption)`; this module provides persisted guarded state and its menu.
+The integrated gameplay hooks implement these behaviors. The query API is `ScDebugOptionEnabled(u32 option)` with IDs from `enum ScDebugOption`.
 
 ## Validation
 
 The portable request-bounds test was first compiled without its implementation and failed for that missing implementation. It passes after implementation. It exercises valid endpoints, invalid adjacent values, stat/move index overflow, unknown fields and number-picker clamping using the cartridge's shared validator.
 
-`python3 -m unittest discover -s tests/cheats -v` executes that host test. The native tests in `engine/test/sc_cheats/editor.c` exercise actual encrypted Pokémon writes, all-nature metadata preservation, invalid/battle-context rejection, atomic full-storage refusal, complete 151-species placement, level/species recalculation, PP rejection, and CRC-protected switches. They compile in both feature configurations; the coordinator owns execution in the integrated mGBA runner. Use `SC_TEST_TOOLS=1 SC_TEST_CAMPAIGN=1 TESTS='SC cheats:*'` for the enabled cases and the ordinary configuration for the disabled-build case. Always check the executed count.
+`python3 -m unittest discover -s tests/cheats -v` executes that host test. The native tests in `engine/test/sc_cheats/editor.c` exercise actual encrypted Pokémon writes, all-nature metadata preservation, invalid/battle-context rejection, atomic full-storage refusal, complete 151-species placement, level/species recalculation, PP rejection, and CRC-protected switches. They compile in both feature configurations and have executed in the integrated mGBA runner. Use `SC_TEST_TOOLS=1 SC_TEST_CAMPAIGN=1 TESTS='SC cheats:*'` for the enabled cases and the ordinary configuration for the disabled-build case. Always check the executed count.
 
-ARM object compilation passed for the model, PC screen, PC menu and native tests with the feature both enabled and disabled. Full linking and native execution are integration checks. No agent-controlled campaign playthrough or manual UI acceptance is claimed for these tools; the owner handles gameplay acceptance.
+ARM object compilation passed for the model, PC screen, PC menu and native tests with the feature both enabled and disabled. The six editor groups passed in the actual native runner. `bash tests/test_tools/run_native.sh` combines them with dispatcher, full Potion-turn and Rare Candy/inventory checks: ten groups with tools enabled, and three with tools disabled. The wrapper requires those exact counts. See [owner validation](validation/owner-playtest.md) for final results. No agent-controlled campaign playthrough or manual UI acceptance is claimed for these tools; the owner handles gameplay acceptance.

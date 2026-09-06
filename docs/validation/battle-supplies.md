@@ -35,6 +35,15 @@ consumption from Knock Off/theft.
 
 ## Integration contract
 
+The coding-first owner-build audit found that the required
+`HandleAction_UseItem` commit call below was still absent. Source `188afee7`
+connects it before friendship/effect dispatch. Two real native dispatcher
+regressions first failed and then passed: a prepared Potion spends exactly one
+unit, while a target that is already at full HP cancels without spending stock
+or quota. A full simulated Potion turn also passes after `0094dc74` makes the
+native recorded-player adapter reserve rather than pre-debit campaign items.
+Earlier adapter/core tests alone did not establish this gameplay connection.
+
 All callers include `sc_supplies.h`. Root and the effects worker own these hooks:
 
 | Caller | Required operation |

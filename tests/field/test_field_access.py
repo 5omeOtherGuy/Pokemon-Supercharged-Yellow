@@ -136,7 +136,8 @@ MENU_FIXTURE = r'''
 #define MON_DATA_HELD_ITEM 20
 #define SE_SELECT 1
 #define SELECTWINDOW_ACTIONS 0
-struct {u8 actions[8],numActions,scFieldPage,windowId[3];} internal,*sPartyMenuInternal=&internal;
+#define SC_TRAINING_ACTION 243
+struct {u8 actions[8],numActions,scFieldPage,windowId[3];void (*exitCallback)(void);} internal,*sPartyMenuInternal=&internal;
 struct {u8 slotId;} gPartyMenu;
 struct {int data[16];void (*func)(u8);} gTasks[1];
 void AppendToList(u8 *items,u8 *count,u8 action){assert(*count<8);items[(*count)++]=action;}
@@ -147,6 +148,8 @@ void PlaySE(u32 sound){}
 void PartyMenuRemoveWindow(u8 *window){}
 void DisplaySelectionWindow(u32 type){assert(internal.numActions<=7);}
 void Task_HandleSelectionMenuInput(u8 task){}
+void CB2_ShowScFieldTraining(void){}
+void Task_ClosePartyMenu(u8 task){}
 '''
 MENU_CASES = r'''
 int main(void){
@@ -154,12 +157,13 @@ int main(void){
     gParties[0][0]=(struct Pokemon){{SPECIES_MEW,0},(1u<<FIELD_MOVE_DIG)|(1u<<FIELD_MOVE_TELEPORT)|(1u<<FIELD_MOVE_SOFT_BOILED)|(1u<<FIELD_MOVE_SWEET_SCENT)};
     gParties[0][1]=(struct Pokemon){{SPECIES_PIDGEY,0},0};
     SetPartyMonFieldSelectionActions(gParties[0],0);
-    assert(internal.numActions==5&&internal.actions[1]==SC_FIELD_ACTION_OPEN);
+    assert(internal.numActions==6&&internal.actions[1]==SC_TRAINING_ACTION&&internal.actions[2]==SC_FIELD_ACTION_OPEN);
     assert(ScHandleFieldMenuAction(0,SC_FIELD_ACTION_OPEN));assert(internal.numActions==7);
     assert(internal.actions[5]==SC_FIELD_ACTION_NEXT&&internal.actions[6]==SC_FIELD_ACTION_BACK);
     assert(ScHandleFieldMenuAction(0,SC_FIELD_ACTION_NEXT));assert(internal.numActions==6);
     assert(ScHandleFieldMenuAction(0,SC_FIELD_ACTION_NEXT));assert(internal.numActions==7);
-    assert(ScHandleFieldMenuAction(0,SC_FIELD_ACTION_BACK));assert(internal.numActions==5&&internal.actions[4]==MENU_CANCEL1);
+    assert(ScHandleFieldMenuAction(0,SC_FIELD_ACTION_BACK));assert(internal.numActions==6&&internal.actions[5]==MENU_CANCEL1);
+    assert(ScHandleFieldMenuAction(0,SC_TRAINING_ACTION));assert(internal.exitCallback==CB2_ShowScFieldTraining);
     assert(!ScHandleFieldMenuAction(0,MENU_SUMMARY));
     return 0;
 }

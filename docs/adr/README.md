@@ -14,6 +14,7 @@ Read the owning records for complete rules, authority and open questions. This m
 | Source foundation | [0028](0028-pinned-kanto-foundation.md); historical proposal [0003](0003-source-foundation.md) |
 | Preparation economy, equipment and ordinary rematches | [0034](0034-preparation-economy-and-equipment-access.md); [0035](0035-mainland-vs-seeker-training.md) |
 | Battle pacing | [0032](0032-battle-pacing-presets.md) |
+| Owner test build, PC shortcuts and coding-first validation | [0036](0036-owner-playtest-tools-and-automated-validation.md) |
 | Android play target; eligible ROM platforms | [0025](0025-android-emulation-platform.md) |
 | Yellow/Kanto content baseline; starter; current expansion scope | [0026](0026-yellow-kanto-content-baseline.md) |
 | Main-campaign roster; complete solo collection/no trading; team continuity and boss mastery | [0004](0004-original-151-roster.md); [0017](0017-trusted-core-and-boss-mastery.md) |
@@ -79,6 +80,7 @@ Ordinary level EXP, stat-training reward value and stat-training eligibility are
 | [0033](0033-story-challenge-stage-gates.md) | Align story challenges with badge-stage preparation | Accepted |
 | [0034](0034-preparation-economy-and-equipment-access.md) | Keep preparation supplies replaceable and equipment staged | Accepted |
 | [0035](0035-mainland-vs-seeker-training.md) | Use fixed mainland rematches for repeatable training | Accepted |
+| [0036](0036-owner-playtest-tools-and-automated-validation.md) | Deliver an owner playtest build with PC shortcuts | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 
@@ -143,3 +145,5 @@ ADRs 0032–0033 select named battle-pacing presets and explicit story-challenge
 ADR-0034 selects repeatable preparation access and staged equipment. Current totals: 29 Accepted and 5 Superseded; economic runtime and human preparation evidence remain pending.
 
 ADR-0035 selects fixed mainland Vs. Seeker rematches and deterministic readiness. Current totals:30 Accepted and5 Superseded. Six economy runtime fixtures now pass; complete preparation and rematch gameplay validation remain unfinished.
+
+ADR-0036 records the owner's coding-first PC-tool build and automated validation priority. Current totals: 31 Accepted and 5 Superseded. This test-build handoff does not establish final campaign or human acceptance.

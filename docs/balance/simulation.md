@@ -68,8 +68,10 @@ The corrected tests retain this finding, exercising a two-turn Mankey line
 and Nidoran's multi-hit chip rather than modifying stats to force a knockout.
 The root's initial log is `build/sc-simulation-native.log`.
 
-Final native rerun status is pending integration; no seven-pass claim is made
-until its count is checked.
+The corrected integrated rerun at source `f5c94ce0`
+passes all **7 groups / 9 parameter cases**, with no failed or skipped groups.
+Its log is `build/sc-simulation-refined-native.log`. No production battle stats
+were changed to satisfy these checks.
 
 ## Availability and remaining work
 

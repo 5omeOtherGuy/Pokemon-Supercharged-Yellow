@@ -135,7 +135,10 @@ Final validation at the code handoff through 54525d81:
 - All 11 SC AI native groups pass, including public effect sensitivity, exact-stat
   and HP-band invariance, pending commands/targets/RNG, and hidden reservations.
 - The portable AI host suite, two boundary source checks and three available
-  supply host suites pass. The additional authored-bag native audit passes.
+  supply host suites pass. The additional bag audit passed against the native
+  runner's sparse fixture trainer table; that result did not validate authored
+  campaign bags. Actual campaign-data validation requires `SC_TEST_CAMPAIGN=1`
+  and nonempty-bag assertions (see the Kanto rematch validation record).
 - Native source build uses ARM GCC 13.2.1 and the imported mGBA test runner.
   No Android or human-play evidence was gathered by this task.
 

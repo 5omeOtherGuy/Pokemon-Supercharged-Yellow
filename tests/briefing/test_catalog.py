@@ -15,7 +15,7 @@ class CatalogTests(unittest.TestCase):
             (temporary / "global.h").write_text('''
 #include <stdint.h>
 typedef uint8_t u8; typedef uint16_t u16; typedef uint32_t u32;
-#define _(x) ((const u8 *)(x))
+#define COMPOUND_STRING(x) ((const u8 *)(x))
 #define ARRAY_COUNT(x) (sizeof(x)/sizeof((x)[0]))
 #define TRUE 1
 #define FALSE 0

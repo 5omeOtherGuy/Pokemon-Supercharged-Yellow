@@ -5,30 +5,30 @@
 
 const struct ScPassiveInfo gScCapabilityInfo[12] =
 {
-    {_("Brace"), _("Incoming physical move damage\nis 95% of normal."), 1},
-    {_("Flow"), _("Incoming special move damage\nis 95% of normal."), 1},
-    {_("Quick Start"), _("Speed is 110% on the first\nturn after entering battle.\nTriggers again after switching\nout and returning."), 2},
-    {_("Staying Power"), _("Incoming physical and special\nmove damage is 92% while your\nown HP bar is at least half."), 2},
-    {_("Poise"), _("Physical and special move\ndamage dealt is 108% while\nyou have a nonvolatile status:\npoison, burn, sleep, etc."), 1},
-    {_("Focus"), _("Special move damage dealt is\n112%. Physical move damage\ndealt is reduced to 90%."), 3},
-    {_("Pressure"), _("Physical move damage dealt is\n112%. Special move damage\ndealt is reduced to 90%."), 3},
-    {_("Last Stand"), _("Physical and special move\ndamage dealt is 110% while\nyour own HP bar is half\nor lower."), 2},
-    {_("Clear Head"), _("Prevents freezing.\nDoes not prevent other status\nconditions."), 1},
-    {_("Recovery"), _("At each turn's end, restores\n1/32 of your maximum HP."), 2},
-    {_("Equilibrium"), _("Incoming physical and special\nmove damage is 92%. Your own\nphysical and special move\ndamage dealt is 96%."), 3},
-    {_("Momentum"), _("Physical and special move\ndamage dealt is 106%.\nSpeed is 104%."), 2},
+    {COMPOUND_STRING("Brace"), COMPOUND_STRING("Incoming physical move damage\nis 95% of normal."), 1},
+    {COMPOUND_STRING("Flow"), COMPOUND_STRING("Incoming special move damage\nis 95% of normal."), 1},
+    {COMPOUND_STRING("Quick Start"), COMPOUND_STRING("Speed is 110% on the first\nturn after entering battle.\nTriggers again after switching\nout and returning."), 2},
+    {COMPOUND_STRING("Staying Power"), COMPOUND_STRING("Incoming physical and special\nmove damage is 92% while your\nown HP bar is at least half."), 2},
+    {COMPOUND_STRING("Poise"), COMPOUND_STRING("Physical and special move\ndamage dealt is 108% while\nyou have a nonvolatile status:\npoison, burn, sleep, etc."), 1},
+    {COMPOUND_STRING("Focus"), COMPOUND_STRING("Special move damage dealt is\n112%. Physical move damage\ndealt is reduced to 90%."), 3},
+    {COMPOUND_STRING("Pressure"), COMPOUND_STRING("Physical move damage dealt is\n112%. Special move damage\ndealt is reduced to 90%."), 3},
+    {COMPOUND_STRING("Last Stand"), COMPOUND_STRING("Physical and special move\ndamage dealt is 110% while\nyour own HP bar is half\nor lower."), 2},
+    {COMPOUND_STRING("Clear Head"), COMPOUND_STRING("Prevents freezing.\nDoes not prevent other status\nconditions."), 1},
+    {COMPOUND_STRING("Recovery"), COMPOUND_STRING("At each turn's end, restores\n1/32 of your maximum HP."), 2},
+    {COMPOUND_STRING("Equilibrium"), COMPOUND_STRING("Incoming physical and special\nmove damage is 92%. Your own\nphysical and special move\ndamage dealt is 96%."), 3},
+    {COMPOUND_STRING("Momentum"), COMPOUND_STRING("Physical and special move\ndamage dealt is 106%.\nSpeed is 104%."), 2},
 };
 
 const struct ScPassiveInfo gScTrainerPassiveInfo[8] =
 {
-    {_("Study"), _("Ordinary battle experience\ngained is 120% of normal.\nDoes not raise the level cap."), 2},
-    {_("Formation"), _("Your team's incoming physical\nmove damage is 97% of normal."), 2},
-    {_("Composure"), _("Your team's incoming special\nmove damage is 97% of normal."), 2},
-    {_("Tempo"), _("Your team's Speed is 104%\nof normal."), 3},
-    {_("Offense"), _("Your team's physical and\nspecial move damage dealt\nis 104% of normal."), 3},
-    {_("Preparation"), _("HP restored by your team's\nbag healing items is 110%\nof normal."), 2},
-    {_("Field Study"), _("Eligible battle training\ngains are 110% of normal.\nSurvival, victory and training\nceilings still apply."), 2},
-    {_("Recovery Coach"), _("At each turn's end, your\nactive team members recover\n1/64 of their maximum HP."), 3},
+    {COMPOUND_STRING("Study"), COMPOUND_STRING("Ordinary battle experience\ngained is 120% of normal.\nDoes not raise the level cap."), 2},
+    {COMPOUND_STRING("Formation"), COMPOUND_STRING("Your team's incoming physical\nmove damage is 97% of normal."), 2},
+    {COMPOUND_STRING("Composure"), COMPOUND_STRING("Your team's incoming special\nmove damage is 97% of normal."), 2},
+    {COMPOUND_STRING("Tempo"), COMPOUND_STRING("Your team's Speed is 104%\nof normal."), 3},
+    {COMPOUND_STRING("Offense"), COMPOUND_STRING("Your team's physical and\nspecial move damage dealt\nis 104% of normal."), 3},
+    {COMPOUND_STRING("Preparation"), COMPOUND_STRING("HP restored by your team's\nbag healing items is 110%\nof normal."), 2},
+    {COMPOUND_STRING("Field Study"), COMPOUND_STRING("Eligible battle training\ngains are 110% of normal.\nSurvival, victory and training\nceilings still apply."), 2},
+    {COMPOUND_STRING("Recovery Coach"), COMPOUND_STRING("At each turn's end, your\nactive team members recover\n1/64 of their maximum HP."), 3},
 };
 
 static const u16 sGymIds[] =

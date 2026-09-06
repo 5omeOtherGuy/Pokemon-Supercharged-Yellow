@@ -1,0 +1,14 @@
+run 2100 0
+run 12 8
+run 300 0
+screenshot build/emulator/opening/continue-menu.png
+run 12 1
+run 600 0
+screenshot build/emulator/opening/continue-loaded.png
+run 12 8
+run 120 0
+screenshot build/emulator/opening/continue-startmenu.png
+run 12 1
+run 300 0
+screenshot build/emulator/opening/continue-party.png
+quit

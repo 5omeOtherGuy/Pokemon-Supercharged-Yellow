@@ -42,7 +42,7 @@ quit
 | `reset` | Release buttons and reset the emulator; reset the harness frame count and clear its video buffer. Preserve normal cartridge save data. Advance frames before capturing a new image. |
 | `quit` | Close the emulator and its save file, acknowledge completion, then exit. EOF also closes normally. |
 
-Numeric operands accept decimal or C-style hexadecimal (a leading `0` means octal). Button masks are combined with bitwise OR: A=1, B=2, Select=4, Start=8, Right=16, Left=32, Up=64, Down=128, R=256, L=512. A tap generally needs a pressed frame followed by released frames; dialogs may ignore a button until their animation finishes. Screenshots are evidence of actual rendered frames, not assertions that a requested interaction succeeded.
+Numeric operands accept decimal or C-style hexadecimal (a leading `0` means octal). Button masks are combined with bitwise OR: A=1, B=2, Select=4, Start=8, Right=16, Left=32, Up=64, Down=128, R=256, L=512. Use a short hold followed by released frames for a tap; the organic walkthrough used 12 pressed frames once brief one-frame presses proved easy to miss during dialog transitions. Dialogs may ignore a button until their animation finishes. Screenshots are evidence of actual rendered frames, not assertions that a requested interaction succeeded.
 
 Errors return `{"ok":false,"error":"..."}` and leave the process available. Unknown commands, excess operands, out-of-range numbers and overlong lines are rejected. Memory reads should target known source symbols or hardware registers; arbitrary MMIO reads may have hardware semantics and are not proof of gameplay. Match symbol addresses to the exact ROM build.
 
@@ -67,7 +67,23 @@ Desktop libmgba validation is not Android/RetroArch validation, an audio-quality
 
 GCC strict compilation and all three integration tests passed against the locally built foundation ROM (SHA-256 `ae61d62c3387de2c4e7fc5e4df174372e6f2da7b72f7e1bcb072820dd937a821`). The tests replay 780 frames, covering a visible Game Freak splash rather than the earlier black transition. GCC coverage reported 92.74% of the driver's 124 executable lines. This covers the driver, not mGBA or the game's mechanics. The desktop package was `libmgba-dev` version `0.10.2+dfsg-1.1build3`.
 
-Visual inspection confirmed the Game Freak splash, animated Gengar/Nidorino intro, FireRed title screen, New Game menu and opening control tutorial. This unmodified foundation ROM still identifies itself as FireRed; these observations do not establish the requested Yellow adaptations. Successful gameplay save/reload is a separate check.
+Visual inspection confirmed the Game Freak splash, animated Gengar/Nidorino intro, FireRed title screen, New Game menu and opening control tutorial. This unmodified foundation ROM still identifies itself as FireRed; these observations do not establish the requested Yellow adaptations. The organic opening walkthrough then completed character creation (Aa; rival GREEN), left the house, triggered Oak at the northern exit, entered the lab, chose Squirtle, and won the first rival battle against Bulbasaur using Tackle. Squirtle advanced to level 6 and the game awarded ₽80. The postbattle script returned to the lab and healed Squirtle. This is a representative foundation check, not a Yellow-content or campaign-completion claim.
+
+The normal Save menu and overwrite confirmation were used. At frame 52872 the inspected screenshot explicitly read “Aa saved the game.” After another 180 frames the driver quit normally. A fresh process showed Continue for Aa, 0:11 and zero badges, restored the lab position, and showed level-6 Squirtle at 22/22 HP. The 131072-byte save SHA-256 was `dfedf264b855040ccecb014d14224a30a11fc64d165ddca51152965390563866` before restart, after Continue and after the second graceful close. No save injection or memory writes were used. The resume session conservatively reports `existing-save-unverified`; the retained first-session trace supplies its organic provenance.
+
+An earlier operator attempt quit while “SAVING” was still visible, 361 frames after confirmation. Its restart reported an erased save. That disposable run is not evidence of a game save defect or successful persistence. The later fresh run waited for explicit completion and passed. Treat the game's completion message as the gate, not a fixed assumed delay.
+
+The durable [opening trace](../../tests/emulator/foundation-opening.commands) records ordinary button inputs through the completed battle and save; the [Continue trace](../../tests/emulator/foundation-continue.commands) resumes that save and opens the party menu. They are specific to the exact foundation ROM above, and will need revalidation as content changes. Screenshots are checkpoints for inspection, not automatic assertions. Start with an absent `build/emulator/opening.sav` and an empty `build/emulator/opening/` directory:
+
+```bash
+mkdir -p build/emulator/opening
+build/emulator/headless "$EMULATOR_TEST_ROM" build/emulator/opening.sav \
+  < tests/emulator/foundation-opening.commands > build/emulator/opening.jsonl
+build/emulator/headless "$EMULATOR_TEST_ROM" build/emulator/opening.sav \
+  < tests/emulator/foundation-continue.commands > build/emulator/continue.jsonl
+```
+
+Inspect every JSON response for errors, then the `final-save480.png`, `continue-menu.png`, `continue-loaded.png` and `continue-party.png` images in `build/emulator/opening/`. An independent fresh replay passed with 450 successful opening responses and 15 successful Continue responses; the save-complete screen and restored party were visually inspected again. The opening trace ends after 53052 emulated frames; the Continue trace ends after 3468 frames. Independent new-game saves were not byte-identical; the unchanged save hash above establishes persistence across that same save’s reload, not cross-run full-save determinism. Raw traces, screenshots and both successful/early-shutdown disposable saves were retained locally during the audit under ignored `build/emulator/`; no ROM, image or save is included in the source commits.
 
 Coverage can be reproduced with `EMULATOR_TEST_CFLAGS='--coverage -O0'` on the test command, then `gcov -o build/emulator tools/emulator/headless.c`. Move the generated `.gcov` reports into ignored `build/emulator/` afterward.
 

@@ -2,6 +2,7 @@
 #include "global.h"
 #include "sc_ai.h"
 #include "sc_battle.h"
+#include "sc_progression.h"
 #include "fake_rtc.h"
 #include "gpu_regs.h"
 #include "load_save.h"
@@ -359,6 +360,7 @@ top:
         // Always reset opt-ins, including failure, skip, timeout and crash recovery.
         ScAiEnableForTests(FALSE);
         ScEffectsEnableForTests(FALSE);
+        ScProgressionEnableForTests(FALSE);
         ScEndDelayedDamage();
 
         gTestRunnerState.state = STATE_NEXT_TEST;

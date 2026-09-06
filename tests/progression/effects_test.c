@@ -1,5 +1,6 @@
 #include <assert.h>
 #include "sc_effects.h"
+#include "constants/pokemon.h"
 #include "constants/battle.h"
 
 #define CAP(id) (1u << (id))

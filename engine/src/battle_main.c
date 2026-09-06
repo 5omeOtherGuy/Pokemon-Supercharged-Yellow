@@ -4,6 +4,7 @@
 #include "battle_ai_main.h"
 #include "sc_ai.h"
 #include "sc_battle.h"
+#include "sc_progression.h"
 #include "battle_ai_record.h"
 #include "battle_arena.h"
 #include "battle_controllers.h"
@@ -2739,6 +2740,7 @@ void BeginBattleIntroDummy(void)
 void BeginBattleIntro(void)
 {
     BattleStartClearSetData();
+    ScProgressionBeginBattle();
     gBattleCommunication[1] = 0;
     gBattleStruct->eventState.battleIntro = 0;
     gBattleMainFunc = DoBattleIntro;
@@ -3564,6 +3566,8 @@ static void TryDoEventsBeforeFirstTurn(void)
         SetAiLogicDataForTurn(gAiLogicData); // get assumed abilities, hold effects, etc of all battlers
         gBattleMainFunc = HandleTurnActionSelectionState;
         ResetSentPokesToOpponentValue();
+        for (u32 battler = 0; battler < gBattlersCount; battler++)
+            ScProgressionEnterField(battler);
 
         for (i = 0; i < BATTLE_COMMUNICATION_ENTRIES_COUNT; i++)
             gBattleCommunication[i] = 0;
@@ -5302,6 +5306,7 @@ static void HandleEndTurn_FinishBattle(void)
 
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
+        ScProgressionFinishBattle(gBattleOutcome);
         TryRestoreHeldItems();
 
         for (u32 i = 0; i < PARTY_SIZE; i++)

@@ -4,6 +4,11 @@
 #include "sc_effects.h"
 
 void ScGetPublicSwitchInEffects(u32 battler, u32 partyIndex, struct ScPublicEffects *out);
+bool32 ScEffectsEnabled(void);
+#if TESTING
+void ScEffectsEnableForTests(bool32 enabled);
+#endif
+
 void ScGetPublicBattlerEffects(u32 battler, struct ScPublicEffects *out);
 void ScGetPublicSwitchInEffects(u32 battler, u32 partyIndex, struct ScPublicEffects *out);
 

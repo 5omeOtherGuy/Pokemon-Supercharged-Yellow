@@ -1,4 +1,7 @@
 #include "global.h"
+#if SC_TEST_TOOLS
+#include "sc_debug.h"
+#endif
 #include "battle_setup.h"
 #include "event_data.h"
 #include "event_object_movement.h"
@@ -442,6 +445,10 @@ bool8 CheckForTrainersWantingBattle(void)
     if (FlagGet(OW_FLAG_NO_TRAINER_SEE))
         return FALSE;
 
+#if SC_TEST_TOOLS
+    if (ScDebugOptionEnabled(SC_DEBUG_AVOID_TRAINERS))
+        return FALSE;
+#endif
     gNoOfApproachingTrainers = 0;
     gApproachingTrainerId = 0;
 

@@ -1,4 +1,7 @@
 #include "global.h"
+#if SC_TEST_TOOLS
+#include "sc_debug.h"
+#endif
 #include "item.h"
 #include "berry.h"
 #include "pokeball.h"
@@ -414,6 +417,12 @@ bool32 RemoveBagItem(enum Item itemId, u16 count)
     if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_STORING_ITEMS_IN_PYRAMID_BAG) == TRUE)
         return RemovePyramidBagItem(itemId, count);
 
+#if SC_TEST_TOOLS
+    // Preserve ordinary owned items, but still consume quest deliveries/keys.
+    // Explicit tossing uses RemoveBagItemFromSlot and remains available.
+    if (ScDebugOptionEnabled(SC_DEBUG_INFINITE_ITEMS) && !GetItemImportance(itemId))
+        return CountTotalItemQuantityInBag(itemId) >= count;
+#endif
     return BagPocket_RemoveItem(&gBagPockets[GetItemPocket(itemId)], itemId, count);
 }
 

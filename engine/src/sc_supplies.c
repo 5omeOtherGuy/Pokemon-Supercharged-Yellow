@@ -1,5 +1,8 @@
 #include "global.h"
 #include "sc_supplies.h"
+#if SC_TEST_TOOLS
+#include "sc_debug.h"
+#endif
 #include "battle.h"
 #include "battle_controllers.h"
 #include "battle_setup.h"
@@ -32,6 +35,16 @@ static bool32 CampaignEnabled(void)
     return P_SC_KANTO_RULES || sEnableForTests;
 #else
     return P_SC_KANTO_RULES;
+#endif
+}
+
+static bool32 PlayerHasFreeSupplies(enum BattlerId battler)
+{
+#if SC_TEST_TOOLS
+    return battler < MAX_BATTLERS_COUNT && GetBattlerSide(battler) == B_SIDE_PLAYER
+        && ScDebugOptionEnabled(SC_DEBUG_FREE_SUPPLIES);
+#else
+    return FALSE;
 #endif
 }
 
@@ -147,7 +160,7 @@ bool32 ScSuppliesBeginBattle(void)
         }
         if (count <= SC_SUPPLY_SLOTS && ValidPlan(&enemy)) ScSupplyLoad(&sSupplyBattle, 1, &enemy);
     }
-    return requested == supplied;
+    return requested == supplied || PlayerHasFreeSupplies(0);
 }
 
 void ScSuppliesEndBattle(void)
@@ -160,6 +173,8 @@ void ScSuppliesEndBattle(void)
 bool32 ScSuppliesCanUse(enum BattlerId battler, enum Item item)
 {
     if (!ScSuppliesApplies()) return TRUE;
+    if (PlayerHasFreeSupplies(battler))
+        return GetItemBattleUsage(item) && CountTotalItemQuantityInBag(item) != 0;
     if (!sSuppliesLocked || battler >= MAX_BATTLERS_COUNT || ScSuppliesCategory(item) == SC_SUPPLY_INVALID) return FALSE;
     u32 side = GetBattlerSide(battler);
     if (side == B_SIDE_PLAYER)
@@ -179,6 +194,7 @@ bool32 ScSuppliesCanUse(enum BattlerId battler, enum Item item)
 bool32 ScSuppliesReserve(enum BattlerId battler, enum Item item)
 {
     if (!ScSuppliesApplies()) return TRUE;
+    if (PlayerHasFreeSupplies(battler)) return ScSuppliesCanUse(battler, item);
     return ScSuppliesCanUse(battler, item) && ScSupplyReserve(&sSupplyBattle, GetBattlerSide(battler), battler, item);
 }
 
@@ -235,6 +251,14 @@ static bool32 TargetHasEffect(enum BattlerId actor, enum Item item)
 bool32 ScSuppliesCommit(enum BattlerId battler, enum Item item)
 {
     if (!ScSuppliesApplies()) return TRUE;
+    if (PlayerHasFreeSupplies(battler))
+    {
+        if (!ScSuppliesCanUse(battler, item)) return FALSE;
+        // Ordinary categories retain the execution-time no-effect guard.
+        // Revives and mixed items use their existing engine effect handling.
+        if (ScSuppliesCategory(item) != SC_SUPPLY_INVALID && !TargetHasEffect(battler, item)) return FALSE;
+        return RemoveBagItem(item, 1);
+    }
     if (!ScSuppliesCanUse(battler, item) || !TargetHasEffect(battler, item)) { ScSuppliesCancel(battler); return FALSE; }
     struct ScSupplyBattle next = sSupplyBattle;
     if (!ScSupplyCommit(&next, GetBattlerSide(battler), battler, item)) return FALSE;

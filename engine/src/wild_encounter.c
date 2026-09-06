@@ -1,4 +1,7 @@
 #include "global.h"
+#if SC_TEST_TOOLS
+#include "sc_debug.h"
+#endif
 #include "battle_setup.h"
 #include "battle_pike.h"
 #include "battle_pyramid.h"
@@ -668,6 +671,10 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
     enum TimeOfDay timeOfDay;
     struct Roamer *roamer;
 
+#if SC_TEST_TOOLS
+    if (ScDebugOptionEnabled(SC_DEBUG_NO_ENCOUNTERS))
+        return FALSE;
+#endif
     if (sWildEncountersDisabled == TRUE)
         return FALSE;
 

@@ -5,10 +5,17 @@
 #include "pokemon.h"
 #include "sc_progression_core.h"
 #include "sc_progression.h"
+#if SC_TEST_TOOLS
+#include "sc_debug.h"
+#endif
 
 
 u32 GetCurrentLevelCap(void)
 {
+#if SC_TEST_TOOLS
+    if (ScDebugOptionEnabled(SC_DEBUG_IGNORE_LEVEL_CAP))
+        return MAX_LEVEL;
+#endif
     if (IS_FRLG)
     {
         u32 badges = 0, i;

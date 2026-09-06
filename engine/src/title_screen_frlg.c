@@ -71,15 +71,47 @@ static void PrintCentered(u8 font, const u8 *text, u16 center, u8 y, s8 spacing,
     AddTextPrinterParameterized4(TITLE_WINDOW, font, center - width / 2, y, spacing, 0, colors, TEXT_SKIP_DRAW, text);
 }
 
+static void DrawYellowWordmark(void)
+{
+    // Render the existing native font into a small temporary buffer, then draw
+    // it at an integer 2x scale. This retains crisp handheld pixels and avoids
+    // introducing another font or a raster logo dependency.
+    const struct WindowTemplate wordmark =
+        {.bg = 1, .width = 8, .height = 2, .paletteNum = 15, .baseBlock = 601};
+    u32 id = AddWindow(&wordmark);
+    u32 x, y;
+    u32 width = GetStringWidth(FONT_NORMAL, sText_Yellow, 0);
+    if (id == WINDOW_NONE || width > 64)
+    {
+        if (id != WINDOW_NONE)
+            RemoveWindow(id);
+        PrintCentered(FONT_NORMAL, sText_Yellow, 75, 94, 2, sTitleColors);
+        return;
+    }
+    FillWindowPixelBuffer(id, PIXEL_FILL(0));
+    AddTextPrinterParameterized3(id, FONT_NORMAL, 0, 0, sTitleColors, TEXT_SKIP_DRAW, sText_Yellow);
+    for (y = 0; y < 16; y++)
+    {
+        for (x = 0; x < width; x++)
+        {
+            u32 offset = ((y / 8) * 8 + x / 8) * 32 + (y % 8) * 4 + (x % 8) / 2;
+            u8 pixel = (gWindows[id].tileData[offset] >> ((x & 1) * 4)) & 15;
+            if (pixel != 0)
+                FillWindowPixelRect(TITLE_WINDOW, PIXEL_FILL(pixel), 75 - width + x * 2, 88 + y * 2, 2, 2);
+        }
+    }
+    RemoveWindow(id);
+}
+
 static void DrawTitleText(void)
 {
     FillWindowPixelBuffer(TITLE_WINDOW, PIXEL_FILL(0));
-    // A small inset electric motif anchors the wordmark; the footer is stable
+    // A thin underline anchors the wordmark; the footer is stable
     // while the start prompt gently changes color without disappearing.
     FillWindowPixelRect(TITLE_WINDOW, PIXEL_FILL(TITLE_GOLD), 22, 117, 104, 1);
     FillWindowPixelRect(TITLE_WINDOW, PIXEL_FILL(TITLE_INK), 0, 128, 240, 32);
     PrintCentered(FONT_SMALL, sText_Supercharged, 75, 76, 0, sTitleColors);
-    PrintCentered(FONT_NORMAL, sText_Yellow, 75, 94, 2, sTitleColors);
+    DrawYellowWordmark();
     PrintCentered(FONT_NORMAL, sText_PressStart, 120, 129, 0, sFooterColors);
     PrintCentered(FONT_SMALL, sText_Copyright, 120, 147, 0, sFooterColors);
     PutWindowTilemap(TITLE_WINDOW);

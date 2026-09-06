@@ -1,0 +1,22 @@
+{
+  "provenance": "Diagnostic ROM fixture; NOT organic progress or balance evidence",
+  "source_revision": "9d479bc5",
+  "source_sha256": "73759e33b3fe975f887e9b6286002ad0b00ef6a0bf8abd8da821fade2025afe3",
+  "elf_sha256": "763258ce59c9a7002bbd59638cc347c22896eaf47d94003a455fea2f5512cbf7",
+  "fixture_sha256": "70fc952fbdf722666794c896149adf98310a6e6ea0d67f12c20615778a31ca26",
+  "scenario": "ethan",
+  "target_script": "ScEconomy_Route24_Ethan",
+  "target_address": "0x833fc58",
+  "patch_address": "0x8344447",
+  "patch_assembly": "\tlockall\n\tremovemoney 999999\n\tgivemon SPECIES_MEWTWO, 15, nature=NATURE_MODEST, gender=0, hpIv=15, atkIv=15, defIv=15, speedIv=15, spAtkIv=15, spDefIv=15\n\tsetflag FLAG_SYS_POKEMON_GET\n\twarp MAP_ROUTE24, 255, 12, 20\n\twaitstate\n\treleaseall\n\tend\n",
+  "original_bytes": "6a5a2b5802060188443408a0210d800000070176443408210d80010007017f443408684f01008b0f38085100006c020f00e144",
+  "patch_bytes": "69913f420f0023914b200a000696000f0014f801000f0000000f000f000f000f000f000f0029280839252bff0c001400276b02",
+  "setup": {
+    "cash": "zero",
+    "pokemon": "Mewtwo Lv15, Modest, IV15 in all stats, legal default moves",
+    "map": "MAP_ROUTE24",
+    "x": 12,
+    "y": 20
+  },
+  "generated_map_header_sha256": "7a65c426117e3c29f9f0a99f34ae8b67d55a89b23f4127b338211aebd5be01f2"
+}

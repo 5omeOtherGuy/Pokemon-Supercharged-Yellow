@@ -1,0 +1,22 @@
+{
+  "provenance": "Diagnostic ROM fixture; NOT organic progress or balance evidence",
+  "source_revision": "9d479bc5",
+  "source_sha256": "73759e33b3fe975f887e9b6286002ad0b00ef6a0bf8abd8da821fade2025afe3",
+  "elf_sha256": "763258ce59c9a7002bbd59638cc347c22896eaf47d94003a455fea2f5512cbf7",
+  "fixture_sha256": "d60040c638728fe6cc4a1ac030168d45909d3dec7a1a6478e81dcb2de907fad6",
+  "scenario": "celadon",
+  "target_script": "CeladonCity_DepartmentStore_5F_EventScript_ClerkVitamins",
+  "target_address": "0x835028e",
+  "patch_address": "0x8344447",
+  "patch_assembly": "\tlockall\n\taddmoney 10000\n\twarp MAP_CELADON_CITY_DEPARTMENT_STORE_5F, 255, 3, 6\n\twaitstate\n\treleaseall\n\tend\n",
+  "original_bytes": "6a5a2b5802060188443408a0210d800000",
+  "patch_bytes": "699010270000392c04ff03000600276b02",
+  "setup": {
+    "cash": "initial plus10000",
+    "pokemon": "none",
+    "map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+    "x": 3,
+    "y": 6
+  },
+  "generated_map_header_sha256": "7a65c426117e3c29f9f0a99f34ae8b67d55a89b23f4127b338211aebd5be01f2"
+}

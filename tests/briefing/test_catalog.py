@@ -65,6 +65,39 @@ int main(void) {
  assert(ScGetNpcCapabilities(TRAINER_LEADER_KOGA,2)==1u);
  party[2].lvl=22; assert(ScGetNpcCapabilities(TRAINER_LEADER_MISTY,2)==2u);
  assert(ScGetNpcCapabilities(TRAINER_LEADER_MISTY,1)==0);
+
+ /* Story builds are partial, stage-bounded and follow the real highest-level ace. */
+ for(unsigned id=TRAINER_RIVAL_OAKS_LAB_SQUIRTLE;id<=TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER;id++) {
+  assert(ScGetNpcTrainerBudget(id)==0); assert(ScGetNpcTrainerPassives(id)==0);
+  for(unsigned slot=0;slot<3;slot++) assert(ScGetNpcCapabilities(id,slot)==0);
+ }
+ const unsigned story[][3]={
+  {TRAINER_RIVAL_CERULEAN_SQUIRTLE,TRAINER_RIVAL_CERULEAN_CHARMANDER,3},
+  {TRAINER_RIVAL_SS_ANNE_SQUIRTLE,TRAINER_RIVAL_SS_ANNE_CHARMANDER,3},
+  {TRAINER_RIVAL_POKEMON_TOWER_SQUIRTLE,TRAINER_RIVAL_POKEMON_TOWER_CHARMANDER,5},
+  {TRAINER_RIVAL_SILPH_SQUIRTLE,TRAINER_RIVAL_SILPH_CHARMANDER,7},
+  {TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE,TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER,8},
+  {TRAINER_BOSS_GIOVANNI,TRAINER_BOSS_GIOVANNI,5},
+  {TRAINER_BOSS_GIOVANNI_2,TRAINER_BOSS_GIOVANNI_2,7},
+  {TRAINER_SC_ROCKET_DUO_1,TRAINER_SC_ROCKET_DUO_1,2},
+  {TRAINER_SC_ROCKET_DUO_2,TRAINER_SC_ROCKET_DUO_2,5},
+  {TRAINER_SC_ROCKET_DUO_3,TRAINER_SC_ROCKET_DUO_3,5},
+  {TRAINER_SC_ROCKET_DUO_4,TRAINER_SC_ROCKET_DUO_4,7},
+ };
+ for(unsigned row=0;row<sizeof(story)/sizeof(story[0]);row++)
+  for(unsigned id=story[row][0];id<=story[row][1];id++) {
+   assert(ScGetNpcTrainerBudget(id)==story[row][2]);
+   assert(ScGetNpcTrainerPassives(id)!=0);
+   assert(cost(ScGetNpcTrainerPassives(id),gScTrainerPassiveInfo,8)<=story[row][2]);
+   party[0].lvl=20;party[1].lvl=30;party[2].lvl=21;
+   unsigned ace=ScGetNpcCapabilities(id,1),support=ScGetNpcCapabilities(id,2);
+   assert((ace&((1u<<5)|(1u<<6)))==0); /* no blanket category penalty */
+   assert(ScGetNpcCapabilities(id,0)==0);
+   assert(cost(ace,gScCapabilityInfo,12)<=3);assert(cost(support,gScCapabilityInfo,12)<=1);
+   party[2].lvl=30;
+   assert(ScGetNpcCapabilities(id,2)==ace);assert(ScGetNpcCapabilities(id,1)==support);
+  }
+ assert(ScGetNpcCapabilities(TRAINER_RIVAL_SILPH_CHARMANDER,2)!=0);
  assert(ScGetNpcCapabilities(65535,0)==0);
  assert(ScGetNpcTrainerPassives(65535)==0);
  assert(ScGetNpcTrainerBudget(65535)==0);

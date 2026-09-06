@@ -1,0 +1,844 @@
+run 2100 0
+screenshot build/emulator/yellow-opening/001-title.png
+run 12 8
+run 180 0
+screenshot build/emulator/yellow-opening/002-menu.png
+run 12 1
+run 300 0
+screenshot build/emulator/yellow-opening/003-new-game.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/004-intro.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/005-oak.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/006-gender.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/007-name.png
+run 12 1
+run 60 0
+run 12 8
+run 60 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/008-name-confirm.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/009-rival-name.png
+run 6 16
+run 24 0
+run 12 1
+run 60 0
+run 12 8
+run 60 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/010-rival-confirm.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/011-bedroom.png
+run 12 2
+run 24 0
+run 50 16
+run 24 0
+run 48 64
+run 180 0
+screenshot build/emulator/yellow-opening/012-house.png
+run 12 1
+run 24 0
+run 50 16
+run 24 0
+run 48 64
+run 180 0
+screenshot build/emulator/yellow-opening/013-stairs.png
+run 8 32
+run 16 0
+run 20 64
+run 180 0
+screenshot build/emulator/yellow-opening/014-downstairs.png
+read 0x03005278 4
+read 0x020015f4 64
+run 18 16
+run 16 0
+run 32 64
+run 180 0
+screenshot build/emulator/yellow-opening/015-stairs-transition.png
+read 0x020015f4 36
+run 16 32
+run 180 0
+screenshot build/emulator/yellow-opening/016-first-floor.png
+run 64 128
+run 16 0
+run 64 32
+run 16 0
+run 48 128
+run 180 0
+screenshot build/emulator/yellow-opening/017-pallet.png
+read 0x0200ff54 12
+read 0x020015f4 72
+run 32 32
+run 16 0
+run 32 128
+run 180 0
+screenshot build/emulator/yellow-opening/018-outside.png
+run 48 16
+run 16 0
+run 160 64
+run 240 0
+screenshot build/emulator/yellow-opening/019-oak-stop.png
+run 32 16
+run 16 0
+run 144 64
+run 240 0
+screenshot build/emulator/yellow-opening/020-oak.png
+run 32 16
+run 16 0
+run 48 64
+run 240 0
+screenshot build/emulator/yellow-opening/021-oak-event.png
+run 300 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/022-pikachu-capture.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/023-oak-caught.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 600 0
+screenshot build/emulator/yellow-opening/024-lab.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/025-eevee.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/026-received-pikachu.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/027-pikachu-out.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 600 0
+screenshot build/emulator/yellow-opening/028-rival-battle.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/029-rival-eevee.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/030-battle-menu.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/031-moves.png
+run 12 1
+run 60 0
+screenshot build/emulator/yellow-opening/032-move-choice.png
+run 6 128
+run 24 0
+run 12 1
+run 360 0
+screenshot build/emulator/yellow-opening/033-thundershock.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/034-after-turn.png
+run 12 1
+run 600 0
+screenshot build/emulator/yellow-opening/035-turn-two.png
+run 360 0
+run 12 1
+run 60 0
+run 12 1
+run 900 0
+screenshot build/emulator/yellow-opening/036-turn-three.png
+run 12 1
+run 60 0
+run 12 1
+run 1000 0
+screenshot build/emulator/yellow-opening/037-turn-four.png
+run 12 1
+run 60 0
+run 12 1
+run 1000 0
+screenshot build/emulator/yellow-opening/038-first-battle-result.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/039-level-six.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/040-post-rival.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 600 0
+screenshot build/emulator/yellow-opening/041-lab-free.png
+run 128 128
+run 180 0
+screenshot build/emulator/yellow-opening/042-lab-exit.png
+run 32 128
+run 180 0
+run 80 32
+run 16 0
+run 208 64
+run 180 0
+screenshot build/emulator/yellow-opening/043-north-pallet.png
+read 0x020015f4 36
+run 32 16
+run 16 0
+run 160 64
+run 180 0
+screenshot build/emulator/yellow-opening/044-route-one.png
+run 16 128
+run 16 0
+run 32 16
+run 16 0
+run 176 64
+run 180 0
+screenshot build/emulator/yellow-opening/045-route-one.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/046-route-gift.png
+run 12 8
+run 120 0
+screenshot build/emulator/yellow-opening/047-start-tutorial.png
+run 12 1
+run 120 0
+run 12 8
+run 120 0
+screenshot build/emulator/yellow-opening/048-start-open.png
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/049-party-healed.png
+run 12 2
+run 180 0
+run 12 2
+run 60 0
+run 160 64
+run 180 0
+screenshot build/emulator/yellow-opening/050-route-one.png
+run 96 32
+run 16 0
+run 144 64
+run 180 0
+screenshot build/emulator/yellow-opening/051-route-progress.png
+run 112 16
+run 16 0
+run 144 64
+run 240 0
+screenshot build/emulator/yellow-opening/052-route-bend.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/053-wild-menu.png
+run 360 0
+run 12 1
+run 60 0
+run 6 128
+run 24 0
+run 12 1
+run 1000 0
+screenshot build/emulator/yellow-opening/054-wild-thunder.png
+run 360 0
+run 12 1
+run 60 0
+screenshot build/emulator/yellow-opening/055-wild-moves.png
+run 12 1
+run 900 0
+run 12 1
+run 360 0
+run 12 1
+run 360 0
+screenshot build/emulator/yellow-opening/056-wild-clear.png
+run 96 64
+run 180 0
+screenshot build/emulator/yellow-opening/057-route-north.png
+run 128 32
+run 16 0
+run 96 64
+run 180 0
+screenshot build/emulator/yellow-opening/058-route-left.png
+run 32 32
+run 16 0
+run 112 64
+run 180 0
+screenshot build/emulator/yellow-opening/059-route-upper.png
+run 112 16
+run 16 0
+run 96 64
+run 180 0
+screenshot build/emulator/yellow-opening/060-route-top.png
+run 112 16
+run 16 0
+run 112 64
+run 180 0
+screenshot build/emulator/yellow-opening/061-top-grass.png
+run 16 128
+run 16 0
+run 112 16
+run 16 0
+run 160 64
+run 240 0
+screenshot build/emulator/yellow-opening/062-upper-passage.png
+run 12 1
+run 240 0
+run 12 1
+run 480 0
+run 6 16
+run 24 0
+run 6 128
+run 24 0
+run 12 1
+run 480 0
+screenshot build/emulator/yellow-opening/063-run-away.png
+run 12 1
+run 240 0
+run 80 64
+run 180 0
+screenshot build/emulator/yellow-opening/064-route-exit.png
+run 160 64
+run 240 0
+screenshot build/emulator/yellow-opening/065-viridian-approach.png
+run 12 1
+run 240 0
+run 12 1
+run 480 0
+run 6 16
+run 24 0
+run 6 128
+run 24 0
+run 12 1
+run 480 0
+run 12 1
+run 240 0
+run 128 64
+run 240 0
+screenshot build/emulator/yellow-opening/066-route-final.png
+run 64 32
+run 16 0
+run 240 64
+run 180 0
+screenshot build/emulator/yellow-opening/067-viridian.png
+read 0x020015f4 36
+run 64 32
+run 16 0
+run 80 64
+run 180 0
+screenshot build/emulator/yellow-opening/068-city-center.png
+run 16 128
+run 16 0
+run 96 16
+run 16 0
+run 32 64
+run 180 0
+screenshot build/emulator/yellow-opening/069-center-entry.png
+run 16 32
+run 16 0
+run 32 64
+run 180 0
+screenshot build/emulator/yellow-opening/070-center.png
+run 64 64
+run 16 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/071-center-nurse.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 900 0
+screenshot build/emulator/yellow-opening/072-center-healing.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 32 128
+run 16 0
+run 96 32
+run 180 0
+screenshot build/emulator/yellow-opening/073-center-stairs.png
+run 12 1
+run 120 0
+run 32 128
+run 16 0
+run 96 32
+run 180 0
+screenshot build/emulator/yellow-opening/074-stairs.png
+run 32 64
+run 16 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/075-lounge-welcome.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/076-lounge-services.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/077-services-home.png
+run 12 1
+run 120 0
+screenshot build/emulator/yellow-opening/078-development-party.png
+run 12 1
+run 120 0
+run 12 1
+run 120 0
+screenshot build/emulator/yellow-opening/079-training-screen.png
+run 12 2
+run 120 0
+run 12 2
+run 120 0
+run 12 2
+run 120 0
+run 12 2
+run 120 0
+run 32 128
+run 16 0
+run 16 32
+run 180 0
+screenshot build/emulator/yellow-opening/080-lounge-exit.png
+run 80 16
+run 16 0
+run 64 128
+run 180 0
+run 160 16
+run 16 0
+run 128 64
+run 180 0
+screenshot build/emulator/yellow-opening/081-mart-approach.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/082-oaks-parcel.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 96 128
+run 180 0
+run 240 32
+run 16 0
+run 304 128
+run 180 0
+screenshot build/emulator/yellow-opening/083-return-route.png
+run 12 1
+run 180 0
+run 96 128
+run 180 0
+run 240 32
+run 16 0
+run 304 128
+run 180 0
+screenshot build/emulator/yellow-opening/084-return-outside.png
+read 0x020015f4 36
+run 32 16
+run 16 0
+run 400 128
+run 240 0
+screenshot build/emulator/yellow-opening/085-return-grass.png
+run 12 1
+run 240 0
+run 12 1
+run 480 0
+run 6 16
+run 24 0
+run 6 128
+run 24 0
+run 12 1
+run 480 0
+run 12 1
+run 240 0
+run 400 128
+run 240 0
+screenshot build/emulator/yellow-opening/086-return-lower.png
+run 48 32
+run 16 0
+run 400 128
+run 240 0
+screenshot build/emulator/yellow-opening/087-return-ledges.png
+run 96 32
+run 16 0
+run 320 128
+run 240 0
+screenshot build/emulator/yellow-opening/088-return-south.png
+run 208 16
+run 16 0
+run 320 128
+run 240 0
+screenshot build/emulator/yellow-opening/089-return-gap.png
+run 12 1
+run 240 0
+run 12 1
+run 480 0
+run 6 16
+run 24 0
+run 6 128
+run 24 0
+run 12 1
+run 480 0
+run 12 1
+run 240 0
+run 400 128
+run 240 0
+screenshot build/emulator/yellow-opening/090-return-bottom.png
+read 0x020015f4 36
+run 64 128
+run 16 0
+run 96 16
+run 16 0
+run 32 64
+run 180 0
+screenshot build/emulator/yellow-opening/091-oak-return.png
+run 48 128
+run 16 0
+run 64 16
+run 16 0
+run 32 64
+run 180 0
+screenshot build/emulator/yellow-opening/092-lab-reentry.png
+run 128 64
+run 120 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/093-parcel-return.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/094-parcel-delivered.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/095-pokedex-intro.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/096-pokedex-received.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/097-poke-balls.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/098-oak-quest-done.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/099-rival-map.png
+run 160 128
+run 180 0
+run 48 32
+run 16 0
+run 240 64
+run 240 0
+screenshot build/emulator/yellow-opening/100-first-catch-route.png
+run 32 32
+run 16 0
+run 192 64
+run 16 0
+run 32 16
+run 16 0
+run 112 64
+run 240 0
+screenshot build/emulator/yellow-opening/101-catch-grass.png
+run 300 0
+run 12 1
+run 240 0
+run 12 1
+run 480 0
+run 6 16
+run 24 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/102-catch-bag.png
+run 6 16
+run 120 0
+screenshot build/emulator/yellow-opening/103-poke-ball-pocket.png
+run 12 1
+run 120 0
+run 12 1
+run 1200 0
+screenshot build/emulator/yellow-opening/104-first-throw.png
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/105-pokedex-registration.png
+run 12 1
+run 360 0
+screenshot build/emulator/yellow-opening/106-pokedex-entry.png
+run 12 1
+run 240 0
+run 12 2
+run 360 0
+run 12 8
+run 120 0
+screenshot build/emulator/yellow-opening/107-after-catch-menu.png
+run 6 128
+run 24 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/108-two-party.png
+run 12 2
+run 180 0
+run 12 8
+run 120 0
+screenshot build/emulator/yellow-opening/109-save-menu.png
+run 12 8
+run 60 0
+run 6 128
+run 24 0
+run 6 128
+run 24 0
+run 6 128
+run 24 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/110-save-prompt.png
+run 12 1
+run 900 0
+screenshot build/emulator/yellow-opening/111-save-status.png
+run 12 8
+run 60 0
+run 12 1
+run 120 0
+run 12 1
+run 120 0
+screenshot build/emulator/yellow-opening/112-second-save.png
+run 12 1
+run 120 0
+screenshot build/emulator/yellow-opening/113-saving.png
+run 12 1
+run 120 0
+screenshot build/emulator/yellow-opening/114-save-overwrite.png
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/115-save-complete-check.png
+run 180 0
+screenshot build/emulator/yellow-opening/116-save-complete.png
+run 120 0
+screenshot build/emulator/yellow-opening/117-save-complete.png
+run 180 0
+quit

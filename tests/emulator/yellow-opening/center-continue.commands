@@ -1,0 +1,16 @@
+run 2100 0
+run 12 8
+run 180 0
+screenshot build/emulator/yellow-opening/166-center-continue.png
+run 12 1
+run 480 0
+screenshot build/emulator/yellow-opening/167-center-restored.png
+run 12 8
+run 120 0
+screenshot build/emulator/yellow-opening/168-center-menu.png
+run 6 128
+run 24 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/169-withdrawn-party-persisted.png
+quit

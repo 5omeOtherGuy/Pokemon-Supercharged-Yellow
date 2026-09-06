@@ -1,0 +1,388 @@
+run 2100 0
+run 12 8
+run 180 0
+screenshot build/emulator/yellow-opening/118-continue-menu.png
+run 12 1
+run 480 0
+screenshot build/emulator/yellow-opening/119-continued-route.png
+run 12 8
+run 60 0
+run 6 64
+run 24 0
+run 6 64
+run 24 0
+run 6 64
+run 24 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/120-continued-party.png
+run 12 2
+run 120 0
+run 12 8
+run 60 0
+run 6 64
+run 24 0
+run 6 64
+run 24 0
+run 6 64
+run 24 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/121-party-after-restart.png
+run 12 8
+run 120 0
+screenshot build/emulator/yellow-opening/122-resumed-menu.png
+run 6 64
+run 24 0
+run 6 64
+run 24 0
+run 6 64
+run 24 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/123-party-restored.png
+run 12 2
+run 180 0
+run 12 2
+run 60 0
+run 96 32
+run 16 0
+run 144 64
+run 16 0
+run 112 16
+run 16 0
+run 144 64
+run 240 0
+screenshot build/emulator/yellow-opening/124-center-return-route.png
+run 12 1
+run 240 0
+run 12 1
+run 480 0
+run 6 16
+run 24 0
+run 6 128
+run 24 0
+run 12 1
+run 480 0
+run 12 1
+run 240 0
+run 96 64
+run 16 0
+run 160 32
+run 16 0
+run 112 64
+run 240 0
+screenshot build/emulator/yellow-opening/125-north-route.png
+run 12 1
+run 240 0
+run 12 1
+run 480 0
+run 6 16
+run 24 0
+run 6 128
+run 24 0
+run 12 1
+run 480 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/126-route-position.png
+run 48 32
+run 16 0
+run 96 64
+run 16 0
+run 160 16
+run 16 0
+run 96 64
+run 240 0
+screenshot build/emulator/yellow-opening/127-route-middle.png
+run 12 1
+run 240 0
+run 12 1
+run 480 0
+run 6 16
+run 24 0
+run 6 128
+run 24 0
+run 12 1
+run 480 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/128-escaped-position.png
+run 48 32
+run 16 0
+run 112 64
+run 180 0
+screenshot build/emulator/yellow-opening/129-past-grass.png
+read 0x020015f4 36
+run 80 16
+run 16 0
+run 80 64
+run 180 0
+screenshot build/emulator/yellow-opening/130-route-plan.png
+run 300 0
+run 12 1
+run 240 0
+run 12 1
+run 480 0
+run 6 16
+run 24 0
+run 6 128
+run 24 0
+run 12 1
+run 480 0
+run 12 1
+run 240 0
+read 0x020015f4 36
+screenshot build/emulator/yellow-opening/131-route-position.png
+run 80 64
+run 16 0
+run 112 16
+run 16 0
+run 96 64
+run 240 0
+read 0x020015f4 36
+screenshot build/emulator/yellow-opening/132-middle-passage.png
+run 64 32
+run 16 0
+run 64 64
+run 16 0
+run 128 16
+run 16 0
+run 176 64
+run 240 0
+read 0x020015f4 36
+screenshot build/emulator/yellow-opening/133-upper-passage.png
+run 12 1
+run 240 0
+run 12 1
+run 480 0
+run 6 16
+run 24 0
+run 6 128
+run 24 0
+run 12 1
+run 480 0
+run 12 1
+run 240 0
+run 176 64
+run 240 0
+read 0x020015f4 36
+screenshot build/emulator/yellow-opening/134-route-north.png
+run 300 0
+run 12 1
+run 240 0
+run 12 1
+run 480 0
+run 6 16
+run 24 0
+run 6 128
+run 24 0
+run 12 1
+run 480 0
+run 12 1
+run 240 0
+run 64 64
+run 16 0
+run 96 32
+run 16 0
+run 288 64
+run 240 0
+read 0x020015f4 36
+screenshot build/emulator/yellow-opening/135-city-return.png
+run 64 32
+run 16 0
+run 64 64
+run 16 0
+run 96 16
+run 16 0
+run 32 64
+run 180 0
+run 64 64
+run 16 0
+run 96 16
+run 16 0
+run 32 64
+run 16 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/136-pc-entry.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+read 0x020015f4 36
+screenshot build/emulator/yellow-opening/137-city-coordinates.png
+run 112 32
+run 16 0
+run 16 64
+run 180 0
+screenshot build/emulator/yellow-opening/138-center-again.png
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/139-dialog-close.png
+run 112 32
+run 16 0
+run 16 64
+run 180 0
+screenshot build/emulator/yellow-opening/140-center-reentered.png
+run 12 1
+run 240 0
+run 112 32
+run 16 0
+run 16 64
+run 180 0
+screenshot build/emulator/yellow-opening/141-center-door.png
+run 48 64
+run 16 0
+run 96 16
+run 16 0
+run 32 64
+run 16 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/142-pc.png
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/143-pc-dialog.png
+read 0x020015f4 36
+run 16 128
+run 16 0
+run 16 64
+run 16 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/144-pc-use.png
+run 32 64
+run 60 0
+read 0x020015f4 36
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/145-pc-actual.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/146-pc-selection.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+screenshot build/emulator/yellow-opening/147-storage-menu.png
+run 6 128
+run 24 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/148-deposit-party.png
+run 6 16
+run 24 0
+run 12 1
+run 120 0
+screenshot build/emulator/yellow-opening/149-deposit-pidgey.png
+run 12 1
+run 120 0
+screenshot build/emulator/yellow-opening/150-box-choice.png
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/151-stored.png
+run 12 2
+run 120 0
+screenshot build/emulator/yellow-opening/152-storage-exit.png
+run 6 128
+run 24 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/153-storage-main.png
+run 6 128
+run 24 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/154-box-one-pidgey.png
+run 12 1
+run 120 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/155-pidgey-withdrawn.png
+run 12 2
+run 120 0
+run 6 128
+run 24 0
+run 12 1
+run 240 0
+run 12 2
+run 120 0
+run 12 2
+run 180 0
+screenshot build/emulator/yellow-opening/156-pc-finished.png
+run 64 128
+run 16 0
+run 160 32
+run 180 0
+run 32 64
+run 16 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/157-lounge-return.png
+read 0x020015f4 36
+run 64 128
+run 16 0
+run 16 16
+run 180 0
+screenshot build/emulator/yellow-opening/158-stairs-position.png
+run 16 128
+run 16 0
+run 16 32
+run 180 0
+run 32 64
+run 16 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/159-lounge-talk.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 6 128
+run 24 0
+run 12 1
+run 120 0
+screenshot build/emulator/yellow-opening/160-trainer-build.png
+run 12 2
+run 120 0
+run 12 2
+run 120 0
+run 6 128
+run 24 0
+run 12 1
+run 120 0
+screenshot build/emulator/yellow-opening/161-trainer-slots.png
+run 12 2
+run 120 0
+run 12 2
+run 180 0
+run 12 8
+run 120 0
+screenshot build/emulator/yellow-opening/162-center-save-menu.png
+run 6 128
+run 24 0
+run 6 128
+run 24 0
+run 6 128
+run 24 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/163-center-overwrite.png
+run 12 1
+run 240 0
+screenshot build/emulator/yellow-opening/164-center-saving.png
+run 240 0
+screenshot build/emulator/yellow-opening/165-center-saved.png
+run 180 0
+quit

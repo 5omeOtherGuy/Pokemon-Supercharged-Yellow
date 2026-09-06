@@ -52,6 +52,7 @@ TEST("SC rematches: first route parties resolve full trainer IDs without Hoenn m
 }
 
 #include "sc_rematches.h"
+#include "sc_progression.h"
 
 TEST("SC rematches: high trainer IDs preserve identity and consume readiness once")
 {
@@ -79,6 +80,16 @@ TEST("SC rematches: high trainer IDs preserve identity and consume readiness onc
     EXPECT(TRAINER_TWINS_ELI_ANNE > 255);
     EXPECT_EQ(GetRematchTrainerIdVSSeeker(TRAINER_TWINS_ELI_ANNE), TRAINER_NONE);
     FlagSet(FLAG_BADGE01_GET); // Level 22 party is now eligible, without changing it.
+    EXPECT(CheckBagHasItem(ITEM_VS_SEEKER, 1));
+    EXPECT(HasTrainerBeenFought(TRAINER_TWINS_ELI_ANNE));
+    EXPECT_EQ(ScGetBadgeCount(), 1);
+    EXPECT_EQ(gRematchTable[index].mapGroup, gSaveBlock1Ptr->location.mapGroup);
+    EXPECT_EQ(gRematchTable[index].mapNum, gSaveBlock1Ptr->location.mapNum);
+    EXPECT_EQ(GetTrainerPartySizeFromId(TRAINER_TWINS_ELI_ANNE), 2);
+    EXPECT_EQ((u32)GetTrainerPartyFromId(TRAINER_TWINS_ELI_ANNE)[0].species, SPECIES_CLEFAIRY);
+    EXPECT_EQ((u32)GetTrainerPartyFromId(TRAINER_TWINS_ELI_ANNE)[1].species, SPECIES_JIGGLYPUFF);
+    EXPECT_EQ((u32)GetTrainerPartyFromId(TRAINER_TWINS_ELI_ANNE)[0].lvl, 22);
+    EXPECT_EQ((u32)GetTrainerPartyFromId(TRAINER_TWINS_ELI_ANNE)[1].lvl, 22);
     EXPECT_EQ(GetRematchTrainerIdVSSeeker(TRAINER_TWINS_ELI_ANNE), TRAINER_TWINS_ELI_ANNE);
     EXPECT(ScRematchSetReady(TRAINER_TWINS_ELI_ANNE));
     EXPECT_EQ(gSaveBlock1Ptr->trainerRematches[index], 1);

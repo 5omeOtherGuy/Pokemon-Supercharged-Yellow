@@ -102,21 +102,21 @@ TEST("SC rematches: high trainer IDs preserve identity and consume readiness onc
         u8 previousCount = gPartiesCount[B_TRAINER_PLAYER];
         TrainerBattleParameter parameters = {0};
         u8 script[TRAINERBATTLE_OPCODE_OFFSET + sizeof(parameters)] = {0};
-        memcpy(previousParty, gPlayerParty, sizeof(previousParty));
-        memset(gPlayerParty, 0, sizeof(previousParty));
-        CreateMon(&gPlayerParty[0], SPECIES_PIKACHU, 5, 15, TRUE, 0, OT_ID_PLAYER_ID, 0);
+        memcpy(previousParty, gParties[B_TRAINER_PLAYER], sizeof(previousParty));
+        memset(gParties[B_TRAINER_PLAYER], 0, sizeof(previousParty));
+        CreateMonWithIVs(&gParties[B_TRAINER_PLAYER][0], SPECIES_PIKACHU, 5, 0, OTID_STRUCT_PRESET(1234), 15);
         parameters.params.opponentA = TRAINER_TWINS_ELI_ANNE;
         memcpy(script + TRAINERBATTLE_OPCODE_OFFSET, &parameters, sizeof(parameters));
         // Automatic sight must not repeatedly trap a one-mon party in refusal.
         EXPECT(!GetRematchFromScriptPointer(script));
         EXPECT(ShouldTryRematchBattleForTrainerId(TRAINER_TWINS_ELI_ANNE));
         EXPECT_EQ(gSaveBlock1Ptr->trainerRematches[index], 1);
-        CreateMon(&gPlayerParty[1], SPECIES_BULBASAUR, 5, 15, TRUE, 0, OT_ID_PLAYER_ID, 0);
+        CreateMonWithIVs(&gParties[B_TRAINER_PLAYER][1], SPECIES_BULBASAUR, 5, 0, OTID_STRUCT_PRESET(1234), 15);
         EXPECT(GetRematchFromScriptPointer(script));
-        SetMonData(&gPlayerParty[1], MON_DATA_HP, &((u16){0}));
+        SetMonData(&gParties[B_TRAINER_PLAYER][1], MON_DATA_HP, &((u16){0}));
         EXPECT(!GetRematchFromScriptPointer(script));
         EXPECT_EQ(gSaveBlock1Ptr->trainerRematches[index], 1);
-        memcpy(gPlayerParty, previousParty, sizeof(previousParty));
+        memcpy(gParties[B_TRAINER_PLAYER], previousParty, sizeof(previousParty));
         gPartiesCount[B_TRAINER_PLAYER] = previousCount;
     }
     gSaveBlock1Ptr->location.mapNum = MAP_NUM(MAP_ROUTE11);

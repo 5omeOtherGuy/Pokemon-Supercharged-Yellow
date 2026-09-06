@@ -142,6 +142,12 @@ Final validation at the code handoff through 54525d81:
 - Native source build uses ARM GCC 13.2.1 and the imported mGBA test runner.
   No Android or human-play evidence was gathered by this task.
 
+Later correction validation: the explicit campaign-data run on 2026-09-06
+passed one strengthened authored-bag group, including all six Champion bag
+assertions. The integration log is `build/sc-rematches-verified.bags.log`; see
+`kanto-rematches.md` for the source/build-mode context. This provides the actual
+campaign-data evidence that the earlier fixture-table pass did not supply.
+
 The coordinator explicitly retains this worker's generated cache and logs for
 integration reuse. No running process owns them at handoff; they are not release
 artifacts and are not committed.

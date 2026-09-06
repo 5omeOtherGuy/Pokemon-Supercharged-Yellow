@@ -641,3 +641,6 @@ gSpecials::
 	def_special ScShowBossBriefing
 
 	def_special ScShowCenterServices
+	def_special ScShowTestTools
+	def_special ScDebugWarp
+	def_special ScDebugPcLocation

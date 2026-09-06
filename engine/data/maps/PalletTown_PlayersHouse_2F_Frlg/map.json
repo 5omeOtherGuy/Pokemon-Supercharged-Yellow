@@ -41,7 +41,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "EventScript_PalletTown_PlayersHouse_2F_TurnOnPC"
+      "script": "PalletTown_PlayersHouse_2F_EventScript_TestPC"
     },
     {
       "type": "sign",

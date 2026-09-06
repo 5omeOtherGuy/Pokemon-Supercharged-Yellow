@@ -38,3 +38,10 @@ PalletTown_PlayersHouse_2F_Text_PressLRForHelp::
 	.string "If you're confused, ask for HELP!\n"
 	.string "Press the L or R Button!$"
 
+
+PalletTown_PlayersHouse_2F_EventScript_TestPC::
+#if SC_TEST_TOOLS
+	goto EventScript_PC
+#else
+	goto EventScript_PalletTown_PlayersHouse_2F_TurnOnPC
+#endif

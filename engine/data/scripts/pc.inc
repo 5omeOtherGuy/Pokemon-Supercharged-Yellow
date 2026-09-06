@@ -1,6 +1,10 @@
 EventScript_PC::
 	lockall
+#if SC_TEST_TOOLS
+	special ScDebugPcLocation
+#else
 	setvar VAR_0x8004, PC_LOCATION_OTHER
+#endif
 	special DoPCTurnOnEffect
 	playse SE_PC_ON
 	msgbox Text_BootUpPC, MSGBOX_DEFAULT
@@ -20,6 +24,9 @@ EventScript_AccessPC::
 	case 1, EventScript_AccessPlayersPC
 	case 2, EventScript_AccessHallOfFame
 	case 3, EventScript_TurnOffPC
+#if SC_TEST_TOOLS
+	case 4, EventScript_ScTestTools
+#endif
 	case MULTI_B_PRESSED, EventScript_TurnOffPC
 	end
 
@@ -52,7 +59,11 @@ EventScript_AccessLanettesPC::
 	return
 
 EventScript_TurnOffPC::
+#if SC_TEST_TOOLS
+	special ScDebugPcLocation
+#else
 	setvar VAR_0x8004, PC_LOCATION_OTHER
+#endif
 	playse SE_PC_OFF
 	special DoPCTurnOffEffect
 	releaseall
@@ -71,3 +82,14 @@ EventScript_AccessPokemonBoxLink::
 	special ShowPokemonStorageSystemPC
 	goto EventScript_TurnOffPC
 	end
+
+#if SC_TEST_TOOLS
+EventScript_ScTestTools::
+	closemessage
+	special ScShowTestTools
+	waitstate
+	compare VAR_RESULT, 0
+	goto_if_eq EventScript_PCMainMenu
+	special ScDebugWarp
+	end
+#endif

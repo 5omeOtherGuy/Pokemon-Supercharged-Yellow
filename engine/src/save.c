@@ -480,7 +480,8 @@ static u8 TryLoadSaveSlot(u16 sectorId, struct SaveSectorLocation *locations)
     else
     {
         status = GetSaveValidStatus(locations);
-        CopySaveSlotData(FULL_SAVE_SLOT, locations);
+        if (status == SAVE_STATUS_OK || status == SAVE_STATUS_ERROR)
+            CopySaveSlotData(FULL_SAVE_SLOT, locations);
     }
 
     return status;
@@ -539,6 +540,7 @@ static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
     u32 saveSlot2Counter = 0;
     u32 validSectorFlags = 0;
     bool8 signatureValid = FALSE;
+    bool8 counterValid = TRUE;
     bool8 incompatible = FALSE;
     u8 saveSlot1Status;
     u8 saveSlot2Status;
@@ -561,7 +563,10 @@ static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
 #endif
             if (ScIsValidSaveSector(gReadWriteSector, locations))
             {
-                saveSlot1Counter = gReadWriteSector->counter;
+                if (validSectorFlags == 0)
+                    saveSlot1Counter = gReadWriteSector->counter;
+                else if (saveSlot1Counter != gReadWriteSector->counter)
+                    counterValid = FALSE;
                 validSectorFlags |= 1 << gReadWriteSector->id;
             }
         }
@@ -569,7 +574,7 @@ static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
 
     if (signatureValid)
     {
-        if (validSectorFlags == (1 << NUM_SECTORS_PER_SLOT) - 1)
+        if (counterValid && validSectorFlags == (1 << NUM_SECTORS_PER_SLOT) - 1)
             saveSlot1Status = SAVE_STATUS_OK;
         else
             saveSlot1Status = SAVE_STATUS_ERROR;
@@ -582,6 +587,7 @@ static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
 
     validSectorFlags = 0;
     signatureValid = FALSE;
+    counterValid = TRUE;
 
     // Check save slot 2
     for (i = 0; i < NUM_SECTORS_PER_SLOT; i++)
@@ -601,7 +607,10 @@ static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
 #endif
             if (ScIsValidSaveSector(gReadWriteSector, locations))
             {
-                saveSlot2Counter = gReadWriteSector->counter;
+                if (validSectorFlags == 0)
+                    saveSlot2Counter = gReadWriteSector->counter;
+                else if (saveSlot2Counter != gReadWriteSector->counter)
+                    counterValid = FALSE;
                 validSectorFlags |= 1 << gReadWriteSector->id;
             }
         }
@@ -609,7 +618,7 @@ static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
 
     if (signatureValid)
     {
-        if (validSectorFlags == (1 << NUM_SECTORS_PER_SLOT) - 1)
+        if (counterValid && validSectorFlags == (1 << NUM_SECTORS_PER_SLOT) - 1)
             saveSlot2Status = SAVE_STATUS_OK;
         else
             saveSlot2Status = SAVE_STATUS_ERROR;

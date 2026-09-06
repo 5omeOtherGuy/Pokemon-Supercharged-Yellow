@@ -95,6 +95,26 @@ int main(void) {
  view=(struct ScBriefingView){0}; ScBriefingNavigate(&model,&view,START_BUTTON); ScBriefingNavigate(&model,&view,DPAD_UP);
  assert(ScBriefingNavigate(&model,&view,A_BUTTON)==SC_BRIEF_ACCEPT);
  view=(struct ScBriefingView){0}; assert(ScBriefingNavigate(&model,&view,B_BUTTON)==SC_BRIEF_DECLINE);
+ view=(struct ScBriefingView){0};
+ ScBriefingNavigate(&model,&view,DPAD_LEFT); assert(view.screen==SC_BRIEF_TRAINER);
+ ScBriefingNavigate(&model,&view,DPAD_DOWN); assert(view.cursor==1);
+ ScBriefingNavigate(&model,&view,A_BUTTON); assert(view.screen==SC_BRIEF_DESCRIPTION && view.parent==SC_BRIEF_TRAINER && view.entry==1);
+ ScBriefingNavigate(&model,&view,DPAD_DOWN); assert(view.cursor==1);
+ ScBriefingNavigate(&model,&view,B_BUTTON); assert(view.screen==SC_BRIEF_TRAINER && view.cursor==1);
+ ScBriefingNavigate(&model,&view,DPAD_LEFT); assert(view.screen==SC_BRIEF_BAG && view.cursor==0);
+ ScBriefingNavigate(&model,&view,DPAD_UP); assert(view.cursor==3);
+ ScBriefingNavigate(&model,&view,A_BUTTON); assert(view.parent==SC_BRIEF_BAG && view.entry==3);
+ ScBriefingNavigate(&model,&view,B_BUTTON); ScBriefingNavigate(&model,&view,DPAD_LEFT);
+ assert(view.screen==SC_BRIEF_TEAM && view.cursor==0);
+ ScBriefingNavigate(&model,&view,A_BUTTON); ScBriefingNavigate(&model,&view,DPAD_LEFT);
+ assert(view.screen==SC_BRIEF_MON && view.mon==1);
+ ScBriefingNavigate(&model,&view,DPAD_UP); assert(view.cursor==6);
+ ScBriefingNavigate(&model,&view,A_BUTTON); assert(view.screen==SC_BRIEF_CAPABILITIES);
+ ScBriefingNavigate(&model,&view,DPAD_DOWN); ScBriefingNavigate(&model,&view,A_BUTTON);
+ assert(view.screen==SC_BRIEF_DESCRIPTION && view.parent==SC_BRIEF_CAPABILITIES && view.entry==1);
+ ScBriefingNavigate(&model,&view,B_BUTTON); ScBriefingNavigate(&model,&view,B_BUTTON);
+ assert(view.screen==SC_BRIEF_MON && view.cursor==6);
+ ScBriefingNavigate(&model,&view,B_BUTTON); assert(view.screen==SC_BRIEF_TEAM && view.cursor==1);
  for(unsigned key=0;key<256;key++) { view=(struct ScBriefingView){0}; ScBriefingNavigate(&model,&view,key); assert(view.mon<2); }
  assert(memcmp(original,party,sizeof(party))==0);
  trainers[314].poolSize=3; assert(!ScBriefingLoad(314,&model) && model.error==SC_BRIEF_VARIABLE_PARTY); trainers[314].poolSize=0;
@@ -103,6 +123,12 @@ int main(void) {
  party[0].species=SPECIES_PICHU; assert(!ScBriefingLoad(314,&model)); party[0].species=SPECIES_PIKACHU;
  party[0].nature=25; assert(!ScBriefingLoad(314,&model)); party[0].nature=3;
  party[0].moves[0]=MOVE_DEFAULT; assert(!ScBriefingLoad(314,&model)); party[0].moves[0]=0;
+ party[0].lvl=0; assert(!ScBriefingLoad(314,&model)); party[0].lvl=8;
+ party[0].heldItem=ITEMS_COUNT; assert(!ScBriefingLoad(314,&model)); party[0].heldItem=0;
+ trainers[314].startingStatus[2]=1; assert(!ScBriefingLoad(314,&model) && model.error==SC_BRIEF_FIELD_EFFECT); trainers[314].startingStatus[2]=0;
+ trainers[314].partySize=7; assert(!ScBriefingLoad(314,&model)); trainers[314].partySize=2;
+ trainers[314].items[3]=ITEMS_COUNT; assert(!ScBriefingLoad(314,&model)); trainers[314].items[3]=0;
+ trainers[314].battleType=0; assert(ScBriefingLoad(314,&model)); assert(ScBriefingCanAccept(&model,1));
  assert(!ScBriefingLoad(65535,&model)); assert(!ScBriefingLoad(0,&model));
  return 0;
 }

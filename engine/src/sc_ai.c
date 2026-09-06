@@ -8,8 +8,8 @@
 
 unsigned int ScAiEstimateStat(unsigned int base, unsigned int level, unsigned int naturePercent, unsigned int hp)
 {
-    /* Explicit prior: median IV 16, zero training. Nature is public. */
-    unsigned int value = (2 * base + 16) * level / 100;
+    /* Explicit prior: median IV 23 for the public 15..31 range, zero training. Nature is public. */
+    unsigned int value = (2 * base + 23) * level / 100;
     return hp ? value + level + 10 : (value + 5) * naturePercent / 100;
 }
 
@@ -77,6 +77,7 @@ void ScAiChoose(const struct ScAiObservation *o, struct ScAiChoice choices[SC_AI
 #include "move.h"
 #include "pokemon.h"
 #include "sc_battle.h"
+#include "sc_supplies.h"
 #include "constants/abilities.h"
 #include "constants/hold_effects.h"
 #include "constants/item_effects.h"
@@ -669,10 +670,10 @@ static u32 ScItemHeal(u32 battler, enum Item item)
     u32 value = effect[GetItemEffectParamOffset(battler, item, 4, ITEM4_HEAL_HP)];
     u32 maxHp = sScMons[battler].maxHp;
     if (value == ITEM6_HEAL_HP_FULL) return maxHp;
-    if (value == ITEM6_HEAL_HP_HALF) return maxHp / 2;
-    if (value == ITEM6_HEAL_HP_QUARTER) return maxHp / 4;
-    if (value == ITEM6_HEAL_HP_LVL_UP) return 0;
-    return value;
+    if (value == ITEM6_HEAL_HP_HALF) value = maxHp / 2;
+    else if (value == ITEM6_HEAL_HP_QUARTER) value = maxHp / 4;
+    else if (value == ITEM6_HEAL_HP_LVL_UP) return 0;
+    return ScSuppliesHealAmount(battler, value);
 }
 
 static void ScItemOptions(struct ScAiObservation *out, u32 actor)
@@ -684,7 +685,7 @@ static void ScItemOptions(struct ScAiObservation *out, u32 actor)
     for (u32 i = 0; i < MAX_TRAINER_ITEMS; ++i)
     {
         enum Item item = gBattleHistory->trainerItems[i];
-        if (item == ITEM_NONE) continue;
+        if (item == ITEM_NONE || !ScSuppliesCanUse(battler, item)) continue;
         struct ScAiOption option = {.kind = SC_AI_ITEM, .index = i, .target = battler, .resource = 0, .utility = -100};
         switch (GetItemBattleUsage(item))
         {
@@ -793,7 +794,7 @@ bool32 ScAiUseItem(enum BattlerId battler)
     const struct ScAiChoice *choice = &sScChoices[battler];
     if (choice->kind != SC_AI_ITEM || choice->index >= MAX_TRAINER_ITEMS) return FALSE;
     enum Item item = gBattleHistory->trainerItems[choice->index];
-    if (item == ITEM_NONE) return FALSE;
+    if (item == ITEM_NONE || !ScSuppliesReserve(battler, item)) return FALSE;
     gBattleStruct->itemPartyIndex[battler] = gBattlerPartyIndexes[battler];
     gBattleStruct->chosenItem[battler] = item;
     if (GetItemBattleUsage(item) == EFFECT_ITEM_RESTORE_PP)

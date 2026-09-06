@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_pace.h"
 #include "clock.h"
 #include "new_game.h"
 #include "random.h"
@@ -162,6 +163,7 @@ void NewGameInitData(void)
 {
 #if IS_FRLG
     u8 rivalName[PLAYER_NAME_LENGTH + 1];
+    u32 battlePace = ScGetBattlePace();
 #endif
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         RtcReset();
@@ -179,6 +181,8 @@ void NewGameInitData(void)
     ClearSav3();
 #if IS_FRLG
     ScInitTrainerProgress(&gSaveBlock3Ptr->sc);
+    gSaveBlock3Ptr->sc.battleSpeed = battlePace;
+    ScSealTrainerProgress(&gSaveBlock3Ptr->sc);
 #endif
     ClearAllMail();
     gSaveBlock2Ptr->specialSaveWarpFlags = 0;

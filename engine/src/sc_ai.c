@@ -26,10 +26,13 @@ static int ScAiPairScore(const struct ScAiObservation *o, const struct ScAiOptio
         return -30000; /* One shared party slot or bag unit cannot be used twice. */
     int score = a->utility + (b ? b->utility : 0);
     if (b && (a->effectMask & b->effectMask)) score -= 80;
+    if (a->boostsPartner && (!b || b->kind != SC_AI_MOVE)) score -= 100;
+    if (b && b->boostsPartner && a->kind != SC_AI_MOVE) score -= 100;
     for (unsigned int i = 0; i < SC_AI_BATTLERS; ++i)
     {
         if (!(o->aliveMask & (1u << i)) || !o->hp[i]) continue;
-        unsigned int damage = a->damage[i] + (b ? b->damage[i] : 0);
+        unsigned int damage = a->damage[i] * (b && b->boostsPartner ? 3 : 2) / 2
+            + (b ? b->damage[i] * (a->boostsPartner ? 3 : 2) / 2 : 0);
         if ((a->protects && i == o->actors[0]) || (b && b->protects && i == o->actors[1])) damage = 0;
         unsigned int fraction = (damage > o->hp[i] ? o->hp[i] : damage) * 100 / o->hp[i];
         if (o->ownMask & (1u << i))
@@ -445,7 +448,8 @@ static s32 ScStatusUtility(u32 battler, u32 target, enum Move move, struct ScAiO
            || (GetMoveTerrainType(move) == B_TERRAIN_GRASSY && ScHasType(atk, TYPE_GRASS))
            || (GetMoveTerrainType(move) == B_TERRAIN_PSYCHIC && ScHasType(atk, TYPE_PSYCHIC))) ? 40 : 5;
     case EFFECT_HELPING_HAND:
-        return def->side == ownSide && target != battler ? 15 : -100;
+        option->boostsPartner = TRUE;
+        return def->side == ownSide && target != battler ? 0 : -100;
     case EFFECT_FOLLOW_ME:
         option->effectMask = 1u << 10;
         return IsDoubleBattle() && atk->hp * 3 > atk->maxHp * 2 ? 20 : -40;

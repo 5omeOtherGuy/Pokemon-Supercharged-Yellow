@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_supplies.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_arena.h"
@@ -372,7 +373,7 @@ static void HandleInputChooseAction(enum BattlerId battler)
          && !(gBattleTypeFlags & BATTLE_TYPE_MULTI))
         {
             // Return item to bag if partner had selected one (if consumable).
-            if (gBattleResources->bufferA[battler][1] == B_ACTION_USE_ITEM && GetItemConsumability(itemId))
+            if (!ScSuppliesApplies() && gBattleResources->bufferA[battler][1] == B_ACTION_USE_ITEM && GetItemConsumability(itemId))
             {
                 AddBagItem(itemId, 1);
             }

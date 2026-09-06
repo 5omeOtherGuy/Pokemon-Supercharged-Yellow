@@ -1,4 +1,6 @@
 #include "global.h"
+#include "sc_services.h"
+#include "sc_supplies.h"
 #include "sc_field.h"
 #include "malloc.h"
 #include "battle.h"
@@ -458,6 +460,10 @@ static void ShiftMoveSlot(struct BoxPokemon *, u8, u8);
 static void BlitBitmapToPartyWindow_LeftColumn(u8, u8, u8, u8, u8, bool8);
 static void BlitBitmapToPartyWindow_RightColumn(u8, u8, u8, u8, u8, bool8);
 static void CursorCb_Summary(u8);
+static void CB2_ShowScFieldTraining(void);
+static void CB2_ReturnFromScFieldTraining(void);
+
+#define SC_TRAINING_ACTION 243
 static void CursorCb_Switch(u8);
 static void CursorCb_Cancel1(u8);
 static void CursorCb_Item(u8);
@@ -2899,7 +2905,9 @@ static u8 DisplaySelectionWindow(u8 windowType)
         if (sPartyMenuInternal->actions[i] >= MENU_FIELD_MOVES)
             fontColorsId = 4;
 
-        if (sPartyMenuInternal->actions[i] == SC_FIELD_ACTION_OPEN)
+        if (sPartyMenuInternal->actions[i] == SC_TRAINING_ACTION)
+            text = COMPOUND_STRING("TRAINING");
+        else if (sPartyMenuInternal->actions[i] == SC_FIELD_ACTION_OPEN)
             text = COMPOUND_STRING("FIELD");
         else if (sPartyMenuInternal->actions[i] == SC_FIELD_ACTION_NEXT)
             text = COMPOUND_STRING("MORE");
@@ -2971,6 +2979,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     if (P_SC_KANTO_RULES)
     {
         u8 fields[SC_FIELD_PAGE_SIZE + 2];
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, SC_TRAINING_ACTION);
         if (ScFieldBuildPage(&mons[slotId], 0, fields) > 1)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, SC_FIELD_ACTION_OPEN);
     }
@@ -3150,6 +3159,13 @@ static void Task_HandleSelectionMenuInput(u8 taskId)
 
 static bool32 ScHandleFieldMenuAction(u8 taskId, u8 action)
 {
+    if (P_SC_KANTO_RULES && action == SC_TRAINING_ACTION)
+    {
+        PlaySE(SE_SELECT);
+        sPartyMenuInternal->exitCallback = CB2_ShowScFieldTraining;
+        Task_ClosePartyMenu(taskId);
+        return TRUE;
+    }
     if (!P_SC_KANTO_RULES || action < SC_FIELD_ACTION_OPEN || action > SC_FIELD_ACTION_BACK)
         return FALSE;
     PlaySE(SE_SELECT);
@@ -3183,6 +3199,20 @@ static void CursorCb_Summary(u8 taskId)
     PlaySE(SE_SELECT);
     sPartyMenuInternal->exitCallback = CB2_ShowPokemonSummaryScreen;
     Task_ClosePartyMenu(taskId);
+}
+
+static void CB2_ShowScFieldTraining(void)
+{
+    // Task_ClosePartyMenu has now released its windows, tasks and sprite memory.
+    if (!ScShowFieldTraining(gPartyMenu.slotId, CB2_ReturnFromScFieldTraining))
+        CB2_ReturnFromScFieldTraining();
+}
+
+static void CB2_ReturnFromScFieldTraining(void)
+{
+    gPaletteFade.bufferTransferDisabled = TRUE;
+    InitPartyMenu(gPartyMenu.menuType, KEEP_PARTY_LAYOUT, gPartyMenu.action, TRUE,
+        PARTY_MSG_DO_WHAT_WITH_MON, Task_TryCreateSelectionWindow, gPartyMenu.exitCallback);
 }
 
 static void CB2_ShowPokemonSummaryScreen(void)
@@ -4902,7 +4932,8 @@ static bool32 IsItemFlute(enum Item item)
 void ItemUseCB_BattleScript(u8 taskId, TaskFunc task)
 {
     struct Pokemon *mon = GetPartyMonFromPartyMenuId(gPartyMenu.slotId);
-    if (CannotUseItemsInBattle(gSpecialVar_ItemId, mon))
+    if (CannotUseItemsInBattle(gSpecialVar_ItemId, mon)
+        || !ScSuppliesReserve(gBattlerInMenuId, gSpecialVar_ItemId))
     {
         gPartyMenuUseExitCallback = FALSE;
         PlaySE(SE_SELECT);
@@ -4915,7 +4946,7 @@ void ItemUseCB_BattleScript(u8 taskId, TaskFunc task)
         gBattleStruct->itemPartyIndex[gBattlerInMenuId] = GetPartyIdFromBattleSlot(gPartyMenu.slotId);
         gPartyMenuUseExitCallback = TRUE;
         PlaySE(SE_SELECT);
-        if (!IsItemFlute(gSpecialVar_ItemId))
+        if (!ScSuppliesApplies() && !IsItemFlute(gSpecialVar_ItemId))
             RemoveBagItem(gSpecialVar_ItemId, 1);
         ScheduleBgCopyTilemapToVram(2);
         gTasks[taskId].func = task;
@@ -5571,7 +5602,8 @@ static void TryUseItemOnMove(u8 taskId)
     // In battle, set appropriate variables to be used in battle script.
     if (gMain.inBattle)
     {
-        if (CannotUseItemsInBattle(gSpecialVar_ItemId, mon))
+        if (CannotUseItemsInBattle(gSpecialVar_ItemId, mon)
+            || !ScSuppliesReserve(gBattlerInMenuId, gSpecialVar_ItemId))
         {
             gPartyMenuUseExitCallback = FALSE;
             PlaySE(SE_SELECT);
@@ -5584,7 +5616,8 @@ static void TryUseItemOnMove(u8 taskId)
             gBattleStruct->itemPartyIndex[gBattlerInMenuId] = GetPartyIdFromBattleSlot(gPartyMenu.slotId);
             gBattleStruct->itemMoveIndex[gBattlerInMenuId] = ptr->data1;
             gPartyMenuUseExitCallback = TRUE;
-            RemoveBagItem(gSpecialVar_ItemId, 1);
+            if (!ScSuppliesApplies())
+                RemoveBagItem(gSpecialVar_ItemId, 1);
             ScheduleBgCopyTilemapToVram(2);
             gTasks[taskId].func = Task_ClosePartyMenuAfterText;
         }

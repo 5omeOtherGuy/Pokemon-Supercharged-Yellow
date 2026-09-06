@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_supplies.h"
 #include "battle.h"
 #include "battle_set_effect.h"
 #include "battle_util.h"
@@ -456,6 +457,8 @@ static void HandleSetEffectIncinerate(struct BattleCalcValues *cv, struct SetEff
      || (B_INCINERATE_GEMS >= GEN_6 && GetItemHoldEffect(gBattleMons[se->effectBattler].item) == HOLD_EFFECT_GEMS))
     {
         gLastUsedItem = gBattleMons[se->effectBattler].item;
+        ScSuppliesRecordHeldConsumption(GetBattlerTrainer(se->effectBattler),
+            gBattlerPartyIndexes[se->effectBattler], gLastUsedItem);
         gBattleMons[se->effectBattler].item = ITEM_NONE;
         CheckSetUnburden(se->effectBattler);
 
@@ -478,6 +481,8 @@ static void HandleSetEffectBugBite(struct BattleCalcValues *cv, struct SetEffect
     {
         // target loses their berry
         gLastUsedItem = gBattleMons[se->effectBattler].item;
+        ScSuppliesRecordHeldConsumption(GetBattlerTrainer(se->effectBattler),
+            gBattlerPartyIndexes[se->effectBattler], gLastUsedItem);
         gBattleMons[se->effectBattler].item = ITEM_NONE;
         CheckSetUnburden(se->effectBattler);
 
@@ -1548,4 +1553,3 @@ static bool32 IsFinalStrikeEffect(enum MoveEffect moveEffect)
         return FALSE;
     }
 }
-

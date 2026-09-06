@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_progression.h"
 #include "main.h"
 #include "data.h"
 #include "move.h"
@@ -140,12 +141,15 @@ void GenerateMonFromTrainerMon(struct Pokemon *mon, const struct TrainerMon *tra
         SetMonData(mon, MON_DATA_NICKNAME, trainerMon->nickname);
     if (trainerMon->ev) //ev in struct TrainerMon are stored in Showdown order not vanilla Emerald order
     {
-        SetMonData(mon, MON_DATA_HP_EV, &trainerMon->ev[0]);
-        SetMonData(mon, MON_DATA_ATK_EV, &trainerMon->ev[1]);
-        SetMonData(mon, MON_DATA_DEF_EV, &trainerMon->ev[2]);
-        SetMonData(mon, MON_DATA_SPATK_EV, &trainerMon->ev[3]);
-        SetMonData(mon, MON_DATA_SPDEF_EV, &trainerMon->ev[4]);
-        SetMonData(mon, MON_DATA_SPEED_EV, &trainerMon->ev[5]);
+        const u8 fields[] = {MON_DATA_HP_EV, MON_DATA_ATK_EV, MON_DATA_DEF_EV,
+            MON_DATA_SPATK_EV, MON_DATA_SPDEF_EV, MON_DATA_SPEED_EV};
+        u32 ceiling = ScProgressionEnabled() && !trainer->isFrontier
+            ? ScTrainingCeiling(ScGetBadgeCount()) : MAX_PER_STAT_EVS;
+        for (u32 stat = 0; stat < NUM_STATS; stat++)
+        {
+            u8 points = min(trainerMon->ev[stat], ceiling);
+            SetMonData(mon, fields[stat], &points);
+        }
     }
 
     SetMonData(mon, MON_DATA_IVS, &trainerMon->iv);

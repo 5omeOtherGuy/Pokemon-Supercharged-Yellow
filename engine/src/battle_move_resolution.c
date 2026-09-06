@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_supplies.h"
 #include "battle.h"
 #include "battle_arena.h"
 #include "battle_environment.h"
@@ -4965,6 +4966,8 @@ static enum MoveEndResult MoveEndThirdMoveBlock(struct BattleCalcValues *cv)
         if (!gBattleStruct->unableToUseMove && GetItemPocket(gBattleMons[cv->battlerAtk].item) == POCKET_BERRIES)
         {
             enum Item item = gBattleMons[cv->battlerAtk].item;
+            ScSuppliesRecordHeldConsumption(GetBattlerTrainer(cv->battlerAtk),
+                gBattlerPartyIndexes[cv->battlerAtk], item);
             gBattleMons[gBattlerAttacker].item = ITEM_NONE;
             gBattleStruct->battlerState[cv->battlerAtk].canPickupItem = TRUE;
             GetBattlerPartyState(cv->battlerAtk)->usedHeldItem = item;

@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_supplies.h"
 #include "battle.h"
 #include "battle_hold_effects.h"
 #include "battle_message.h"
@@ -2300,7 +2301,7 @@ static void Cmd_getexp(void)
                     ApplyExperienceMultipliers(&gBattleStruct->battlerExpReward, *expMonId, gBattlerFainted);
                     gBattleStruct->battlerExpReward = ScProgressionOrdinaryExp(gBattleStruct->battlerExpReward);
 
-                    if (B_EXP_CAP_TYPE == EXP_CAP_HARD && gBattleStruct->battlerExpReward != 0)
+                    if ((ScProgressionEnabled() || B_EXP_CAP_TYPE == EXP_CAP_HARD) && gBattleStruct->battlerExpReward != 0)
                     {
                         enum GrowthRate growthRate = gSpeciesInfo[GetMonData(&gParties[B_TRAINER_PLAYER][*expMonId], MON_DATA_SPECIES)].growthRate;
                         u32 currentExp = GetMonData(&gParties[B_TRAINER_PLAYER][*expMonId], MON_DATA_EXP);
@@ -4405,6 +4406,8 @@ static void Cmd_removeitem(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
         return;
     }
+
+    ScSuppliesRecordHeldConsumption(GetBattlerTrainer(battler), gBattlerPartyIndexes[battler], itemId);
 
     // Popped Air Balloon cannot be restored by any means.
     // Corroded items cannot be restored either.
@@ -9333,6 +9336,7 @@ void BS_ItemRestoreHP(void)
             healAmount = healParam;
             break;
         }
+        healAmount = ScSuppliesHealAmount(gBattlerAttacker, healAmount);
         if (hp + healAmount > maxHP)
             healAmount = maxHP - hp;
 
@@ -9388,7 +9392,7 @@ void BS_ItemCureStatus(void)
     if (!HealStatusConditions(&party[gBattleStruct->itemPartyIndex[gBattlerAttacker]], GetItemStatus1Mask(gLastUsedItem), targetBattler))
     {
         statusChanged = TRUE;
-        if (GetItemStatus1Mask(gLastUsedItem) & STATUS1_SLEEP)
+        if (targetBattler < MAX_BATTLERS_COUNT && (GetItemStatus1Mask(gLastUsedItem) & STATUS1_SLEEP))
             gBattleMons[targetBattler].volatiles.nightmare = FALSE;
     }
 

@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_supplies.h"
 #include "malloc.h"
 #include "apprentice.h"
 #include "battle.h"
@@ -903,6 +904,14 @@ bool32 ComputePlayerShinyOdds(u32 personality, u32 value)
     return GET_SHINY_VALUE(value, personality) < SHINY_ODDS;
 }
 
+static u32 ScRandomIv(void)
+{
+    u32 value;
+    // 65535 is divisible by 17: reject the sole extra 16-bit value.
+    do { value = Random(); } while (value == UINT16_MAX);
+    return 15 + value % 17;
+}
+
 void SetBoxMonIVs(struct BoxPokemon *mon, u8 fixedIV)
 {
     u32 i, value;
@@ -911,6 +920,17 @@ void SetBoxMonIVs(struct BoxPokemon *mon, u8 fixedIV)
     {
         for (i = 0; i < NUM_STATS; i++)
             SetBoxMonData(mon, MON_DATA_HP_IV + i, &fixedIV);
+        return;
+    }
+
+    if (ScProgressionEnabled())
+    {
+        for (i = 0; i < NUM_STATS; i++)
+        {
+            value = ScRandomIv();
+            SetBoxMonData(mon, MON_DATA_HP_IV + i, &value);
+        }
+        SetBoxMonPerfectIVs(mon, gSpeciesInfo[GetBoxMonData(mon, MON_DATA_SPECIES)].perfectIVCount);
         return;
     }
 
@@ -3526,6 +3546,10 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, enum Item item, u8 partyIndex, 
         return TRUE;
     isLevelUpItem = (itemEffect[3] & ITEM3_LEVEL_UP) != 0;
     levelBefore = GetMonData(mon, MON_DATA_LEVEL, NULL);
+    // Direct callers need the same rule as the bag UI; never lower an over-cap recruit.
+    if (isLevelUpItem && (ScProgressionEnabled() || B_RARE_CANDY_CAP)
+        && levelBefore >= GetCurrentLevelCap())
+        return TRUE;
 
     // Do item effect
     for (i = 0; i < ITEM_EFFECT_ARG_START; i++)
@@ -3564,7 +3588,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, enum Item item, u8 partyIndex, 
                     enum Species species = GetMonData(mon, MON_DATA_SPECIES);
                     dataUnsigned = sExpCandyExperienceTable[param - 1] + GetMonData(mon, MON_DATA_EXP);
 
-                    if (B_RARE_CANDY_CAP && B_EXP_CAP_TYPE == EXP_CAP_HARD)
+                    if (ScProgressionEnabled() || (B_RARE_CANDY_CAP && B_EXP_CAP_TYPE == EXP_CAP_HARD))
                     {
                         u32 currentLevelCap = GetCurrentLevelCap();
                         if (dataUnsigned > gExperienceTables[gSpeciesInfo[species].growthRate][currentLevelCap])
@@ -3734,6 +3758,10 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, enum Item item, u8 partyIndex, 
                                 dataUnsigned = 1;
                             break;
                         }
+
+                        // Preparation applies to bag healing, not candy HP changes or revives.
+                        if (!gMain.inBattle && !isLevelUpItem && !(effectFlags & (ITEM4_REVIVE >> 2)))
+                            dataUnsigned = ScSuppliesHealAmount(B_BATTLER_0, dataUnsigned);
 
                         // Only restore HP if not at max health
                         if (maxHP != currentHP)
@@ -6807,7 +6835,7 @@ static void ResolveIVs(enum Species species, const u16 *ivsTemplate, u8 *ivs)
         else if (ivsTemplate[i] == USE_RANDOM_IVS)
         {
             availableIVs[nonFixedIvCount] = i;
-            ivs[i] = Random() % (MAX_PER_STAT_IVS + 1);
+            ivs[i] = ScProgressionEnabled() ? ScRandomIv() : Random() % (MAX_PER_STAT_IVS + 1);
             nonFixedIvCount++;
         }
         else

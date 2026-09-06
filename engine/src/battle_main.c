@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_supplies.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_ai_main.h"
@@ -2741,6 +2742,7 @@ void BeginBattleIntro(void)
 {
     BattleStartClearSetData();
     ScProgressionBeginBattle();
+    ScSuppliesBeginBattle();
     gBattleCommunication[1] = 0;
     gBattleStruct->eventState.battleIntro = 0;
     gBattleMainFunc = DoBattleIntro;
@@ -3829,6 +3831,7 @@ static void HandleTurnActionSelectionState(void)
             }
             // fallthrough
         case STATE_BEFORE_ACTION_CHOSEN: // Choose an action.
+            ScSuppliesCancel(battler);
             gBattleStruct->monToSwitchIntoId[battler] = PARTY_SIZE;
             if (gBattleTypeFlags & BATTLE_TYPE_MULTI
                 || (position & BIT_FLANK) == B_FLANK_LEFT
@@ -4008,6 +4011,8 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_CANCEL_PARTNER:
+                    ScSuppliesCancel(GetPartnerBattler(battler));
+                    ScSuppliesCancel(battler);
                     gBattleCommunication[battler] = STATE_WAIT_SET_BEFORE_ACTION;
                     gBattleCommunication[GetPartnerBattler(battler)] = STATE_BEFORE_ACTION_CHOSEN;
                     RecordedBattle_ClearBattlerAction(battler, 1);
@@ -4173,6 +4178,7 @@ static void HandleTurnActionSelectionState(void)
                 case B_ACTION_USE_ITEM:
                     if ((gBattleResources->bufferB[battler][1] | (gBattleResources->bufferB[battler][2] << 8)) == 0)
                     {
+                        ScSuppliesCancel(battler);
                         gBattleCommunication[battler] = STATE_BEFORE_ACTION_CHOSEN;
                     }
                     else
@@ -5308,6 +5314,7 @@ static void HandleEndTurn_FinishBattle(void)
         FadeOutMapMusic(5);
         ScProgressionFinishBattle(gBattleOutcome);
         TryRestoreHeldItems();
+        ScSuppliesEndBattle();
 
         for (u32 i = 0; i < PARTY_SIZE; i++)
         {

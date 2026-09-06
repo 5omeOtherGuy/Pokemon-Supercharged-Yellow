@@ -1,0 +1,449 @@
+run 180 0
+run 600 0
+run 600 0
+run 600 0
+run 1 8
+run 120 0
+run 1 8
+run 120 0
+run 1 1
+run 180 0
+run 600 0
+run 1 1
+run 180 0
+run 1 1
+run 120 0
+run 1 1
+run 120 0
+run 1 1
+run 120 0
+run 1 1
+run 120 0
+run 1 1
+run 240 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 120 0
+run 1 8
+run 60 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 60 0
+run 1 8
+run 60 0
+run 1 1
+run 180 0
+run 1 1
+run 120 0
+run 1 8
+run 60 0
+run 1 1
+run 180 0
+run 1 1
+run 120 0
+run 1 8
+run 60 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 360 0
+run 1 1
+run 180 0
+run 1 1
+run 360 0
+run 1 8
+run 60 0
+run 1 128
+run 15 0
+run 1 128
+run 15 0
+run 1 1
+run 120 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 60 0
+run 3600 0
+screenshot build/emulator/opening/organic-complete-save.png
+run 24 16
+run 24 64
+run 120 0
+screenshot build/emulator/opening/downstairs.png
+run 16 16
+run 16 64
+run 120 0
+screenshot build/emulator/opening/stairs.png
+run 16 16
+run 32 64
+run 120 0
+screenshot build/emulator/opening/downstairs-2.png
+run 16 16
+run 16 64
+run 16 32
+run 120 0
+screenshot build/emulator/opening/downstairs-3.png
+run 32 32
+run 120 0
+screenshot build/emulator/opening/downstairs-4.png
+run 180 0
+screenshot build/emulator/opening/downstairs-ready.png
+run 600 0
+screenshot build/emulator/opening/downstairs-later.png
+run 16 64
+run 180 0
+screenshot build/emulator/opening/stairs-up.png
+run 16 32
+run 600 0
+screenshot build/emulator/opening/floor1.png
+run 96 128
+run 80 32
+run 32 128
+run 600 0
+screenshot build/emulator/opening/pallet.png
+run 16 32
+run 32 128
+run 600 0
+screenshot build/emulator/opening/pallet-outside.png
+run 48 16
+run 160 64
+run 300 0
+screenshot build/emulator/opening/oak-trigger.png
+run 32 16
+run 192 64
+run 300 0
+screenshot build/emulator/opening/oak-trigger-2.png
+run 1 1
+run 240 0
+run 1 1
+run 240 0
+run 1 1
+run 240 0
+screenshot build/emulator/opening/oak-field.png
+run 32 16
+run 64 64
+run 300 0
+screenshot build/emulator/opening/oak-warning.png
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+screenshot build/emulator/opening/oak-labwalk.png
+run 64 64
+run 300 0
+screenshot build/emulator/opening/oak-warning-2.png
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 600 0
+screenshot build/emulator/opening/lab-intro.png
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+screenshot build/emulator/opening/lab-intro-2.png
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+screenshot build/emulator/opening/lab-choose.png
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 16 128
+run 48 16
+run 16 64
+run 60 0
+run 1 1
+run 300 0
+screenshot build/emulator/opening/starter-choice.png
+run 16 128
+run 48 16
+run 1 64
+run 60 0
+run 1 1
+run 300 0
+screenshot build/emulator/opening/starter-choice-2.png
+run 16 64
+run 30 0
+run 1 1
+run 300 0
+screenshot build/emulator/opening/starter-prompt.png
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+screenshot build/emulator/opening/starter-confirm.png
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+screenshot build/emulator/opening/starter-obtained.png
+run 1 128
+run 30 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+screenshot build/emulator/opening/rival-starter.png
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 112 128
+run 300 0
+screenshot build/emulator/opening/rival-challenge.png
+run 1 1
+run 300 0
+run 1 1
+run 600 0
+screenshot build/emulator/opening/battle-intro.png
+run 48 32
+run 30 0
+run 96 128
+run 300 0
+screenshot build/emulator/opening/rival-trigger.png
+run 1 1
+run 300 0
+run 1 1
+run 600 0
+screenshot build/emulator/opening/rival-battle.png
+run 1 1
+run 600 0
+screenshot build/emulator/opening/battle-ready.png
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+screenshot build/emulator/opening/battle-menu.png
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+screenshot build/emulator/opening/battle-firstmove.png
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+screenshot build/emulator/opening/battle-attack.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 300 0
+screenshot build/emulator/opening/battle-attack-2.png
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 180 0
+run 12 1
+run 300 0
+screenshot build/emulator/opening/battle-turn2.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/opening/battle-turns.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/opening/battle-end-check.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/opening/battle-result.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/opening/battle-victory.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/opening/battle-overworld.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/emulator/opening/postbattle.png
+run 12 8
+run 120 0
+screenshot build/emulator/opening/postbattle-menu.png
+run 12 128
+run 30 0
+run 12 1
+run 600 0
+screenshot build/emulator/opening/postbattle-saveprompt.png
+run 12 1
+run 300 0
+screenshot build/emulator/opening/postbattle-saving.png
+run 300 0
+screenshot build/emulator/opening/postbattle-save600.png
+run 12 1
+run 600 0
+screenshot build/emulator/opening/postbattle-saveconfirmed.png
+run 120 0
+screenshot build/emulator/opening/postbattle-save720.png
+run 12 8
+run 120 0
+run 12 1
+run 300 0
+run 12 1
+run 300 0
+screenshot build/emulator/opening/final-overwrite.png
+run 12 1
+run 120 0
+screenshot build/emulator/opening/final-save120.png
+run 120 0
+screenshot build/emulator/opening/final-save240.png
+run 120 0
+screenshot build/emulator/opening/final-save360.png
+run 120 0
+screenshot build/emulator/opening/final-save480.png
+run 180 0
+screenshot build/emulator/opening/before-restart.png
+quit

@@ -1,5 +1,7 @@
 #include <stdarg.h>
 #include "global.h"
+#include "sc_ai.h"
+#include "sc_battle.h"
 #include "fake_rtc.h"
 #include "gpu_regs.h"
 #include "load_save.h"
@@ -354,6 +356,10 @@ top:
 
     case STATE_REPORT_RESULT:
         REG_TM2CNT_H = 0;
+        // Always reset opt-ins, including failure, skip, timeout and crash recovery.
+        ScAiEnableForTests(FALSE);
+        ScEffectsEnableForTests(FALSE);
+        ScEndDelayedDamage();
 
         gTestRunnerState.state = STATE_NEXT_TEST;
 

@@ -17,6 +17,7 @@ enum EndTurnResolutionOrder
     ENDTURN_SEND_OUT_REPLACEMENTS_2, // For Emergency Exit/Wimp Out activations
     ENDTURN_AQUA_RING,
     ENDTURN_INGRAIN,
+    ENDTURN_SC_RECOVERY,
     ENDTURN_LEECH_SEED,
     ENDTURN_POISON,
     ENDTURN_BURN,

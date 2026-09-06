@@ -3781,6 +3781,11 @@ BattleScript_TurnHeal:
 	datahpupdate BS_ATTACKER, ASSURANCE_DOUBLE
 	return
 
+BattleScript_ScRecoveryHeal::
+	playanimation BS_ATTACKER, B_ANIM_SIMPLE_HEAL
+	printstring STRINGID_SC_RECOVERY_HEAL
+	goto BattleScript_TurnHeal
+
 BattleScript_AquaRingHeal::
 	playanimation BS_ATTACKER, B_ANIM_AQUA_RING_HEAL
 	printstring STRINGID_AQUARINGHEAL

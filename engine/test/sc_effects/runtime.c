@@ -242,3 +242,22 @@ WILD_BATTLE_TEST("SC runtime effects: wild battles retain player recovery and ne
         EXPECT_EQ(opponent->hp, 30);
     }
 }
+
+SINGLE_BATTLE_TEST("SC runtime effects: Quick Start changes actual order only on the entry turn")
+{
+    GIVEN {
+        ScEffectsEnableForTests(TRUE);
+        gSaveBlock3Ptr->sc.activePassives = 0;
+        PLAYER(SPECIES_PIKACHU) { Speed(100); }
+        OPPONENT(SPECIES_MAGIKARP) { Speed(105); }
+        AssignPlayer(0, 1u << SC_CAP_QUICK_START);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SPLASH); MOVE(opponent, MOVE_SPLASH); }
+        TURN { MOVE(player, MOVE_SPLASH); MOVE(opponent, MOVE_SPLASH); }
+    } SCENE {
+        MESSAGE("Pikachu used Splash!");
+        MESSAGE("The opposing Magikarp used Splash!");
+        MESSAGE("The opposing Magikarp used Splash!");
+        MESSAGE("Pikachu used Splash!");
+    }
+}

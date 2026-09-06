@@ -5,7 +5,8 @@ import unittest
 from collections import defaultdict
 from test_campaign import ENGINE, normalized, parties
 from test_campaign_bosses import stage_for
-from test_champion_finale import FinaleTests, members
+import test_champion_finale as finale
+from test_champion_finale import members
 
 
 def mainland_maps():
@@ -65,7 +66,7 @@ def default_moves(learnset, level):
 class OrdinaryTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        FinaleTests.setUpClass.__func__(cls)
+        finale.FinaleTests.setUpClass.__func__(cls)
         cls.keys = {normalized(k): k for k in cls.roster}
         cls.refs = ordinary_references()
         cls.teams = {key: parties()[key] for key in cls.refs}
@@ -141,6 +142,8 @@ class OrdinaryTests(unittest.TestCase):
                 for move in mon['moves']:
                     if self.move_ids.get(normalized(move)) not in legal:
                         errors.append((trainer, key, move))
+                if len(mon['moves']) != len(set(mon['moves'])) or len(mon['moves']) > 4:
+                    errors.append((trainer, key, 'duplicate/oversized moves'))
                 ability = re.search(r'^Ability: (.+)$', mon['block'], re.M)
                 if ability:
                     available = {normalized(a) for a in re.findall(r'ABILITY_(\w+)', re.search(r'\.abilities\s*=\s*\{([^}]+)', data['block'])[1])}

@@ -68,14 +68,26 @@ SilphCo_7F_EventScript_RivalApproachBottom::
 	return
 
 SilphCo_7F_EventScript_RivalSquirtle::
+	setvar VAR_0x8004, TRAINER_RIVAL_SILPH_SQUIRTLE
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_SilphCo_7F
 	trainerbattle_no_intro TRAINER_RIVAL_SILPH_SQUIRTLE, SilphCo_7F_Text_RivalDefeat
 	return
 
 SilphCo_7F_EventScript_RivalBulbasaur::
+	setvar VAR_0x8004, TRAINER_RIVAL_SILPH_BULBASAUR
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_SilphCo_7F
 	trainerbattle_no_intro TRAINER_RIVAL_SILPH_BULBASAUR, SilphCo_7F_Text_RivalDefeat
 	return
 
 SilphCo_7F_EventScript_RivalCharmander::
+	setvar VAR_0x8004, TRAINER_RIVAL_SILPH_CHARMANDER
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_SilphCo_7F
 	trainerbattle_no_intro TRAINER_RIVAL_SILPH_CHARMANDER, SilphCo_7F_Text_RivalDefeat
 	return
 
@@ -366,3 +378,11 @@ SilphCo_7F_Text_FloorSign::
 	.string "SILPH CO. HEAD OFFICE\n"
 	.string "7F$"
 
+
+ScY_Decline_SilphCo_7F::
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_SILPH_CO_RIVAL
+	setobjectxyperm LOCALID_SILPH_CO_RIVAL, 2, 6
+	addobject LOCALID_SILPH_CO_RIVAL
+	fadescreen FADE_FROM_BLACK
+	goto ScY_DeclineBoss

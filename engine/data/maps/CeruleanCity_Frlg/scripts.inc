@@ -3,6 +3,7 @@ CeruleanCity_Frlg_MapScripts::
 	.byte 0
 
 CeruleanCity_OnTransition::
+	call_if_set FLAG_IS_CHAMPION, ScY_OpenCeruleanCave
 	setworldmapflag FLAG_WORLD_MAP_CERULEAN_CITY
 	call_if_unset FLAG_GOT_SS_TICKET, CeruleanCity_EventScript_BlockExits
 	end
@@ -66,14 +67,26 @@ CeruleanCity_EventScript_Rival::
 	end
 
 CeruleanCity_EventScript_RivalSquirtle::
+	setvar VAR_0x8004, TRAINER_RIVAL_CERULEAN_SQUIRTLE
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_CeruleanCity
 	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_SQUIRTLE, CeruleanCity_Text_RivalDefeat
 	return
 
 CeruleanCity_EventScript_RivalBulbasaur::
+	setvar VAR_0x8004, TRAINER_RIVAL_CERULEAN_BULBASAUR
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_CeruleanCity
 	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_BULBASAUR, CeruleanCity_Text_RivalDefeat
 	return
 
 CeruleanCity_EventScript_RivalCharmander::
+	setvar VAR_0x8004, TRAINER_RIVAL_CERULEAN_CHARMANDER
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_CeruleanCity
 	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_CHARMANDER, CeruleanCity_Text_RivalDefeat
 	return
 
@@ -534,3 +547,15 @@ CeruleanCity_Text_GymSign::
 	.string "LEADER: MISTY\l"
 	.string "The Tomboyish Mermaid!$"
 
+
+ScY_OpenCeruleanCave::
+	setflag FLAG_HIDE_CERULEAN_CAVE_GUARD
+	return
+
+ScY_Decline_CeruleanCity::
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_CERULEAN_RIVAL
+	setobjectxyperm LOCALID_CERULEAN_RIVAL, 22, 0
+	addobject LOCALID_CERULEAN_RIVAL
+	fadescreen FADE_FROM_BLACK
+	goto ScY_DeclineBoss

@@ -68,10 +68,18 @@ PokemonLeague_BrunosRoom_EventScript_RematchIntro::
 	return
 
 PokemonLeague_BrunosRoom_EventScript_Battle::
+	setvar VAR_0x8004, TRAINER_ELITE_FOUR_BRUNO
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_no_intro TRAINER_ELITE_FOUR_BRUNO, PokemonLeague_BrunosRoom_Text_Defeat
 	return
 
 PokemonLeague_BrunosRoom_EventScript_Rematch::
+	setvar VAR_0x8004, TRAINER_ELITE_FOUR_BRUNO_2
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_no_intro TRAINER_ELITE_FOUR_BRUNO_2, PokemonLeague_BrunosRoom_Text_Defeat
 	return
 

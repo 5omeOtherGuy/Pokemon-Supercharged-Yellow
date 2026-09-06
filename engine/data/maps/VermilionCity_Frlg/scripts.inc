@@ -69,11 +69,8 @@ VermilionCity_EventScript_CheckHasAuroraTicket::
 	end
 
 VermilionCity_EventScript_CheckSeagallopPresent::
-	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 5, VermilionCity_EventScript_ChooseSeagallopDestRainbowPass
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 1, VermilionCity_EventScript_ChooseSeagallopDestTriPass
-	msgbox VermilionCity_Text_TheShipSetSail
-	release
+msgbox ScY_DockOpen
+	releaseall
 	end
 
 VermilionCity_EventScript_ChooseSeagallopDestRainbowPass::
@@ -205,12 +202,9 @@ VermilionCity_EventScript_DontHaveSSTicket::
 	end
 
 VermilionCity_EventScript_CheckSeagallopPresentTrigger::
-	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 5, VermilionCity_EventScript_ChooseSeagallopDestRainbowPass
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 1, VermilionCity_EventScript_ChooseSeagallopDestTriPass
-	msgbox VermilionCity_Text_TheShipSetSail
-	closemessage
-	goto VermilionCity_EventScript_WalkUpPier
+msgbox ScY_DockOpen
+	setvar VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, 1
+	releaseall
 	end
 
 VermilionCity_EventScript_Sailor::
@@ -394,3 +388,31 @@ VermilionCity_Text_Route2AideHasPackageForYou::
 	.string "If you're in the ROUTE 2 area,\n"
 	.string "please look for him.$"
 
+
+ScY_Squirtle::
+	lock
+	faceplayer
+	goto_if_set FLAG_SC_GOT_SQUIRTLE, ScY_SquirtleDone
+	goto_if_unset FLAG_BADGE03_GET, ScY_SquirtleNotReady
+	msgbox ScY_SquirtleText, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, ScY_End
+	givemon SPECIES_SQUIRTLE, 10
+	goto_if_eq VAR_RESULT, 2, ScY_SquirtleFull
+	setflag FLAG_SC_GOT_SQUIRTLE
+	msgbox ScY_Text_Adopted
+	goto ScY_End
+ScY_SquirtleFull::
+	msgbox ScY_Text_NoRoom
+	goto ScY_End
+ScY_SquirtleDone::
+	msgbox ScY_Text_AlreadyGift
+	goto ScY_End
+ScY_SquirtleText::
+	.string "JENNY: This SQUIRTLE was getting\ninto trouble. Your THUNDERBADGE\lshows you can guide it.\pWill you give it a home?$"
+
+ScY_SquirtleNotReady::
+	msgbox ScY_Text_NeedThunder
+	goto ScY_End
+
+ScY_DockOpen::
+	.string "The S.S. ANNE has sailed, but the\ndock stays open to ticket holders.\pPlease take care near the water.$"

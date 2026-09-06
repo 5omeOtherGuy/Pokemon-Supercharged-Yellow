@@ -48,12 +48,10 @@ PowerPlant_EventScript_Zapdos::
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, PowerPlant_EventScript_DefeatedZapdos
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, PowerPlant_EventScript_RanFromZapdos
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, PowerPlant_EventScript_RanFromZapdos
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, ScY_End
 	setflag FLAG_FOUGHT_ZAPDOS
-	release
-	end
+	removeobject VAR_LAST_TALKED
+	goto ScY_End
 
 PowerPlant_EventScript_DefeatedZapdos::
 	setflag FLAG_FOUGHT_ZAPDOS

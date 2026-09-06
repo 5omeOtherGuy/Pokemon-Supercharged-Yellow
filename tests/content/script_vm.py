@@ -34,8 +34,8 @@ class ScriptVM:
                 label,i=stack.pop();continue
             if op=='goto':label,i=args[0],0;continue
             if op=='call':stack.append((label,i));label,i=args[0],0;continue
-            if op in {'setflag','clearflag'}:
-                (self.flags.add if op=='setflag' else self.flags.discard)(args[0])
+            if op in {'setflag','setworldmapflag','clearflag'}:
+                (self.flags.add if op!='clearflag' else self.flags.discard)(args[0])
             elif op=='setvar':self.vars[args[0]]=self.value(args[1])
             elif op=='copyvar':self.vars[args[0]]=self.value(args[1])
             elif op in {'goto_if_set','goto_if_unset'}:

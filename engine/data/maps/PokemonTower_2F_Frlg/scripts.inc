@@ -57,14 +57,26 @@ PokemonTower_2F_EventScript_RivalFacePlayerDown::
 	return
 
 PokemonTower_2F_EventScript_RivalSquirtle::
+	setvar VAR_0x8004, TRAINER_RIVAL_POKEMON_TOWER_SQUIRTLE
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_PokemonTower_2F
 	trainerbattle_no_intro TRAINER_RIVAL_POKEMON_TOWER_SQUIRTLE, PokemonTower_2F_Text_RivalDefeat
 	return
 
 PokemonTower_2F_EventScript_RivalBulbasaur::
+	setvar VAR_0x8004, TRAINER_RIVAL_POKEMON_TOWER_BULBASAUR
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_PokemonTower_2F
 	trainerbattle_no_intro TRAINER_RIVAL_POKEMON_TOWER_BULBASAUR, PokemonTower_2F_Text_RivalDefeat
 	return
 
 PokemonTower_2F_EventScript_RivalCharmander::
+	setvar VAR_0x8004, TRAINER_RIVAL_POKEMON_TOWER_CHARMANDER
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_PokemonTower_2F
 	trainerbattle_no_intro TRAINER_RIVAL_POKEMON_TOWER_CHARMANDER, PokemonTower_2F_Text_RivalDefeat
 	return
 
@@ -130,3 +142,11 @@ PokemonTower_2F_Text_SilphScopeCouldUnmaskGhosts::
 	.string "A SILPH SCOPE might be able to\n"
 	.string "unmask them.$"
 
+
+ScY_Decline_PokemonTower_2F::
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_POKEMON_TOWER_RIVAL
+	setobjectxyperm LOCALID_POKEMON_TOWER_RIVAL, 16, 5
+	addobject LOCALID_POKEMON_TOWER_RIVAL
+	fadescreen FADE_FROM_BLACK
+	goto ScY_DeclineBoss

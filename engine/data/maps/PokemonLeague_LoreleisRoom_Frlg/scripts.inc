@@ -73,10 +73,18 @@ PokemonLeague_LoreleisRoom_EventScript_RematchIntro::
 	return
 
 PokemonLeague_LoreleisRoom_EventScript_Battle::
+	setvar VAR_0x8004, TRAINER_ELITE_FOUR_LORELEI
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_no_intro TRAINER_ELITE_FOUR_LORELEI, PokemonLeague_LoreleisRoom_Text_Defeat
 	return
 
 PokemonLeague_LoreleisRoom_EventScript_Rematch::
+	setvar VAR_0x8004, TRAINER_ELITE_FOUR_LORELEI_2
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_no_intro TRAINER_ELITE_FOUR_LORELEI_2, PokemonLeague_LoreleisRoom_Text_Defeat
 	return
 

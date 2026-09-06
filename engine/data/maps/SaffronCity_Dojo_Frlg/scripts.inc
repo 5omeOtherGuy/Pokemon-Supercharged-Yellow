@@ -18,20 +18,18 @@ SaffronCity_Dojo_EventScript_TriggerMasterBattleRight::
 	end
 
 SaffronCity_Dojo_EventScript_HitmonleeBall::
-	lock
-	faceplayer
-	goto_if_set FLAG_GOT_HITMON_FROM_DOJO, SaffronCity_Dojo_EventScript_AlreadyGotHitmon
-	showmonpic SPECIES_HITMONLEE, 10, 3
-	setvar VAR_TEMP_1, SPECIES_HITMONLEE
-	applymovement LOCALID_KARATE_MASTER, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	textcolor NPC_TEXT_COLOR_MALE
-	msgbox SaffronCity_Dojo_Text_YouWantHitmonlee, MSGBOX_YESNO
-	call EventScript_RestorePrevTextColor
-	goto_if_eq VAR_RESULT, YES, SaffronCity_Dojo_EventScript_GiveHitmon
-	hidemonpic
-	release
-	end
+	lockall
+	goto_if_set FLAG_SC_GOT_HITMONLEE, ScY_End
+	goto_if_not_defeated TRAINER_BLACK_BELT_KOICHI, ScY_End
+	msgbox ScY_Text_Adoption, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, ScY_End
+	givemon SPECIES_HITMONLEE, 30
+	goto_if_eq VAR_RESULT, 2, ScY_GiftFull
+	setflag FLAG_SC_GOT_HITMONLEE
+	setflag FLAG_GOT_HITMON_FROM_DOJO
+	removeobject VAR_LAST_TALKED
+	msgbox ScY_Text_Adopted
+	goto ScY_End
 
 SaffronCity_Dojo_EventScript_AlreadyGotHitmon::
 	msgbox SaffronCity_Dojo_Text_BetterNotGetGreedy
@@ -39,20 +37,18 @@ SaffronCity_Dojo_EventScript_AlreadyGotHitmon::
 	end
 
 SaffronCity_Dojo_EventScript_HitmonchanBall::
-	lock
-	faceplayer
-	goto_if_set FLAG_GOT_HITMON_FROM_DOJO, SaffronCity_Dojo_EventScript_AlreadyGotHitmon
-	showmonpic SPECIES_HITMONCHAN, 10, 3
-	setvar VAR_TEMP_1, SPECIES_HITMONCHAN
-	applymovement LOCALID_KARATE_MASTER, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	textcolor NPC_TEXT_COLOR_MALE
-	msgbox SaffronCity_Dojo_Text_YouWantHitmonchan, MSGBOX_YESNO
-	call EventScript_RestorePrevTextColor
-	goto_if_eq VAR_RESULT, YES, SaffronCity_Dojo_EventScript_GiveHitmon
-	hidemonpic
-	release
-	end
+	lockall
+	goto_if_set FLAG_SC_GOT_HITMONCHAN, ScY_End
+	goto_if_not_defeated TRAINER_BLACK_BELT_KOICHI, ScY_End
+	msgbox ScY_Text_Adoption, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, ScY_End
+	givemon SPECIES_HITMONCHAN, 30
+	goto_if_eq VAR_RESULT, 2, ScY_GiftFull
+	setflag FLAG_SC_GOT_HITMONCHAN
+	setflag FLAG_GOT_HITMON_FROM_DOJO
+	removeobject VAR_LAST_TALKED
+	msgbox ScY_Text_Adopted
+	goto ScY_End
 
 SaffronCity_Dojo_EventScript_GiveHitmon::
 	hidemonpic

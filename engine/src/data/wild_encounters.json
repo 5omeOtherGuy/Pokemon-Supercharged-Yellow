@@ -15278,9 +15278,9 @@
                 "species": "SPECIES_PINSIR"
               },
               {
-                "min_level": 27,
-                "max_level": 27,
-                "species": "SPECIES_TANGELA"
+                "min_level": 28,
+                "max_level": 28,
+                "species": "SPECIES_KANGASKHAN"
               }
             ]
           },
@@ -29216,9 +29216,9 @@
                 "species": "SPECIES_KADABRA"
               },
               {
-                "min_level": 27,
-                "max_level": 27,
-                "species": "SPECIES_KADABRA"
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_VULPIX"
               }
             ]
           }
@@ -29285,8 +29285,8 @@
                 "species": "SPECIES_SANDSHREW"
               },
               {
-                "min_level": 18,
-                "max_level": 18,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_VULPIX"
               }
             ]

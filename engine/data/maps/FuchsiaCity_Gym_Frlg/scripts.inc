@@ -3,6 +3,13 @@ FuchsiaCity_Gym_Frlg_MapScripts::
 
 FuchsiaCity_Gym_EventScript_Koga::
 	famechecker FAMECHECKER_KOGA, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	goto_if_unset FLAG_BADGE04_GET, ScY_GymOrder
+	goto_if_defeated TRAINER_LEADER_KOGA, ScY_Rematch_KOGA_RewardCheck
+	lockall
+	setvar VAR_0x8004, TRAINER_LEADER_KOGA
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_single TRAINER_LEADER_KOGA, FuchsiaCity_Gym_Text_KogaIntro, FuchsiaCity_Gym_Text_KogaDefeat, FuchsiaCity_Gym_EventScript_DefeatedKoga, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM06_FROM_KOGA, FuchsiaCity_Gym_EventScript_GiveTM06
 	msgbox FuchsiaCity_Gym_Text_KogaPostBattle
@@ -117,7 +124,7 @@ FuchsiaCity_Gym_Text_KogaPostBattle::
 
 FuchsiaCity_Gym_Text_KogaExplainSoulBadge::
 	.string "Now that you have the SOULBADGE,\n"
-	.string "the DEFENSE of your POKéMON rises.\p"
+	.string "you have mastered another GYM.\p"
 	.string "It also lets you SURF outside of\n"
 	.string "battle.\p"
 	.string "Ah!\n"
@@ -245,3 +252,49 @@ FuchsiaCity_Gym_Text_GymStatuePlayerWon::
 	.string "WINNING TRAINERS:\n"
 	.string "{RIVAL}, {PLAYER}$"
 
+
+ScY_Rematch_KOGA::
+	lockall
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_KOGA_Choose
+	goto_if_set FLAG_BADGE07_GET, ScY_Rematch_KOGA_Choose
+	goto ScY_RematchLater
+ScY_Rematch_KOGA_Choose::
+	goto_if_unset FLAG_SC_KOGA_REMATCH_1, ScY_Rematch_KOGA_1
+	goto_if_unset FLAG_SC_KOGA_REMATCH_2, ScY_Rematch_KOGA_Choose2
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_KOGA_3
+	goto ScY_Rematch_KOGA_Choose2
+ScY_Rematch_KOGA_Choose2::
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_KOGA_2
+	goto_if_set FLAG_BADGE08_GET, ScY_Rematch_KOGA_2
+	goto ScY_Rematch_KOGA_1
+
+ScY_Rematch_KOGA_1::
+	setvar VAR_0x8004, TRAINER_SC_KOGA_REMATCH_1
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_KOGA_REMATCH_1, ScY_RematchDefeat
+	setflag FLAG_SC_KOGA_REMATCH_1
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+ScY_Rematch_KOGA_2::
+	setvar VAR_0x8004, TRAINER_SC_KOGA_REMATCH_2
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_KOGA_REMATCH_2, ScY_RematchDefeat
+	setflag FLAG_SC_KOGA_REMATCH_2
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+ScY_Rematch_KOGA_3::
+	setvar VAR_0x8004, TRAINER_SC_KOGA_REMATCH_3
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_KOGA_REMATCH_3, ScY_RematchDefeat
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+
+ScY_Rematch_KOGA_RewardCheck::
+	goto_if_unset FLAG_GOT_TM06_FROM_KOGA, FuchsiaCity_Gym_EventScript_GiveTM06
+	goto ScY_Rematch_KOGA

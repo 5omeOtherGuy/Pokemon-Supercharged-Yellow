@@ -69,10 +69,18 @@ PokemonLeague_AgathasRoom_EventScript_RematchIntro::
 	return
 
 PokemonLeague_AgathasRoom_EventScript_Battle::
+	setvar VAR_0x8004, TRAINER_ELITE_FOUR_AGATHA
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_no_intro TRAINER_ELITE_FOUR_AGATHA, PokemonLeague_AgathasRoom_Text_Defeat
 	return
 
 PokemonLeague_AgathasRoom_EventScript_Rematch::
+	setvar VAR_0x8004, TRAINER_ELITE_FOUR_AGATHA_2
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_no_intro TRAINER_ELITE_FOUR_AGATHA_2, PokemonLeague_AgathasRoom_Text_Defeat
 	return
 

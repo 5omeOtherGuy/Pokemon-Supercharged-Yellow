@@ -3,6 +3,13 @@ ViridianCity_Gym_Frlg_MapScripts::
 
 ViridianCity_Gym_EventScript_Giovanni::
 	famechecker FAMECHECKER_GIOVANNI, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	goto_if_unset FLAG_BADGE07_GET, ScY_GymOrder
+	goto_if_defeated TRAINER_LEADER_GIOVANNI, ScY_Rematch_GIOVANNI_RewardCheck
+	lockall
+	setvar VAR_0x8004, TRAINER_LEADER_GIOVANNI
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_single TRAINER_LEADER_GIOVANNI, ViridianCity_Gym_Text_GiovanniIntro, ViridianCity_Gym_Text_GiovanniDefeat, ViridianCity_Gym_EventScript_DefeatedGiovanni, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM26_FROM_GIOVANNI, ViridianCity_Gym_EventScript_GiveTM26
 	msgbox ViridianCity_Gym_Text_GiovanniPostBattle
@@ -275,3 +282,48 @@ ViridianCity_Gym_Text_GymStatuePlayerWon::
 	.string "WINNING TRAINERS:\n"
 	.string "{RIVAL}, {PLAYER}$"
 
+
+ScY_Rematch_GIOVANNI::
+	lockall
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_GIOVANNI_Choose
+	goto ScY_RematchLater
+ScY_Rematch_GIOVANNI_Choose::
+	goto_if_unset FLAG_SC_GIOVANNI_REMATCH_1, ScY_Rematch_GIOVANNI_1
+	goto_if_unset FLAG_SC_GIOVANNI_REMATCH_2, ScY_Rematch_GIOVANNI_Choose2
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_GIOVANNI_3
+	goto ScY_Rematch_GIOVANNI_Choose2
+ScY_Rematch_GIOVANNI_Choose2::
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_GIOVANNI_2
+	goto_if_set FLAG_BADGE08_GET, ScY_Rematch_GIOVANNI_2
+	goto ScY_Rematch_GIOVANNI_1
+
+ScY_Rematch_GIOVANNI_1::
+	setvar VAR_0x8004, TRAINER_SC_GIOVANNI_REMATCH_1
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_GIOVANNI_REMATCH_1, ScY_RematchDefeat
+	setflag FLAG_SC_GIOVANNI_REMATCH_1
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+ScY_Rematch_GIOVANNI_2::
+	setvar VAR_0x8004, TRAINER_SC_GIOVANNI_REMATCH_2
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_GIOVANNI_REMATCH_2, ScY_RematchDefeat
+	setflag FLAG_SC_GIOVANNI_REMATCH_2
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+ScY_Rematch_GIOVANNI_3::
+	setvar VAR_0x8004, TRAINER_SC_GIOVANNI_REMATCH_3
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_GIOVANNI_REMATCH_3, ScY_RematchDefeat
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+
+ScY_Rematch_GIOVANNI_RewardCheck::
+	goto_if_unset FLAG_GOT_TM26_FROM_GIOVANNI, ViridianCity_Gym_EventScript_GiveTM26
+	goto ScY_Rematch_GIOVANNI

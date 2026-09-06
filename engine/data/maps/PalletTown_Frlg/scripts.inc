@@ -197,6 +197,7 @@ PalletTown_EventScript_OakTrigger::
 	call_if_eq VAR_TEMP_1, 0, PalletTown_EventScript_OakEnterLeft
 	call_if_eq VAR_TEMP_1, 1, PalletTown_EventScript_OakEnterRight
 	delay 30
+	call ScY_OakCapture
 	msgbox PalletTown_Text_OakGrassUnsafeNeedMon
 	closemessage
 	delay 30
@@ -552,3 +553,60 @@ ScY_Text_Adoption::
 	.string "Will you give my POKéMON a home?$"
 ScY_Text_Adopted::
 	.string "Take good care of your new friend!$"
+
+ScY_End::
+	releaseall
+	end
+ScY_Text_NoRoom::
+	.string "Your party and BOXES are full.\nMake room, then come back.$"
+ScY_Text_AlreadyGift::
+	.string "I hope your friend is doing well.$"
+ScY_Text_NeedThunder::
+	.string "JENNY: Earn the THUNDERBADGE to\nshow you're ready for SQUIRTLE.$"
+
+ScY_RocketBlastOff::
+	.string "JESSIE and JAMES: We're blasting\noff again!$"
+
+ScY_GiftFull::
+	msgbox ScY_Text_NoRoom
+	goto ScY_End
+
+ScY_OakCapture::
+	playmoncry SPECIES_PIKACHU, CRY_MODE_ENCOUNTER
+	showmonpic SPECIES_PIKACHU, 10, 3
+	msgbox ScY_OakWildPikachu
+	waitmoncry
+	playse SE_BALL_THROW
+	delay 30
+	hidemonpic
+	playse SE_BALL_BOUNCE_1
+	delay 20
+	playfanfare MUS_RG_OBTAIN_KEY_ITEM
+	msgbox ScY_OakCaughtPikachu
+	waitfanfare
+	setflag FLAG_SC_OAK_CAPTURE_COMPLETE
+	return
+ScY_OakWildPikachu::
+	.string "OAK: A wild PIKACHU! Stand back!\nI'll catch it with this POKé BALL.$"
+ScY_OakCaughtPikachu::
+	.string "OAK: Got it! That was close!\nCome with me to my laboratory.$"
+
+ScY_DeclineBoss::
+	clearflag FLAG_TEMP_3
+	clearflag FLAG_TEMP_5
+	releaseall
+	end
+ScY_GymOrder::
+	lockall
+	msgbox ScY_GymOrderText
+	goto ScY_End
+ScY_GymOrderText::
+	.string "The LEAGUE challenge follows this\norder: BROCK, MISTY, LT. SURGE,\pERIKA, KOGA, SABRINA, BLAINE,\nand GIOVANNI. Earn the prior BADGE.$"
+ScY_RematchLater::
+	lockall
+	msgbox ScY_RematchLaterText
+	goto ScY_End
+ScY_RematchLaterText::
+	.string "Our rematch is ready once you earn\ntwo more BADGES, or become CHAMPION.$"
+ScY_RematchDefeat::
+	.string "Good training! Come back for\nanother match whenever you're ready.$"

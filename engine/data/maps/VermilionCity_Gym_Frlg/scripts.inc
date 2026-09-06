@@ -203,6 +203,13 @@ VermilionCity_Gym_EventScript_SetBeamsOn::
 
 VermilionCity_Gym_EventScript_LtSurge::
 	famechecker FAMECHECKER_LTSURGE, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	goto_if_unset FLAG_BADGE02_GET, ScY_GymOrder
+	goto_if_defeated TRAINER_LEADER_LT_SURGE, ScY_Rematch_LT_SURGE_RewardCheck
+	lockall
+	setvar VAR_0x8004, TRAINER_LEADER_LT_SURGE
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_single TRAINER_LEADER_LT_SURGE, VermilionCity_Gym_Text_LtSurgeIntro, VermilionCity_Gym_Text_LtSurgeDefeat, VermilionCity_Gym_EventScript_DefeatedLtSurge, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM34_FROM_SURGE, VermilionCity_Gym_EventScript_GiveTM34
 	msgbox VermilionCity_Gym_Text_LtSurgePostBattle
@@ -303,8 +310,8 @@ VermilionCity_Gym_Text_LtSurgePostBattle::
 	.string "type POKéMON!$"
 
 VermilionCity_Gym_Text_ExplainThunderBadgeTakeThis::
-	.string "The THUNDERBADGE cranks up your\n"
-	.string "POKéMON's SPEED!\p"
+	.string "The THUNDERBADGE proves your\n"
+	.string "skill with your POKéMON!\p"
 	.string "It also lets your POKéMON FLY\n"
 	.string "lightning-quick anytime, kid!\p"
 	.string "You're special, kid!\n"
@@ -419,3 +426,49 @@ VermilionCity_Gym_Text_OnlyTrashLocksWereReset::
 	.string "Hey!\n"
 	.string "The electric locks were reset!$"
 
+
+ScY_Rematch_LT_SURGE::
+	lockall
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_LT_SURGE_Choose
+	goto_if_set FLAG_BADGE05_GET, ScY_Rematch_LT_SURGE_Choose
+	goto ScY_RematchLater
+ScY_Rematch_LT_SURGE_Choose::
+	goto_if_unset FLAG_SC_LT_SURGE_REMATCH_1, ScY_Rematch_LT_SURGE_1
+	goto_if_unset FLAG_SC_LT_SURGE_REMATCH_2, ScY_Rematch_LT_SURGE_Choose2
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_LT_SURGE_3
+	goto ScY_Rematch_LT_SURGE_Choose2
+ScY_Rematch_LT_SURGE_Choose2::
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_LT_SURGE_2
+	goto_if_set FLAG_BADGE07_GET, ScY_Rematch_LT_SURGE_2
+	goto ScY_Rematch_LT_SURGE_1
+
+ScY_Rematch_LT_SURGE_1::
+	setvar VAR_0x8004, TRAINER_SC_LT_SURGE_REMATCH_1
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_LT_SURGE_REMATCH_1, ScY_RematchDefeat
+	setflag FLAG_SC_LT_SURGE_REMATCH_1
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+ScY_Rematch_LT_SURGE_2::
+	setvar VAR_0x8004, TRAINER_SC_LT_SURGE_REMATCH_2
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_LT_SURGE_REMATCH_2, ScY_RematchDefeat
+	setflag FLAG_SC_LT_SURGE_REMATCH_2
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+ScY_Rematch_LT_SURGE_3::
+	setvar VAR_0x8004, TRAINER_SC_LT_SURGE_REMATCH_3
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_LT_SURGE_REMATCH_3, ScY_RematchDefeat
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+
+ScY_Rematch_LT_SURGE_RewardCheck::
+	goto_if_unset FLAG_GOT_TM34_FROM_SURGE, VermilionCity_Gym_EventScript_GiveTM34
+	goto ScY_Rematch_LT_SURGE

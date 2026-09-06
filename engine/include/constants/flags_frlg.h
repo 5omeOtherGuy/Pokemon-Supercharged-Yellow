@@ -753,6 +753,22 @@
 #define FLAG_OAKS_RATING_IS_VIA_PC                       0x2FF
 
 // Unused?
+// Supercharged Yellow content: formerly unused 0x300-0x30D.
+#define FLAG_SC_GOT_BULBASAUR 0x300
+#define FLAG_SC_GOT_CHARMANDER 0x301
+#define FLAG_SC_GOT_SQUIRTLE 0x302
+#define FLAG_SC_DUO_1 0x303
+#define FLAG_SC_DUO_2 0x304
+#define FLAG_SC_DUO_3 0x305
+#define FLAG_SC_DUO_4 0x306
+#define FLAG_SC_CAUGHT_MEW 0x307
+#define FLAG_SC_CAUGHT_MOLTRES 0x308
+#define FLAG_SC_GOT_SECOND_FOSSIL 0x309
+#define FLAG_SC_GOT_HITMONLEE 0x30A
+#define FLAG_SC_GOT_HITMONCHAN 0x30B
+#define FLAG_SC_HIDE_OPENING_PIKACHU 0x30C
+#define FLAG_SC_OAK_CAPTURE_COMPLETE 0x30D
+
 #define FLAG_0x300               0x300
 #define FLAG_0x301               0x301
 #define FLAG_0x302               0x302
@@ -769,6 +785,22 @@
 #define FLAG_0x30D               0x30D
 #define FLAG_0x30E               0x30E
 #define FLAG_0x30F               0x30F
+#define FLAG_SC_BROCK_REMATCH_1 0x310
+#define FLAG_SC_BROCK_REMATCH_2 0x311
+#define FLAG_SC_MISTY_REMATCH_1 0x312
+#define FLAG_SC_MISTY_REMATCH_2 0x313
+#define FLAG_SC_LT_SURGE_REMATCH_1 0x314
+#define FLAG_SC_LT_SURGE_REMATCH_2 0x315
+#define FLAG_SC_ERIKA_REMATCH_1 0x316
+#define FLAG_SC_ERIKA_REMATCH_2 0x317
+#define FLAG_SC_KOGA_REMATCH_1 0x318
+#define FLAG_SC_KOGA_REMATCH_2 0x319
+#define FLAG_SC_SABRINA_REMATCH_1 0x31A
+#define FLAG_SC_SABRINA_REMATCH_2 0x31B
+#define FLAG_SC_BLAINE_REMATCH_1 0x31C
+#define FLAG_SC_BLAINE_REMATCH_2 0x31D
+#define FLAG_SC_GIOVANNI_REMATCH_1 0x31E
+#define FLAG_SC_GIOVANNI_REMATCH_2 0x31F
 #define FLAG_0x310               0x310
 #define FLAG_0x311               0x311
 #define FLAG_0x312               0x312

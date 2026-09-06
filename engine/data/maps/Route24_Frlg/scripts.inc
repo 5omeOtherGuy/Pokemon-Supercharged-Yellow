@@ -196,3 +196,23 @@ Route24_Text_CaleDefeat::
 
 Route24_Text_CalePostBattle::
 	.string "I did my best. I have no regrets!$"
+
+ScY_Charmander::
+	lock
+	faceplayer
+	goto_if_set FLAG_SC_GOT_CHARMANDER, ScY_CharmanderDone
+	msgbox ScY_CharmanderText, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, ScY_End
+	givemon SPECIES_CHARMANDER, 10
+	goto_if_eq VAR_RESULT, 2, ScY_CharmanderFull
+	setflag FLAG_SC_GOT_CHARMANDER
+	msgbox ScY_Text_Adopted
+	goto ScY_End
+ScY_CharmanderFull::
+	msgbox ScY_Text_NoRoom
+	goto ScY_End
+ScY_CharmanderDone::
+	msgbox ScY_Text_AlreadyGift
+	goto ScY_End
+ScY_CharmanderText::
+	.string "DAMIAN: I'm not good at raising\nPOKéMON. This CHARMANDER deserves\la TRAINER who will help it grow.\pWill you take it with you?$"

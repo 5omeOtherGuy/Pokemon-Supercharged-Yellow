@@ -56,6 +56,7 @@ SilphCo_11F_EventScript_GiovanniTriggerRight::
 	end
 
 SilphCo_11F_EventScript_BattleGiovanni::
+	goto_if_unset FLAG_SC_DUO_4, ScY_RocketDuo4
 	textcolor NPC_TEXT_COLOR_MALE
 	applymovement LOCALID_SILPH_CO_GIOVANNI, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
@@ -65,6 +66,10 @@ SilphCo_11F_EventScript_BattleGiovanni::
 	call_if_eq VAR_TEMP_1, 0, SilphCo_11F_EventScript_GiovanniApproachLeft
 	call_if_eq VAR_TEMP_1, 1, SilphCo_11F_EventScript_GiovanniApproachRight
 	setvar VAR_LAST_TALKED, LOCALID_SILPH_CO_GIOVANNI
+	setvar VAR_0x8004, TRAINER_BOSS_GIOVANNI_2
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_no_intro TRAINER_BOSS_GIOVANNI_2, SilphCo_11F_Text_GiovanniDefeat
 	msgbox SilphCo_11F_Text_GiovanniPostBattle
 	closemessage
@@ -226,3 +231,25 @@ SilphCo_11F_Text_FloorSign::
 	.string "SILPH CO. HEAD OFFICE\n"
 	.string "11F$"
 
+
+ScY_RocketDuo4::
+	lockall
+	goto_if_set FLAG_SC_DUO_4, ScY_End
+	msgbox ScY_RocketDuo4Intro
+	setvar VAR_0x8004, TRAINER_SC_ROCKET_DUO_4
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_End
+	trainerbattle_no_intro TRAINER_SC_ROCKET_DUO_4, ScY_RocketDuo4Defeat
+	setflag FLAG_SC_DUO_4
+	msgbox ScY_RocketBlastOff
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_SC_SILPHCO_11F_FRLG_7
+	removeobject LOCALID_SC_SILPHCO_11F_FRLG_8
+	fadescreen FADE_FROM_BLACK
+	goto ScY_End
+ScY_RocketDuo4Intro::
+	.string "JESSIE: Prepare for trouble!\nJAMES: And make it double!\pMEOWTH: That POKéMON belongs to us!$"
+ScY_RocketDuo4Defeat::
+	.string "Our perfect plan… ruined again!$"

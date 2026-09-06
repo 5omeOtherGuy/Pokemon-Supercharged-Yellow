@@ -3,6 +3,13 @@ CeladonCity_Gym_Frlg_MapScripts::
 
 CeladonCity_Gym_EventScript_Erika::
 	famechecker FAMECHECKER_ERIKA, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	goto_if_unset FLAG_BADGE03_GET, ScY_GymOrder
+	goto_if_defeated TRAINER_LEADER_ERIKA, ScY_Rematch_ERIKA_RewardCheck
+	lockall
+	setvar VAR_0x8004, TRAINER_LEADER_ERIKA
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_single TRAINER_LEADER_ERIKA, CeladonCity_Gym_Text_ErikaIntro, CeladonCity_Gym_Text_ErikaDefeat, CeladonCity_Gym_EventScript_DefeatedErika, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM19_FROM_ERIKA, CeladonCity_Gym_EventScript_GiveTM19
 	famechecker FAMECHECKER_ERIKA, 4
@@ -235,3 +242,49 @@ CeladonCity_Gym_Text_GymStatuePlayerWon::
 	.string "WINNING TRAINERS:\n"
 	.string "{RIVAL}, {PLAYER}$"
 
+
+ScY_Rematch_ERIKA::
+	lockall
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_ERIKA_Choose
+	goto_if_set FLAG_BADGE06_GET, ScY_Rematch_ERIKA_Choose
+	goto ScY_RematchLater
+ScY_Rematch_ERIKA_Choose::
+	goto_if_unset FLAG_SC_ERIKA_REMATCH_1, ScY_Rematch_ERIKA_1
+	goto_if_unset FLAG_SC_ERIKA_REMATCH_2, ScY_Rematch_ERIKA_Choose2
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_ERIKA_3
+	goto ScY_Rematch_ERIKA_Choose2
+ScY_Rematch_ERIKA_Choose2::
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_ERIKA_2
+	goto_if_set FLAG_BADGE08_GET, ScY_Rematch_ERIKA_2
+	goto ScY_Rematch_ERIKA_1
+
+ScY_Rematch_ERIKA_1::
+	setvar VAR_0x8004, TRAINER_SC_ERIKA_REMATCH_1
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_ERIKA_REMATCH_1, ScY_RematchDefeat
+	setflag FLAG_SC_ERIKA_REMATCH_1
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+ScY_Rematch_ERIKA_2::
+	setvar VAR_0x8004, TRAINER_SC_ERIKA_REMATCH_2
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_ERIKA_REMATCH_2, ScY_RematchDefeat
+	setflag FLAG_SC_ERIKA_REMATCH_2
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+ScY_Rematch_ERIKA_3::
+	setvar VAR_0x8004, TRAINER_SC_ERIKA_REMATCH_3
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_ERIKA_REMATCH_3, ScY_RematchDefeat
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+
+ScY_Rematch_ERIKA_RewardCheck::
+	goto_if_unset FLAG_GOT_TM19_FROM_ERIKA, CeladonCity_Gym_EventScript_GiveTM19
+	goto ScY_Rematch_ERIKA

@@ -46,4 +46,10 @@ class ContentTransactionTests(unittest.TestCase):
                 vm.run(script)
                 self.assertEqual(flag in vm.flags,outcome=='B_OUTCOME_CAUGHT',(script,outcome))
 
+    def test_cinnabar_visit_unlocks_complementary_fossil_without_sevii(self):
+        vm=ScriptVM(ENGINE);vm.run('CinnabarIsland_OnTransition')
+        self.assertIn('FLAG_WORLD_MAP_CINNABAR_ISLAND',vm.flags)
+        self.assertNotIn('FLAG_WORLD_MAP_ONE_ISLAND',vm.flags)
+        self.assertEqual(vm.vars['VAR_MAP_SCENE_CINNABAR_ISLAND'],2)
+
 if __name__=='__main__':unittest.main()

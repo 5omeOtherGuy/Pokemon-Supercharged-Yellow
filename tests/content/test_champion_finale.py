@@ -1,9 +1,7 @@
 """Source-backed League regression; no simulated battle or human balance claim."""
-import json
 import re
 import sys
 import unittest
-from pathlib import Path
 from test_campaign import ENGINE, ROOT, parties, normalized
 from script_vm import ScriptVM
 
@@ -91,6 +89,37 @@ class FinaleTests(unittest.TestCase):
                 self.assertFalse(moves&forbidden,moves&forbidden)
                 self.assertIn('Protect',moves)
                 self.assertTrue(moves&{'Icy Wind','Tailwind','Thunder Wave','Glare'})
+
+    def test_counterplay_moves_exist_by_league_cap_on_ordinary_families(self):
+        # These are the level-up tools cited in the balance notes, not assumed TMs.
+        tools={'RAICHU':('THUNDERBOLT','LIGHT_SCREEN'), 'BLASTOISE':('ICY_WIND','PROTECT'),
+               'CHARIZARD':('FLAMETHROWER','AIR_SLASH','TAILWIND'),
+               'VENUSAUR':('SEED_BOMB','SUNNY_DAY'), 'SNORLAX':('CRUNCH','HIGH_HORSEPOWER'),
+               'PIDGEOT':('TAILWIND','ROOST'), 'NIDOKING':('EARTH_POWER',),
+               'CLEFABLE':('MOONBLAST','MISTY_TERRAIN'),
+               'BUTTERFREE':('BUG_BUZZ','TAILWIND'), 'ALAKAZAM':('PSYCHIC',),
+               'MACHAMP':('KNOCK_OFF',), 'LAPRAS':('ICE_BEAM','FREEZE_DRY')}
+        for species,moves in tools.items():
+            learned={move for level,move in self.roster[species]['learnset'] if 0<level<=68}
+            for move in moves:
+                self.assertIn(self.moves['MOVE_'+move],learned,(species,move))
+
+    def test_elite_four_first_and_rematch_dispatch_use_same_disclosed_id(self):
+        for who in ELITE:
+            title=who.title()
+            for rematch in (False,True):
+                vm=ScriptVM(ENGINE)
+                if rematch: vm.flags.add('FLAG_IS_CHAMPION')
+                for code in vm.code.values():
+                    if 'special ScShowBossBriefing' in code:
+                        code.insert(code.index('special ScShowBossBriefing'),
+                                    'copyvar VAR_SC_TEST_SCOUTED_ID, VAR_0x8004')
+                for door in ('OpenDoor','OpenDoorLance'):
+                    vm.code['PokemonLeague_EventScript_'+door]=['return']  # animation boundary
+                vm.run('PokemonLeague_'+title+'sRoom_EventScript_'+title)
+                expected='TRAINER_ELITE_FOUR_'+who+('_2' if rematch else '')
+                self.assertEqual(vm.battles,[expected])
+                self.assertEqual(vm.vars['VAR_SC_TEST_SCOUTED_ID'],expected)
 
     def test_finales_and_rematches_remain_declineable_without_battle(self):
         for branch in BRANCHES:

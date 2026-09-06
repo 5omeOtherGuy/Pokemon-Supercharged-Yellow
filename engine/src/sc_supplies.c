@@ -17,6 +17,24 @@ static EWRAM_DATA struct ScSupplyBattle sSupplyBattle;
 static EWRAM_DATA bool32 sSuppliesLocked;
 static EWRAM_DATA u16 sConsumedOriginal[MAX_BATTLE_TRAINERS][PARTY_SIZE];
 
+#if TESTING
+static EWRAM_DATA bool32 sEnableForTests;
+void ScSuppliesEnableForTests(bool32 enabled)
+{
+    sEnableForTests = enabled;
+    ScSuppliesEndBattle();
+}
+#endif
+
+static bool32 CampaignEnabled(void)
+{
+#if TESTING
+    return P_SC_KANTO_RULES || sEnableForTests;
+#else
+    return P_SC_KANTO_RULES;
+#endif
+}
+
 unsigned ScSuppliesCategory(enum Item item)
 {
     const u8 *effect = GetItemEffect(item);
@@ -102,7 +120,7 @@ bool32 ScSuppliesIsMajorTrainer(u16 id)
 
 bool32 ScSuppliesApplies(void)
 {
-    return P_SC_KANTO_RULES && (gBattleTypeFlags & BATTLE_TYPE_TRAINER);
+    return CampaignEnabled() && (gBattleTypeFlags & BATTLE_TYPE_TRAINER);
 }
 
 bool32 ScSuppliesBeginBattle(void)
@@ -227,9 +245,9 @@ bool32 ScSuppliesCommit(enum BattlerId battler, enum Item item)
 
 u32 ScSuppliesHealAmount(enum BattlerId battler, u32 amount)
 {
-    if (!P_SC_KANTO_RULES || battler >= MAX_BATTLERS_COUNT) return amount;
+    if (!CampaignEnabled() || battler >= MAX_BATTLERS_COUNT) return amount;
     u32 passives = 0;
-    u32 trainer = GetBattlerTrainer(battler);
+    u32 trainer = gMain.inBattle ? GetBattlerTrainer(battler) : B_TRAINER_PLAYER;
     if (trainer == B_TRAINER_PLAYER) passives = gSaveBlock3Ptr->sc.activePassives;
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         passives = ScGetNpcTrainerPassives(trainer == B_TRAINER_OPPONENT_B ? TRAINER_BATTLE_PARAM.opponentB : TRAINER_BATTLE_PARAM.opponentA);
@@ -238,13 +256,13 @@ u32 ScSuppliesHealAmount(enum BattlerId battler, u32 amount)
 
 void ScSuppliesRecordHeldConsumption(u32 trainer, u32 slot, enum Item item)
 {
-    if (P_SC_KANTO_RULES && trainer < MAX_BATTLE_TRAINERS && slot < PARTY_SIZE && item != ITEM_NONE
+    if (CampaignEnabled() && trainer < MAX_BATTLE_TRAINERS && slot < PARTY_SIZE && item != ITEM_NONE
         && gBattleStruct->itemLost[trainer][slot].originalItem == item)
         sConsumedOriginal[trainer][slot] = item;
 }
 
 bool32 ScSuppliesWasHeldConsumed(u32 trainer, u32 slot, enum Item item)
 {
-    return P_SC_KANTO_RULES && trainer < MAX_BATTLE_TRAINERS && slot < PARTY_SIZE && item != ITEM_NONE
+    return CampaignEnabled() && trainer < MAX_BATTLE_TRAINERS && slot < PARTY_SIZE && item != ITEM_NONE
         && sConsumedOriginal[trainer][slot] == item;
 }

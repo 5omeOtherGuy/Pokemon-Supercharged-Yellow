@@ -17,7 +17,7 @@ AI_SINGLE_BATTLE_TEST("SC AI: pending commands, exact player stats and battle RN
     } THEN {
         struct ScAiObservation first, second;
         struct BattlePokemon saved = gBattleMons[B_BATTLER_0];
-        u32 savedRng = gRngValue;
+        rng_value_t savedRng = gRngValue;
         enum Move savedMove = gChosenMoveByBattler[B_BATTLER_0];
         u8 savedAction = gChosenActionByBattler[B_BATTLER_0];
         u8 savedTarget = gBattleStruct->moveTarget[B_BATTLER_0];
@@ -37,7 +37,7 @@ AI_SINGLE_BATTLE_TEST("SC AI: pending commands, exact player stats and battle RN
         gChosenActionByBattler[B_BATTLER_0] = B_ACTION_SWITCH;
         gBattleStruct->moveTarget[B_BATTLER_0] = B_BATTLER_3;
         gBattleStruct->monToSwitchIntoId[B_BATTLER_0] = 5;
-        gRngValue ^= 0xdeadbeef;
+        memset(&gRngValue, 0xa5, sizeof(gRngValue));
         struct BattlePokemon mutated = gBattleMons[B_BATTLER_0];
         ScAiObserve(&second);
         EXPECT_EQ(memcmp(&first, &second, sizeof(first)), 0);

@@ -15,6 +15,7 @@ struct ScPublicEffects
     u8 endTurnHealFraction; /* denominator (e.g. 32); zero disables */
 };
 
+void ScGetPublicSwitchInEffects(u32 battler, u32 partyIndex, struct ScPublicEffects *out);
 void ScGetPublicBattlerEffects(u32 battler, struct ScPublicEffects *out);
 
 #endif

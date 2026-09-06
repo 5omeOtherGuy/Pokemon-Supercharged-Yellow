@@ -2,6 +2,7 @@
 from pathlib import Path
 import subprocess
 import tempfile
+import re
 import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -94,7 +95,60 @@ int main(void){
 }
 '''
 
+def extract_function(path,name):
+    source=(ENGINE/path).read_text()
+    start=re.search(r'^(?:static )?[^\n;]+\b'+name+r'\([^;]*?\)\n\{',source,re.M).start()
+    opening=source.index('{',start);depth=1;end=opening+1
+    while depth:
+        depth+=(source[end]=='{')-(source[end]=='}');end+=1
+    return source[start:end]
+
+ENTRY_FIXTURE = r'''
+typedef unsigned char bool8;
+#define PLAYER_AVATAR_FLAG_SURFING 1
+#define SCREFF_V1 1
+#define B_CATCH_SWAP_CHECK_HMS 1
+#define MAX_MON_MOVES 4
+u32 surfing;
+u32 gSpecialVar_Result,gSpecialVar_0x8004;
+struct ScriptContext {u8 bytes[2];u8 pos;};
+u8 ScriptReadByte(struct ScriptContext *ctx){return ctx->bytes[ctx->pos++];}
+void Script_RequestEffects(u32 flags){}
+bool32 TestPlayerAvatarFlags(u32 flags){return surfing;}
+bool32 IsFieldMoveUnlocked(enum FieldMove field){return badges==31;}
+bool32 IsMoveHM(u32 move){return 0;}
+struct Pokemon caught;
+u8 GetCatchingBattler(void){return 1;}
+struct Pokemon *GetBattlerMon(u32 battler){return &caught;}
+'''
+ENTRY_CASES = r'''
+int main(void){
+    badges=hms=31;compatibility[SPECIES_LAPRAS]=1u<<FIELD_MOVE_SURF;
+    gParties[0][0]=(struct Pokemon){{SPECIES_LAPRAS,0},0};
+    assert(PartyHasMonWithSurf());
+    surfing=1;assert(!PartyHasMonWithSurf());surfing=0;
+    struct ScriptContext ctx={{FIELD_MOVE_SURF,0},0};
+    ScrCmd_checkfieldmove(&ctx);assert(gSpecialVar_Result==0&&gSpecialVar_0x8004==SPECIES_LAPRAS);
+    hms=0;ctx.pos=0;ScrCmd_checkfieldmove(&ctx);assert(gSpecialVar_Result==PARTY_SIZE);assert(!PartyHasMonWithSurf());hms=31;
+    u8 slot=0;caught=(struct Pokemon){{SPECIES_PIDGEY,0},0};assert(DoesSelectedMonKnowHM(&slot));
+    caught=(struct Pokemon){{SPECIES_LAPRAS,0},0};assert(!DoesSelectedMonKnowHM(&slot));
+    return 0;
+}
+'''
+
 class FieldAccessTests(unittest.TestCase):
+    def test_actual_surf_script_and_catch_swap_entries(self):
+        policy='\n'.join(line for line in (ENGINE/'src/sc_field.c').read_text().splitlines() if not line.startswith('#include'))
+        source=FIXTURE+ENTRY_FIXTURE+policy
+        for path,name in [('src/field_player_avatar.c','PartyHasMonWithSurf'),('src/scrcmd.c','ScrCmd_checkfieldmove'),('src/party_menu.c','DoesSelectedMonKnowHM')]:
+            source+='\n'+extract_function(path,name)
+        source+='\n'+ENTRY_CASES
+        with tempfile.TemporaryDirectory(prefix='sc-field-entry-') as d:
+            p=Path(d);(p/'test.c').write_text(source)
+            cmd=['cc','-std=c11','-Werror','-I'+str(ENGINE/'include'),'-DTRUE=1','-DFALSE=0','-DFIRERED','-DTESTING=0','-DMON_DATA_MOVE1=10',str(p/'test.c'),'-o',str(p/'test')]
+            result=subprocess.run(cmd,capture_output=True,text=True);self.assertEqual(result.returncode,0,result.stderr)
+            result=subprocess.run([str(p/'test')],capture_output=True,text=True);self.assertEqual(result.returncode,0,result.stderr)
+
     def test_production_policy_inventory_compatibility_recovery_and_pages(self):
         source_path=ENGINE/'src/sc_field.c'
         self.assertTrue(source_path.exists(), 'Missing shared field policy implementation')

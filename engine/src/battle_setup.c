@@ -47,6 +47,7 @@
 #include "tv.h"
 #include "overworld.h"
 #include "vs_seeker.h"
+#include "sc_rematches.h"
 #include "wild_encounter_ow.h"
 #include "window.h"
 #include "constants/battle_frontier.h"
@@ -157,6 +158,14 @@ static const u8 sBattleTransitionTable_BattleDome[] =
     .mapNum = MAP_NUM(map),                                             \
 }
 
+#ifdef FIRERED
+const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES] =
+{
+#define SC_REMATCH(trainer, map) REMATCH(trainer, trainer, trainer, trainer, trainer, map),
+#include "data/rematches_frlg.h"
+#undef SC_REMATCH
+};
+#else
 const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES] =
 {
     [REMATCH_ROSE] = REMATCH(TRAINER_ROSE_1, TRAINER_ROSE_2, TRAINER_ROSE_3, TRAINER_ROSE_4, TRAINER_ROSE_5, MAP_ROUTE118),
@@ -238,6 +247,7 @@ const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES] =
     [REMATCH_DRAKE] = REMATCH(TRAINER_DRAKE, TRAINER_DRAKE, TRAINER_DRAKE, TRAINER_DRAKE, TRAINER_DRAKE, MAP_EVER_GRANDE_CITY),
     [REMATCH_WALLACE] = REMATCH(TRAINER_WALLACE, TRAINER_WALLACE, TRAINER_WALLACE, TRAINER_WALLACE, TRAINER_WALLACE, MAP_EVER_GRANDE_CITY),
 };
+#endif
 
 #define tState data[0]
 #define tTransition data[1]
@@ -1228,6 +1238,11 @@ static void BattleSetup_ConfigureTrainerBattle(TrainerBattleParameter *battlePar
         return;
     }
 
+#ifdef FIRERED
+    if (battleParams->params.isRematch)
+        battleParams->params.isDoubleBattle = GetTrainerBattleType(battleParams->params.opponentA) == TRAINER_BATTLE_TYPE_DOUBLES;
+#endif
+
     if (battleParams->params.isDoubleBattle && !HasEnoughMonsForDoubleBattle2())
     {
         PUSH(EventSnippet_NotEnoughMonsForDoubleBattle)
@@ -1838,6 +1853,9 @@ s32 FirstBattleTrainerIdToRematchTableId(const struct RematchTrainer *table, u16
 {
     s32 i;
 
+    if (trainerId == TRAINER_NONE)
+        return -1;
+
     for (i = 0; i < REMATCH_TABLE_ENTRIES; i++)
     {
         if (table[i].trainerIds[0] == trainerId)
@@ -1878,6 +1896,9 @@ static inline bool32 IsRematchForbidden(s32 rematchTableId)
 
 static void SetRematchIdForTrainer(const struct RematchTrainer *table, u32 tableId)
 {
+#ifdef FIRERED
+    return;
+#endif
 #if FREE_MATCH_CALL == FALSE
     s32 i;
 
@@ -1937,12 +1958,17 @@ static bool32 UpdateRandomTrainerRematches(const struct RematchTrainer *table, u
 
 void UpdateRematchIfDefeated(s32 rematchTableId)
 {
+    if (rematchTableId < 0 || rematchTableId >= REMATCH_TABLE_ENTRIES || rematchTableId >= MAX_REMATCH_ENTRIES)
+        return;
     if (HasTrainerBeenFought(gRematchTable[rematchTableId].trainerIds[0]) == TRUE)
         SetRematchIdForTrainer(gRematchTable, rematchTableId);
 }
 
 static bool8 IsFirstTrainerIdReadyForRematch(const struct RematchTrainer *table, u16 firstBattleTrainerId)
 {
+#ifdef FIRERED
+    return ScRematchIsReady(firstBattleTrainerId);
+#endif
     s32 tableId = FirstBattleTrainerIdToRematchTableId(table, firstBattleTrainerId);
 
     if (tableId == -1)
@@ -1959,6 +1985,9 @@ static bool8 IsFirstTrainerIdReadyForRematch(const struct RematchTrainer *table,
 
 static bool8 IsTrainerReadyForRematch_(const struct RematchTrainer *table, u16 trainerId)
 {
+#ifdef FIRERED
+    return ScRematchIsReady(trainerId);
+#endif
     s32 tableId = TrainerIdToRematchTableId(table, trainerId);
 
     if (tableId == -1)
@@ -1975,6 +2004,9 @@ static bool8 IsTrainerReadyForRematch_(const struct RematchTrainer *table, u16 t
 
 u16 GetRematchTrainerIdFromTable(const struct RematchTrainer *table, u16 firstBattleTrainerId)
 {
+#ifdef FIRERED
+    return ScRematchResolve(firstBattleTrainerId);
+#endif
     const struct RematchTrainer *trainerEntry;
     s32 i;
     s32 tableId = FirstBattleTrainerIdToRematchTableId(table, firstBattleTrainerId);
@@ -2020,13 +2052,21 @@ static void ClearTrainerWantRematchState(const struct RematchTrainer *table, u16
 #if FREE_MATCH_CALL == FALSE
     s32 tableId = TrainerIdToRematchTableId(table, firstBattleTrainerId);
 
-    if (tableId != -1)
+    if (tableId >= 0 && tableId < MAX_REMATCH_ENTRIES)
         gSaveBlock1Ptr->trainerRematches[tableId] = 0;
 #endif //FREE_MATCH_CALL
 }
 
 void ClearCurrentTrainerWantRematchVsSeeker(void)
 {
+#ifdef FIRERED
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+    {
+        ScRematchClearReady(TRAINER_BATTLE_PARAM.opponentA);
+        ScRematchClearReady(TRAINER_BATTLE_PARAM.opponentB);
+    }
+    return;
+#endif
 #if FREE_MATCH_CALL == FALSE
     if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && FlagGet(I_VS_SEEKER_CHARGING) && (I_VS_SEEKER_CHARGING != 0))
     {
@@ -2054,6 +2094,9 @@ static u32 GetTrainerMatchCallFlag(u32 trainerId)
 
 static void RegisterTrainerInMatchCall(void)
 {
+#ifdef FIRERED
+    return;
+#endif
     if (FlagGet(FLAG_HAS_MATCH_CALL))
     {
         u32 matchCallFlagId = GetTrainerMatchCallFlag(TRAINER_BATTLE_PARAM.opponentA);
@@ -2064,6 +2107,9 @@ static void RegisterTrainerInMatchCall(void)
 
 static bool8 WasSecondRematchWon(const struct RematchTrainer *table, u16 firstBattleTrainerId)
 {
+#ifdef FIRERED
+    return ScRematchIsReady(firstBattleTrainerId);
+#endif
     s32 tableId = FirstBattleTrainerIdToRematchTableId(table, firstBattleTrainerId);
 
     if (tableId == -1)
@@ -2102,6 +2148,9 @@ static bool32 HasEnoughBadgesForRematch(void)
 
 void IncrementRematchStepCounter(void)
 {
+#ifdef FIRERED
+    return;
+#endif
 #if FREE_MATCH_CALL == FALSE
     if (!HasEnoughBadgesForRematch())
         return;
@@ -2127,6 +2176,9 @@ static bool32 IsRematchStepCounterMaxed(void)
 
 void TryUpdateRandomTrainerRematches(u16 mapGroup, u16 mapNum)
 {
+#ifdef FIRERED
+    return;
+#endif
     if (IsRematchStepCounterMaxed() && UpdateRandomTrainerRematches(gRematchTable, mapGroup, mapNum) == TRUE)
         gSaveBlock1Ptr->trainerRematchStepCounter = 0;
 }

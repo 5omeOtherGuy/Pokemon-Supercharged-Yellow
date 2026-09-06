@@ -44,6 +44,7 @@
 #include "task.h"
 #include "text.h"
 #include "vs_seeker.h"
+#include "sc_rematches.h"
 #include "constants/event_bg.h"
 #include "constants/event_objects.h"
 #include "constants/item_effects.h"
@@ -1466,6 +1467,10 @@ void ItemUseOutOfBattle_CannotUse(u8 taskId)
 
 static bool32 IsValidLocationForVsSeeker(void)
 {
+#ifdef FIRERED
+    return IsMapTypeOutdoors(gMapHeader.mapType)
+        && ScRematchIsMainlandMap(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
+#endif
     u16 mapGroup = gSaveBlock1Ptr->location.mapGroup;
     u16 mapNum = gSaveBlock1Ptr->location.mapNum;
     enum MapType mapType = gMapHeader.mapType;

@@ -61,3 +61,7 @@ Test numerical allowances within the confirmed policy. Clarify remaining selecti
 - Round 4 added category-based duplicate limits and full boss-supply scouting. Round 5 delegated separate numerical category caps to testing, excluded mixed-category supplies and confirmed mutual visibility. One HP item was an example, not a universal category cap.
 
 Editorial audit: consolidated the resolved round 3–5 questions here. Future checks must reject mixed-category supplies/player revives, enforce overall and category maxima across differently named items, keep the campaign limit constant, prohibit ordinary-trainer bag use, and verify both visible loadouts match actual supplies without revealing pending actions. No gameplay checks have run.
+
+## Execution clarification — 2026-09-06
+
+Under the owner’s full-project mandate, [ADR-0027](0027-campaign-and-battle-contract.md) resolves relevant battle-entry, disclosure, supply, service and inherited badge choices previously left open here. It preserves this record’s accepted constraints. Numerical implementation and release validation remain separate from acceptance.

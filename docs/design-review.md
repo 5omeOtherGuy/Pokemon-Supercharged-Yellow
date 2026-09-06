@@ -1,5 +1,7 @@
 # ADR design review and decision handoff — 2026-09-05
 
+> Execution update, 2026-09-06: the owner has authorized completion of the entire game, autonomous resolution of outstanding choices, implementation, testing and publication. The review-only scope and requests for later approval below are historical. Accepted gameplay decisions remain in force. Current implementation and release evidence is tracked in [project status](project-status.md).
+
 The ADR audit and authorised documentation changes are complete. The current decisions are coherent after following their supersession chains. Stale guidance, duplication and source-evidence defects were corrected; no unresolved contradiction between accepted decisions was found. The subsequent owner discussion resolved platform/content requirements and passive disclosure. Automatic badge stat boosts remain the immediate owner policy question. Foundation investigation can proceed; preparation burden and combined progression strength still require playable evidence.
 
 Reviewed base: [`66c17faf1292626ae5f0ec70531aaf1b2a871ec1`](https://github.com/5omeOtherGuy/Pokemon-Supercharged-Yellow/commit/66c17faf1292626ae5f0ec70531aaf1b2a871ec1). Local `main` was first fast-forwarded from `fbc89ae` to that fetched `origin/main`. Scope: all 24 ADRs, index/template, root instructions/README, [review brief](design-review-brief.md), relevant Git history and the external evidence described below. The tracked tree contains documentation/governance only; no engine, verified build or playable prototype exists.

@@ -1,5 +1,7 @@
 # Fresh-session ADR review brief
 
+> Historical review task. The owner’s 2026-09-06 full-project execution mandate supersedes its documentation-only scope and implementation stop. Preserve this brief as review history; use [project status](project-status.md) for the active execution and evidence record.
+
 ## User request and scope
 
 The user requested the next step be a fresh session reviewing all ADRs, streamlining them and identifying gaps, potential issues and contradictions. Perform that review and make evidence-supported documentation improvements. This brief prepares the task; it is not the audit result or a new game-design decision.

@@ -8,6 +8,7 @@ Read the owning records for complete rules, authority and open questions. This m
 
 | Area | Current records |
 | --- | --- |
+| Execution boundaries; battle-entry and field rules | [0027](0027-campaign-and-battle-contract.md) |
 | Charter; decision workflow | [0001](0001-project-direction.md); [0002](0002-decision-records.md) |
 | Source foundation | [0003](0003-source-foundation.md), **Proposed** |
 | Android play target; eligible ROM platforms | [0025](0025-android-emulation-platform.md) |
@@ -32,7 +33,7 @@ Supersession chains: 0005 → 0017; 0018 → 0022 → 0023; 0020 → 0021. Follo
 | Training points and focus | Individual permanent stat development | Surviving field participants in a won battle earn points; freely changing focus directs future gains only | [0023](0023-badge-wide-training-ceilings.md) |
 | Pokémon capabilities | Individual earned passive collection and assigned loadout | Repeatable fixed encounter rewards; three slots with costs of 1–3; free reassignment at a Center/designated service | [0019](0019-gym-resistances-and-capabilities.md) |
 | Trainer passives and capacity | Trainer expertise expressed through a selected build, separate from Pokémon slots | Shared weighted budget grows through badges; select at a Center; numbers and reassignment cost open | [0021](0021-trainer-builds-and-reward-ownership.md) |
-| Inherited badge benefits | Field permissions were the user's recalled benefit, separate from the additional trainer build | No obedience restrictions; exact field mapping and retention of automatic stat boosts remain unresolved | [0021](0021-trainer-builds-and-reward-ownership.md) |
+| Inherited badge benefits | Field permissions were the user's recalled benefit, separate from the additional trainer build | No obedience restrictions; field mapping and omission of automatic stat boosts are selected in ADR-0027 | [0021](0021-trainer-builds-and-reward-ownership.md) |
 
 Ordinary level EXP, stat-training reward value and stat-training eligibility are separate. A capability is also distinct from an innate ability and the normal held-item slot. “Capacity” alone is ambiguous: name the training ceiling, Pokémon capability capacity or trainer-passive budget.
 
@@ -66,6 +67,7 @@ Ordinary level EXP, stat-training reward value and stat-training eligibility are
 | [0024](0024-passive-scouting-and-ai-observations.md) | Disclose active passives and bound AI observations | Accepted |
 | [0025](0025-android-emulation-platform.md) | Target Android emulation while allowing GBA or NDS foundations | Accepted |
 | [0026](0026-yellow-kanto-content-baseline.md) | Use FireRed/LeafGreen Kanto for the Yellow content baseline | Accepted |
+| [0027](0027-campaign-and-battle-contract.md) | Complete Kanto with explicit battle and field rules | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 
@@ -114,3 +116,7 @@ ADR-0026 subsequently establishes FireRed/LeafGreen's Kanto map with necessary Y
 The user subsequently accepted ADR-0024's reciprocal active-effect disclosure, resolving F7. ADR-0011 records the later weather/terrain and forgettable-HM/reusable-TM requirements. ADR-0021 narrows F6 using the user's HM-access recollection and pinned Yellow evidence; other inherited badge effects remain undecided. Current totals are 21 Accepted, 1 Proposed and 4 Superseded records.
 
 The next clarification requires all original 151 to be obtainable in one playthrough without trading (ADR-0004), removes obedience restrictions (ADR-0021), and places Mew under the truck (ADR-0026). Automatic badge stat boosts remain an owner question.
+
+## Execution mandate — 2026-09-06
+
+The owner authorizes full implementation, autonomous outstanding choices and publication. ADR-0027 resolves the campaign endpoint, battle-entry scope and inherited badge policies. Earlier owner-question and review-only wording is historical; use later records for resolved choices and [project status](../project-status.md) for verified implementation. There are now 22 Accepted, 1 Proposed and 4 Superseded records.

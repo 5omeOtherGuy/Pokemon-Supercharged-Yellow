@@ -34,7 +34,7 @@ Current reward mechanics have separate owners: [ADR-0019](0019-gym-resistances-a
 
 [ADR-0017](0017-trusted-core-and-boss-mastery.md) selects a trusted core with rotating specialists. [ADR-0006](0006-substantial-levelling-investment.md) owns levelling and preparation pacing, including additional ordinary training after levelling. Total preparation duration remains open.
 
-Keep IVs, nature, earned points, training ceilings and capability loadouts distinguishable. [ADR-0009](0009-vgc-style-ai-information.md) protects exact opponent stats and hidden allocations; new public passive fields remain Proposed in ADR-0024.
+Keep IVs, nature, earned points, training ceilings and capability loadouts distinguishable. [ADR-0009](0009-vgc-style-ai-information.md) protects exact opponent stats and hidden allocations; active trainer-passive and assigned-capability fields are public under the accepted ADR-0024.
 
 ## Alternatives and tradeoffs
 

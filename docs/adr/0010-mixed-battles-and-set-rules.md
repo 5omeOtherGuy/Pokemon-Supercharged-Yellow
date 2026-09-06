@@ -48,3 +48,7 @@ No encounters have been implemented or played. Future checks should confirm subs
 ## Follow-up
 
 Map formats onto the campaign before writing final trainer teams. Prove both formats and Set behavior in the selected engine. Apply [ADR-0009](0009-vgc-style-ai-information.md) to information access independently of format.
+
+## Execution clarification — 2026-09-06
+
+Under the owner’s full-project mandate, [ADR-0027](0027-campaign-and-battle-contract.md) resolves relevant battle-entry, disclosure, supply, service and inherited badge choices previously left open here. It preserves this record’s accepted constraints. Numerical implementation and release validation remain separate from acceptance.

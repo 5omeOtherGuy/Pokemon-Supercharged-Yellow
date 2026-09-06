@@ -120,3 +120,7 @@ This is read-only historical evidence, not a selected engine, full badge impleme
 ## Clarification — 2026-09-05, no obedience restrictions
 
 The user subsequently stated there are no obedience restrictions and no trading. This resolves obedience behavior; [ADR-0004](0004-original-151-roster.md) owns the no-trading and complete solo-collection requirements. Audit every inherited disobedience path, including non-trade or scripted acquisition paths, when an engine exists. The user did not answer the separate automatic-stat-boost question, which remains open.
+
+## Execution clarification — 2026-09-06
+
+Under the owner’s full-project mandate, [ADR-0027](0027-campaign-and-battle-contract.md) resolves relevant battle-entry, disclosure, supply, service and inherited badge choices previously left open here. It preserves this record’s accepted constraints. Numerical implementation and release validation remain separate from acceptance.

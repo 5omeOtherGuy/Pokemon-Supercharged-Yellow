@@ -50,3 +50,7 @@ Interview round 2 selected full team/move/ability/held-item scouting; round 4 ad
 The later preparation/public-gym-information statement led to ADR-0024's reciprocal active trainer-passive and assigned-capability proposal. It remained Proposed during the audit; the user subsequently accepted it on 2026-09-05. Exact numerical boss-stat disclosure remains open.
 
 Editorial audit: consolidated duplicate clarifications; accepted fields and unresolved stat/level disclosure are unchanged.
+
+## Execution clarification — 2026-09-06
+
+Under the owner’s full-project mandate, [ADR-0027](0027-campaign-and-battle-contract.md) resolves relevant battle-entry, disclosure, supply, service and inherited badge choices previously left open here. It preserves this record’s accepted constraints. Numerical implementation and release validation remain separate from acceptance.

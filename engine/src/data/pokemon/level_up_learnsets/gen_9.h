@@ -1,3 +1,5 @@
+// Supercharged Yellow curates original-151 arrays against campaign level caps.
+// Later species/form arrays retain upstream data. See docs/balance/roster.md.
 #define LEVEL_UP_MOVE(lvl, moveLearned) {.move = moveLearned, .level = lvl}
 #define LEVEL_UP_END {.move = LEVEL_UP_MOVE_END, .level = 0}
 
@@ -22641,4 +22643,3 @@ static const struct LevelUpMove sPecharuntLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 #endif //P_FAMILY_PECHARUNT
-

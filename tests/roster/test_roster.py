@@ -1,9 +1,10 @@
 """Campaign data acceptance checks; these do not establish gameplay balance."""
 
+import json
 import re
 import unittest
 
-from roster_data import evaluate
+from roster_data import ROOT, evaluate
 
 
 class RosterTests(unittest.TestCase):
@@ -70,6 +71,44 @@ class RosterTests(unittest.TestCase):
             for move in moves:
                 with self.subTest(species=species, move=move):
                     self.assertTrue(self.has_move(species, move, 56))
+
+    def test_stone_evolution_retains_future_support_and_stab(self):
+        for prior, evolved in (("PIKACHU", "RAICHU"), ("NIDORINA", "NIDOQUEEN"),
+                               ("NIDORINO", "NIDOKING"), ("CLEFAIRY", "CLEFABLE"),
+                               ("VULPIX", "NINETALES"), ("JIGGLYPUFF", "WIGGLYTUFF"),
+                               ("GLOOM", "VILEPLUME"), ("GROWLITHE", "ARCANINE"),
+                               ("POLIWHIRL", "POLIWRATH"), ("WEEPINBELL", "VICTREEBEL"),
+                               ("SHELLDER", "CLOYSTER"), ("EXEGGCUTE", "EXEGGUTOR"),
+                               ("STARYU", "STARMIE")):
+            for level, move in self.roster[prior]["learnset"]:
+                if level <= 1 or move == 65535:
+                    continue
+                with self.subTest(prior=prior, evolved=evolved, level=level, move=move):
+                    self.assertTrue(any(evolved_move == move and evolved_level <= level
+                                        for evolved_level, evolved_move in self.roster[evolved]["learnset"]))
+
+    def test_stone_evolution_does_not_offer_late_attacks_at_level_one(self):
+        for species, moves in (("RAICHU", ("THUNDER", "DISCHARGE")),
+                                ("NIDOQUEEN", ("EARTH_POWER", "SLUDGE_WAVE")),
+                                ("NIDOKING", ("EARTH_POWER", "MEGAHORN")),
+                                ("CLEFABLE", ("MOONBLAST",)), ("NINETALES", ("FIRE_BLAST",)),
+                                ("ARCANINE", ("FLARE_BLITZ",)), ("CLOYSTER", ("SHELL_SMASH",)),
+                                ("EXEGGUTOR", ("LEAF_STORM",)), ("STARMIE", ("HYDRO_PUMP",))):
+            for move in moves:
+                with self.subTest(species=species, move=move):
+                    self.assertFalse(self.has_move(species, move, 1))
+
+    def test_manifest_covers_the_entire_active_roster(self):
+        from export_manifest import manifest
+        actual = manifest()
+        self.assertEqual(json.loads((ROOT / "docs/balance/roster-manifest.json").read_text()), actual)
+        for name, row in actual["species"].items():
+            with self.subTest(species=name):
+                self.assertEqual(row["baseline"]["types_expression"], row["curated"]["types_expression"])
+                before = row["baseline"]["stats_hp_atk_def_speed_spatk_spdef"]
+                after = row["curated"]["stats_hp_atk_def_speed_spatk_spdef"]
+                self.assertLessEqual(sum(after) - sum(before), 30)
+                self.assertLessEqual(max(abs(a - b) for a, b in zip(after, before)), 15)
 
 
 if __name__ == "__main__":

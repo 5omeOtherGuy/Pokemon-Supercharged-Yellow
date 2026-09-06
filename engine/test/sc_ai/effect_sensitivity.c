@@ -1,5 +1,8 @@
 #include "global.h"
 #include "battle.h"
+#include "battle_setup.h"
+#include "item.h"
+#include "constants/opponents_frlg.h"
 #include "sc_ai.h"
 #include "sc_battle.h"
 #include "sc_supplies.h"
@@ -60,5 +63,29 @@ AI_SINGLE_BATTLE_TEST("SC AI: locked supply quota excludes options and rejects s
         ScAiObserve(&sNeutral);
         for (u32 i = 0; i < sNeutral.count[0]; i++)
             EXPECT_NE(sNeutral.options[0][i].kind, SC_AI_ITEM);
+    }
+}
+
+AI_SINGLE_BATTLE_TEST("SC AI: the player's hidden supply reservation cannot change observations")
+{
+    GIVEN {
+        ScAiEnableForTests(TRUE);
+        AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE);
+        PLAYER(SPECIES_MAGIKARP) { Moves(MOVE_SPLASH); }
+        OPPONENT(SPECIES_SNORLAX) { HP(10); MaxHP(500); Moves(MOVE_SPLASH); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_SPLASH); }
+    } THEN {
+        ScSuppliesEnableForTests(TRUE);
+        TRAINER_BATTLE_PARAM.opponentA = TRAINER_LEADER_BROCK;
+        gBattleHistory->trainerItems[0] = ITEM_POTION;
+        gSaveBlock3Ptr->sc.supplyItems[0] = ITEM_POTION;
+        gSaveBlock3Ptr->sc.supplyQuantities[0] = 1;
+        AddBagItem(ITEM_POTION, 1);
+        ScSuppliesBeginBattle();
+        ScAiObserve(&sNeutral);
+        EXPECT(ScSuppliesReserve(B_BATTLER_0, ITEM_POTION));
+        ScAiObserve(&sBrace);
+        EXPECT_EQ(memcmp(&sNeutral, &sBrace, sizeof(sNeutral)), 0);
     }
 }

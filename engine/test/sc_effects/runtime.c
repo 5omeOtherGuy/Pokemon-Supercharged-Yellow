@@ -173,7 +173,7 @@ SINGLE_BATTLE_TEST("SC runtime effects: delayed hit keeps original capability af
     }
 }
 
-SINGLE_BATTLE_TEST("SC runtime effects: defensive category and public HP bands govern mitigation", s16 damage)
+SINGLE_BATTLE_TEST("SC runtime effects: defensive categories select only matching mitigation", s16 damage)
 {
     enum Move move;
     u32 mask, percent;
@@ -259,5 +259,62 @@ SINGLE_BATTLE_TEST("SC runtime effects: Quick Start changes actual order only on
         MESSAGE("The opposing Magikarp used Splash!");
         MESSAGE("The opposing Magikarp used Splash!");
         MESSAGE("Pikachu used Splash!");
+    }
+}
+
+SINGLE_BATTLE_TEST("SC runtime effects: dynamic physical category uses the physical capability", s16 damage)
+{
+    u32 mask;
+    PARAMETRIZE { mask = 0; }
+    PARAMETRIZE { mask = 1u << SC_CAP_PRESSURE; }
+    GIVEN {
+        ScEffectsEnableForTests(TRUE);
+        gSaveBlock3Ptr->sc.activePassives = 0;
+        PLAYER(SPECIES_PIKACHU) { Attack(200); SpAttack(50); }
+        OPPONENT(SPECIES_CHANSEY) { MaxHP(1000); HP(1000); Defense(100); SpDefense(100); }
+        AssignPlayer(0, mask);
+    } WHEN {
+        TURN { MOVE(player, MOVE_PHOTON_GEYSER); MOVE(opponent, MOVE_SPLASH); }
+    } SCENE {
+        HP_BAR(opponent, captureDamage: &results[i].damage);
+    } FINALLY {
+        EXPECT_EQ(results[1].damage, results[0].damage * 112 / 100);
+    }
+}
+
+SINGLE_BATTLE_TEST("SC runtime effects: Staying Power uses the public pre-hit HP band", s16 damage)
+{
+    u32 hp, mask, percent;
+    PARAMETRIZE { hp = 480; mask = 0; percent = 100; }
+    PARAMETRIZE { hp = 240; mask = 1u << SC_CAP_STAYING_POWER; percent = 92; }
+    PARAMETRIZE { hp = 249; mask = 1u << SC_CAP_STAYING_POWER; percent = 92; }
+    PARAMETRIZE { hp = 239; mask = 1u << SC_CAP_STAYING_POWER; percent = 100; }
+    GIVEN {
+        ScEffectsEnableForTests(TRUE);
+        gSaveBlock3Ptr->sc.activePassives = 0;
+        PLAYER(SPECIES_CHANSEY) { MaxHP(480); HP(hp); Defense(100); }
+        OPPONENT(SPECIES_PIKACHU) { Attack(200); }
+        AssignPlayer(0, mask);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SPLASH); MOVE(opponent, MOVE_TACKLE); }
+    } SCENE {
+        HP_BAR(player, captureDamage: &results[i].damage);
+    } THEN {
+        EXPECT_EQ(results[i].damage, results[0].damage * percent / 100);
+    }
+}
+
+SINGLE_BATTLE_TEST("SC runtime effects: recovery coexists with held and move healing without doubling")
+{
+    GIVEN {
+        ScEffectsEnableForTests(TRUE);
+        gSaveBlock3Ptr->sc.activePassives = 1u << SC_PASSIVE_RECOVERY_COACH;
+        PLAYER(SPECIES_PIKACHU) { HP(30); MaxHP(64); Item(ITEM_LEFTOVERS); }
+        OPPONENT(SPECIES_MAGIKARP);
+        AssignPlayer(0, 1u << SC_CAP_RECOVERY);
+    } WHEN {
+        TURN { MOVE(player, MOVE_AQUA_RING); MOVE(opponent, MOVE_SPLASH); }
+    } THEN {
+        EXPECT_EQ(player->hp, 41); // Leftovers 4 + Aqua Ring 4 + both SC effects 3.
     }
 }

@@ -1,6 +1,6 @@
 # Source provenance
 
-The `engine/` baseline is a source snapshot of [RHH (Rom Hacking Hideout) pokeemerald-expansion](https://github.com/rh-hideout/pokeemerald-expansion) 1.17.0, commit `7644501f3065b38aea2cfc64b5b58ca011bce4f5`, imported for FireRed/Kanto integration on 2026-09-06. Imported blobs were checked against the pinned upstream. Three legacy multiboot ROM images are deliberately omitted: `data/mb_berry_fix.gba`, `data/mb_colosseum.gba`, `data/mb_ereader.gba`. Their unsupported external-device launch paths must be removed before this project build is complete.
+The `engine/` baseline is a source snapshot of [RHH (Rom Hacking Hideout) pokeemerald-expansion](https://github.com/rh-hideout/pokeemerald-expansion) 1.17.0, commit `7644501f3065b38aea2cfc64b5b58ca011bce4f5`, imported for FireRed/Kanto integration on 2026-09-06. Imported blobs were checked against the pinned upstream. Three legacy multiboot ROM images are deliberately omitted: `data/mb_berry_fix.gba`, `data/mb_colosseum.gba`, `data/mb_ereader.gba`. Their external-device launchers and embedded-image assembly dependencies have been removed. Legacy e-Reader entry is rejected by the existing invalid-action menu; Berry Fix shortcuts and GameCube download execution are absent.
 
 Subsequent Supercharged changes are visible against the source-import commit. The snapshot has no upstream Git ancestry; fetch the pin separately for historical comparison or future updates. Root project documentation is separate from preserved upstream documentation in `engine/`.
 

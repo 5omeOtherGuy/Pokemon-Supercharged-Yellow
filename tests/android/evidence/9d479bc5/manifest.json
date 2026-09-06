@@ -1,0 +1,55 @@
+{
+  "source_commit": "9d479bc5",
+  "rom_sha256": "73759e33b3fe975f887e9b6286002ad0b00ef6a0bf8abd8da821fade2025afe3",
+  "target": {
+    "kind": "Android VM, not physical phone",
+    "os": "Android11 API30 AOSP x86_64 rev11",
+    "emulator": "Google Android Emulator37.1.11.0",
+    "app": "RetroArch1.22.2_GIT versionCode1763607132",
+    "core": "mGBA0.11-219-e31759b",
+    "display": "960x540 landscape software GLES"
+  },
+  "imported_save": {
+    "sha256": "f2729534c657395903623ec04184b9d4836a3785c417061faec69edf11f67156",
+    "bytes": 131088,
+    "origin": "Ordinary desktop Yellow opening, source195bd43e; separate copy imported into9d479bc5 Android ROM",
+    "legacy_defect": "Tempo owned prematurely in old source; never assigned in this evidence"
+  },
+  "android_save": {
+    "sha256": "cad385783f996956c8eeb61598cb080591e0c4932152dd273f9024c308e444b4",
+    "bytes": 131072,
+    "method": "Ordinary SAVE and overwrite confirmation; later Close Content/Quit and fresh process Continue",
+    "settings": "QUICK restored visibly after fresh app process and VM cold boot Continue",
+    "cold_boot_verified": true
+  },
+  "limitations": [
+    "No Android battle or full campaign yet",
+    "No physicalphone/human audio quality/performance acceptance",
+    "Screenshots and operator record, not a complete replayable ADB command trace",
+    "Subsequent VM stopped gracefully from an unidentified host-side cause; no game crash claim"
+  ],
+  "files": {
+    "002-after-a.png": "d29d7d8646f504c4c50e028dd7a1aaf6adaba2a8d17fbf37128f6601360bc3a7",
+    "012-save-compat-continue.png": "604d84a8851453e07af233e2cacde0433625ab57be4b71a9cfc60ed6045eb49d",
+    "015-save-compat-party.png": "f161dc9e6bec6101003d270b0943974b229f6ed55251f10bef9b36aba5320bf9",
+    "017-field-training.png": "d2c521202aa02fbaab1c3875dcec780398d56f4755bbdfe49037e9c94ce7b84d",
+    "018-training-stats.png": "2d47fe70979ab3fd5fc6c1c79ed2bf625de1259fa2679ce32dcf29e11f066380",
+    "021-options.png": "e34523431077782688ba2bbe248f2b345ba8a45528cea9ad956a3b98aeeb7cfa",
+    "023-options-quick.png": "680018d3a1daf2d0302871c63beffa40a53d515a8224f94b90d9ccf789cd5469",
+    "026-save-overwrite-ready.png": "562baa33f3d8ea074f87d81e6211f54c13ea5322a121b946202697afa07142a7",
+    "028-android-save-complete.png": "0fa08aff8f8e429b33753b367f8e671dfc56a91f6cce1f7be9e0eb91c2b917e9",
+    "031-retroarch-quickmenu.png": "e0ae38bda4f289f8fb9b11c7b2ddf77b515131bad06f60e61977035f50470411",
+    "032-content-closed.png": "8f1b482b179bd55c67f9bd4295472d785b4568a42fecb929994825bdd0df6247",
+    "035-overlay-context-fixed.png": "360efea0ce805cc1cbee8e9f05688acd9a69643deb89765ef66991003c4bde85",
+    "036-android-save-continue.png": "1fd31f2293ad22525b6f54c04d502d024a9de35f4a2b69139f5937e5f94e7693",
+    "037-restarted-options.png": "bf9ef25507644c1fadda0086a367729685d042d714e8d391ababbb1da1c1b0b1",
+    "038-center-exit-controls.png": "40e128624691039b1b4ec1630524421129eac55ee3a9c03d495e3c5cb195e3e7",
+    "audio-capture-analysis.json": "240123e720a3f2233f56664e063b687ce8e4a6bb4dafae974e2f061fedd7f489",
+    "043-cold-boot-continue-ready.png": "1fd31f2293ad22525b6f54c04d502d024a9de35f4a2b69139f5937e5f94e7693",
+    "044-cold-boot-field.png": "c7512f342f93600e7101e4f1d31d0cc1509954536a13936ea56451d4a24c8b02",
+    "cold-boot-save-sha256.txt": "7d3ab55ffa15b2b7f3bcc865c5a799cd9a38aa7944c7a138426341f2fa343870",
+    "cold-boot-completed.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "cold-boot-launch.txt": "18dc517fd41517dd86b693c5d9c9c796703284cf16c2cf1526dbda252c93895b",
+    "045-cold-boot-quick.png": "bf9ef25507644c1fadda0086a367729685d042d714e8d391ababbb1da1c1b0b1"
+  }
+}

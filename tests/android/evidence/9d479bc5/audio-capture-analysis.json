@@ -1,0 +1,13 @@
+{
+  "capture_sha256": "ef5c19d98cc90b376b05d5b4ef106dcf28ded0088d7ef2b22721d15132a78960",
+  "frames": 36440896,
+  "rate": 44100,
+  "channels": 2,
+  "sample_width": 2,
+  "clip_start_frame": 35911696,
+  "clip_frames": 352800,
+  "scope": "Last completed Android VM run; ordinary menus and Center navigation. No human audio-quality assessment.",
+  "nonzero_samples": 690526,
+  "peak": 316,
+  "clip_sha256": "e5bd18424c3b6ec99c93d037871436d1a2560752f43921c1f28d5976419fd372"
+}

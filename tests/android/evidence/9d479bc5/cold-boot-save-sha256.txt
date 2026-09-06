@@ -1,0 +1,1 @@
+cad385783f996956c8eeb61598cb080591e0c4932152dd273f9024c308e444b4  /sdcard/RetroArch/saves/mGBA/sc-android-save-compat.srm

@@ -44,3 +44,76 @@ TEST("SC rematches: first route parties resolve full trainer IDs without Hoenn m
     if (defeated) SetTrainerFlag(TRAINER_YOUNGSTER_BEN);
     if (!owned) RemoveBagItem(ITEM_VS_SEEKER, 1);
 }
+
+#include "sc_rematches.h"
+
+TEST("SC rematches: high trainer IDs preserve identity and consume readiness once")
+{
+    struct WarpData location = gSaveBlock1Ptr->location;
+    bool32 owned = CheckBagHasItem(ITEM_VS_SEEKER, 1);
+    bool32 defeated = HasTrainerBeenFought(TRAINER_TWINS_ELI_ANNE);
+    bool32 charging = FlagGet(FLAG_SYS_VS_SEEKER_CHARGING);
+    bool32 badges[8];
+    bool32 champion = FlagGet(FLAG_IS_CHAMPION);
+    FlagClear(FLAG_IS_CHAMPION);
+    const u16 badgeFlags[] = {FLAG_BADGE01_GET,FLAG_BADGE02_GET,FLAG_BADGE03_GET,FLAG_BADGE04_GET,
+        FLAG_BADGE05_GET,FLAG_BADGE06_GET,FLAG_BADGE07_GET,FLAG_BADGE08_GET};
+    s32 index = FirstBattleTrainerIdToRematchTableId(gRematchTable, TRAINER_TWINS_ELI_ANNE);
+    EXPECT(index >= 0 && index < MAX_REMATCH_ENTRIES);
+    if (index < 0 || index >= MAX_REMATCH_ENTRIES) return;
+    u8 previousReady = gSaveBlock1Ptr->trainerRematches[index];
+    for (u32 i = 0; i < 8; i++) { badges[i] = FlagGet(badgeFlags[i]); FlagClear(badgeFlags[i]); }
+    if (!owned) AddBagItem(ITEM_VS_SEEKER, 1);
+    SetTrainerFlag(TRAINER_TWINS_ELI_ANNE);
+    FlagSet(FLAG_SYS_VS_SEEKER_CHARGING);
+    gSaveBlock1Ptr->location.mapGroup = MAP_GROUP(MAP_ROUTE8);
+    gSaveBlock1Ptr->location.mapNum = MAP_NUM(MAP_ROUTE8);
+    EXPECT(TRAINER_TWINS_ELI_ANNE > 255);
+    EXPECT_EQ(GetRematchTrainerIdVSSeeker(TRAINER_TWINS_ELI_ANNE), TRAINER_NONE);
+    FlagSet(FLAG_BADGE01_GET); // Level 22 party is now eligible, without changing it.
+    EXPECT_EQ(GetRematchTrainerIdVSSeeker(TRAINER_TWINS_ELI_ANNE), TRAINER_TWINS_ELI_ANNE);
+    EXPECT(ScRematchSetReady(TRAINER_TWINS_ELI_ANNE));
+    EXPECT_EQ(gSaveBlock1Ptr->trainerRematches[index], 1);
+    EXPECT(ShouldTryRematchBattleForTrainerId(TRAINER_TWINS_ELI_ANNE));
+    gSaveBlock1Ptr->location.mapNum = MAP_NUM(MAP_ROUTE11);
+    EXPECT(!ShouldTryRematchBattleForTrainerId(TRAINER_TWINS_ELI_ANNE));
+    gSaveBlock1Ptr->location.mapNum = MAP_NUM(MAP_ROUTE8);
+    ScRematchClearReady(TRAINER_TWINS_ELI_ANNE);
+    EXPECT(!ShouldTryRematchBattleForTrainerId(TRAINER_TWINS_ELI_ANNE));
+    EXPECT(!ScRematchSetReady(65535));
+    gSaveBlock1Ptr->trainerRematches[index] = previousReady;
+    gSaveBlock1Ptr->location = location;
+    for (u32 i = 0; i < 8; i++) { if (badges[i]) FlagSet(badgeFlags[i]); else FlagClear(badgeFlags[i]); }
+    if (!charging) FlagClear(FLAG_SYS_VS_SEEKER_CHARGING);
+    if (!defeated) ClearTrainerFlag(TRAINER_TWINS_ELI_ANNE);
+    if (champion) FlagSet(FLAG_IS_CHAMPION);
+    if (!owned) RemoveBagItem(ITEM_VS_SEEKER, 1);
+}
+
+TEST("SC rematches: response expiry clears every slot and retains recharge")
+{
+    u16 previous = gSaveBlock1Ptr->trainerRematchStepCounter;
+    u8 previousReady[MAX_REMATCH_ENTRIES];
+    bool32 owned = CheckBagHasItem(ITEM_VS_SEEKER, 1);
+    bool32 charging = FlagGet(FLAG_SYS_VS_SEEKER_CHARGING);
+    memcpy(previousReady, gSaveBlock1Ptr->trainerRematches, sizeof(previousReady));
+    if (!owned) AddBagItem(ITEM_VS_SEEKER, 1);
+    memset(gSaveBlock1Ptr->trainerRematches, 1, sizeof(previousReady));
+    FlagSet(FLAG_SYS_VS_SEEKER_CHARGING);
+    gSaveBlock1Ptr->trainerRematchStepCounter = (98 << 8) | 98;
+    EXPECT(!UpdateVsSeekerStepCounter());
+    EXPECT_EQ(gSaveBlock1Ptr->trainerRematchStepCounter, (99 << 8) | 99);
+    EXPECT(UpdateVsSeekerStepCounter());
+    EXPECT_EQ(gSaveBlock1Ptr->trainerRematchStepCounter, 100);
+    EXPECT(!FlagGet(FLAG_SYS_VS_SEEKER_CHARGING));
+    for (u32 i = 0; i < MAX_REMATCH_ENTRIES; i++) EXPECT_EQ(gSaveBlock1Ptr->trainerRematches[i], 0);
+    // Malformed packed values also clear safely instead of wrapping or trapping.
+    FlagSet(FLAG_SYS_VS_SEEKER_CHARGING);
+    gSaveBlock1Ptr->trainerRematchStepCounter = 65535;
+    EXPECT(UpdateVsSeekerStepCounter());
+    EXPECT_EQ(gSaveBlock1Ptr->trainerRematchStepCounter, 100);
+    memcpy(gSaveBlock1Ptr->trainerRematches, previousReady, sizeof(previousReady));
+    gSaveBlock1Ptr->trainerRematchStepCounter = previous;
+    if (charging) FlagSet(FLAG_SYS_VS_SEEKER_CHARGING);
+    if (!owned) RemoveBagItem(ITEM_VS_SEEKER, 1);
+}

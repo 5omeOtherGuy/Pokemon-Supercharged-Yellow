@@ -3,6 +3,7 @@
 #include "battle.h"
 #include "event_data.h"
 #include "item.h"
+#include "pokemon.h"
 #include "test/test.h"
 #include "vs_seeker.h"
 #include "constants/maps.h"
@@ -96,6 +97,28 @@ TEST("SC rematches: high trainer IDs preserve identity and consume readiness onc
     EXPECT(ScRematchSetReady(TRAINER_TWINS_ELI_ANNE));
     EXPECT_EQ(gSaveBlock1Ptr->trainerRematches[index], 1);
     EXPECT(ShouldTryRematchBattleForTrainerId(TRAINER_TWINS_ELI_ANNE));
+    {
+        struct Pokemon previousParty[PARTY_SIZE];
+        u8 previousCount = gPartiesCount[B_TRAINER_PLAYER];
+        TrainerBattleParameter parameters = {0};
+        u8 script[TRAINERBATTLE_OPCODE_OFFSET + sizeof(parameters)] = {0};
+        memcpy(previousParty, gPlayerParty, sizeof(previousParty));
+        memset(gPlayerParty, 0, sizeof(previousParty));
+        CreateMon(&gPlayerParty[0], SPECIES_PIKACHU, 5, 15, TRUE, 0, OT_ID_PLAYER_ID, 0);
+        parameters.params.opponentA = TRAINER_TWINS_ELI_ANNE;
+        memcpy(script + TRAINERBATTLE_OPCODE_OFFSET, &parameters, sizeof(parameters));
+        // Automatic sight must not repeatedly trap a one-mon party in refusal.
+        EXPECT(!GetRematchFromScriptPointer(script));
+        EXPECT(ShouldTryRematchBattleForTrainerId(TRAINER_TWINS_ELI_ANNE));
+        EXPECT_EQ(gSaveBlock1Ptr->trainerRematches[index], 1);
+        CreateMon(&gPlayerParty[1], SPECIES_BULBASAUR, 5, 15, TRUE, 0, OT_ID_PLAYER_ID, 0);
+        EXPECT(GetRematchFromScriptPointer(script));
+        SetMonData(&gPlayerParty[1], MON_DATA_HP, &((u16){0}));
+        EXPECT(!GetRematchFromScriptPointer(script));
+        EXPECT_EQ(gSaveBlock1Ptr->trainerRematches[index], 1);
+        memcpy(gPlayerParty, previousParty, sizeof(previousParty));
+        gPartiesCount[B_TRAINER_PLAYER] = previousCount;
+    }
     gSaveBlock1Ptr->location.mapNum = MAP_NUM(MAP_ROUTE11);
     EXPECT(!ShouldTryRematchBattleForTrainerId(TRAINER_TWINS_ELI_ANNE));
     gSaveBlock1Ptr->location.mapNum = MAP_NUM(MAP_ROUTE8);

@@ -15,6 +15,8 @@ class NativeWrapperTests(unittest.TestCase):
 import os,sys
 assert 'BUILD=firered' in sys.argv
 assert 'SC_TEST_CAMPAIGN=1' in sys.argv
+sources=next(a for a in sys.argv if a.startswith('TEST_SRCS=')).split('=',1)[1].split()
+assert {'test/test_runner.c','test/test_runner_battle.c','test/test_runner_args.c','test/test_test_runner.c','test/sc_rematches/vs_seeker.c','test/sc_supplies/selection.c'} == set(sources)
 prefix=next(a for a in sys.argv if a.startswith('TESTS='))
 expected=4 if prefix=='TESTS=SC rematches:*' else 1
 case=os.environ['SC_RUNNER_CASE']

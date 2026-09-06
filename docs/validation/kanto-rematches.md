@@ -147,6 +147,10 @@ the option is off. All four rematch cases compile only in that explicit campaign
 The counted wrapper selects `BUILD=firered SC_TEST_CAMPAIGN=1` and requires exactly
 four passing groups, rejecting an empty or mismatched filter. It then runs the
 strengthened actual authored-bag test separately and requires exactly one pass.
+Its focused source selection includes all four mandatory runner files, including
+`test/test_test_runner.c`, explicitly named by the linker script. The first clean
+campaign-mode build exposed that missing fourth object after compilation; this
+was a build dependency failure, not an executed gameplay failure.
 
 The native file defines four campaign groups for real step charging, table resolution,
 high-ID badge/readiness and actual battle-exit cleanup, plus packed expiry and

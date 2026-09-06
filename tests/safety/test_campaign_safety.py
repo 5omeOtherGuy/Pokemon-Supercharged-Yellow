@@ -69,10 +69,46 @@ bool32 yes(enum BattlerId b){return 1;}
 const struct GimmickInfo gGimmicksInfo[]={{yes}};
 '''+function('src/battle_gimmick.c','CanActivateGimmick')+'\nint main(void){assert(CanActivateGimmick(BATTLER_0,GIMMICK_TEST)==!P_SC_KANTO_RULES);}'
         for testing,campaign in [(0,0),(1,1),(1,0)]:execute(source,testing,campaign)
+    def test_ev_item_classifier_preserves_recovery_and_candies(self):
+        source=HEADERS+'''#include "constants/items.h"
+#include "constants/item_effects.h"
+typedef unsigned int bool32;
+int effectType;
+int GetItemEffectType(enum Item item){return effectType;}
+'''+function('src/party_menu.c','ScItemChangesTraining')+'''
+int main(void){
+    int ev[]={ITEM_EFFECT_HP_EV,ITEM_EFFECT_ATK_EV,ITEM_EFFECT_DEF_EV,ITEM_EFFECT_SPEED_EV,ITEM_EFFECT_SPATK_EV,ITEM_EFFECT_SPDEF_EV};
+    for(unsigned i=0;i<sizeof(ev)/sizeof(*ev);i++){effectType=ev[i]; assert(ScItemChangesTraining(ITEM_HP_UP));}
+    effectType=ITEM_EFFECT_HEAL_HP; assert(!ScItemChangesTraining(ITEM_POTION));
+    effectType=ITEM_EFFECT_RAISE_LEVEL; assert(!ScItemChangesTraining(ITEM_RARE_CANDY));
+    assert(ScItemChangesTraining(ITEM_FRESH_START_MOCHI));
+}'''
+        execute(source)
+    def test_relearner_excludes_future_and_known_moves(self):
+        source=HEADERS+'''#include "config/summary_screen.h"
+#include "constants/species.h"
+typedef unsigned int u32; typedef unsigned short u16; typedef unsigned int bool32;
+#define MON_DATA_SPECIES 0
+#define MAX_LEVEL 100
+#define LEVEL_UP_MOVE_END 65535
+struct BoxPokemon {int level;};
+struct LevelUpMove {u16 move; u16 level;};
+static const struct LevelUpMove moves[]={{1,1},{2,10},{3,20},{4,21},{LEVEL_UP_MOVE_END,0}};
+enum Species GetBoxMonData(struct BoxPokemon *m,int attr){return SPECIES_PIKACHU;}
+u32 GetLevelFromBoxMonExp(struct BoxPokemon *m){return m->level;}
+const struct LevelUpMove *GetSpeciesLevelUpLearnset(enum Species s){return moves;}
+int BoxMonKnowsMove(struct BoxPokemon *m,u16 move){return move==2;}
+enum Species GetSpeciesPreEvolution(enum Species s){return SPECIES_NONE;}
+'''+function('src/move_relearner.c','GetRelearnerLevelUpMoves')+'''
+int main(void){struct BoxPokemon mon={20};u16 result[8]={0};assert(GetRelearnerLevelUpMoves(&mon,result)==2);assert(result[0]==1&&result[1]==3);}
+'''
+        execute(source)
     def test_kanto_centers_have_no_external_facility_entry(self):
         centers=[]
         for p in (ENGINE/'data/maps').glob('*PokemonCenter_2F_Frlg/map.json'):
             data=json.loads(p.read_text())
+            # Upstream labels Sevii maps REGION_KANTO too; campaign excludes them.
+            if re.match(r'(One|Two|Three|Four|Five|Six|Seven)Island_',p.parent.name):continue
             if data['region']!='REGION_KANTO':continue
             centers.append(data)
             self.assertTrue(all(w['dest_map'].endswith('POKEMON_CENTER_1F') for w in data['warp_events']),p.parent.name)

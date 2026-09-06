@@ -1,6 +1,8 @@
 #ifndef GUARD_CONFIG_DEBUG_H
 #define GUARD_CONFIG_DEBUG_H
 
+#include "config/pokemon.h"
+
 // Overworld Debug
 #define DEBUG_OVERWORLD_MENU            DISABLED_ON_RELEASE // Enables an overworld debug menu to change flags, variables, giving Pokémon and more, accessed by holding R and pressing START while in the overworld by default.
 #define DEBUG_OVERWORLD_HELD_KEYS       (R_BUTTON)          // The keys required to be held to open the debug menu.
@@ -13,5 +15,15 @@
 
 // Pokémon Debug
 #define DEBUG_POKEMON_SPRITE_VISUALIZER DISABLED_ON_RELEASE // Enables a debug menu for Pokémon sprites and icons, accessed by pressing Select in the summary screen.
+
+// Supercharged Kanto campaign defaults; unrelated engine builds retain theirs.
+#if P_SC_KANTO_RULES
+#undef DEBUG_OVERWORLD_MENU
+#define DEBUG_OVERWORLD_MENU FALSE
+#undef DEBUG_BATTLE_MENU
+#define DEBUG_BATTLE_MENU FALSE
+#undef DEBUG_POKEMON_SPRITE_VISUALIZER
+#define DEBUG_POKEMON_SPRITE_VISUALIZER FALSE
+#endif
 
 #endif // GUARD_CONFIG_DEBUG_H

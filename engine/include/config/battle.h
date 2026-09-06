@@ -1,6 +1,8 @@
 #ifndef GUARD_CONFIG_BATTLE_H
 #define GUARD_CONFIG_BATTLE_H
 
+#include "config/pokemon.h"
+
 // Calculation settings
 #define B_CRIT_CHANCE               GEN_LATEST // Chances of landing a critical hit. See CalcCritChanceStage. Gen6+ chances guarantee a crit at 3 or more stages. Gen1 chances are based on half of the user's base Speed.
 #define B_CRIT_MULTIPLIER           GEN_LATEST // In Gen6+, critical hits increase damage by 1.5x instead of 2x.
@@ -453,5 +455,23 @@
 #define B_POOL_RULES_USE_ITEM_EXCLUSIONS    FALSE    // Exclude items listed in poolItemClauseExclusions.
 #define B_POOL_RULE_MEGA_STONE_CLAUSE       FALSE    // Pick only 1 Pokémon with a Mega Stone.
 #define B_POOL_RULE_Z_CRYSTAL_CLAUSE        FALSE    // Pick only 1 Pokémon with a Z-Crystal.
+
+// Supercharged Kanto campaign defaults; unrelated engine builds retain theirs.
+#if P_SC_KANTO_RULES
+#undef B_EXP_CATCH
+#define B_EXP_CATCH GEN_3
+#undef B_TRAINER_EXP_MULTIPLIER
+#define B_TRAINER_EXP_MULTIPLIER GEN_3
+#undef B_SPLIT_EXP
+#define B_SPLIT_EXP GEN_3
+#undef B_SCALED_EXP
+#define B_SCALED_EXP GEN_3
+#undef B_UNEVOLVED_EXP_MULTIPLIER
+#define B_UNEVOLVED_EXP_MULTIPLIER GEN_3
+#undef B_AFFECTION_MECHANICS
+#define B_AFFECTION_MECHANICS FALSE
+#undef B_MISSING_BADGE_CATCH_MALUS
+#define B_MISSING_BADGE_CATCH_MALUS GEN_3
+#endif
 
 #endif // GUARD_CONFIG_BATTLE_H

@@ -1,6 +1,8 @@
 #ifndef GUARD_CONFIG_ITEM_H
 #define GUARD_CONFIG_ITEM_H
 
+#include "config/pokemon.h"
+
 // Item config
 #define I_SHINY_CHARM_ADDITIONAL_ROLLS  2           // The amount of additional Shiny rolls if the player has the Shiny Charm. Set it to 0 to disable the Shiny Charm's effects.
 #define I_KEY_FOSSILS                   GEN_LATEST  // In Gen4+, fossils are no longer Key Items.
@@ -51,5 +53,11 @@
 #define I_ORAS_DOWSING_COLOR_NORMAL RGB2GBA(24, 216, 24)
 #define I_ORAS_DOWSING_COLOR_FAST   RGB2GBA(255, 255, 40)
 #define I_ORAS_DOWSING_COLOR_FASTER RGB_RED
+
+// Supercharged Kanto campaign defaults; unrelated engine builds retain theirs.
+#if P_SC_KANTO_RULES
+#undef I_REUSABLE_TMS
+#define I_REUSABLE_TMS TRUE
+#endif
 
 #endif // GUARD_CONFIG_ITEM_H

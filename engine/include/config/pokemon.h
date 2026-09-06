@@ -1,6 +1,17 @@
 #ifndef GUARD_CONFIG_POKEMON_H
 #define GUARD_CONFIG_POKEMON_H
 
+// Production Kanto rules. Ordinary upstream test fixtures keep their broad rules;
+// use -DSC_TEST_CAMPAIGN=1 to test the production policy in a TESTING build.
+#ifndef SC_TEST_CAMPAIGN
+#define SC_TEST_CAMPAIGN FALSE
+#endif
+#if defined(FIRERED) && (!TESTING || SC_TEST_CAMPAIGN)
+#define P_SC_KANTO_RULES TRUE
+#else
+#define P_SC_KANTO_RULES FALSE
+#endif
+
 // Species data settings
 #define P_UPDATED_TYPES             GEN_LATEST  // Some Pokémon have received type updates after their introduction.
 #define P_UPDATED_STATS             GEN_LATEST  // Some Pokémon have received base stat updates after their introduction.
@@ -86,5 +97,12 @@
 #define SKIP_GAPS_EXCEPT_BEFORE_AFTER    2              // Skips all gaps in the Pokédex other than one before and after seen entries. Most similar to whats seen in Pokémon SV.
 #define SKIP_ALL_GAPS                    3              // Skips all gaps in the Pokédex.
 #define P_SKIP_POKEDEX_GAPS              DONT_SKIP_GAPS // Pokémon SV skip large gaps in the Pokédex.
+
+#if P_SC_KANTO_RULES
+#undef P_UPDATED_EXP_YIELDS
+#define P_UPDATED_EXP_YIELDS GEN_3
+#undef P_CAN_FORGET_HIDDEN_MOVE
+#define P_CAN_FORGET_HIDDEN_MOVE TRUE
+#endif
 
 #endif // GUARD_CONFIG_POKEMON_H

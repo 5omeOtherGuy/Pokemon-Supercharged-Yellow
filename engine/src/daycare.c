@@ -484,6 +484,8 @@ enum Species GetEggSpecies(enum Species species)
         found = FALSE;
         for (j = 1; j < NUM_SPECIES; j++)
         {
+            if (P_SC_KANTO_RULES && j > SPECIES_MEW)
+                continue;
             if (!IsSpeciesEnabled(j))
                 continue;
             const struct Evolution *evolutions = GetSpeciesEvolutions(j);

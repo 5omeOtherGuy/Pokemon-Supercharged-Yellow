@@ -101,3 +101,11 @@ It was not an all-authored-bags result. Host party-source checks and deliberatel
 controlled quota/consumption fixtures retain their stated scope. The counted
 `tests/rematches/run_native.sh` wrapper runs the strengthened authored-bag case
 separately with real campaign data and requires exactly one ordinary pass.
+
+
+The subsequent counted campaign-data run on 2026-09-06 passed the strengthened
+single authored-bag group with all652 real trainer records and all six Champion
+assertions. Evidence: integration `build/sc-rematches-verified.bags.log` and
+`build/sc-rematches-counted-final.log`, root `c21aa863` plus the coordinator's
+then-uncommitted explicit campaign-data build hooks. This supersedes the earlier
+fixture-only catalog result; it does not establish an ordinary battle journey.

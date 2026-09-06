@@ -154,8 +154,14 @@ was a build dependency failure, not an executed gameplay failure.
 
 The native file defines four campaign groups for real step charging, table resolution,
 high-ID badge/readiness and actual battle-exit cleanup, plus packed expiry and
-malformed counters. Check the coordinator's GREEN execution separately from
-these ARM compilation results.
+malformed counters. The coordinator then ran the counted wrapper against root `c21aa863` plus its
+campaign-data Makefile/data-selection hooks on 2026-09-06: **four rematch groups
+and one authored-bag group passed**, with no failures or skips. The retained logs
+are `build/sc-rematches-verified.log`, `build/sc-rematches-verified.bags.log` and
+`build/sc-rematches-counted-final.log` in the integration worktree. This run used
+all652 real trainer records, including the six Champion bag assertions, and
+supersedes the earlier fixture-only catalog result. The build-mode hooks were
+uncommitted at execution and are owned/documented by the coordinator.
 
 ## Remaining runtime and pacing validation
 

@@ -90,17 +90,20 @@ current-level move initialization.
 
 Four initially selected trainers failed that move audit and were replaced in
 this list: Clark by Herman, Gerald by Beck, Lao by Luke, and Leslie by Andrea.
-Their original first-battle records remain unchanged and need an ordinary-trainer
-review: Geodude Magnitude/Mud Sport, Onix/Muk/Grimer Screech, and Koffing Self
-Destruct were unavailable at those current source levels.
+The initial rematch task did not edit their original first-battle records.
+The subsequent ordinary-trainer correction `ef1c66d5` (integrated into frozen
+source `d2dd72da`) resolves unsupported species/moves in that wider scope; see
+[the ordinary-trainer report](../balance/ordinary-trainers.md). It updates twelve
+parties used by this table while preserving every ID, party size, level and
+format, so the dynamic resolver needs no matching table edit.
 
-Some preserved originals have evolved species below the player's evolution
-threshold: Yasu's Raticate17, Bernie's Magneton18, Luca's Electrode29, Hideo's
-Weezing33, Lea/Jed's Rapidash29, Virgil's Weezing28, Isaiah's Machamp29, Billy's
-Muk33, Lia/Luc's Seaking30, Melissa/Missy's Seaking31 and Ronald's Seaking28.
-These are inherited opponent exceptions, not new evolutions granted to the
-player. This task preserves their identities and levels; it does not certify
-ordinary trainer balance or claim these meet player evolution timing.
+Some low-level evolved opponents are legitimate caught forms rather than
+premature player evolutions: examples retained after that source audit include
+Yasu's Route11 Raticate17, Billy's Power Plant Muk33, and ocean Seaking/Seadra
+parties. Unsupported cases such as Bernie's Magneton18, Hideo's Weezing33,
+Virgil's Weezing28, Isaiah's Machamp29 and Lea/Jed's Rapidash29 were corrected
+in the ordinary-trainer task. This is source legality evidence, not certification
+of ordinary-trainer difficulty or player preparation time.
 
 ## Executed checks
 
@@ -159,18 +162,70 @@ campaign-data Makefile/data-selection hooks on 2026-09-06: **four rematch groups
 and one authored-bag group passed**, with no failures or skips. The retained logs
 are `build/sc-rematches-verified.log`, `build/sc-rematches-verified.bags.log` and
 `build/sc-rematches-counted-final.log` in the integration worktree. This run used
-all652 real trainer records, including the six Champion bag assertions, and
+all 652 real trainer records, including the six Champion bag assertions, and
 supersedes the earlier fixture-only catalog result. The build-mode hooks were
 uncommitted at execution and are owned/documented by the coordinator.
 
-## Remaining runtime and pacing validation
+## Recorded diagnostic runtime checks
 
-Run an actual gift-to-rematch sequence with ordinary input: receive the item,
-walk99/100 steps, use it through both bag and registered-item controls, approach
-and talk to a responding trainer, win, recharge, repeat and save/reload. Repeat
-after loss and after leaving the route. Check zero-money access, visible charge
-messages and expiry animation. Exercise both objects of a double trainer with
-one then two usable Pokémon, and verify no immediate second fight after victory.
+On 2026-09-06, before the owner changed the testing approach, the ordinary mGBA
+headless driver executed two explicitly disclosed diagnostic ROM setups against
+frozen production source `d2dd72dae3be97c094e7f7d5be80456b505aae49`:
+
+- ROM SHA-256 `f98b9b8d02ddd0d9a35f6baf2a81750a42c4c89cf525e8411c9dfe927f556acd`.
+- ELF SHA-256 `8cfa881f978aa3b1ff35494d91928272adc9a2a4e4b29ba3771711583554edfe`.
+
+Only the disposable ROM's isolated Mom interaction was changed. The first setup
+granted Mewtwo21 and Pikachu21 with explicit Modest natures/IV15, Boulder Badge,
+and a warp before the real Vermilion gift. The second granted Mewtwo21, Pikachu5,
+one badge, the device and one Revive, then warped beside Route8's twins. Neither
+setup injected trainer victories, charge or readiness. All subsequent commands
+were ordinary inputs, reads, screenshots and a normal save/reset; there were no
+runtime RAM writes, cheat commands or savestates. These are test scenarios, not
+organic campaign progress or stage-available team recommendations.
+
+| Case | Observed result on that frozen source |
+| --- | --- |
+| Real gift and first battle | Device received through its actual dialogue; walked to Route11 and defeated Eddie's original Ekans21. |
+| Charge and controls | Bag activation rejected undercharge; actual 99-step state displayed one remaining step through registered Select; the 100th step enabled signaling and consumed the charge. |
+| Save and repeat | Ready slot3 survived normal save/reset/Continue. Eddie's rematch dialogue entered actual trainer ID9 and the same Ekans21; a second win paid another ordinary ₽336. Readiness then cleared and talking again produced postbattle text. |
+| Expiry and transition | At response step99, readiness remained; step100 cleared it and preserved full recharge. A later signal followed by walking into Vermilion cleared readiness and the response timer, retaining 16 recharge steps. |
+| High-ID doubles | First fight used trainer376 and the correct Clefairy22/Jigglypuff22 doubles party. Pikachu fainted; the ready rematch correctly refused with one usable Pokémon, but repeatedly re-approached after refusal and blocked movement/Bag access. This was a gameplay defect, not a successful recovery test. |
+
+The [evidence folder](../../tests/rematches/evidence/d2dd72da/) retains manifests,
+checksums, 803 gift-sequence commands and 481 doubles-RED commands, responses and
+screenshots. `python3 tests/rematches/verify_runtime_evidence.py` verifies those
+records, state assertions and checksums, including the historical failed
+recovery behavior. It does not claim that the later fix was played. The checked-in
+fixture helpers document the historical setup; no further agent-controlled play
+or fixture generation is planned under the owner's changed approach.
+
+The sight refusal loop was reproduced with the actual source helper in
+`29d42df2`, then fixed in `15c27521`. `GetRematchFromScriptPointer` is used only by
+the automatic sight path; it now requires two usable party members for a ready
+doubles team. Readiness and manual refusal remain intact, so the player can
+recover and retry. Native follow-ups `a9a8d44a` / `d133909b` extend the existing
+high-ID group with one, two and fainted-partner cases. The first native object
+attempt used an obsolete creation API; the corrected source compiles with
+`SC_TEST_CAMPAIGN=1`. Execution of these new native assertions is coordinated by
+the lead and was pending at this worker's handoff.
+
+A second source-executed regression (`96eff976`) reproduced an index16 read in
+the actual sight-list function. Fix `0f019032` changes both sorting and visitation
+to stop before the populated count. Empty, sparse, non-trainer and full16 lists
+pass with undefined-behavior/bounds instrumentation. All **eight rematch host
+groups pass**; complete ARM objects for `battle_setup.c`, `trainer_see.c` and the
+campaign-enabled native rematch test compile with `-Werror`.
+
+## Remaining owner gameplay and pacing validation
+
+The owner will play the test build. The updated doubles sight fix has **not** been
+played after integration. Confirm that one-usable refusal allows movement and
+Bag/Center recovery, both twins' interactions work, and recovery permits the
+pending full-ID double rematch without consuming readiness early. The prior
+attempt to reach Anne remained trapped in Eli's repeated sight dialogue, so it
+does not validate Anne's path. Retry after loss and the full bag/registered flow
+on the final build also remain to be checked.
 
 Record actual EXP, money, Practice Points, survivor training and consumed supplies
 on wins and losses. Measure recruit catch-up and additional focused training at

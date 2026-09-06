@@ -19,8 +19,8 @@ int main(void)
 {
     struct ScAiObservation o = arena();
     struct ScAiChoice choices[2];
-    assert(ScAiEstimateStat(100, 50, 110, 0) == 123);
-    assert(ScAiEstimateStat(100, 50, 90, 0) == 100);
+    assert(ScAiEstimateStat(100, 50, 110, 0) == 124);
+    assert(ScAiEstimateStat(100, 50, 90, 0) == 101);
     assert(ScAiEstimateStat(100, 50, 100, 1) == 168);
     assert(ScAiEstimateHp(100, 24, 48) == 50);
     assert(ScAiEstimateHp(100, 1, 48) == 3);

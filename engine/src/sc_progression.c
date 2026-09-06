@@ -62,7 +62,9 @@ void ScRefreshTrainerUnlocks(void)
 {
     if (FlagGet(FLAG_BADGE01_GET))
         gSaveBlock3Ptr->sc.unlockedPassives |= 1u << SC_PASSIVE_COMPOSURE;
-    if (FlagGet(FLAG_HIDE_SS_ANNE_RIVAL))
+    if (HasTrainerBeenFought(TRAINER_RIVAL_SS_ANNE_SQUIRTLE)
+        || HasTrainerBeenFought(TRAINER_RIVAL_SS_ANNE_BULBASAUR)
+        || HasTrainerBeenFought(TRAINER_RIVAL_SS_ANNE_CHARMANDER))
         gSaveBlock3Ptr->sc.unlockedPassives |= 1u << SC_PASSIVE_TEMPO;
     if (FlagGet(FLAG_RESCUED_MR_FUJI))
         gSaveBlock3Ptr->sc.unlockedPassives |= 1u << SC_PASSIVE_PREPARATION;

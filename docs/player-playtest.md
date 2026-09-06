@@ -5,7 +5,7 @@ This build contains the implemented Kanto campaign and PC test tools. The suppli
 ## Play on Android
 
 1. Copy `Pokemon-Supercharged-Yellow-playtest.gba` from the supplied local folder or ZIP to your phone.
-2. In RetroArch, load the **mGBA** core, then choose **Load Content** and select the `.gba`. The same engine has previously run under RetroArch/mGBA on the project's Android 11 emulator target. Physical-phone testing remains yours.
+2. In RetroArch, load the **mGBA** core, then choose **Load Content** and select the `.gba`. This owner ROM has booted to New Game/Option under RetroArch/mGBA on the project's Android 11 emulator target. Physical-phone testing remains yours.
 3. Use the on-screen GBA controls. Save through the game's Start menu. Let the save finish before closing content. Keep the ROM filename stable so the emulator finds its matching save.
 
 No external cheat codes are needed. The ROM is compiled locally from this source; the local ZIP is for your testing and must not be uploaded as a public ROM release. Public patch packaging remains separate.

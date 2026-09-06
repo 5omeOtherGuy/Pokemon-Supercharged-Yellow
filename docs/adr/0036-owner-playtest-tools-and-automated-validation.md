@@ -3,7 +3,7 @@
 - Status: Accepted
 - Date: 2026-09-06
 - Decision authority: Explicit owner instruction to prioritize coding and battle simulations, stop agent-controlled campaign playthroughs, and provide a playable cheat-enabled build for their testing
-- Implementation: PC tools and gameplay hooks implemented; host and native checks pass; production packaging and clean rebuild recorded in the artifact manifest
+- Implementation: Implemented and packaged at source 131c263d; host/native checks, clean identical rebuild and Android title/menu boot pass; owner gameplay validation remains
 - Supersedes: None (test-build exception; ordinary campaign policies remain)
 - Superseded by: None
 

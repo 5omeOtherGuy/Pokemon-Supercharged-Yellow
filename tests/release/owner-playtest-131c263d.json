@@ -1,0 +1,162 @@
+{
+  "kind": "private-owner-playtest",
+  "source_commit": "131c263dcdf0ca79ed94bb45b45c6dce0a5a53fd",
+  "engine_tree": "5745ce611c3e97c132f070c377e56d59ea649607",
+  "rom": "Pokemon-Supercharged-Yellow-playtest.gba",
+  "sha256": "07bdf5ef7e07d6486311395f2279ee21ce98b2d8788c175a4cd0549f95987971",
+  "bytes": 33554432,
+  "SC_TEST_TOOLS": 1,
+  "switches_default": "off",
+  "compiler": "arm-none-eabi-gcc (15:13.2.rel1-2) 13.2.1 20231009",
+  "linker": "GNU ld (2.42-1ubuntu1+23) 2.42",
+  "clean_source_rebuild_identical": true,
+  "validation": "See docs/validation/owner-playtest.md at source_commit; full campaign/human acceptance incomplete",
+  "distribution": "Local ROM for owner testing; do not upload ROM or this ZIP to public releases",
+  "executed_checks": {
+    "host": {
+      "tests": 103,
+      "result": "pass",
+      "details": [
+        {
+          "suite": "briefing-host",
+          "tests": 2,
+          "passed": true,
+          "sha256": "40451966904f668fb16a38da8b9f5e516b10f93be26039833bfd0ed3ca0a3f24"
+        },
+        {
+          "suite": "cheats-host",
+          "tests": 1,
+          "passed": true,
+          "sha256": "b3672844d4e8c1decdf7fd32341a2b627457be454ed440a53cf56fcb7c66eec7"
+        },
+        {
+          "suite": "content-host",
+          "tests": 34,
+          "passed": true,
+          "sha256": "7036469825f9668156f40b6f7728ea1f7df6729dee4a667d789c9981448323a3"
+        },
+        {
+          "suite": "economy-host",
+          "tests": 7,
+          "passed": true,
+          "sha256": "437a40c8b3616a9580195b8d395e67927a0a08da8186bbe89fa53a73b82dcb04"
+        },
+        {
+          "suite": "field-host",
+          "tests": 4,
+          "passed": true,
+          "sha256": "362d23cbfd0bee93fa2692a593527687b22fe607902a5e8f4ab7e76271fcb8bc"
+        },
+        {
+          "suite": "presentation-host",
+          "tests": 1,
+          "passed": true,
+          "sha256": "be9b198aab922a1009533dfcbdd6e3d7af2828a666f999abde08762c42e19f13"
+        },
+        {
+          "suite": "progression-host",
+          "tests": 3,
+          "passed": true,
+          "sha256": "2fac2688b95a4769b389a542d5eb5d0991b269e3a72f49dee0040b973e881e9e"
+        },
+        {
+          "suite": "release-host",
+          "tests": 6,
+          "passed": true,
+          "sha256": "acc84dc96bfaa2697d6f93d38e896be078402b7fe5f440623be7e4b94dbc5cef"
+        },
+        {
+          "suite": "rematches-host",
+          "tests": 8,
+          "passed": true,
+          "sha256": "5b1101e2ce09012e6d471e28de364fce75727519d69e22e7e55f7d0c57229106"
+        },
+        {
+          "suite": "roster-host",
+          "tests": 10,
+          "passed": true,
+          "sha256": "1a82b6845374a17f357fa056295024e416a86e4f7a4734fb6f11877cd0a077c6"
+        },
+        {
+          "suite": "safety-host",
+          "tests": 8,
+          "passed": true,
+          "sha256": "56fe345fe2a53c9c61931bbb61fefe7fefb611f1c078220d0f1dffad72704b0a"
+        },
+        {
+          "suite": "services-host",
+          "tests": 2,
+          "passed": true,
+          "sha256": "fa775042aa2f41f4776663e2b6d7aa22170b637503bf2404381e1e1a4c202272"
+        },
+        {
+          "suite": "simulation-host",
+          "tests": 6,
+          "passed": true,
+          "sha256": "ac6ab4177073f37bc1978a36ece43c9a03dc944b49ed5898ecac5c93f09ed1cd"
+        },
+        {
+          "suite": "supplies-host",
+          "tests": 5,
+          "passed": true,
+          "sha256": "a313c4164f024c66597f236fb43d769b500985bb7a762ba8e19409cc0eb207d2"
+        },
+        {
+          "suite": "test_tools-host",
+          "tests": 6,
+          "passed": true,
+          "sha256": "8af5d868d842334053aae0023d233b1ea7b0dc75edd4e8e8c373397ff5192b03"
+        }
+      ]
+    },
+    "native_regression": {
+      "groups": 119,
+      "passed": 109,
+      "deliberate_framework_checks": 10,
+      "unexpected_failures": 0
+    },
+    "owner_native": {
+      "tools_enabled_groups": 10,
+      "tools_disabled_groups": 3,
+      "result": "pass"
+    },
+    "battle_simulation": {
+      "groups": 7,
+      "parameter_cases": 9,
+      "result": "pass"
+    },
+    "campaign_rematch": {
+      "groups": 4,
+      "authored_bag_groups": 1,
+      "result": "pass"
+    },
+    "emulator_harness": {
+      "tests": 3,
+      "result": "pass",
+      "rom_sha256": "07bdf5ef7e07d6486311395f2279ee21ce98b2d8788c175a4cd0549f95987971"
+    },
+    "android_boot": {
+      "target": "Android 11/API30 AOSP x86_64 VM, Emulator 37.1.11.0",
+      "frontend": "RetroArch 1.22.2_GIT",
+      "core": "mGBA 0.11-219-e31759b",
+      "rom_sha256": "07bdf5ef7e07d6486311395f2279ee21ce98b2d8788c175a4cd0549f95987971",
+      "result": "Yellow title and Start to New Game/Option observed; no gameplay",
+      "screenshots": {
+        "01-boot.png": "a3e333fc8122d8e0c4900c2dea223fb7ea14e5c7ed7e26524252b8df6a6b7cac",
+        "03-start-settled.png": "b5d2837c8d1e8063dc4286ff2b156381b80f19a7e5b9d03079c14d14d8b45531"
+      }
+    }
+  },
+  "retained_local_log_sha256": {
+    "build/playtest-package/build.log": "ce7fb3ea253ceaca46cdb6d4eba424fbf38ee7fe1f897b16885aaa33daafadef",
+    "build/playtest-package/rebuild.log": "ed516a220e322a3b88dae004397247757c8ffeeccd1cbabf07136bbd29780486",
+    "build/battle-effects/regression-native.log": "b50968dbcb333608898c113cad2249dbe7967927bbc1b86ae30d2b2a90f6c40b",
+    "build/owner-test/native-tools-1.log": "ff94c52df63e1d04d831933ce6d4c7825c4049bf5560a280af2405c39217845e",
+    "build/owner-test/native-tools-0.log": "cc8aa2601a8e2ad6b2b003c828f0e5b44f0c49eb52f27166557f9f41ab2dcd9d",
+    "build/sc-potion-quota-modes.log": "c960c5b01266e1e470482089593feee188a7160aa13a197c1f07dd1d50440c35",
+    "build/sc-simulation-refined-native.log": "ef71815a7ed2b791dfa9b78454cbbae89c0ebbf4f94c3dbe72820c69b9585926",
+    "build/sc-rematches-owner-run.log": "b146c52431fa9d2a074d1afcfd0ee6fcfd3f52c96a3a7204647ab937c7c784f1",
+    "build/owner-test/emulator-host.log": "2e616890cb9d04abce8f457508362aadce70c2bbcc64e541e0fb46b9d520a734"
+  },
+  "scope": "Owner test build. Full journey, PC UI playthrough, all-151 ordinary save, human balance and physical phone validation unperformed; no public patch."
+}

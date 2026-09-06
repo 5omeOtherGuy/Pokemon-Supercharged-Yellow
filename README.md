@@ -6,7 +6,7 @@ A Kanto ROM-hack project inspired by Pokémon Recharged Yellow: familiar Pokémo
 
 The GBA engine, Yellow campaign source and Supercharged systems are being integrated and tested. **The complete game and release are not ready.** See [project status](docs/project-status.md) for implemented features, executed checks and remaining requirements. Recharged Yellow is a design reference, not a source dependency.
 
-The current delivery target is an **owner playtest build with PC cheat tools**, under the owner's coding-first direction. See [player instructions](docs/player-playtest.md), [PC shortcuts](docs/testing-cheats.md) and [validation](docs/validation/owner-playtest.md). Agent-controlled campaign walkthroughs are paused; coding, automated tests and bounded battle simulations support the owner's playtesting.
+An **owner playtest build with PC cheat tools** is packaged locally, under the owner's coding-first direction. Source `131c263d` builds reproducibly and boots to the game menu on the Android VM target. See [player instructions](docs/player-playtest.md), [PC shortcuts](docs/testing-cheats.md) and [validation](docs/validation/owner-playtest.md). Agent-controlled campaign walkthroughs are paused; coding, automated tests and bounded battle simulations support the owner's playtesting.
 
 ## Design direction
 
@@ -51,7 +51,7 @@ python3 tools/build_playtest.py --repro-check
 
 It outputs a local `.gba`, ZIP, guides and manifest in ignored `dist/owner-playtest/`. The explicit `SC_TEST_TOOLS=1` build uses separate output/object paths; ordinary builds default to zero. Do not publish the local ROM or ZIP. A public release patch remains separate work.
 
-The build produces local `engine/pokefirered.gba`; that inherited filename does not certify a release. Native tests execute real GBA code in mGBA. Check the executed count: the runner can return success for an empty filter. The [validation records](docs/project-status.md) distinguish native, host, diagnostic-fixture and ordinary gameplay evidence. A second clean reproducibility build and complete release validation remain pending.
+The build produces local `engine/pokefirered.gba`; that inherited filename does not certify a release. Native tests execute real GBA code in mGBA. Check the executed count: the runner can return success for an empty filter. The [validation records](docs/project-status.md) distinguish native, host, diagnostic-fixture and ordinary gameplay evidence. The owner build passed a second clean-source byte-for-byte rebuild. Complete campaign and final release validation remain pending.
 
 ## Contributions and distribution
 

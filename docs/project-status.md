@@ -1,6 +1,6 @@
 # Implementation and release evidence
 
-Updated 2026-09-06. **The game is not complete and no Supercharged Yellow release is ready.** Integrated builds and native mechanics tests are intermediate results. This file is the current execution record; the earlier design review is historical.
+Updated 2026-09-06. **The final game is not complete. A reproducible owner playtest build with PC tools is ready locally.** Integrated builds and native mechanics tests are intermediate results. This file is the current execution record; the earlier design review is historical.
 
 ## Authority and scope
 
@@ -21,7 +21,7 @@ The owner's later 2026-09-06 instruction changes the immediate priority: finish 
 
 | Required outcome | Current evidence | Remaining acceptance |
 | --- | --- | --- |
-| Foundation and reproducible build | Selected/imported expansion pin `7644501f3065b38aea2cfc64b5b58ca011bce4f5`; unmodified build/battle/save passed; see ADR-0028 | Complete project build and independent clean reproducibility check |
+| Foundation and reproducible build | Selected/imported expansion pin `7644501f3065b38aea2cfc64b5b58ca011bce4f5`; unmodified build/battle/save passed; see ADR-0028 | Owner source `131c263d` passes an independent clean identical-ROM rebuild; final release checks remain |
 | Yellow/Kanto campaign | Pikachu/Eevee opening, gifts, Jessie/James, mainland gates and collection source implemented; 16 content tests pass | Play from new game through League; verify anchors, all gates, repeat access and recovery |
 | Battle mechanics, split, Fairy, weather/terrain, Set and speed | Modern engine, Set, public damage/status/speed/recovery effects implemented; 119-group integrated regression has109 passes and10 intentional checks; named pace presets implemented and a real sequence measured | Broader interactions/animation checks, Android/audio, complete UI and human timing |
 | Levels, traits, training, capabilities and trainer builds | Encrypted metadata, whole-victory reward transaction and service model/UI implemented; 6 limit tests pass, including EXP/candy/Day Care/IV floor/NPC ceilings | All-source rewards, full preparation-time validation and remaining integrated journeys; faint/revive/loss/switched-support native cases pass |
@@ -36,13 +36,17 @@ The owner's later 2026-09-06 instruction changes the immediate priority: finish 
 
 ## Work in progress
 
-The integration checkout remains on `main`; implementation uses `agent/full-game` in a separate worktree. Agent-controlled gameplay has stopped, with prior saves/evidence preserved. The PC editor, shortcuts and bounded simulations are implemented; the coordinator is integrating native regressions and preparing the local owner build. See [owner validation](validation/owner-playtest.md) for current results and [player instructions](player-playtest.md) for using it. Local task allocation and recovery state remain in the common Git directory's `info/agent-tasks.md` and `info/full-game/`.
+The integration checkout remains on `main`; implementation uses `agent/full-game` in a separate worktree. Agent-controlled gameplay has stopped, with prior saves/evidence preserved. The PC editor, shortcuts and bounded simulations are implemented. Source `131c263d` is packaged as the local owner build with a byte-identical clean rebuild, passing automated checks and Android title/menu boot evidence. See [owner validation](validation/owner-playtest.md) for current results and [player instructions](player-playtest.md) for using it. Local task allocation and recovery state remain in the common Git directory's `info/agent-tasks.md` and `info/full-game/`.
 
 Focused records: [battle effects](validation/battle-effects.md), [AI](validation/fair-ai.md), [supplies](validation/battle-supplies.md), [boss briefing](validation/boss-briefing.md), [field access](validation/field-access.md), [campaign safety](validation/campaign-safety.md), [emulator harness and foundation opening](validation/emulator-harness.md), [Yellow opening](validation/yellow-opening.md), [Center services](validation/center-services.md), [battle pacing](validation/battle-pace.md), [boss teams](balance/campaign-bosses.md), [League](balance/champion-finale.md), [economy](balance/campaign-economy.md), [economy runtime](validation/campaign-economy.md), [ordinary trainers](balance/ordinary-trainers.md), [Kanto rematches](validation/kanto-rematches.md), [Android runtime](validation/android-runtime.md). A 13-group combined native run passed service transactions, supply classification/restoration, cap and training cases; a subsequent 6-group limits run additionally covered Day Care overflow/fees, Preparation field healing and authored NPC ceilings. These do not establish a complete player journey.
 
 No human playtest, completed Android acceptance, full-battle win-rate study or unperformed test is claimed. Evidence will be added with exact source/artifact revisions and commands as each check runs. External validation requirements do not excuse leaving independent implementation unfinished.
 
-## Latest integration checks
+## Owner build handoff
+
+The local ZIP contains the ROM, player/PC guides and build manifest. ROM SHA256: `07bdf5ef7e07d6486311395f2279ee21ce98b2d8788c175a4cd0549f95987971`. All 103 host checks, 119 expected native outcomes (109 pass and 10 deliberate framework checks), owner enabled/disabled native checks, bounded battle simulations and three ROM harness checks pass. Android 11/RetroArch/mGBA displays the Yellow title and reaches New Game/Option. See [owner validation](validation/owner-playtest.md) for exact scope and [machine-readable evidence](../tests/release/owner-playtest-131c263d.json).
+
+## Earlier integration checks
 
 Production source `9d479bc5` builds with the current economy and boss curation; its immutable runtime artifact is SHA256`73759e33b3fe975f887e9b6286002ad0b00ef6a0bf8abd8da821fade2025afe3`. The focused native suite executes119 groups,109 passes plus10 expected framework failures, no unexpected failures/skips. This includes progression/save, supplies, training outcomes, caps, service transactions, pace helpers, public AI and battle-effect interactions. These are bounded checks, not whole-game coverage.
 

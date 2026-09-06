@@ -33,3 +33,7 @@ The VM uses an isolated ADB server/serial and task-local SDK/AVD. Host microphon
 ## Remaining acceptance
 
 Verify the newer artifact's removed developer shortcut and Yellow presentation; exercise actual singles/doubles, scouting, services, supplies, all pace settings and custom effects. Assess audio, sustained performance and readable controls without a concurrent build. The full campaign, all 151 collection and required rematches still need their ordinary journeys. Human testing is required for preparation burden, challenge, reading comfort and enjoyment.
+
+## Owner build boot check — source 131c263d
+
+Under the later coding-first direction, the exact owner ROM SHA256 `07bdf5ef7e07d6486311395f2279ee21ce98b2d8788c175a4cd0549f95987971` booted on the same pinned VM/frontend/core. The new Yellow/Pikachu title is visible without the old Quickstart HUD, and Start reaches New Game/Option. The previous save was backed up and its checksum was unchanged after this check. Only title/menu input was performed. See [owner validation](owner-playtest.md) for screenshots, the clean rebuild and evidence boundaries. New-ROM campaign, PC-tool UI acceptance, sustained performance and physical-phone coverage remain owner checks.

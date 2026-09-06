@@ -12,7 +12,7 @@ class ScriptVM:
         for file in (Path(engine)/'data/maps').glob('*_Frlg/scripts.inc'):
             for label,body in re.findall(r'^(\w+)::\n(.*?)(?=^\w+::|\Z)',file.read_text(),re.M|re.S):
                 self.code[label]=[x.strip() for x in body.splitlines() if x.strip() and not x.lstrip().startswith('@')]
-        self.flags=set();self.vars={};self.gifts=[];self.battles=[];self.defeated=set()
+        self.flags=set();self.vars={};self.gifts=[];self.battles=[];self.defeated=set();self.movements=[]
         self.answer=1;self.gift_result=0;self.outcome='B_OUTCOME_CAUGHT';self.accept=1
     def value(self,x):
         if x in self.vars:return self.vars[x]
@@ -36,6 +36,7 @@ class ScriptVM:
             if op=='call':stack.append((label,i));label,i=args[0],0;continue
             if op in {'setflag','setworldmapflag','clearflag'}:
                 (self.flags.add if op!='clearflag' else self.flags.discard)(args[0])
+            elif op=='applymovement':self.movements.append(tuple(args))
             elif op=='setvar':self.vars[args[0]]=self.value(args[1])
             elif op=='copyvar':self.vars[args[0]]=self.value(args[1])
             elif op in {'goto_if_set','goto_if_unset'}:

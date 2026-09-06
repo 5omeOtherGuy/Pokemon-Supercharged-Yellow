@@ -4439,7 +4439,10 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Eevee
 Level: 5
+Ability: Run Away
+Nature: Hardy
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+EVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Tail Whip
 
@@ -4454,7 +4457,10 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Eevee
 Level: 5
+Ability: Run Away
+Nature: Hardy
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+EVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Tail Whip
 
@@ -4469,7 +4475,10 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Eevee
 Level: 5
+Ability: Run Away
+Nature: Hardy
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+EVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Tail Whip
 
@@ -4484,17 +4493,25 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Spearow
 Level: 9
+Ability: Keen Eye
+Nature: Jolly
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+EVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Peck
 - Growl
-
+- Leer
+- Assurance
 
 Eevee
 Level: 10
+Ability: Run Away
+Nature: Hardy
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+EVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Tackle
 - Tail Whip
-- Sand Attack
+- Quick Attack
+- Growl
 
 === TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR ===
 Name: TERRY
@@ -4507,17 +4524,25 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Spearow
 Level: 9
+Ability: Keen Eye
+Nature: Jolly
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+EVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Peck
 - Growl
-
+- Leer
+- Assurance
 
 Eevee
 Level: 10
+Ability: Run Away
+Nature: Hardy
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+EVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Tackle
 - Tail Whip
-- Sand Attack
+- Quick Attack
+- Growl
 
 === TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER ===
 Name: TERRY
@@ -4530,17 +4555,25 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Spearow
 Level: 9
+Ability: Keen Eye
+Nature: Jolly
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+EVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Peck
 - Growl
-
+- Leer
+- Assurance
 
 Eevee
 Level: 10
+Ability: Run Away
+Nature: Hardy
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+EVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Tackle
 - Tail Whip
-- Sand Attack
+- Quick Attack
+- Growl
 
 === TRAINER_RIVAL_CERULEAN_SQUIRTLE ===
 Name: TERRY
@@ -4552,23 +4585,48 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Spearow
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 18
+Ability: Keen Eye
+Nature: Jolly
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Aerial Ace
+- Assurance
+- Leer
+- Fury Attack
 
 Sandshrew
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 18
+Ability: Sand Rush
+Nature: Impish
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Bulldoze
+- Rapid Spin
+- Rollout
+- Defense Curl
 
 Rattata
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 18
+Ability: Guts
+Nature: Jolly
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Quick Attack
+- Bite
+- Take Down
+- Focus Energy
 
 Eevee
 Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Adaptability
+Nature: Hardy
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Swift
+- Quick Attack
+- Baby Doll Eyes
+- Protect
 
 === TRAINER_RIVAL_CERULEAN_BULBASAUR ===
 Name: TERRY
@@ -4580,23 +4638,48 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Spearow
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 18
+Ability: Keen Eye
+Nature: Jolly
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Aerial Ace
+- Assurance
+- Leer
+- Fury Attack
 
 Sandshrew
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 18
+Ability: Sand Rush
+Nature: Impish
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Bulldoze
+- Rapid Spin
+- Rollout
+- Defense Curl
 
 Rattata
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 18
+Ability: Guts
+Nature: Jolly
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Quick Attack
+- Bite
+- Take Down
+- Focus Energy
 
 Eevee
 Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Adaptability
+Nature: Hardy
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Swift
+- Quick Attack
+- Baby Doll Eyes
+- Protect
 
 === TRAINER_RIVAL_CERULEAN_CHARMANDER ===
 Name: TERRY
@@ -4608,23 +4691,48 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Spearow
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 18
+Ability: Keen Eye
+Nature: Jolly
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Aerial Ace
+- Assurance
+- Leer
+- Fury Attack
 
 Sandshrew
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 18
+Ability: Sand Rush
+Nature: Impish
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Bulldoze
+- Rapid Spin
+- Rollout
+- Defense Curl
 
 Rattata
-Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 18
+Ability: Guts
+Nature: Jolly
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Quick Attack
+- Bite
+- Take Down
+- Focus Energy
 
 Eevee
 Level: 20
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Adaptability
+Nature: Hardy
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Swift
+- Quick Attack
+- Baby Doll Eyes
+- Protect
 
 === TRAINER_SCIENTIST_TED ===
 Name: TED
@@ -4965,16 +5073,37 @@ Double Battle: No
 AI: Check Bad Move
 
 Onix
-Level: 25
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+Level: 32
+Ability: Sturdy
+Nature: Impish
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Rock Slide
+- Bulldoze
+- Stealth Rock
+- Protect
 
 Rhyhorn
-Level: 24
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+Level: 32
+Ability: Rock Head
+Nature: Adamant
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Bulldoze
+- Rock Blast
+- Stomp
+- Scary Face
 
 Kangaskhan
-Level: 29
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+Level: 35
+Ability: Early Bird
+Nature: Adamant
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Fake Out
+- Bite
+- Brick Break
+- Stomp
 
 === TRAINER_BOSS_GIOVANNI_2 ===
 Name: GIOVANNI
@@ -4986,20 +5115,48 @@ Double Battle: No
 AI: Check Bad Move
 
 Nidorino
-Level: 37
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+Level: 45
+Ability: Poison Point
+Nature: Adamant
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+EVs: 36 HP / 36 Atk / 36 Def / 36 SpA / 36 SpD / 36 Spe
+- Poison Jab
+- Horn Attack
+- Double Kick
+- Toxic Spikes
 
 Kangaskhan
-Level: 35
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+Level: 46
+Ability: Scrappy
+Nature: Adamant
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+EVs: 36 HP / 36 Atk / 36 Def / 36 SpA / 36 SpD / 36 Spe
+- Fake Out
+- Crunch
+- Brick Break
+- Strength
 
 Rhyhorn
-Level: 37
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+Level: 45
+Ability: Rock Head
+Nature: Adamant
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+EVs: 36 HP / 36 Atk / 36 Def / 36 SpA / 36 SpD / 36 Spe
+- Drill Run
+- Rock Blast
+- Stomp
+- Scary Face
 
 Nidoqueen
-Level: 41
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+Level: 49
+Ability: Sheer Force
+Nature: Modest
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+EVs: 36 HP / 36 Atk / 36 Def / 36 SpA / 36 SpD / 36 Spe
+- Earth Power
+- Sludge Wave
+- Ice Beam
+- Protect
 
 === TRAINER_LEADER_GIOVANNI ===
 Name: GIOVANNI
@@ -5012,48 +5169,59 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Dugtrio
-Level: 60
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 61
+Ability: Sand Force
+Nature: Jolly
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
 - Earthquake
-- Rock Slide
+- Rock Tomb
 - Sucker Punch
 - Sandstorm
 
-
 Nidoqueen
-Level: 60
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 61
+Ability: Sheer Force
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
 - Earth Power
-- Sludge Bomb
+- Sludge Wave
 - Ice Beam
-- Thunderbolt
-
+- Protect
 
 Nidoking
 Level: 61
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Earthquake
-- Poison Jab
+Ability: Sheer Force
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Earth Power
+- Sludge Wave
+- Thunderbolt
 - Megahorn
-- Rock Slide
-
 
 Persian
 Level: 61
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Technician
+Nature: Jolly
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
 - Fake Out
-- Slash
 - Bite
-- Screech
-
+- U Turn
+- Play Rough
 
 Rhydon
 Level: 62
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Rock Head
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
 - Earthquake
 - Stone Edge
 - Megahorn
-- Hammer Arm
+- Protect
 
 === TRAINER_TEAM_ROCKET_GRUNT ===
 Name: GRUNT
@@ -7070,20 +7238,25 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Geodude
 Level: 14
+Ability: Sturdy
+Nature: Hardy
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Rock Tomb
 - Bulldoze
 - Defense Curl
 - Tackle
 
-
 Onix
 Level: 15
+Ability: Rock Head
+Nature: Hardy
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Rock Tomb
 - Bind
-- Rock Throw
-- Screech
+- Tackle
+- Harden
 
 === TRAINER_LEADER_MISTY ===
 Name: MISTY
@@ -7097,28 +7270,35 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Psyduck
 Level: 21
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Swift Swim
+Nature: Modest
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Rain Dance
 - Water Pulse
 - Icy Wind
 - Protect
 
-
 Starmie
 Level: 22
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Natural Cure
+Nature: Timid
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Water Pulse
 - Swift
-- Recover
+- Light Screen
 - Protect
-
 
 Seel
 Level: 21
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Aqua Jet
+Ability: Thick Fat
+Nature: Calm
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Water Pulse
 - Icy Wind
-- Helping Hand
+- Charm
 - Encore
 
 === TRAINER_LEADER_LT_SURGE ===
@@ -7132,30 +7312,37 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Voltorb
-Level: 26
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Spark
+Level: 27
+Ability: Soundproof
+Nature: Timid
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Electro Ball
+- Charge Beam
+- Taunt
 - Light Screen
-- Swift
-- Thunder Wave
-
 
 Pikachu
 Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Electro Ball
+Ability: Static
+Nature: Jolly
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Electric Terrain
+- Nuzzle
+- Spark
 - Quick Attack
-- Thunder Wave
-- Double Team
-
 
 Raichu
 Level: 28
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Thunder Punch
-- Brick Break
+Ability: Lightning Rod
+Nature: Hasty
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+- Thunderbolt
 - Quick Attack
-- Agility
+- Iron Tail
+- Nuzzle
 
 === TRAINER_LEADER_ERIKA ===
 Name: ERIKA
@@ -7169,38 +7356,47 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Tangela
 Level: 35
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Chlorophyll
+Nature: Bold
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Sunny Day
 - Giga Drain
-- Sleep Powder
+- Knock Off
 - Protect
-
 
 Weepinbell
 Level: 35
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Chlorophyll
+Nature: Adamant
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Razor Leaf
-- Acid
+- Poison Jab
 - Growth
 - Protect
 
-
 Vileplume
 Level: 36
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Chlorophyll
+Nature: Modest
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Giga Drain
-- Sludge Bomb
-- Moonlight
+- Moonblast
+- Grassy Terrain
 - Protect
-
 
 Exeggcute
 Level: 35
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Chlorophyll
+Nature: Calm
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Giga Drain
+- Confusion
 - Reflect
-- Psybeam
 - Leech Seed
-- Protect
 
 === TRAINER_LEADER_KOGA ===
 Name: KOGA
@@ -7214,37 +7410,46 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Venomoth
 Level: 42
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Tinted Lens
+Nature: Timid
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+EVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
 - Bug Buzz
-- Psychic
-- Sleep Powder
+- Psybeam
+- Stun Spore
 - Protect
-
 
 Muk
 Level: 43
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Sticky Hold
+Nature: Adamant
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+EVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
 - Poison Jab
-- Minimize
-- Shadow Sneak
-- Acid Armor
-
+- Knock Off
+- Clear Smog
+- Protect
 
 Golbat
 Level: 43
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Air Slash
-- Confuse Ray
+Ability: Inner Focus
+Nature: Jolly
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+EVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+- Wing Attack
+- Leech Life
+- Haze
 - Roost
-- Super Fang
-
 
 Weezing
 Level: 44
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Levitate
+Nature: Bold
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+EVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
 - Sludge Bomb
-- Will-O-Wisp
 - Flamethrower
+- Will O Wisp
 - Protect
 
 === TRAINER_LEADER_BLAINE ===
@@ -7259,38 +7464,47 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Ninetales
 Level: 54
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Sunny Day
+Ability: Drought
+Nature: Timid
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+EVs: 40 HP / 40 Atk / 40 Def / 40 SpA / 40 SpD / 40 Spe
 - Flamethrower
-- Will-O-Wisp
-- Confuse Ray
-
+- Will O Wisp
+- Extrasensory
+- Protect
 
 Rapidash
 Level: 55
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Flash Fire
+Nature: Jolly
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+EVs: 40 HP / 40 Atk / 40 Def / 40 SpA / 40 SpD / 40 Spe
 - Flare Blitz
-- Drill Run
-- Agility
-- Megahorn
-
+- High Horsepower
+- Poison Jab
+- Flame Charge
 
 Magmar
 Level: 55
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Flame Body
+Nature: Modest
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+EVs: 40 HP / 40 Atk / 40 Def / 40 SpA / 40 SpD / 40 Spe
 - Flamethrower
-- Thunder Punch
-- Confuse Ray
-- Brick Break
-
+- Clear Smog
+- Will O Wisp
+- Psychic
 
 Arcanine
 Level: 56
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Flamethrower
+Ability: Intimidate
+Nature: Adamant
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+EVs: 40 HP / 40 Atk / 40 Def / 40 SpA / 40 SpD / 40 Spe
+- Flare Blitz
 - Extreme Speed
 - Crunch
-- Morning Sun
+- Play Rough
 
 === TRAINER_LEADER_SABRINA ===
 Name: SABRINA
@@ -7304,36 +7518,45 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Mr. Mime
 Level: 49
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Light Screen
-- Reflect
+Ability: Filter
+Nature: Calm
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
 - Psychic
-- Helping Hand
-
+- Dazzling Gleam
+- Reflect
+- Protect
 
 Hypno
 Level: 49
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Insomnia
+Nature: Calm
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
 - Psychic Terrain
 - Psychic
-- Thunder Wave
+- Helping Hand
 - Protect
-
 
 Kadabra
 Level: 49
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Inner Focus
+Nature: Timid
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
 - Psychic
 - Shadow Ball
 - Recover
 - Protect
 
-
 Alakazam
 Level: 50
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Magic Guard
+Nature: Timid
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
 - Psychic
-- Dazzling Gleam
+- Shadow Ball
 - Calm Mind
 - Protect
 
@@ -7424,23 +7647,48 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Spearow
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-
-Rattata
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 19
+Ability: Keen Eye
+Nature: Jolly
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Aerial Ace
+- Assurance
+- Leer
+- Fury Attack
 
 Sandshrew
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 20
+Ability: Sand Rush
+Nature: Impish
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Bulldoze
+- Rapid Spin
+- Rollout
+- Defense Curl
 
+Rattata
+Level: 19
+Ability: Guts
+Nature: Jolly
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Quick Attack
+- Bite
+- Take Down
+- Focus Energy
 
 Eevee
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 22
+Ability: Adaptability
+Nature: Hardy
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Swift
+- Quick Attack
+- Baby Doll Eyes
+- Protect
 
 === TRAINER_RIVAL_SS_ANNE_BULBASAUR ===
 Name: TERRY
@@ -7452,23 +7700,48 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Spearow
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-
-Rattata
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 19
+Ability: Keen Eye
+Nature: Jolly
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Aerial Ace
+- Assurance
+- Leer
+- Fury Attack
 
 Sandshrew
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 20
+Ability: Sand Rush
+Nature: Impish
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Bulldoze
+- Rapid Spin
+- Rollout
+- Defense Curl
 
+Rattata
+Level: 19
+Ability: Guts
+Nature: Jolly
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Quick Attack
+- Bite
+- Take Down
+- Focus Energy
 
 Eevee
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 22
+Ability: Adaptability
+Nature: Hardy
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Swift
+- Quick Attack
+- Baby Doll Eyes
+- Protect
 
 === TRAINER_RIVAL_SS_ANNE_CHARMANDER ===
 Name: TERRY
@@ -7480,23 +7753,48 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Spearow
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-
-Rattata
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 19
+Ability: Keen Eye
+Nature: Jolly
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Aerial Ace
+- Assurance
+- Leer
+- Fury Attack
 
 Sandshrew
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 20
+Ability: Sand Rush
+Nature: Impish
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Bulldoze
+- Rapid Spin
+- Rollout
+- Defense Curl
 
+Rattata
+Level: 19
+Ability: Guts
+Nature: Jolly
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Quick Attack
+- Bite
+- Take Down
+- Focus Energy
 
 Eevee
-Level: 27
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 22
+Ability: Adaptability
+Nature: Hardy
+IVs: 16 HP / 16 Atk / 16 Def / 16 SpA / 16 SpD / 16 Spe
+EVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- Swift
+- Quick Attack
+- Baby Doll Eyes
+- Protect
 
 === TRAINER_RIVAL_POKEMON_TOWER_SQUIRTLE ===
 Name: TERRY
@@ -7508,28 +7806,59 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Fearow
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 32
+Ability: Keen Eye
+Nature: Jolly
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Aerial Ace
+- Assurance
+- Agility
+- Leer
 
+Vulpix
+Level: 32
+Ability: Flash Fire
+Nature: Timid
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Flamethrower
+- Extrasensory
+- Will O Wisp
+- Protect
 
 Magnemite
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-
-Shellder
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 32
+Ability: Sturdy
+Nature: Modest
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Thunderbolt
+- Flash Cannon
+- Thunder Wave
+- Light Screen
 
 Sandshrew
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 32
+Ability: Sand Rush
+Nature: Impish
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Bulldoze
+- Knock Off
+- Rapid Spin
+- Protect
 
 Eevee
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 34
+Ability: Adaptability
+Nature: Hardy
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Swift
+- Bite
+- Quick Attack
+- Protect
 
 === TRAINER_RIVAL_POKEMON_TOWER_BULBASAUR ===
 Name: TERRY
@@ -7541,28 +7870,59 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Fearow
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-
-Magnemite
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 32
+Ability: Keen Eye
+Nature: Jolly
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Aerial Ace
+- Assurance
+- Agility
+- Leer
 
 Shellder
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 32
+Ability: Shell Armor
+Nature: Adamant
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Aurora Beam
+- Razor Shell
+- Ice Shard
+- Protect
 
+Magnemite
+Level: 32
+Ability: Sturdy
+Nature: Modest
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Thunderbolt
+- Flash Cannon
+- Thunder Wave
+- Light Screen
 
 Sandshrew
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 32
+Ability: Sand Rush
+Nature: Impish
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Bulldoze
+- Knock Off
+- Rapid Spin
+- Protect
 
 Eevee
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 34
+Ability: Adaptability
+Nature: Hardy
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Swift
+- Bite
+- Quick Attack
+- Protect
 
 === TRAINER_RIVAL_POKEMON_TOWER_CHARMANDER ===
 Name: TERRY
@@ -7574,28 +7934,59 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Fearow
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-
-Magnemite
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 32
+Ability: Keen Eye
+Nature: Jolly
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Aerial Ace
+- Assurance
+- Agility
+- Leer
 
 Shellder
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 32
+Ability: Shell Armor
+Nature: Adamant
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Aurora Beam
+- Razor Shell
+- Ice Shard
+- Protect
 
+Vulpix
+Level: 32
+Ability: Flash Fire
+Nature: Timid
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Flamethrower
+- Extrasensory
+- Will O Wisp
+- Protect
 
 Sandshrew
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 32
+Ability: Sand Rush
+Nature: Impish
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Bulldoze
+- Knock Off
+- Rapid Spin
+- Protect
 
 Eevee
-Level: 33
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 34
+Ability: Adaptability
+Nature: Hardy
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Swift
+- Bite
+- Quick Attack
+- Protect
 
 === TRAINER_RIVAL_SILPH_SQUIRTLE ===
 Name: TERRY
@@ -7607,28 +7998,59 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Sandslash
-Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 45
+Ability: Sand Rush
+Nature: Adamant
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Earthquake
+- Knock Off
+- Rapid Spin
+- Protect
 
 Ninetales
-Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 46
+Ability: Flash Fire
+Nature: Timid
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Flamethrower
+- Extrasensory
+- Will O Wisp
+- Protect
 
-
-Cloyster
-Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Magneton
+Level: 46
+Ability: Sturdy
+Nature: Modest
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Thunderbolt
+- Flash Cannon
+- Thunder Wave
+- Light Screen
 
 Kadabra
-Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 46
+Ability: Inner Focus
+Nature: Timid
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Psychic
+- Shadow Ball
+- Recover
+- Protect
 
 Vaporeon
 Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Water Absorb
+Nature: Bold
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Surf
+- Ice Beam
+- Haze
+- Protect
 
 === TRAINER_RIVAL_SILPH_BULBASAUR ===
 Name: TERRY
@@ -7640,28 +8062,59 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Sandslash
-Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-
-Ninetales
-Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 45
+Ability: Sand Rush
+Nature: Adamant
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Earthquake
+- Knock Off
+- Rapid Spin
+- Protect
 
 Cloyster
-Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 46
+Ability: Skill Link
+Nature: Adamant
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Icicle Spear
+- Razor Shell
+- Ice Shard
+- Protect
 
+Magneton
+Level: 46
+Ability: Sturdy
+Nature: Modest
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Thunderbolt
+- Flash Cannon
+- Thunder Wave
+- Light Screen
 
 Kadabra
-Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 46
+Ability: Inner Focus
+Nature: Timid
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Psychic
+- Shadow Ball
+- Recover
+- Protect
 
 Flareon
 Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Flash Fire
+Nature: Adamant
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Fire Fang
+- Superpower
+- Flame Charge
+- Protect
 
 === TRAINER_RIVAL_SILPH_CHARMANDER ===
 Name: TERRY
@@ -7673,28 +8126,59 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Sandslash
-Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-
-Ninetales
-Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 45
+Ability: Sand Rush
+Nature: Adamant
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Earthquake
+- Knock Off
+- Rapid Spin
+- Protect
 
 Cloyster
-Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 46
+Ability: Skill Link
+Nature: Adamant
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Icicle Spear
+- Razor Shell
+- Ice Shard
+- Protect
 
+Ninetales
+Level: 46
+Ability: Flash Fire
+Nature: Timid
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Flamethrower
+- Extrasensory
+- Will O Wisp
+- Protect
 
 Kadabra
-Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 46
+Ability: Inner Focus
+Nature: Timid
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Psychic
+- Shadow Ball
+- Recover
+- Protect
 
 Jolteon
 Level: 48
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Volt Absorb
+Nature: Timid
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Thunderbolt
+- Shadow Ball
+- Thunder Wave
+- Protect
 
 === TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE ===
 Name: TERRY
@@ -7706,33 +8190,70 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Sandslash
-Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 63
+Ability: Sand Rush
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Earthquake
+- Knock Off
+- Rapid Spin
+- Protect
 
 Alakazam
-Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 63
+Ability: Magic Guard
+Nature: Timid
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Psychic
+- Shadow Ball
+- Recover
+- Protect
 
 Exeggutor
-Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
-
-Cloyster
-Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 63
+Ability: Chlorophyll
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Giga Drain
+- Psychic
+- Leech Seed
+- Protect
 
 Ninetales
 Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Flash Fire
+Nature: Timid
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Flamethrower
+- Extrasensory
+- Will O Wisp
+- Protect
 
+Magneton
+Level: 64
+Ability: Sturdy
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Thunderbolt
+- Flash Cannon
+- Thunder Wave
+- Light Screen
 
 Vaporeon
-Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 65
+Ability: Water Absorb
+Nature: Bold
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Surf
+- Ice Beam
+- Haze
+- Protect
 
 === TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR ===
 Name: TERRY
@@ -7744,33 +8265,70 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Sandslash
-Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 63
+Ability: Sand Rush
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Earthquake
+- Knock Off
+- Rapid Spin
+- Protect
 
 Alakazam
-Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 63
+Ability: Magic Guard
+Nature: Timid
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Psychic
+- Shadow Ball
+- Recover
+- Protect
 
 Exeggutor
-Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 63
+Ability: Chlorophyll
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Giga Drain
+- Psychic
+- Leech Seed
+- Protect
 
 Cloyster
 Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Ability: Skill Link
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Icicle Spear
+- Razor Shell
+- Ice Shard
+- Protect
 
-
-Ninetales
+Magneton
 Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Ability: Sturdy
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Thunderbolt
+- Flash Cannon
+- Thunder Wave
+- Light Screen
 
 Flareon
-Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 65
+Ability: Flash Fire
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Flare Blitz
+- Superpower
+- Flame Charge
+- Protect
 
 === TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER ===
 Name: TERRY
@@ -7782,33 +8340,70 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Sandslash
-Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 63
+Ability: Sand Rush
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Earthquake
+- Knock Off
+- Rapid Spin
+- Protect
 
 Alakazam
-Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 63
+Ability: Magic Guard
+Nature: Timid
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Psychic
+- Shadow Ball
+- Recover
+- Protect
 
 Exeggutor
-Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Level: 63
+Ability: Chlorophyll
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Giga Drain
+- Psychic
+- Leech Seed
+- Protect
 
 Cloyster
 Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Ability: Skill Link
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Icicle Spear
+- Razor Shell
+- Ice Shard
+- Protect
 
 Ninetales
 Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-
+Ability: Flash Fire
+Nature: Timid
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Flamethrower
+- Extrasensory
+- Will O Wisp
+- Protect
 
 Jolteon
-Level: 64
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Level: 65
+Ability: Volt Absorb
+Nature: Timid
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 56 HP / 56 Atk / 56 Def / 56 SpA / 56 SpD / 56 Spe
+- Thunderbolt
+- Shadow Ball
+- Thunder Wave
+- Protect
 
 === TRAINER_CHAMPION_FIRST_SQUIRTLE ===
 Name: TERRY
@@ -14029,16 +14624,36 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Ekans
 Level: 16
+Ability: Intimidate
+Nature: Careful
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Bite
+- Glare
+- Wrap
+- Poison Sting
 
 Koffing
 Level: 16
+Ability: Levitate
+Nature: Modest
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Clear Smog
+- Assurance
+- Smog
+- Tackle
 
 Meowth
 Level: 16
+Ability: Technician
+Nature: Jolly
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
+EVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Fake Out
+- Bite
+- Pay Day
+- Feint
 
 === TRAINER_SC_ROCKET_DUO_2 ===
 Name: JESS/JAMES
@@ -14049,18 +14664,38 @@ Music: Female
 Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
+Ekans
+Level: 32
+Ability: Intimidate
+Nature: Careful
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Poison Jab
+- Glare
+- Bite
+- Protect
+
 Koffing
-Level: 30
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Level: 32
+Ability: Levitate
+Nature: Modest
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Sludge Bomb
+- Will O Wisp
+- Haze
+- Protect
 
 Meowth
-Level: 30
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
-Ekans
-Level: 30
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
+Level: 33
+Ability: Technician
+Nature: Jolly
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Fake Out
+- Bite
+- Helping Hand
+- Taunt
 
 === TRAINER_SC_ROCKET_DUO_3 ===
 Name: JESS/JAMES
@@ -14072,17 +14707,37 @@ Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Arbok
-Level: 35
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Level: 34
+Ability: Intimidate
+Nature: Careful
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Poison Jab
+- Glare
+- Bite
+- Protect
 
 Weezing
 Level: 35
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Ability: Levitate
+Nature: Modest
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Sludge Bomb
+- Will O Wisp
+- Haze
+- Protect
 
 Meowth
 Level: 35
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
+Ability: Technician
+Nature: Jolly
+IVs: 22 HP / 22 Atk / 22 Def / 22 SpA / 22 SpD / 22 Spe
+EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Fake Out
+- Bite
+- Helping Hand
+- Taunt
 
 === TRAINER_SC_ROCKET_DUO_4 ===
 Name: JESS/JAMES
@@ -14093,17 +14748,38 @@ Music: Female
 Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Weezing
-Level: 46
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
 Arbok
-Level: 46
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Level: 47
+Ability: Intimidate
+Nature: Careful
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Poison Jab
+- Glare
+- Sucker Punch
+- Protect
+
+Weezing
+Level: 47
+Ability: Levitate
+Nature: Modest
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Sludge Bomb
+- Will O Wisp
+- Haze
+- Protect
 
 Meowth
-Level: 46
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Level: 48
+Ability: Technician
+Nature: Jolly
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Fake Out
+- Assurance
+- Helping Hand
+- Play Rough
 
 === TRAINER_SC_BROCK_REMATCH_1 ===
 Name: BROCK
@@ -14114,21 +14790,49 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Golem
-Level: 36
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Graveler
+Level: 34
+Ability: Sturdy
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Earthquake
+- Rock Slide
+- Stealth Rock
+- Protect
+
+Kabuto
+Level: 34
+Ability: Swift Swim
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Waterfall
 - Rock Tomb
+- Absorb
+- Protect
+
+Rhyhorn
+Level: 35
+Ability: Rock Head
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
 - Bulldoze
-- Defense Curl
-- Tackle
+- Smack Down
+- Stomp
+- Scary Face
 
 Onix
 Level: 36
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Rock Tomb
-- Bind
-- Rock Throw
-- Screech
+Ability: Sturdy
+Nature: Impish
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Body Press
+- Rock Slide
+- Curse
+- Protect
 
 === TRAINER_SC_BROCK_REMATCH_2 ===
 Name: BROCK
@@ -14140,20 +14844,48 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Golem
-Level: 50
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 48
+Ability: Sturdy
+Nature: Adamant
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Earthquake
+- Rock Slide
+- Stealth Rock
+- Protect
+
+Kabutops
+Level: 48
+Ability: Swift Swim
+Nature: Adamant
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Waterfall
 - Rock Tomb
-- Bulldoze
-- Defense Curl
-- Tackle
+- Brick Break
+- Protect
+
+Omastar
+Level: 49
+Ability: Shell Armor
+Nature: Modest
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Water Pulse
+- Ice Beam
+- Ancient Power
+- Protect
 
 Onix
 Level: 50
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Rock Tomb
-- Bind
-- Rock Throw
-- Screech
+Ability: Sturdy
+Nature: Impish
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Body Press
+- Rock Slide
+- Curse
+- Protect
 
 === TRAINER_SC_BROCK_REMATCH_3 ===
 Name: BROCK
@@ -14165,20 +14897,59 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Golem
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 73
+Ability: Sturdy
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Earthquake
+- Rock Slide
+- Stealth Rock
+- Protect
+
+Kabutops
+Level: 73
+Ability: Swift Swim
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Waterfall
 - Rock Tomb
-- Bulldoze
-- Defense Curl
-- Tackle
+- Brick Break
+- Protect
+
+Omastar
+Level: 73
+Ability: Shell Armor
+Nature: Modest
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Hydro Pump
+- Ice Beam
+- Ancient Power
+- Protect
+
+Aerodactyl
+Level: 74
+Ability: Pressure
+Nature: Jolly
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Rock Slide
+- Aerial Ace
+- Taunt
+- Roost
 
 Onix
 Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Rock Tomb
-- Bind
-- Rock Throw
-- Screech
+Ability: Sturdy
+Nature: Impish
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Body Press
+- Rock Slide
+- Curse
+- Protect
 
 === TRAINER_SC_MISTY_REMATCH_1 ===
 Name: MISTY
@@ -14191,28 +14962,48 @@ Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Golduck
-Level: 44
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 42
+Ability: Swift Swim
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
 - Rain Dance
 - Water Pulse
 - Icy Wind
 - Protect
 
-Starmie
-Level: 44
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Water Pulse
-- Swift
-- Recover
+Dewgong
+Level: 42
+Ability: Thick Fat
+Nature: Calm
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Icy Wind
+- Brine
+- Encore
 - Protect
 
-Dewgong
-Level: 44
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Aqua Jet
-- Icy Wind
+Lapras
+Level: 43
+Ability: Water Absorb
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Water Pulse
+- Ice Beam
 - Helping Hand
-- Encore
+- Protect
+
+Starmie
+Level: 44
+Ability: Natural Cure
+Nature: Timid
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Water Pulse
+- Psychic
+- Recover
+- Protect
 
 === TRAINER_SC_MISTY_REMATCH_2 ===
 Name: MISTY
@@ -14225,28 +15016,48 @@ Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Golduck
-Level: 56
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 54
+Ability: Swift Swim
+Nature: Modest
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
 - Rain Dance
-- Water Pulse
+- Hydro Pump
 - Icy Wind
+- Protect
+
+Dewgong
+Level: 54
+Ability: Thick Fat
+Nature: Calm
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Icy Wind
+- Brine
+- Encore
+- Protect
+
+Lapras
+Level: 55
+Ability: Water Absorb
+Nature: Modest
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Water Pulse
+- Ice Beam
+- Helping Hand
 - Protect
 
 Starmie
 Level: 56
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Water Pulse
-- Swift
+Ability: Natural Cure
+Nature: Timid
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Hydro Pump
+- Psychic
 - Recover
 - Protect
-
-Dewgong
-Level: 56
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Aqua Jet
-- Icy Wind
-- Helping Hand
-- Encore
 
 === TRAINER_SC_MISTY_REMATCH_3 ===
 Name: MISTY
@@ -14259,28 +15070,48 @@ Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Golduck
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 73
+Ability: Swift Swim
+Nature: Modest
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Rain Dance
-- Water Pulse
+- Hydro Pump
 - Icy Wind
+- Protect
+
+Dewgong
+Level: 73
+Ability: Thick Fat
+Nature: Calm
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Icy Wind
+- Brine
+- Encore
+- Protect
+
+Lapras
+Level: 74
+Ability: Water Absorb
+Nature: Modest
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Water Pulse
+- Ice Beam
+- Helping Hand
 - Protect
 
 Starmie
 Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Water Pulse
-- Swift
+Ability: Natural Cure
+Nature: Timid
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Hydro Pump
+- Psychic
 - Recover
 - Protect
-
-Dewgong
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Aqua Jet
-- Icy Wind
-- Helping Hand
-- Encore
 
 === TRAINER_SC_LT_SURGE_REMATCH_1 ===
 Name: LT. SURGE
@@ -14293,28 +15124,48 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Electrode
-Level: 50
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Spark
+Level: 48
+Ability: Soundproof
+Nature: Timid
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Thunderbolt
+- Taunt
+- Electric Terrain
 - Light Screen
-- Swift
-- Thunder Wave
 
-Raichu
-Level: 50
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Electro Ball
-- Quick Attack
+Magneton
+Level: 48
+Ability: Sturdy
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Thunderbolt
+- Flash Cannon
 - Thunder Wave
-- Double Team
+- Reflect
 
-Raichu
-Level: 50
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Thunder Punch
+Electabuzz
+Level: 49
+Ability: Static
+Nature: Hasty
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Thunderbolt
+- Psychic
 - Brick Break
-- Quick Attack
-- Agility
+- Light Screen
+
+Raichu
+Level: 50
+Ability: Lightning Rod
+Nature: Timid
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Thunderbolt
+- Nasty Plot
+- Surf
+- Nuzzle
 
 === TRAINER_SC_LT_SURGE_REMATCH_2 ===
 Name: LT. SURGE
@@ -14327,28 +15178,48 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Electrode
-Level: 62
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Spark
+Level: 60
+Ability: Soundproof
+Nature: Timid
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Thunderbolt
+- Taunt
+- Electric Terrain
 - Light Screen
-- Swift
-- Thunder Wave
 
-Raichu
-Level: 62
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Electro Ball
-- Quick Attack
+Magneton
+Level: 60
+Ability: Sturdy
+Nature: Modest
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Thunderbolt
+- Flash Cannon
 - Thunder Wave
-- Double Team
+- Reflect
 
-Raichu
-Level: 62
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Thunder Punch
+Electabuzz
+Level: 61
+Ability: Static
+Nature: Hasty
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Thunderbolt
+- Psychic
 - Brick Break
-- Quick Attack
-- Agility
+- Light Screen
+
+Raichu
+Level: 62
+Ability: Lightning Rod
+Nature: Timid
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Thunderbolt
+- Nasty Plot
+- Surf
+- Nuzzle
 
 === TRAINER_SC_LT_SURGE_REMATCH_3 ===
 Name: LT. SURGE
@@ -14361,28 +15232,59 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Electrode
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Spark
+Level: 73
+Ability: Soundproof
+Nature: Timid
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Thunderbolt
+- Taunt
+- Electric Terrain
 - Light Screen
-- Swift
-- Thunder Wave
 
-Raichu
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Electro Ball
-- Quick Attack
+Magneton
+Level: 73
+Ability: Sturdy
+Nature: Modest
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Thunderbolt
+- Flash Cannon
 - Thunder Wave
-- Double Team
+- Reflect
 
-Raichu
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Thunder Punch
+Electabuzz
+Level: 73
+Ability: Static
+Nature: Hasty
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Thunderbolt
+- Psychic
 - Brick Break
-- Quick Attack
-- Agility
+- Light Screen
+
+Jolteon
+Level: 74
+Ability: Volt Absorb
+Nature: Timid
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Thunderbolt
+- Shadow Ball
+- Thunder Wave
+- Protect
+
+Raichu
+Level: 75
+Ability: Lightning Rod
+Nature: Timid
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Thunderbolt
+- Nasty Plot
+- Surf
+- Nuzzle
 
 === TRAINER_SC_ERIKA_REMATCH_1 ===
 Name: ERIKA
@@ -14395,35 +15297,47 @@ Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Tangela
-Level: 56
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 54
+Ability: Chlorophyll
+Nature: Bold
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
 - Sunny Day
 - Giga Drain
-- Sleep Powder
+- Rage Powder
 - Protect
 
 Victreebel
-Level: 56
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 54
+Ability: Chlorophyll
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
 - Razor Leaf
-- Acid
+- Poison Jab
 - Growth
+- Protect
+
+Exeggutor
+Level: 55
+Ability: Chlorophyll
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Giga Drain
+- Psychic
+- Synthesis
 - Protect
 
 Vileplume
 Level: 56
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Chlorophyll
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
 - Giga Drain
 - Sludge Bomb
-- Moonlight
-- Protect
-
-Exeggutor
-Level: 56
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Reflect
-- Psybeam
-- Leech Seed
+- Grassy Terrain
 - Protect
 
 === TRAINER_SC_ERIKA_REMATCH_2 ===
@@ -14437,35 +15351,47 @@ Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Tangela
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 66
+Ability: Chlorophyll
+Nature: Bold
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
 - Sunny Day
 - Giga Drain
-- Sleep Powder
+- Rage Powder
 - Protect
 
 Victreebel
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Razor Leaf
-- Acid
+Level: 66
+Ability: Chlorophyll
+Nature: Adamant
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Power Whip
+- Poison Jab
 - Growth
+- Protect
+
+Exeggutor
+Level: 67
+Ability: Chlorophyll
+Nature: Modest
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Giga Drain
+- Psychic
+- Synthesis
 - Protect
 
 Vileplume
 Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Chlorophyll
+Nature: Modest
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
 - Giga Drain
 - Sludge Bomb
-- Moonlight
-- Protect
-
-Exeggutor
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Reflect
-- Psybeam
-- Leech Seed
+- Grassy Terrain
 - Protect
 
 === TRAINER_SC_ERIKA_REMATCH_3 ===
@@ -14479,35 +15405,58 @@ Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Tangela
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 73
+Ability: Chlorophyll
+Nature: Bold
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Sunny Day
 - Giga Drain
-- Sleep Powder
+- Rage Powder
 - Protect
 
 Victreebel
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Razor Leaf
-- Acid
+Level: 73
+Ability: Chlorophyll
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Power Whip
+- Poison Jab
 - Growth
+- Protect
+
+Exeggutor
+Level: 73
+Ability: Chlorophyll
+Nature: Modest
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Giga Drain
+- Psychic
+- Synthesis
+- Protect
+
+Venusaur
+Level: 74
+Ability: Chlorophyll
+Nature: Modest
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Solar Beam
+- Sludge Bomb
+- Sunny Day
 - Protect
 
 Vileplume
 Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Chlorophyll
+Nature: Modest
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Giga Drain
 - Sludge Bomb
-- Moonlight
-- Protect
-
-Exeggutor
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Reflect
-- Psybeam
-- Leech Seed
+- Grassy Terrain
 - Protect
 
 === TRAINER_SC_KOGA_REMATCH_1 ===
@@ -14521,35 +15470,47 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Venomoth
-Level: 62
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 60
+Ability: Tinted Lens
+Nature: Timid
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
 - Bug Buzz
 - Psychic
-- Sleep Powder
+- Quiver Dance
 - Protect
 
 Muk
-Level: 62
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 60
+Ability: Sticky Hold
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
 - Poison Jab
-- Minimize
-- Shadow Sneak
+- Knock Off
 - Acid Armor
+- Protect
 
 Golbat
-Level: 62
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Air Slash
-- Confuse Ray
+Level: 61
+Ability: Inner Focus
+Nature: Jolly
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Wing Attack
+- Leech Life
+- Haze
 - Roost
-- Super Fang
 
 Weezing
 Level: 62
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Levitate
+Nature: Bold
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
 - Sludge Bomb
-- Will-O-Wisp
 - Flamethrower
+- Will O Wisp
 - Protect
 
 === TRAINER_SC_KOGA_REMATCH_2 ===
@@ -14563,35 +15524,47 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Venomoth
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 66
+Ability: Tinted Lens
+Nature: Timid
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
 - Bug Buzz
 - Psychic
-- Sleep Powder
+- Quiver Dance
 - Protect
 
 Muk
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 66
+Ability: Sticky Hold
+Nature: Adamant
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
 - Poison Jab
-- Minimize
-- Shadow Sneak
+- Knock Off
 - Acid Armor
+- Protect
 
 Golbat
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Air Slash
-- Confuse Ray
+Level: 67
+Ability: Inner Focus
+Nature: Jolly
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Wing Attack
+- Leech Life
+- Haze
 - Roost
-- Super Fang
 
 Weezing
 Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Levitate
+Nature: Bold
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
 - Sludge Bomb
-- Will-O-Wisp
 - Flamethrower
+- Will O Wisp
 - Protect
 
 === TRAINER_SC_KOGA_REMATCH_3 ===
@@ -14605,35 +15578,58 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Venomoth
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 73
+Ability: Tinted Lens
+Nature: Timid
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Bug Buzz
 - Psychic
-- Sleep Powder
+- Quiver Dance
 - Protect
 
 Muk
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 73
+Ability: Sticky Hold
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Poison Jab
-- Minimize
-- Shadow Sneak
+- Knock Off
 - Acid Armor
+- Protect
 
 Golbat
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Air Slash
-- Confuse Ray
+Level: 73
+Ability: Inner Focus
+Nature: Jolly
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Wing Attack
+- Leech Life
+- Haze
 - Roost
-- Super Fang
+
+Arbok
+Level: 74
+Ability: Intimidate
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Poison Jab
+- Glare
+- Sucker Punch
+- Coil
 
 Weezing
 Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Levitate
+Nature: Bold
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Sludge Bomb
-- Will-O-Wisp
 - Flamethrower
+- Will O Wisp
 - Protect
 
 === TRAINER_SC_SABRINA_REMATCH_1 ===
@@ -14647,34 +15643,46 @@ Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Mr. Mime
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Light Screen
-- Reflect
-- Psychic
-- Helping Hand
-
-Hypno
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Psychic Terrain
-- Psychic
-- Thunder Wave
-- Protect
-
-Alakazam
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Psychic
-- Shadow Ball
-- Recover
-- Protect
-
-Alakazam
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 64
+Ability: Filter
+Nature: Calm
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
 - Psychic
 - Dazzling Gleam
+- Reflect
+- Protect
+
+Hypno
+Level: 64
+Ability: Insomnia
+Nature: Calm
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Psychic Terrain
+- Psychic
+- Helping Hand
+- Protect
+
+Slowbro
+Level: 65
+Ability: Own Tempo
+Nature: Bold
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Water Pulse
+- Psychic
+- Slack Off
+- Protect
+
+Alakazam
+Level: 66
+Ability: Magic Guard
+Nature: Timid
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 32 HP / 32 Atk / 32 Def / 32 SpA / 32 SpD / 32 Spe
+- Psychic
+- Shadow Ball
 - Calm Mind
 - Protect
 
@@ -14689,34 +15697,46 @@ Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Mr. Mime
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Light Screen
-- Reflect
-- Psychic
-- Helping Hand
-
-Hypno
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Psychic Terrain
-- Psychic
-- Thunder Wave
-- Protect
-
-Alakazam
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Psychic
-- Shadow Ball
-- Recover
-- Protect
-
-Alakazam
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 66
+Ability: Filter
+Nature: Calm
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
 - Psychic
 - Dazzling Gleam
+- Reflect
+- Protect
+
+Hypno
+Level: 66
+Ability: Insomnia
+Nature: Calm
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Psychic Terrain
+- Psychic
+- Helping Hand
+- Protect
+
+Slowbro
+Level: 67
+Ability: Own Tempo
+Nature: Bold
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Water Pulse
+- Psychic
+- Slack Off
+- Protect
+
+Alakazam
+Level: 68
+Ability: Magic Guard
+Nature: Timid
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 48 HP / 48 Atk / 48 Def / 48 SpA / 48 SpD / 48 Spe
+- Psychic
+- Shadow Ball
 - Calm Mind
 - Protect
 
@@ -14731,34 +15751,57 @@ Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Mr. Mime
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Light Screen
-- Reflect
-- Psychic
-- Helping Hand
-
-Hypno
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Psychic Terrain
-- Psychic
-- Thunder Wave
-- Protect
-
-Alakazam
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Psychic
-- Shadow Ball
-- Recover
-- Protect
-
-Alakazam
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 73
+Ability: Filter
+Nature: Calm
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Psychic
 - Dazzling Gleam
+- Reflect
+- Protect
+
+Hypno
+Level: 73
+Ability: Insomnia
+Nature: Calm
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Psychic Terrain
+- Psychic
+- Helping Hand
+- Protect
+
+Slowbro
+Level: 73
+Ability: Own Tempo
+Nature: Bold
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Water Pulse
+- Psychic
+- Slack Off
+- Protect
+
+Exeggutor
+Level: 74
+Ability: Chlorophyll
+Nature: Modest
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Giga Drain
+- Psychic
+- Leech Seed
+- Protect
+
+Alakazam
+Level: 75
+Ability: Magic Guard
+Nature: Timid
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Psychic
+- Shadow Ball
 - Calm Mind
 - Protect
 
@@ -14774,35 +15817,47 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Ninetales
 Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Sunny Day
+Ability: Drought
+Nature: Timid
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Flamethrower
-- Will-O-Wisp
-- Confuse Ray
+- Will O Wisp
+- Extrasensory
+- Nasty Plot
 
 Rapidash
 Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Flash Fire
+Nature: Jolly
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Flare Blitz
-- Drill Run
-- Agility
-- Megahorn
+- High Horsepower
+- Poison Jab
+- Flame Charge
 
 Magmar
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 69
+Ability: Flame Body
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Flamethrower
-- Thunder Punch
-- Confuse Ray
-- Brick Break
+- Clear Smog
+- Will O Wisp
+- Psychic
 
 Arcanine
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Flamethrower
+Level: 70
+Ability: Intimidate
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Flare Blitz
 - Extreme Speed
 - Crunch
-- Morning Sun
+- Play Rough
 
 === TRAINER_SC_BLAINE_REMATCH_2 ===
 Name: BLAINE
@@ -14815,36 +15870,48 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Ninetales
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Sunny Day
+Level: 70
+Ability: Drought
+Nature: Timid
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 72 HP / 72 Atk / 72 Def / 72 SpA / 72 SpD / 72 Spe
 - Flamethrower
-- Will-O-Wisp
-- Confuse Ray
+- Will O Wisp
+- Extrasensory
+- Nasty Plot
 
 Rapidash
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 70
+Ability: Flash Fire
+Nature: Jolly
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 72 HP / 72 Atk / 72 Def / 72 SpA / 72 SpD / 72 Spe
 - Flare Blitz
-- Drill Run
-- Agility
-- Megahorn
+- High Horsepower
+- Poison Jab
+- Flame Charge
 
 Magmar
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 71
+Ability: Flame Body
+Nature: Modest
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 72 HP / 72 Atk / 72 Def / 72 SpA / 72 SpD / 72 Spe
 - Flamethrower
-- Thunder Punch
-- Confuse Ray
-- Brick Break
+- Clear Smog
+- Will O Wisp
+- Psychic
 
 Arcanine
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Flamethrower
+Level: 72
+Ability: Intimidate
+Nature: Adamant
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 72 HP / 72 Atk / 72 Def / 72 SpA / 72 SpD / 72 Spe
+- Flare Blitz
 - Extreme Speed
 - Crunch
-- Morning Sun
+- Play Rough
 
 === TRAINER_SC_BLAINE_REMATCH_3 ===
 Name: BLAINE
@@ -14857,36 +15924,59 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Ninetales
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Sunny Day
+Level: 73
+Ability: Drought
+Nature: Timid
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Flamethrower
-- Will-O-Wisp
-- Confuse Ray
+- Will O Wisp
+- Extrasensory
+- Nasty Plot
 
 Rapidash
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 73
+Ability: Flash Fire
+Nature: Jolly
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Flare Blitz
-- Drill Run
-- Agility
-- Megahorn
+- High Horsepower
+- Poison Jab
+- Flame Charge
 
 Magmar
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 73
+Ability: Flame Body
+Nature: Modest
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Flamethrower
-- Thunder Punch
-- Confuse Ray
-- Brick Break
+- Clear Smog
+- Will O Wisp
+- Psychic
+
+Charizard
+Level: 74
+Ability: Blaze
+Nature: Timid
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Flamethrower
+- Air Slash
+- Protect
+- Sunny Day
 
 Arcanine
 Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Flamethrower
+Ability: Intimidate
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Flare Blitz
 - Extreme Speed
 - Crunch
-- Morning Sun
+- Play Rough
 
 === TRAINER_SC_GIOVANNI_REMATCH_1 ===
 Name: GIOVANNI
@@ -14900,43 +15990,58 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Dugtrio
 Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Sand Force
+Nature: Jolly
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Earthquake
-- Rock Slide
+- Rock Tomb
 - Sucker Punch
 - Sandstorm
 
 Nidoqueen
 Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Sheer Force
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Earth Power
-- Sludge Bomb
+- Sludge Wave
 - Ice Beam
-- Thunderbolt
+- Protect
 
 Nidoking
 Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Earthquake
-- Poison Jab
+Ability: Sheer Force
+Nature: Modest
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
+- Earth Power
+- Sludge Wave
+- Thunderbolt
 - Megahorn
-- Rock Slide
 
 Persian
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 69
+Ability: Technician
+Nature: Jolly
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Fake Out
-- Slash
 - Bite
-- Screech
+- U Turn
+- Play Rough
 
 Rhydon
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 70
+Ability: Rock Head
+Nature: Adamant
+IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
+EVs: 64 HP / 64 Atk / 64 Def / 64 SpA / 64 SpD / 64 Spe
 - Earthquake
 - Stone Edge
 - Megahorn
-- Hammer Arm
+- Scary Face
 
 === TRAINER_SC_GIOVANNI_REMATCH_2 ===
 Name: GIOVANNI
@@ -14949,44 +16054,59 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Dugtrio
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 70
+Ability: Sand Force
+Nature: Jolly
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 72 HP / 72 Atk / 72 Def / 72 SpA / 72 SpD / 72 Spe
 - Earthquake
-- Rock Slide
+- Rock Tomb
 - Sucker Punch
 - Sandstorm
 
 Nidoqueen
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 70
+Ability: Sheer Force
+Nature: Modest
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 72 HP / 72 Atk / 72 Def / 72 SpA / 72 SpD / 72 Spe
 - Earth Power
-- Sludge Bomb
+- Sludge Wave
 - Ice Beam
-- Thunderbolt
+- Protect
 
 Nidoking
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Earthquake
-- Poison Jab
+Level: 70
+Ability: Sheer Force
+Nature: Modest
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 72 HP / 72 Atk / 72 Def / 72 SpA / 72 SpD / 72 Spe
+- Earth Power
+- Sludge Wave
+- Thunderbolt
 - Megahorn
-- Rock Slide
 
 Persian
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 71
+Ability: Technician
+Nature: Jolly
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 72 HP / 72 Atk / 72 Def / 72 SpA / 72 SpD / 72 Spe
 - Fake Out
-- Slash
 - Bite
-- Screech
+- U Turn
+- Play Rough
 
 Rhydon
-Level: 68
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 72
+Ability: Rock Head
+Nature: Adamant
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+EVs: 72 HP / 72 Atk / 72 Def / 72 SpA / 72 SpD / 72 Spe
 - Earthquake
 - Stone Edge
 - Megahorn
-- Hammer Arm
+- Scary Face
 
 === TRAINER_SC_GIOVANNI_REMATCH_3 ===
 Name: GIOVANNI
@@ -14999,41 +16119,57 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Dugtrio
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 73
+Ability: Sand Force
+Nature: Jolly
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Earthquake
-- Rock Slide
+- Rock Tomb
 - Sucker Punch
 - Sandstorm
 
 Nidoqueen
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 73
+Ability: Sheer Force
+Nature: Modest
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Earth Power
-- Sludge Bomb
+- Sludge Wave
 - Ice Beam
-- Thunderbolt
+- Protect
 
 Nidoking
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Earthquake
-- Poison Jab
+Level: 73
+Ability: Sheer Force
+Nature: Modest
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
+- Earth Power
+- Sludge Wave
+- Thunderbolt
 - Megahorn
-- Rock Slide
 
 Persian
-Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Level: 74
+Ability: Technician
+Nature: Jolly
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Fake Out
-- Slash
 - Bite
-- Screech
+- U Turn
+- Play Rough
 
 Rhydon
 Level: 75
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+Ability: Rock Head
+Nature: Adamant
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+EVs: 80 HP / 80 Atk / 80 Def / 80 SpA / 80 SpD / 80 Spe
 - Earthquake
 - Stone Edge
 - Megahorn
-- Hammer Arm
+- Scary Face
+

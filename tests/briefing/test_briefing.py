@@ -33,6 +33,8 @@ typedef uint8_t u8; typedef uint16_t u16; typedef uint32_t u32; typedef int32_t 
 #define DPAD_LEFT 32
 #define DPAD_UP 64
 #define DPAD_DOWN 128
+#define R_BUTTON 256
+#define L_BUTTON 512
 #include "constants/species.h"
 #include "constants/moves.h"
 #include "constants/abilities.h"
@@ -115,7 +117,11 @@ int main(void) {
  ScBriefingNavigate(&model,&view,B_BUTTON); ScBriefingNavigate(&model,&view,B_BUTTON);
  assert(view.screen==SC_BRIEF_MON && view.cursor==6);
  ScBriefingNavigate(&model,&view,B_BUTTON); assert(view.screen==SC_BRIEF_TEAM && view.cursor==1);
- for(unsigned key=0;key<256;key++) { view=(struct ScBriefingView){0}; ScBriefingNavigate(&model,&view,key); assert(view.mon<2); }
+ view=(struct ScBriefingView){0}; ScBriefingNavigate(&model,&view,R_BUTTON); assert(view.screen==SC_BRIEF_BAG);
+ ScBriefingNavigate(&model,&view,L_BUTTON); assert(view.screen==SC_BRIEF_TEAM);
+ ScBriefingNavigate(&model,&view,A_BUTTON); ScBriefingNavigate(&model,&view,L_BUTTON); assert(view.mon==1);
+ ScBriefingNavigate(&model,&view,R_BUTTON); assert(view.mon==0);
+ for(unsigned key=0;key<1024;key++) { view=(struct ScBriefingView){0}; ScBriefingNavigate(&model,&view,key); assert(view.mon<2); }
  assert(memcmp(original,party,sizeof(party))==0);
  trainers[314].poolSize=3; assert(!ScBriefingLoad(314,&model) && model.error==SC_BRIEF_VARIABLE_PARTY); trainers[314].poolSize=0;
  trainers[314].overrideTrainer=1; assert(!ScBriefingLoad(314,&model)); trainers[314].overrideTrainer=0;

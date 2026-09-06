@@ -22,18 +22,23 @@ typedef uint8_t u8; typedef uint16_t u16; typedef uint32_t u32;
 ''')
             (temporary / "data.h").write_text('''
 #define TRAINERS_COUNT 652
+struct TrainerMon { unsigned char lvl; };
+extern struct TrainerMon party[6];
 extern unsigned char partySize;
+static inline const struct TrainerMon *GetTrainerPartyFromId(unsigned short id) { (void)id; return party; }
 static inline unsigned char GetTrainerPartySizeFromId(unsigned short id) { (void)id; return partySize; }
 ''')
             probe = temporary / "probe.c"
             probe.write_text('''
 #include "global.h"
 #include <assert.h>
+#include "data.h"
 #include "constants/opponents_frlg.h"
 struct ScPassiveInfo { const u8 *name; const u8 *description; u8 cost; };
 extern const struct ScPassiveInfo gScCapabilityInfo[12], gScTrainerPassiveInfo[8];
 extern u32 ScGetNpcCapabilities(u16,u32), ScGetNpcTrainerPassives(u16), ScGetNpcTrainerBudget(u16);
 unsigned char partySize;
+struct TrainerMon party[6];
 static unsigned cost(unsigned mask, const struct ScPassiveInfo *catalog, unsigned count) {
  unsigned result=0; assert((mask >> count)==0);
  for(unsigned i=0;i<count;i++) if(mask & (1u<<i)) result+=catalog[i].cost;
@@ -52,6 +57,14 @@ int main(void) {
   assert(ScGetNpcCapabilities(TRAINER_LEADER_BROCK,0)==0);
   assert(ScGetNpcCapabilities(TRAINER_LEADER_MISTY,n-1)==2u);
  }
+ partySize=3; party[0].lvl=21; party[1].lvl=22; party[2].lvl=21;
+ assert(ScGetNpcCapabilities(TRAINER_LEADER_MISTY,0)==0);
+ assert(ScGetNpcCapabilities(TRAINER_LEADER_MISTY,1)==2u);
+ assert(ScGetNpcCapabilities(TRAINER_LEADER_MISTY,2)==0);
+ assert(ScGetNpcCapabilities(TRAINER_LEADER_KOGA,1)==(1u<<4));
+ assert(ScGetNpcCapabilities(TRAINER_LEADER_KOGA,2)==1u);
+ party[2].lvl=22; assert(ScGetNpcCapabilities(TRAINER_LEADER_MISTY,2)==2u);
+ assert(ScGetNpcCapabilities(TRAINER_LEADER_MISTY,1)==0);
  assert(ScGetNpcCapabilities(65535,0)==0);
  assert(ScGetNpcTrainerPassives(65535)==0);
  assert(ScGetNpcTrainerBudget(65535)==0);

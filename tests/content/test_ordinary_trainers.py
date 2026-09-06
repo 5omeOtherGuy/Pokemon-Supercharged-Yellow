@@ -109,7 +109,7 @@ class OrdinaryTests(unittest.TestCase):
 
     @classmethod
     def legal_moves(cls, key, level):
-        legal = {move for learned, move in cls.roster[key]['learnset'] if 0 < learned <= level or learned == 0 and key in cls.evolution_parents}
+        legal = {move for learned, move in cls.roster[key]['learnset'] if move != 65535 and (0 < learned <= level or learned == 0 and key in cls.evolution_parents)}
         legal.update(cls.moves[m] for m in cls.learnables.get(key, set()) if m[5:] in cls.tm_moves and m in cls.moves)
         parent = cls.evolution_parents.get(key)
         if parent:

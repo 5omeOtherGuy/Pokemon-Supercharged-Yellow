@@ -37,4 +37,10 @@ For host scorer coverage, add `--coverage` to the host compiler command and run 
 
 ## Evidence
 
-Executed TDD checkpoints include the missing pure API, missing campaign boundary guards and missing joint Helping Hand metadata, followed by their passing host/source tests. The ARM compiler accepts the adapter, guards and SC battle test source with warnings treated as errors. Runtime battle results are pending the current native test build and shared public-effects linkage; this document will be updated with its actual count and failures before handoff.
+Executed TDD checkpoints include the missing pure API, missing campaign boundary guards and missing joint Helping Hand metadata, followed by their passing host/source tests. The ARM compiler accepts the adapter, guards and SC battle test source with warnings treated as errors. The real mGBA native runner passes all **8 SC test groups** (including four parameters in the type-coverage group) with both public-effect symbols confirmed weak/neutral. These cover hidden-data and RNG invariance, unchanged authoritative player state, same-band HP, public nature sensitivity, coverage, immunity, switching, doubles targets and exact-once supply-slot consumption. Six existing `TIE_BREAK_SCORE*` singles/doubles groups also pass with the SC path disabled.
+
+The initial test implementation exceeded the runner's private 1,024-byte stack, producing corrupted runner state and a spurious unrelated assumption warning. Those preliminary results are superseded. Comparison/snapshot buffers now reside in test EWRAM; the final clean run has 8 passed / 8 total and no warning. The invariant-test local frame is 184 bytes before callee frames. Production adapter code was unchanged by this test repair.
+
+Host scorer coverage is 100% of 40 executable lines and 82.14% of branch outcomes; ARM adapter line coverage is not measured. The TEST=1 adapter object uses 15,124 bytes of text and 1,620 bytes of static EWRAM. The neutral fixture deliberately fails compilation with `TESTING=0`.
+
+Real capability-provider integration, including inactive-collection invariance and non-neutral effect-driven decisions, must be rerun by the integrating branch. No Android, hardware, whole-campaign or human balance claim follows from these tests.

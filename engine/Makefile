@@ -33,6 +33,9 @@ BUILD_DIR := build
 COMPARE     ?= 0
 # Executes the Test Runner System that checks that all mechanics work as expected
 TEST         ?= 0
+# Use the actual Kanto trainer table in focused campaign integration tests.
+# Keep it separate from the upstream battle runner's synthetic trainer fixtures.
+SC_TEST_CAMPAIGN ?= 0
 # Enables -fanalyzer C flag to analyze in depth potential UBs
 ANALYZE      ?= 0
 # Count unused warnings as errors. Used by RH-Hideout's repo
@@ -108,6 +111,18 @@ MAP_NAME := $(ROM_NAME:.gba=.map)
 TESTELF := $(ROM_NAME:.gba=-test.elf)
 HEADLESSELF := $(ROM_NAME:.gba=-test-headless.elf)
 
+ifeq ($(SC_TEST_CAMPAIGN),1)
+  ifneq ($(GAME_VERSION),FIRERED)
+    $(error SC_TEST_CAMPAIGN requires BUILD=firered)
+  endif
+  ifneq ($(TEST),1)
+    $(error SC_TEST_CAMPAIGN requires the check target or TEST=1)
+  endif
+  OBJ_DIR_NAME_TEST := $(BUILD_DIR)/$(BUILD_NAME)-campaign-test
+  TESTELF := $(ROM_NAME:.gba=-campaign-test.elf)
+  HEADLESSELF := $(ROM_NAME:.gba=-campaign-test-headless.elf)
+endif
+
 # Pick our active variables
 ROM := $(ROM_NAME)
 ifeq ($(TESTELF),$(MAKECMDGOALS))
@@ -157,6 +172,7 @@ else
 O_LEVEL ?= 2
 endif
 CPPFLAGS := $(INCLUDE_CPP_ARGS) -Wno-trigraphs -DMODERN=1 -DTESTING=$(TEST) -D$(GAME_VERSION) -std=gnu17
+CPPFLAGS += -DSC_TEST_CAMPAIGN=$(SC_TEST_CAMPAIGN)
 ifeq ($(RELEASE),1)
 	override CPPFLAGS += -DRELEASE
 	ifeq ($(USE_LTO_ON_RELEASE),1)
@@ -309,6 +325,9 @@ C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(C_BUILDDIR)/%.o,$(C_SRCS))
 
 TEST_SRCS_IN := $(wildcard $(TEST_SUBDIR)/*.c $(TEST_SUBDIR)/*/*.c $(TEST_SUBDIR)/*/*/*.c)
 TEST_SRCS := $(foreach src,$(TEST_SRCS_IN),$(if $(findstring .inc.c,$(src)),,$(src)))
+# Focused TEST_SRCS selections still require the runner and the sanity object
+# explicitly referenced by ld_script_test.ld. Never rely on a warm build cache.
+override TEST_SRCS := $(sort test/test_runner.c test/test_runner_battle.c test/test_runner_args.c test/test_test_runner.c $(TEST_SRCS))
 TEST_OBJS := $(patsubst $(TEST_SUBDIR)/%.c,$(TEST_BUILDDIR)/%.o,$(TEST_SRCS))
 TEST_OBJS_REL := $(patsubst $(OBJ_DIR)/%,%,$(TEST_OBJS))
 

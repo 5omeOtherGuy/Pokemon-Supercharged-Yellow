@@ -226,7 +226,7 @@ const union AnimCmd *const gAnims_Trainer[] ={
     sAnim_GeneralFrame0,
 };
 
-#if !TESTING
+#if !TESTING || (defined(FIRERED) && SC_TEST_CAMPAIGN)
 const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
 {
 #if IS_FRLG

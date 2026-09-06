@@ -1686,3 +1686,9 @@ Text_WirelessClubUndergoingAdjustments::
 Text_AppearsToBeUndergoingAdjustments::
 	.string "It appears to be undergoing\n"
 	.string "adjustments…$"
+
+ScSafety_CenterLounge::
+	msgbox ScSafety_CenterLoungeText, MSGBOX_NPC
+	end
+ScSafety_CenterLoungeText::
+	.string "Rest here before your next match.\nThe services downstairs can help\pyou prepare your team for KANTO.$"

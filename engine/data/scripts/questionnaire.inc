@@ -1,4 +1,8 @@
 EventScript_Questionnaire::
+#if P_SC_KANTO_RULES
+	msgbox ScSafety_QuestionnaireText, MSGBOX_SIGN
+	end
+#endif
 	lockall
 	msgbox Questionnaire_Text_FillOut, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Questionnaire_EventScript_Release
@@ -55,3 +59,6 @@ Questionnaire_EventScript_ThankYou::
 	msgbox Questionnaire_Text_ThankYou, MSGBOX_DEFAULT
 	releaseall
 	end
+
+ScSafety_QuestionnaireText::
+	.string "KANTO TRAINER NOTICE\pEvery POKéMON can be found on your\njourney. No link exchange is needed.$"

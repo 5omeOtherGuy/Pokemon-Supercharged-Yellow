@@ -1,6 +1,8 @@
 #ifndef GUARD_CONFIG_OVERWORLD_H
 #define GUARD_CONFIG_OVERWORLD_H
 
+#include "config/pokemon.h"
+
 // Movement config
 #define OW_RUNNING_INDOORS          GEN_LATEST  // In Gen4+, players are allowed to run indoors.
 #define SLOW_MOVEMENT_ON_STAIRS     FALSE       // If enabled, the player will move slower up/down stairs like in FR
@@ -165,5 +167,11 @@
 
 // Script Config
 #define OW_CHECK_FOR_TOTAL_EVS TRUE        // If FALSE, givemon and createmon will not check for total EVs when generating a new Pokemon
+
+// Supercharged Kanto campaign defaults; unrelated engine builds retain theirs.
+#if P_SC_KANTO_RULES
+#undef OW_UNION_DISABLE_CHECK
+#define OW_UNION_DISABLE_CHECK TRUE
+#endif
 
 #endif // GUARD_CONFIG_OVERWORLD_H

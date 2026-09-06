@@ -4869,8 +4869,42 @@ void ItemUseCB_BattleChooseMove(u8 taskId, TaskFunc task)
     gTasks[taskId].func = Task_HandleWhichMoveInput;
 }
 
+// EV-changing items cannot redistribute permanent battle-earned development.
+static bool32 ScItemChangesTraining(enum Item item)
+{
+    if (item == ITEM_FRESH_START_MOCHI)
+        return TRUE;
+    switch (GetItemEffectType(item))
+    {
+    case ITEM_EFFECT_HP_EV:
+    case ITEM_EFFECT_ATK_EV:
+    case ITEM_EFFECT_DEF_EV:
+    case ITEM_EFFECT_SPEED_EV:
+    case ITEM_EFFECT_SPATK_EV:
+    case ITEM_EFFECT_SPDEF_EV:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
+static void ScRejectDevelopmentItem(u8 taskId, TaskFunc task)
+{
+    gPartyMenuUseExitCallback = FALSE;
+    PlaySE(SE_SELECT);
+    DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+    ScheduleBgCopyTilemapToVram(2);
+    gTasks[taskId].func = task;
+}
+
 void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
 {
+    if (P_SC_KANTO_RULES && ScItemChangesTraining(gSpecialVar_ItemId))
+    {
+        ScRejectDevelopmentItem(taskId, task);
+        return;
+    }
+
     u16 hp = 0;
     struct Pokemon *party = NULL;
     s8 partySlot = 0;
@@ -5213,6 +5247,12 @@ void Task_Mint(u8 taskId)
 
 void ItemUseCB_Mint(u8 taskId, TaskFunc task)
 {
+    if (P_SC_KANTO_RULES)
+    {
+        ScRejectDevelopmentItem(taskId, task);
+        return;
+    }
+
     s16 *data = gTasks[taskId].data;
 
     tState = 0;
@@ -5258,6 +5298,12 @@ static void Task_ClosePartyMenuAfterText(u8 taskId)
 
 void ItemUseCB_ResetEVs(u8 taskId, TaskFunc task)
 {
+    if (P_SC_KANTO_RULES)
+    {
+        ScRejectDevelopmentItem(taskId, task);
+        return;
+    }
+
     struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
     enum Item item = gSpecialVar_ItemId;
     bool8 cannotUseEffect = ExecuteTableBasedItemEffect(mon, item, gPartyMenu.slotId, 0);
@@ -5285,6 +5331,12 @@ void ItemUseCB_ResetEVs(u8 taskId, TaskFunc task)
 
 void ItemUseCB_ReduceEV(u8 taskId, TaskFunc task)
 {
+    if (P_SC_KANTO_RULES)
+    {
+        ScRejectDevelopmentItem(taskId, task);
+        return;
+    }
+
     struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
     enum Item item = gSpecialVar_ItemId;
     enum ItemEffectType effectType = GetItemEffectType(item);

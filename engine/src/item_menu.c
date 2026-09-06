@@ -1624,8 +1624,7 @@ static void OpenContextMenu(u8 taskId)
     case ITEMMENULOCATION_BATTLE:
     case ITEMMENULOCATION_WALLY:
     case ITEMMENULOCATION_RAIDEND:
-        if (GetItemBattleUsage(gSpecialVar_ItemId)
-            && (!ScSuppliesApplies() || ScSuppliesCanUse(gBattlerInMenuId, gSpecialVar_ItemId)))
+        if (GetItemBattleUsage(gSpecialVar_ItemId))
         {
             gBagMenu->contextMenuItemsPtr = sContextMenuItems_BattleUse;
             gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_BattleUse);
@@ -2113,7 +2112,10 @@ static void ItemMenu_UseInBattle(u8 taskId)
     RemoveContextWindow();
     if (ScSuppliesApplies() && !ScSuppliesCanUse(gBattlerInMenuId, gSpecialVar_ItemId))
     {
-        DisplayItemMessage(taskId, FONT_NORMAL, COMPOUND_STRING("That supply was not prepared,\nor none remain for this battle."), HandleErrorMessage);
+        if (ScSuppliesCategory(gSpecialVar_ItemId) == SC_SUPPLY_INVALID)
+            DisplayItemMessage(taskId, FONT_NORMAL, COMPOUND_STRING("That item is not allowed\nin TRAINER battles."), HandleErrorMessage);
+        else
+            DisplayItemMessage(taskId, FONT_NORMAL, COMPOUND_STRING("Not prepared, or none remain.\pChoose supplies at a\nPOKéMON CENTER before battle."), HandleErrorMessage);
         return;
     }
     if (type == ITEM_USE_BAG_MENU || (type == ITEM_USE_BATTLER && !IsDoubleBattle()))

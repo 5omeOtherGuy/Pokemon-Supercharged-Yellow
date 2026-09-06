@@ -22,7 +22,8 @@ class MenuRejection(unittest.TestCase):
         source = (ROOT / "engine/src/item_menu.c").read_text()
         context = function(source, "static void OpenContextMenu(u8 taskId)")
         branch = context.split("case ITEMMENULOCATION_RAIDEND:", 1)[1].split("        break;", 1)[0]
-        use = function(source, "static void ItemMenu_UseInBattle(u8 taskId)")
+        # The engine's text preprocessor encodes its page-break escape before C.
+        use = function(source, "static void ItemMenu_UseInBattle(u8 taskId)").replace(r"\p", r"\n")
         fixture = r'''
 #include <assert.h>
 #include <string.h>

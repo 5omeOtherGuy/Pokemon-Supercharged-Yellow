@@ -132,10 +132,20 @@ files were removed. No duplicate full build was launched by this worker.
 
 ```sh
 python3 -m unittest discover -s tests/rematches -v
+# Run with the coordinator's SC_TEST_CAMPAIGN=1 native configuration.
 make -C engine BUILD=firered TESTS='SC rematches:*' check -j2
 ```
 
-The native file defines four groups for real step charging, table resolution,
+The default native run reached three passes and one failure: the high-ID trainer
+had party size0. Investigation established that `data.c` omits campaign trainers
+under `TESTING`, while `test/test_runner_battle.c` supplies sparse test fixtures.
+ID1 was a test trainer, not Ben. That run therefore did not validate campaign
+party lookup. The coordinator's data-selection hooks let `SC_TEST_CAMPAIGN=1`
+use the actual campaign trainer table and retain the ordinary fixture table when
+the option is off. The two party-sensitive cases compile only in that explicit
+campaign configuration; charging and expiry remain in the default suite.
+
+The native file defines four campaign groups for real step charging, table resolution,
 high-ID badge/readiness and actual battle-exit cleanup, plus packed expiry and
 malformed counters. Check the coordinator's GREEN execution separately from
 these ARM compilation results.

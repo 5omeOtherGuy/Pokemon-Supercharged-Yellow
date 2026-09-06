@@ -31,6 +31,9 @@ TEST("SC rematches: Vermilion item charges without five badges and saturates")
     for (u32 i = 0; i < 8; i++) if (badges[i]) FlagSet(badgeFlags[i]);
 }
 
+#if SC_TEST_CAMPAIGN
+// Default upstream tests replace gTrainers with sparse fixture data. These cases
+// require the real campaign trainer database selected by SC_TEST_CAMPAIGN.
 TEST("SC rematches: first route parties resolve full trainer IDs without Hoenn milestones")
 {
     struct WarpData location = gSaveBlock1Ptr->location;
@@ -113,6 +116,8 @@ TEST("SC rematches: high trainer IDs preserve identity and consume readiness onc
     if (champion) FlagSet(FLAG_IS_CHAMPION);
     if (!owned) RemoveBagItem(ITEM_VS_SEEKER, 1);
 }
+
+#endif // SC_TEST_CAMPAIGN
 
 TEST("SC rematches: response expiry clears every slot and retains recharge")
 {

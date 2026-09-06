@@ -1,3 +1,6 @@
+// Supercharged Yellow: original-form evolution edges stay within the first 151.
+// Later family definitions remain for the internal database and engine tests.
+// Selected original-species stat/ability changes: docs/balance/roster.md.
 #ifdef __INTELLISENSE__
 const struct SpeciesInfo gSpeciesInfoGen1[] =
 {
@@ -6009,8 +6012,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sGolbatLevelUpLearnset,
         .teachableLearnset = sGolbatTeachableLearnset,
-    #if P_GEN_2_CROSS_EVOS
-    #endif
     },
 
 #if P_GEN_2_CROSS_EVOS
@@ -7885,8 +7886,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sPrimeapeLevelUpLearnset,
         .teachableLearnset = sPrimeapeTeachableLearnset,
-    #if P_GEN_9_CROSS_EVOS
-    #endif
     },
 
 #if P_GEN_9_CROSS_EVOS
@@ -11009,8 +11008,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sMagnetonLevelUpLearnset,
         .teachableLearnset = sMagnetonTeachableLearnset,
-    #if P_GEN_4_CROSS_EVOS
-    #endif
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -12529,8 +12526,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sOnixLevelUpLearnset,
         .teachableLearnset = sOnixTeachableLearnset,
         .eggMoveLearnset = sOnixEggMoveLearnset,
-    #if P_GEN_2_CROSS_EVOS
-    #endif
     },
 
 #if P_GEN_2_CROSS_EVOS
@@ -14232,8 +14227,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sLickitungLevelUpLearnset,
         .teachableLearnset = sLickitungTeachableLearnset,
         .eggMoveLearnset = sLickitungEggMoveLearnset,
-    #if P_GEN_4_CROSS_EVOS
-    #endif
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -14701,8 +14694,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sRhydonLevelUpLearnset,
         .teachableLearnset = sRhydonTeachableLearnset,
-    #if P_GEN_4_CROSS_EVOS
-    #endif
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -14937,8 +14928,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sChanseyLevelUpLearnset,
         .teachableLearnset = sChanseyTeachableLearnset,
         .eggMoveLearnset = sChanseyEggMoveLearnset,
-    #if P_GEN_2_CROSS_EVOS
-    #endif
     },
 
 #if P_GEN_2_CROSS_EVOS
@@ -15089,8 +15078,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sTangelaLevelUpLearnset,
         .teachableLearnset = sTangelaTeachableLearnset,
         .eggMoveLearnset = sTangelaEggMoveLearnset,
-    #if P_GEN_4_CROSS_EVOS
-    #endif
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -15479,8 +15466,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sSeadraLevelUpLearnset,
         .teachableLearnset = sSeadraTeachableLearnset,
-    #if P_GEN_2_CROSS_EVOS
-    #endif
     },
 
 #if P_GEN_2_CROSS_EVOS
@@ -16335,8 +16320,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sScytherLevelUpLearnset,
         .teachableLearnset = sScytherTeachableLearnset,
         .eggMoveLearnset = sScytherEggMoveLearnset,
-    #if P_GEN_2_CROSS_EVOS || P_GEN_8_CROSS_EVOS
-    #endif
     },
 
 #if P_GEN_2_CROSS_EVOS
@@ -16858,8 +16841,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sElectabuzzLevelUpLearnset,
         .teachableLearnset = sElectabuzzTeachableLearnset,
-    #if P_GEN_4_CROSS_EVOS
-    #endif
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -17079,8 +17060,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sMagmarLevelUpLearnset,
         .teachableLearnset = sMagmarTeachableLearnset,
-    #if P_GEN_4_CROSS_EVOS
-    #endif
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -18895,8 +18874,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sPorygonLevelUpLearnset,
         .teachableLearnset = sPorygonTeachableLearnset,
-    #if P_GEN_2_CROSS_EVOS
-    #endif
     },
 
 #if P_GEN_2_CROSS_EVOS

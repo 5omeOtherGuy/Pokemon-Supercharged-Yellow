@@ -28,16 +28,18 @@ def species_blocks(text):
     return dict(re.findall(r"\[SPECIES_(\w+)\]\s*=\s*\{(.*?)^    \},", text, re.S | re.M))
 
 
-def evaluate():
+def evaluate(species_text=None, learnset_text=None):
     definitions = (ENGINE / "include/constants/species.h").read_text()
     names = [name for name, number in re.findall(r"SPECIES_(\w+) = (\d+),", definitions)
              if 1 <= int(number) <= 151]
     assert len(names) == 151
     processed = subprocess.check_output(
         ["cc", "-E", "-P", "-x", "c", "-I", str(ENGINE / "include"), "-"],
-        input=PREAMBLE + f'\n#include "{SPECIES}"\n', text=True)
+        input=PREAMBLE + (f'\n#include "{SPECIES}"\n' if species_text is None else species_text), text=True)
     blocks = species_blocks(processed)
     selector = re.search(r"#if P_LVL_UP_LEARNSETS.*?\n#endif", (ENGINE / "src/pokemon.c").read_text(), re.S).group()
+    if learnset_text is not None:
+        selector = selector.replace('#include "data/pokemon/level_up_learnsets/gen_9.h"', learnset_text)
     move_names = list(dict.fromkeys(re.findall(r"\bMOVE_[A-Z0-9_]+\b", (ENGINE / "include/constants/moves.h").read_text())))
     # Aliases may share numeric IDs; source move names are retained separately.
     code = PREAMBLE + '''

@@ -1,0 +1,582 @@
+run 180 0
+run 600 0
+run 600 0
+run 600 0
+run 1 8
+run 120 0
+run 1 8
+run 120 0
+run 1 1
+run 180 0
+run 600 0
+run 1 1
+run 180 0
+run 1 1
+run 120 0
+run 1 1
+run 120 0
+run 1 1
+run 120 0
+run 1 1
+run 120 0
+run 1 1
+run 240 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 120 0
+run 1 8
+run 60 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 60 0
+run 1 8
+run 60 0
+run 1 1
+run 180 0
+run 1 1
+run 120 0
+run 1 8
+run 60 0
+run 1 1
+run 180 0
+run 1 1
+run 120 0
+run 1 8
+run 60 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 360 0
+run 1 1
+run 180 0
+run 1 1
+run 360 0
+run 1 8
+run 60 0
+run 1 128
+run 15 0
+run 1 128
+run 15 0
+run 1 1
+run 120 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 60 0
+run 3600 0
+screenshot build/services/runtime2/new-game.png
+run 80 16
+run 64 64
+run 180 0
+screenshot build/services/runtime2/stairs.png
+run 12 2
+run 90 0
+run 12 2
+run 90 0
+run 32 32
+run 240 0
+screenshot build/services/runtime2/floor1.png
+run 32 128
+run 16 32
+run 12 1
+run 90 0
+screenshot build/services/runtime2/misty-team.png
+run 12 1
+run 90 0
+screenshot build/services/runtime2/misty-team-open.png
+run 240 0
+screenshot build/services/runtime2/center-arrival.png
+run 12 1
+run 90 0
+screenshot build/services/runtime2/lounge-dialogue.png
+run 12 1
+run 90 0
+run 12 1
+run 90 0
+screenshot build/services/runtime2/home.png
+read 0x03000178 4
+read 0x02031c7c 100
+run 16 64
+run 30 0
+run 12 1
+run 120 0
+screenshot build/services/runtime2/lounge-talk.png
+read 0x020073c0 64
+run 12 1
+run 90 0
+run 12 1
+run 90 0
+screenshot build/services/runtime2/service-home.png
+run 12 1
+run 90 0
+screenshot build/services/runtime2/service-home2.png
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/services/runtime2/development.png
+run 12 1
+run 240 0
+screenshot build/services/runtime2/actual-home.png
+fixture32 0x2031c98 0x26d7
+fixture32 0x2031cc4 0x23c4a403
+fixture32 0x2031cd0 0x10ff05
+fixture32 0x20073c8 0xff
+fixture32 0x20073d0 0x7d0
+fixture32 0x20073dc 0xdc8c0100
+run 12 1
+run 30 0
+run 12 1
+run 30 0
+screenshot build/services/runtime2/mon-menu.png
+run 12 1
+run 30 0
+screenshot build/services/runtime2/training.png
+run 12 1
+run 30 0
+screenshot build/services/runtime2/focus.png
+run 12 128
+run 12 0
+run 12 1
+run 30 0
+screenshot build/services/runtime2/focus-result.png
+run 12 2
+run 12 0
+run 12 2
+run 12 0
+run 12 2
+run 12 0
+run 12 128
+run 12 0
+run 12 1
+run 30 0
+screenshot build/services/runtime2/capabilities.png
+run 12 1
+run 30 0
+screenshot build/services/runtime2/brace.png
+run 12 4
+run 30 0
+screenshot build/services/runtime2/effect-rules.png
+run 12 2
+run 20 0
+run 12 1
+run 20 0
+screenshot build/services/runtime2/brace-assigned.png
+run 12 2
+run 20 0
+run 12 2
+run 20 0
+run 12 128
+run 20 0
+run 12 1
+run 20 0
+run 12 1
+run 20 0
+run 12 2
+run 20 0
+run 12 2
+run 20 0
+run 12 128
+run 20 0
+run 12 1
+run 20 0
+run 12 1
+run 20 0
+screenshot build/services/runtime2/cap-budget-rejected.png
+run 12 2
+run 20 0
+run 12 2
+run 20 0
+run 12 2
+run 20 0
+run 12 128
+run 20 0
+run 12 128
+run 20 0
+run 12 1
+run 20 0
+screenshot build/services/runtime2/abilities.png
+run 12 128
+run 20 0
+run 12 1
+run 20 0
+screenshot build/services/runtime2/hidden-ability.png
+run 12 1
+run 20 0
+screenshot build/services/runtime2/ability-assigned.png
+run 12 2
+run 20 0
+run 12 2
+run 20 0
+run 12 2
+run 20 0
+run 12 128
+run 20 0
+run 12 128
+run 20 0
+run 12 128
+run 20 0
+run 12 128
+run 20 0
+run 12 1
+run 20 0
+screenshot build/services/runtime2/ivs.png
+run 12 1
+run 20 0
+screenshot build/services/runtime2/iv-default-no.png
+run 12 64
+run 20 0
+run 12 1
+run 20 0
+screenshot build/services/runtime2/iv-purchased.png
+run 12 2
+run 20 0
+screenshot build/services/runtime2/iv-result.png
+read 0x02031c7c 100
+read 0x020073c0 48
+run 12 2
+run 20 0
+run 12 128
+run 20 0
+run 12 128
+run 20 0
+run 12 128
+run 20 0
+run 12 1
+run 20 0
+screenshot build/services/runtime2/relearn-list.png
+run 12 1
+run 20 0
+screenshot build/services/runtime2/relearn-detail.png
+run 12 1
+run 20 0
+screenshot build/services/runtime2/replace-slot.png
+run 12 1
+run 20 0
+screenshot build/services/runtime2/move-learned.png
+run 12 2
+run 20 0
+run 12 2
+run 20 0
+run 12 2
+run 20 0
+run 12 2
+run 20 0
+run 12 2
+run 20 0
+run 12 2
+run 20 0
+screenshot build/services/runtime2/return-check.png
+run 16 128
+run 30 0
+run 12 8
+run 120 0
+screenshot build/services/runtime2/field-start.png
+read 0x03000170 12
+read 0x03005278 4
+read 0x02031c7c 100
+read 0x020073c0 48
+read 0x020112b8 4
+fixture32 0x2031c98 0x36681
+fixture32 0x2031c9c 0x2c1ca403
+fixture32 0x2031ca4 0x3225ba03
+fixture32 0x020112b8 1
+run 12 2
+run 90 0
+run 12 8
+run 90 0
+run 12 64
+run 90 0
+run 12 64
+run 90 0
+run 12 64
+run 90 0
+screenshot build/services/runtime2/pokemon-menu-entry.png
+run 12 1
+run 90 0
+run 12 1
+run 90 0
+screenshot build/services/runtime2/party-actions.png
+read 0x03005278 4
+read 0x020112b8 4
+read 0x020112ac 4
+fixture32 0x020112b8 0
+fixture32 0x020112ac 1
+run 12 8
+run 90 0
+run 12 64
+run 90 0
+run 12 64
+run 90 0
+run 12 64
+run 90 0
+run 12 64
+run 90 0
+run 12 64
+run 90 0
+screenshot build/services/runtime2/party-menu-correct.png
+read 0x020112b0 4
+fixture32 0x020112ac 0
+fixture32 0x020112b0 0x40000100
+run 12 2
+run 90 0
+run 12 8
+run 90 0
+run 12 64
+run 90 0
+run 12 64
+run 90 0
+run 12 64
+run 90 0
+run 12 64
+run 90 0
+run 12 64
+run 90 0
+screenshot build/services/runtime2/actual-pokemon-menu.png
+run 12 64
+run 90 0
+run 12 1
+run 90 0
+run 12 1
+run 90 0
+screenshot build/services/runtime2/real-party-actions.png
+run 12 128
+run 90 0
+run 12 1
+run 90 0
+screenshot build/services/runtime2/field-training.png
+run 12 128
+run 90 0
+run 12 1
+run 90 0
+run 12 1
+run 90 0
+screenshot build/services/runtime2/field-effect-inspect.png
+read 0x02031c7c 100
+run 12 1
+run 90 0
+read 0x02031c7c 100
+run 12 2
+run 90 0
+run 12 2
+run 90 0
+run 12 2
+run 90 0
+screenshot build/services/runtime2/party-return.png
+run 12 2
+run 90 0
+run 12 2
+run 90 0
+run 16 64
+run 30 0
+run 12 1
+run 90 0
+run 12 1
+run 90 0
+run 12 1
+run 90 0
+run 12 1
+run 90 0
+run 12 1
+run 90 0
+run 12 1
+run 90 0
+screenshot build/services/runtime2/reopened-center.png
+run 32 64
+run 30 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+run 12 1
+run 240 0
+screenshot build/services/runtime2/second-center-home.png
+run 12 128
+run 30 0
+run 12 128
+run 30 0
+run 12 128
+run 30 0
+run 12 1
+run 30 0
+screenshot build/services/runtime2/forgotten-growl.png
+run 12 1
+run 30 0
+run 12 1
+run 30 0
+screenshot build/services/runtime2/replace-empty-slot.png
+run 12 1
+run 30 0
+screenshot build/services/runtime2/actual-relearned.png
+read 0x02031c7c 100
+run 12 2
+run 30 0
+run 12 2
+run 30 0
+run 12 2
+run 30 0
+run 12 2
+run 30 0
+run 12 128
+run 30 0
+run 12 1
+run 30 0
+screenshot build/services/runtime2/trainer-list.png
+run 12 1
+run 30 0
+run 12 1
+run 30 0
+screenshot build/services/runtime2/trainer-assigned.png
+run 12 2
+run 30 0
+run 12 2
+run 30 0
+run 12 128
+run 30 0
+run 12 1
+run 30 0
+run 12 1
+run 30 0
+screenshot build/services/runtime2/trainer-budget-rejected.png
+run 12 2
+run 30 0
+run 12 2
+run 30 0
+run 12 2
+run 30 0
+run 12 128
+run 30 0
+run 12 128
+run 30 0
+run 12 1
+run 30 0
+screenshot build/services/runtime2/supplies.png
+run 12 1
+run 30 0
+screenshot build/services/runtime2/supplies-empty-picker.png
+run 12 1
+run 30 0
+run 12 8
+run 30 0
+screenshot build/services/runtime2/supplies-clear.png
+read 0x020073c0 48
+read 0x02006bb0 64
+read 0x03005274 4
+read 0x020104c4 16
+read 0x02013e1c 4
+fixture32 0x20104c4 0xda57001c
+fixture32 0x20104c8 0xda56002b
+fixture32 0x20104cc 0xda550021
+run 12 1
+run 30 0
+screenshot build/services/runtime2/owned-supply-picker.png
+run 12 128
+run 30 0
+run 12 1
+run 30 0
+run 12 128
+run 30 0
+run 12 1
+run 30 0
+run 12 128
+run 30 0
+run 12 1
+run 30 0
+run 12 128
+run 30 0
+run 12 128
+run 30 0
+run 12 1
+run 30 0
+run 12 128
+run 30 0
+run 12 1
+run 30 0
+screenshot build/services/runtime2/hp-limit-rejected.png
+read 0x020073c0 48
+run 12 2
+run 30 0
+run 12 128
+run 30 0
+run 12 1
+run 30 0
+screenshot build/services/runtime2/legal-three-supplies.png
+read 0x020073c0 48
+read 0x020104c4 12
+run 12 8
+run 30 0
+screenshot build/services/runtime2/actual-cleared-supplies.png
+read 0x020073c0 48
+run 12 2
+run 30 0
+run 12 2
+run 30 0
+run 240 0
+screenshot build/services/runtime2/final-field.png
+quit

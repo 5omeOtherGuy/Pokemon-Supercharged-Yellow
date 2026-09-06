@@ -84,12 +84,65 @@ static u32 IsChampion(u16 id)
         || (id >= TRAINER_CHAMPION_REMATCH_SQUIRTLE && id <= TRAINER_CHAMPION_REMATCH_CHARMANDER);
 }
 
+// Story opponents use selected partial builds, never an assumed full player kit.
+struct ScStoryNpcBuild
+{
+    u16 first, last;
+    u8 budget;
+    u32 passives;
+    u16 aceCapabilities, supportCapabilities;
+};
+
+static const struct ScStoryNpcBuild sStoryBuilds[] =
+{
+    {TRAINER_RIVAL_CERULEAN_SQUIRTLE, TRAINER_RIVAL_CERULEAN_CHARMANDER, 3,
+        1u << SC_PASSIVE_FORMATION, 1u << SC_CAP_BRACE, 0},
+    {TRAINER_RIVAL_SS_ANNE_SQUIRTLE, TRAINER_RIVAL_SS_ANNE_CHARMANDER, 3,
+        1u << SC_PASSIVE_FORMATION, 1u << SC_CAP_FLOW, 0},
+    {TRAINER_RIVAL_POKEMON_TOWER_SQUIRTLE, TRAINER_RIVAL_POKEMON_TOWER_CHARMANDER, 5,
+        (1u << SC_PASSIVE_FORMATION) | (1u << SC_PASSIVE_TEMPO),
+        1u << SC_CAP_QUICK_START, 1u << SC_CAP_FLOW},
+    {TRAINER_RIVAL_SILPH_SQUIRTLE, TRAINER_RIVAL_SILPH_CHARMANDER, 7,
+        (1u << SC_PASSIVE_FORMATION) | (1u << SC_PASSIVE_COMPOSURE) | (1u << SC_PASSIVE_TEMPO),
+        1u << SC_CAP_STAYING_POWER, 1u << SC_CAP_FLOW},
+    {TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE, TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER, 8,
+        (1u << SC_PASSIVE_FORMATION) | (1u << SC_PASSIVE_COMPOSURE) | (1u << SC_PASSIVE_OFFENSE),
+        (1u << SC_CAP_STAYING_POWER) | (1u << SC_CAP_BRACE), 1u << SC_CAP_FLOW},
+    {TRAINER_BOSS_GIOVANNI, TRAINER_BOSS_GIOVANNI, 5,
+        (1u << SC_PASSIVE_FORMATION) | (1u << SC_PASSIVE_OFFENSE), 1u << SC_CAP_BRACE, 0},
+    {TRAINER_BOSS_GIOVANNI_2, TRAINER_BOSS_GIOVANNI_2, 7,
+        (1u << SC_PASSIVE_FORMATION) | (1u << SC_PASSIVE_COMPOSURE) | (1u << SC_PASSIVE_OFFENSE),
+        1u << SC_CAP_STAYING_POWER, 1u << SC_CAP_BRACE},
+    {TRAINER_SC_ROCKET_DUO_1, TRAINER_SC_ROCKET_DUO_1, 2,
+        1u << SC_PASSIVE_FORMATION, 0, 0},
+    {TRAINER_SC_ROCKET_DUO_2, TRAINER_SC_ROCKET_DUO_2, 5,
+        (1u << SC_PASSIVE_FORMATION) | (1u << SC_PASSIVE_TEMPO),
+        1u << SC_CAP_BRACE, 1u << SC_CAP_FLOW},
+    {TRAINER_SC_ROCKET_DUO_3, TRAINER_SC_ROCKET_DUO_3, 5,
+        (1u << SC_PASSIVE_COMPOSURE) | (1u << SC_PASSIVE_TEMPO),
+        1u << SC_CAP_QUICK_START, 1u << SC_CAP_BRACE},
+    {TRAINER_SC_ROCKET_DUO_4, TRAINER_SC_ROCKET_DUO_4, 7,
+        (1u << SC_PASSIVE_FORMATION) | (1u << SC_PASSIVE_COMPOSURE) | (1u << SC_PASSIVE_TEMPO),
+        (1u << SC_CAP_QUICK_START) | (1u << SC_CAP_BRACE), 1u << SC_CAP_FLOW},
+};
+
+static const struct ScStoryNpcBuild *StoryBuild(u16 trainerId)
+{
+    for (u32 i = 0; i < ARRAY_COUNT(sStoryBuilds); i++)
+        if (trainerId >= sStoryBuilds[i].first && trainerId <= sStoryBuilds[i].last)
+            return &sStoryBuilds[i];
+    return 0;
+}
+
 u32 ScGetNpcTrainerBudget(u16 trainerId)
 {
     u32 gym;
     u32 elite;
     if (trainerId >= TRAINERS_COUNT)
         return 0;
+    const struct ScStoryNpcBuild *story = StoryBuild(trainerId);
+    if (story)
+        return story->budget;
     gym = GymIndex(trainerId);
     if (trainerId >= SC_GYM_REMATCH_FIRST && trainerId <= SC_GYM_REMATCH_LAST)
         return 6 + 2 * ((trainerId - SC_GYM_REMATCH_FIRST) % 3);
@@ -116,6 +169,9 @@ u32 ScGetNpcTrainerPassives(u16 trainerId)
     u32 elite;
     if (trainerId >= TRAINERS_COUNT)
         return 0;
+    const struct ScStoryNpcBuild *story = StoryBuild(trainerId);
+    if (story)
+        return story->passives;
     gym = GymIndex(trainerId);
     if (gym < ARRAY_COUNT(sGymIds))
     {
@@ -161,6 +217,15 @@ u32 ScGetNpcCapabilities(u16 trainerId, u32 partyIndex)
             ace = i;
     // Keep the separate partial supporting loadout on a different teammate.
     support = ace == size - 1 ? size - 2 : size - 1;
+    const struct ScStoryNpcBuild *story = StoryBuild(trainerId);
+    if (story)
+    {
+        if (partyIndex == ace)
+            return story->aceCapabilities;
+        if (partyIndex == support)
+            return story->supportCapabilities;
+        return 0;
+    }
     gym = GymIndex(trainerId);
     if (gym < ARRAY_COUNT(sGymIds))
     {

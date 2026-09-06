@@ -91,3 +91,61 @@ u32 ScApplySpeedEffects(u32 battler, u32 speed)
     ScGetPublicBattlerEffects(battler, &effects);
     return speed * effects.speedPercent / 100;
 }
+
+static EWRAM_DATA struct
+{
+    bool8 active;
+    u8 battler;
+    u8 partyIndex;
+} sDelayedDamage = {0};
+
+void ScBeginDelayedDamage(u32 battler, u32 partyIndex)
+{
+    sDelayedDamage.active = TRUE;
+    sDelayedDamage.battler = battler;
+    sDelayedDamage.partyIndex = partyIndex;
+}
+
+void ScEndDelayedDamage(void)
+{
+    sDelayedDamage.active = FALSE;
+}
+
+s32 ScApplyDamageEffects(u32 battlerAtk, u32 battlerDef, u32 category, s32 damage)
+{
+    struct ScPublicEffects attack, defense;
+    if (damage <= 0 || (category != DAMAGE_CATEGORY_PHYSICAL && category != DAMAGE_CATEGORY_SPECIAL))
+        return damage;
+    if (sDelayedDamage.active && sDelayedDamage.battler == battlerAtk)
+    {
+        // The engine has temporarily installed the original user's party stats.
+        // A delayed hit is never an entry turn, even if the current slot just entered.
+        ResolveAssignment(battlerAtk, sDelayedDamage.partyIndex,
+            GetScaledHPFraction(gBattleMons[battlerAtk].hp, gBattleMons[battlerAtk].maxHP, 48),
+            FALSE, gBattleMons[battlerAtk].status1, &attack);
+    }
+    else
+        ScGetPublicBattlerEffects(battlerAtk, &attack);
+    ScGetPublicBattlerEffects(battlerDef, &defense);
+    damage = damage * (category == DAMAGE_CATEGORY_PHYSICAL
+        ? attack.offensivePhysicalPercent : attack.offensiveSpecialPercent) / 100;
+    damage = damage * (category == DAMAGE_CATEGORY_PHYSICAL
+        ? defense.defensivePhysicalPercent : defense.defensiveSpecialPercent) / 100;
+    return max(1, damage);
+}
+
+bool32 ScHasStatusImmunity(u32 battler, u32 status)
+{
+    struct ScPublicEffects effects;
+    ScGetPublicBattlerEffects(battler, &effects);
+    return (effects.statusImmunity & status) != 0;
+}
+
+u32 ScGetEndTurnHeal(u32 battler)
+{
+    struct ScPublicEffects effects;
+    ScGetPublicBattlerEffects(battler, &effects);
+    if (!effects.endTurnHealFraction || !effects.endTurnHealNumerator)
+        return 0;
+    return max(1, GetNonDynamaxMaxHP(battler) * effects.endTurnHealNumerator / effects.endTurnHealFraction);
+}

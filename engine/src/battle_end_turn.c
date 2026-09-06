@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_battle.h"
 #include "battle.h"
 #include "battle_hold_effects.h"
 #include "battle_setup.h"
@@ -475,6 +476,20 @@ static bool32 HandleEndTurnIngrain(enum BattlerId battler)
     }
 
     return effect;
+}
+
+static bool32 HandleEndTurnScRecovery(enum BattlerId battler)
+{
+    gBattleStruct->eventState.endTurnBattler++;
+    if (!IsBattlerPresent(battler) || !gBattleMons[battler].hp
+        || IsBattlerAtMaxHp(battler) || gBattleMons[battler].volatiles.healBlockTimer)
+        return FALSE;
+    u32 heal = ScGetEndTurnHeal(battler);
+    if (!heal)
+        return FALSE;
+    SetHealAmount(battler, heal);
+    BattleScriptCall(BattleScript_ScRecoveryHeal);
+    return TRUE;
 }
 
 static bool32 HandleEndTurnLeechSeed(enum BattlerId battler)
@@ -1568,6 +1583,7 @@ static bool32 (*const sEndTurnEffectHandlers[])(enum BattlerId battler) =
     [ENDTURN_SEND_OUT_REPLACEMENTS_2] = HandleEndTurnSendOutReplacements,
     [ENDTURN_AQUA_RING] = HandleEndTurnAquaRing,
     [ENDTURN_INGRAIN] = HandleEndTurnIngrain,
+    [ENDTURN_SC_RECOVERY] = HandleEndTurnScRecovery,
     [ENDTURN_LEECH_SEED] = HandleEndTurnLeechSeed,
     [ENDTURN_POISON] = HandleEndTurnPoison,
     [ENDTURN_BURN] = HandleEndTurnBurn,

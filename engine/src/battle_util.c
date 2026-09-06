@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_battle.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_anim_scripts.h"
@@ -5392,7 +5393,11 @@ bool32 CanSetNonVolatileStatus(enum BattlerId battlerAtk, enum BattlerId battler
         break;
     case MOVE_EFFECT_FREEZE:
     case MOVE_EFFECT_FROSTBITE:
-        if (gBattleMons[battlerDef].status1 & STATUS1_ICY_ANY)
+        if (effect == MOVE_EFFECT_FREEZE && ScHasStatusImmunity(battlerDef, STATUS1_FREEZE))
+        {
+            battleScript = BattleScript_NotAffected;
+        }
+        else if (gBattleMons[battlerDef].status1 & STATUS1_ICY_ANY)
         {
             battleScript = BattleScript_AlreadyBurned;
         }
@@ -7747,7 +7752,8 @@ s32 ApplyModifiersAfterDmgRoll(struct DamageContext *ctx, s32 dmg)
     DAMAGE_APPLY_MODIFIER(GetMoveAgainstProtectionModifier(ctx));
     DAMAGE_APPLY_MODIFIER(GetOtherModifiers(ctx));
 
-    return dmg;
+    // Fixed damage returns before this ordinary move-damage path.
+    return ScApplyDamageEffects(ctx->battlerAtk, ctx->battlerDef, GetBattleMoveCategory(ctx->move), dmg);
 }
 
 s32 DoFixedDamageMoveCalc(struct DamageContext *ctx)
@@ -7883,7 +7889,9 @@ static inline s32 DoFutureSightAttackDamageCalc(struct DamageContext *ctx)
         return 0;
 	}
 
+    ScBeginDelayedDamage(ctx->battlerAtk, gBattleStruct->futureSight[ctx->battlerDef].partyIndex);
     s32 dmg = DoMoveDamageCalc(ctx);
+    ScEndDelayedDamage();
 
     FreeRestoreBattleMons(savedBattleMons);
     return dmg;

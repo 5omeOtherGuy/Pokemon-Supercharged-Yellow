@@ -74,6 +74,18 @@ class EconomyContract(unittest.TestCase):
             self.assertEqual(run(text,label,defeated=True,yes=False)[1:],([],1))
             self.assertEqual(run(text,label,defeated=True,yes=True)[1:],([trainer],1))
             self.assertNotRegex(blocks(text)[label],r'(addmoney|givemoney|cleartrainerflag|settrainerflag)')
+    def test_full_bag_does_not_claim_vs_seeker_reward(self):
+        text=script('VermilionCity_PokemonCenter_1F')
+        body=blocks(text)['VermilionCity_PokemonCenter_1F_EventScript_VSSeekerWoman']
+        for full in (True,False):
+            claimed=False;received=False;result=1
+            for line in body.splitlines():
+                line=line.strip()
+                if line=='setflag FLAG_GOT_VS_SEEKER':claimed=True
+                elif line=='giveitem ITEM_VS_SEEKER':result=int(not full);received=not full
+                elif line=='goto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull' and not result:break
+            self.assertEqual(claimed,received,('bag full',full))
+
     def test_replacement_prices_bound_retry_cost(self):
         text=(ROOT/'engine/src/data/items.h').read_text()
         expected={'ORAN_BERRY':80,'SITRUS_BERRY':200,'LUM_BERRY':300,'LEPPA_BERRY':200,'FOCUS_SASH':500,'AIR_BALLOON':300,'EVIOLITE':3000,'LIGHT_BALL':5000,'POTION':200,'SUPER_POTION':400,'HYPER_POTION':800,'FULL_HEAL':300,'ETHER':400}

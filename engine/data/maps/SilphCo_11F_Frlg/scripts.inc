@@ -57,6 +57,10 @@ SilphCo_11F_EventScript_GiovanniTriggerRight::
 
 SilphCo_11F_EventScript_BattleGiovanni::
 	goto_if_unset FLAG_SC_DUO_4, ScY_RocketDuo4
+	setvar VAR_0x8004, TRAINER_BOSS_GIOVANNI_2
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	textcolor NPC_TEXT_COLOR_MALE
 	applymovement LOCALID_SILPH_CO_GIOVANNI, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
@@ -66,10 +70,6 @@ SilphCo_11F_EventScript_BattleGiovanni::
 	call_if_eq VAR_TEMP_1, 0, SilphCo_11F_EventScript_GiovanniApproachLeft
 	call_if_eq VAR_TEMP_1, 1, SilphCo_11F_EventScript_GiovanniApproachRight
 	setvar VAR_LAST_TALKED, LOCALID_SILPH_CO_GIOVANNI
-	setvar VAR_0x8004, TRAINER_BOSS_GIOVANNI_2
-	special ScShowBossBriefing
-	waitstate
-	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_no_intro TRAINER_BOSS_GIOVANNI_2, SilphCo_11F_Text_GiovanniDefeat
 	msgbox SilphCo_11F_Text_GiovanniPostBattle
 	closemessage

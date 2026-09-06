@@ -72,13 +72,20 @@ SINGLE_BATTLE_TEST("SC item action: stale full HP cancels reservation without sp
 }
 
 #if SC_TEST_TOOLS
-SINGLE_BATTLE_TEST("SC owner action: simulated Potion turn heals and spends one item with free quota")
+SINGLE_BATTLE_TEST("SC owner action: simulated Potion turns spend once with prepared and free quotas")
 {
+    bool32 freeQuota;
+    PARAMETRIZE { freeQuota = FALSE; }
+    PARAMETRIZE { freeQuota = TRUE; }
     GIVEN {
         gMain.inBattle = FALSE;
         ScInitTrainerProgress(&gSaveBlock3Ptr->sc);
-        EXPECT(ScDebugSetOption(SC_DEBUG_FREE_SUPPLIES, TRUE));
+        ScSuppliesEndBattle();
+        EXPECT(ScDebugSetOption(SC_DEBUG_FREE_SUPPLIES, freeQuota));
         GIVE_PLAYER_ITEM(ITEM_POTION, 3);
+        const u16 items[3] = {ITEM_POTION, 0, 0};
+        const u8 quantities[3] = {1, 0, 0};
+        EXPECT(ScSuppliesSetSelection(items, quantities));
         PLAYER(SPECIES_PIKACHU) { HP(1); MaxHP(100); Moves(MOVE_SPLASH); }
         OPPONENT(SPECIES_MAGIKARP) { Moves(MOVE_SPLASH); }
     } WHEN {
@@ -89,6 +96,7 @@ SINGLE_BATTLE_TEST("SC owner action: simulated Potion turn heals and spends one 
     } THEN {
         EXPECT_EQ(player->hp, 21);
         EXPECT_EQ(CountTotalItemQuantityInBag(ITEM_POTION), 2);
+        EXPECT_EQ(ScSuppliesCanUse(B_BATTLER_0, ITEM_POTION), freeQuota);
         ScInitTrainerProgress(&gSaveBlock3Ptr->sc);
     }
 }

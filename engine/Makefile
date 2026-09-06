@@ -36,6 +36,8 @@ TEST         ?= 0
 # Use the actual Kanto trainer table in focused campaign integration tests.
 # Keep it separate from the upstream battle runner's synthetic trainer fixtures.
 SC_TEST_CAMPAIGN ?= 0
+# Owner playtest shortcuts are explicitly opted in; never reuse normal objects.
+SC_TEST_TOOLS ?= 0
 # Enables -fanalyzer C flag to analyze in depth potential UBs
 ANALYZE      ?= 0
 # Count unused warnings as errors. Used by RH-Hideout's repo
@@ -95,15 +97,26 @@ endif
 
 CPP := $(PREFIX)cpp
 
+SC_BUILD_FLAVOR := $(BUILD_NAME)
+ifeq ($(SC_TEST_TOOLS),1)
+  ifneq ($(GAME_VERSION),FIRERED)
+    $(error SC_TEST_TOOLS requires BUILD=firered)
+  endif
+  FILE_NAME := $(FILE_NAME)-playtest
+  SC_BUILD_FLAVOR := $(BUILD_NAME)-playtest
+else ifneq ($(SC_TEST_TOOLS),0)
+  $(error SC_TEST_TOOLS must be 0 or 1)
+endif
+
 ifeq ($(RELEASE),1)
 	FILE_NAME := $(FILE_NAME)-release
 endif
 
 ROM_NAME := $(FILE_NAME).gba
-OBJ_DIR_NAME := $(BUILD_DIR)/$(BUILD_NAME)
-OBJ_DIR_NAME_TEST := $(BUILD_DIR)/$(BUILD_NAME)-test
-OBJ_DIR_NAME_DEBUG := $(BUILD_DIR)/$(BUILD_NAME)-debug
-OBJ_DIR_NAME_RELEASE := $(BUILD_DIR)/$(BUILD_NAME)-release
+OBJ_DIR_NAME := $(BUILD_DIR)/$(SC_BUILD_FLAVOR)
+OBJ_DIR_NAME_TEST := $(BUILD_DIR)/$(SC_BUILD_FLAVOR)-test
+OBJ_DIR_NAME_DEBUG := $(BUILD_DIR)/$(SC_BUILD_FLAVOR)-debug
+OBJ_DIR_NAME_RELEASE := $(BUILD_DIR)/$(SC_BUILD_FLAVOR)-release
 ASSETS_DIR_NAME := $(BUILD_DIR)/assets
 
 ELF_NAME := $(ROM_NAME:.gba=.elf)
@@ -118,7 +131,7 @@ ifeq ($(SC_TEST_CAMPAIGN),1)
   ifneq ($(TEST),1)
     $(error SC_TEST_CAMPAIGN requires the check target or TEST=1)
   endif
-  OBJ_DIR_NAME_TEST := $(BUILD_DIR)/$(BUILD_NAME)-campaign-test
+  OBJ_DIR_NAME_TEST := $(BUILD_DIR)/$(SC_BUILD_FLAVOR)-campaign-test
   TESTELF := $(ROM_NAME:.gba=-campaign-test.elf)
   HEADLESSELF := $(ROM_NAME:.gba=-campaign-test-headless.elf)
 endif
@@ -173,6 +186,7 @@ O_LEVEL ?= 2
 endif
 CPPFLAGS := $(INCLUDE_CPP_ARGS) -Wno-trigraphs -DMODERN=1 -DTESTING=$(TEST) -D$(GAME_VERSION) -std=gnu17
 CPPFLAGS += -DSC_TEST_CAMPAIGN=$(SC_TEST_CAMPAIGN)
+CPPFLAGS += -DSC_TEST_TOOLS=$(SC_TEST_TOOLS)
 ifeq ($(RELEASE),1)
 	override CPPFLAGS += -DRELEASE
 	ifeq ($(USE_LTO_ON_RELEASE),1)

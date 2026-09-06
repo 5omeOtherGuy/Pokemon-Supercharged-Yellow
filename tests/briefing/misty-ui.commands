@@ -1,0 +1,245 @@
+run 180 0
+run 600 0
+run 600 0
+run 600 0
+run 1 8
+run 120 0
+run 1 8
+run 120 0
+run 1 1
+run 180 0
+run 600 0
+run 1 1
+run 180 0
+run 1 1
+run 120 0
+run 1 1
+run 120 0
+run 1 1
+run 120 0
+run 1 1
+run 120 0
+run 1 1
+run 240 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 120 0
+run 1 8
+run 60 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 60 0
+run 1 8
+run 60 0
+run 1 1
+run 180 0
+run 1 1
+run 120 0
+run 1 8
+run 60 0
+run 1 1
+run 180 0
+run 1 1
+run 120 0
+run 1 8
+run 60 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 180 0
+run 1 1
+run 360 0
+run 1 1
+run 180 0
+run 1 1
+run 360 0
+run 1 8
+run 60 0
+run 1 128
+run 15 0
+run 1 128
+run 15 0
+run 1 1
+run 120 0
+run 1 1
+run 300 0
+run 1 1
+run 300 0
+run 1 1
+run 60 0
+run 3600 0
+screenshot build/briefing/misty-ui/new-game.png
+run 80 16
+run 64 64
+run 180 0
+screenshot build/briefing/misty-ui/stairs.png
+run 12 2
+run 90 0
+run 12 2
+run 90 0
+run 32 32
+run 240 0
+screenshot build/briefing/misty-ui/floor1.png
+run 32 128
+run 16 32
+run 12 1
+run 90 0
+screenshot build/briefing/misty-ui/misty-team.png
+read 0x02031c7c 1024
+run 12 1
+run 90 0
+screenshot build/briefing/misty-ui/misty-team-open.png
+read 0x02034548 16
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/psyduck-details.png
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/move-description.png
+run 12 2
+run 24 0
+run 12 64
+run 24 0
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/no-capabilities.png
+run 12 2
+run 24 0
+run 12 16
+run 24 0
+screenshot build/briefing/misty-ui/starmie-details.png
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/starmie-capability.png
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/flow-description.png
+run 12 2
+run 24 0
+run 12 16
+run 24 0
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/seel-capability.png
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/flow-actual.png
+run 12 2
+run 24 0
+run 12 2
+run 24 0
+run 12 64
+run 24 0
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/no-held-item-description.png
+run 12 2
+run 24 0
+run 12 64
+run 24 0
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/ability-description.png
+run 12 2
+run 24 0
+run 12 2
+run 24 0
+run 12 16
+run 24 0
+screenshot build/briefing/misty-ui/bag.png
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/bag-item-description.png
+run 12 2
+run 24 0
+run 12 16
+run 24 0
+screenshot build/briefing/misty-ui/trainer-build.png
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/trainer-effect-description.png
+run 12 8
+run 24 0
+screenshot build/briefing/misty-ui/confirm-default-no.png
+run 12 64
+run 24 0
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/doubles-not-ready.png
+read 0x0200156e 2
+run 12 2
+run 24 0
+run 12 2
+run 24 0
+screenshot build/briefing/misty-ui/back-to-field.png
+read 0x0200156e 2
+read 0x02031c7c 1024
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/reopened.png
+run 12 8
+run 24 0
+run 12 1
+run 24 0
+screenshot build/briefing/misty-ui/declined-default.png
+read 0x0200156e 2
+run 16 16
+run 24 0
+run 12 8
+run 60 0
+screenshot build/briefing/misty-ui/field-menu-after-exit.png
+quit

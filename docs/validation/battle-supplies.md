@@ -20,7 +20,11 @@ core, and only major trainers may load an opposing bag. Authored ordinary bags
 were removed. Full Restores were replaced with Max Potions; Champion bags now
 contain two Max Potions and one Full Heal. These changes satisfy the category
 contract but do not establish encounter balance. The native catalog regression
-checks every actual trainer item array against major classification and limits.
+checks trainer item arrays against major classification and limits. The initial
+native test runner substituted sparse fixture data; only the explicit
+`SC_TEST_CAMPAIGN=1` mode validates actual authored campaign arrays. That mode now
+also requires nonempty major bags and verifies all six Champion bags contain
+two Max Potions and one Full Heal.
 
 Preparation uses the shared player/NPC passive catalogs and floors HP bag healing
 to 110 percent before the caller clamps to maximum HP. Outside battle the helper
@@ -87,3 +91,13 @@ been executed by this worker. Root/effects integration must run them with the
 actual callback hooks. Full campaign, loss/reload persistence, doubles cancellation,
 Center preparation/briefing agreement, and wild bag behavior still require
 integrated runtime replay. No human or Android playtest is claimed.
+
+
+### Later evidence clarification — native trainer fixtures
+
+The subsequent default native catalog pass used `test/test_runner_battle.c`'s
+fixture `gTrainers`, because `data.c` excluded the campaign table under `TESTING`.
+It was not an all-authored-bags result. Host party-source checks and deliberately
+controlled quota/consumption fixtures retain their stated scope. The counted
+`tests/rematches/run_native.sh` wrapper runs the strengthened authored-bag case
+separately with real campaign data and requires exactly one ordinary pass.

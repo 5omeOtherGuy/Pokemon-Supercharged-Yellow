@@ -45,8 +45,15 @@ TEST("SC supplies: unavailable reselection is atomic and preparation consumes no
     EXPECT_EQ(ScValidateTrainerProgress(&gSaveBlock3Ptr->sc), 1);
 }
 
+#if SC_TEST_CAMPAIGN
 TEST("SC supplies: every authored opponent bag is major-only and within unit/category caps")
+#else
+TEST("SC supplies: fixture opponent bags obey unit/category caps")
+#endif
 {
+#if SC_TEST_CAMPAIGN
+    u32 stockedMajorBags = 0;
+#endif
     for (u32 trainer = 0; trainer < TRAINERS_COUNT; trainer++)
     {
         const enum Item *items = GetTrainerItemsFromId(trainer);
@@ -64,5 +71,30 @@ TEST("SC supplies: every authored opponent bag is major-only and within unit/cat
             categories[count++] = ScSuppliesCategory(items[i]);
         }
         EXPECT(ScSupplyPlanValid(&plan, categories));
+#if SC_TEST_CAMPAIGN
+        stockedMajorBags += count != 0;
+#endif
     }
+#if SC_TEST_CAMPAIGN
+    EXPECT(stockedMajorBags > 0); // A sparse fixture table must not pass vacuously.
+    const u16 champions[] = {TRAINER_CHAMPION_FIRST_SQUIRTLE,
+        TRAINER_CHAMPION_FIRST_BULBASAUR, TRAINER_CHAMPION_FIRST_CHARMANDER,
+        TRAINER_CHAMPION_REMATCH_SQUIRTLE, TRAINER_CHAMPION_REMATCH_BULBASAUR,
+        TRAINER_CHAMPION_REMATCH_CHARMANDER};
+    for (u32 c = 0; c < ARRAY_COUNT(champions); c++)
+    {
+        u32 hp = 0, status = 0, total = 0;
+        const enum Item *items = GetTrainerItemsFromId(champions[c]);
+        EXPECT_EQ(GetTrainerPartySizeFromId(champions[c]), PARTY_SIZE);
+        for (u32 slot = 0; slot < MAX_TRAINER_ITEMS; slot++)
+        {
+            hp += items[slot] == ITEM_MAX_POTION;
+            status += items[slot] == ITEM_FULL_HEAL;
+            total += items[slot] != ITEM_NONE;
+        }
+        EXPECT_EQ(hp, 2);
+        EXPECT_EQ(status, 1);
+        EXPECT_EQ(total, 3);
+    }
+#endif
 }

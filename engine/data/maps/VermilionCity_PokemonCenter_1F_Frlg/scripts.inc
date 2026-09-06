@@ -48,7 +48,10 @@ VermilionCity_PokemonCenter_1F_Text_TrainerMonsStrongerThanWild::
 	.string "POKéMON can have very different\l"
 	.string "stats and abilities.\p"
 	.string "A POKéMON raised by a TRAINER is\n"
-	.string "stronger than one in the wild.$"
+	.string "stronger than one in the wild.\p"
+	.string "The development lounge is upstairs.\n"
+	.string "Prepare your moves, abilities and\l"
+	.string "earned builds there before battle.$"
 
 VermilionCity_PokemonCenter_1F_Text_PoisonedMonFaintedWhileWalking::
 	.string "My POKéMON was poisoned!\n"

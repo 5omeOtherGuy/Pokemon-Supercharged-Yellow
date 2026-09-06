@@ -76,7 +76,10 @@ IndigoPlateau_PokemonCenter_1F_Text_GymGuyAdvice::
 	.string "If you lose, you have to start all\n"
 	.string "over again!\p"
 	.string "This is it!\n"
-	.string "Go for it!$"
+	.string "Go for it!\p"
+	.string "The development lounge is upstairs.\n"
+	.string "Prepare your moves, abilities and\l"
+	.string "earned builds there before battle.$"
 
 IndigoPlateau_PokemonCenter_1F_Text_FaceEliteFourGoodLuck::
 	.string "From here on, you face the\n"

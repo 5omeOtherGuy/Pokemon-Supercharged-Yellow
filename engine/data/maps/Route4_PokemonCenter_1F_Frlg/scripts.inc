@@ -150,7 +150,10 @@ Route4_PokemonCenter_1F_Text_CanHaveSixMonsWithYou::
 	.string "Okay, set six POKé BALLS in my\n"
 	.string "belt…\p"
 	.string "Yeah, that'll do it. At most, you\n"
-	.string "can have six POKéMON with you.$"
+	.string "can have six POKéMON with you.\p"
+	.string "The development lounge is upstairs.\n"
+	.string "Prepare your moves, abilities and\l"
+	.string "earned builds there before battle.$"
 
 Route4_PokemonCenter_1F_Text_TeamRocketAttacksCerulean::
 	.string "TEAM ROCKET attacks CERULEAN\n"

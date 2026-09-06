@@ -60,7 +60,7 @@ static inline const struct LevelUpMove *GetSpeciesLevelUpLearnset(u16 species) {
 ''')
             (tmp/'constants').mkdir()
             names=['VIRIDIAN_CITY','PEWTER_CITY','CERULEAN_CITY','VERMILION_CITY','LAVENDER_TOWN','CELADON_CITY','FUCHSIA_CITY','CINNABAR_ISLAND','SAFFRON_CITY','INDIGO_PLATEAU','ROUTE4','ROUTE10']
-            (tmp/'constants/map_groups.h').write_text('\n'.join(f'#define MAP_{n}_POKEMON_CENTER_2F {i+1}' for i,n in enumerate(names)))
+            (tmp/'constants/map_groups.h').write_text('\n'.join(f'#define MAP_{n}_POKEMON_CENTER_2F {5 | ((39+i)<<8)}' for i,n in enumerate(names)))
             (tmp/'probe.c').write_text('''
 #include "global.h"
 #include "main.h"
@@ -87,7 +87,7 @@ void RemoveMonPPBonus(struct Pokemon *mon,u8 slot) {mon->data[MON_DATA_PP_BONUSE
 static const struct LevelUpMove learnset[]={{10,0},{11,1},{12,5},{11,6},{13,20},{65535,0}};
 int main(void) {
  struct Pokemon *mon=&gParties[0][0], before; struct ScTrainerProgress trainerBefore;
- ScInitTrainerProgress(&save3.sc); save1.location.mapGroup=1;
+ ScInitTrainerProgress(&save3.sc); save1.location.mapGroup=39; save1.location.mapNum=5;
  mon->data[MON_DATA_SPECIES]=25; mon->data[MON_DATA_LEVEL]=5; mon->data[MON_DATA_HP_IV]=15;
  mon->data[MON_DATA_HP]=28;mon->data[MON_DATA_MAX_HP]=35;mon->data[MON_DATA_NATURE]=3;
  mon->data[MON_DATA_HP_EV]=17; mon->progress.focus=6; mon->progress.earnedCapabilities=7;
@@ -106,7 +106,7 @@ int main(void) {
  assert(memcmp(&before,mon,sizeof(before))==0);assert(ScServicesSetFocus(0,3)==SC_SERVICE_OK);assert(mon->data[MON_DATA_HP_EV]==17);
  assert(ScServicesSetFocus(0,7)==SC_SERVICE_INVALID);
  gMain.inBattle=1;before=*mon;assert(ScServicesSetFocus(0,2)==SC_SERVICE_BAD_CONTEXT);assert(memcmp(&before,mon,sizeof(before))==0);
- gMain.inBattle=0;save1.location.mapGroup=1;
+ gMain.inBattle=0;save1.location.mapGroup=39; save1.location.mapNum=5;
  assert(ScServicesSetAbility(0,1)==SC_SERVICE_INVALID);assert(ScServicesSetAbility(0,2)==SC_SERVICE_OK);assert(mon->data[MON_DATA_ABILITY_NUM]==2);
  assert(mon->data[MON_DATA_HP]==28 && mon->data[MON_DATA_NATURE]==3);
  assert(ScServicesIvCost(1)==20 && ScServicesIvCost(10)==40 && ScServicesIvCost(100)==400);

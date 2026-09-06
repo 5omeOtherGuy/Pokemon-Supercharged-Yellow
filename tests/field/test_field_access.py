@@ -68,6 +68,9 @@ int main(void){
     assert(!ScFieldCanUse(&other,FIELD_MOVE_SURF));
     struct Pokemon excluded={{SPECIES_PICHU,0},0};compatibility[SPECIES_PICHU]=~0u;assert(!ScFieldCanUse(&excluded,FIELD_MOVE_SURF));
     assert(!ScFieldHasPermit(FIELD_MOVE_WATERFALL));
+    assert(ScFieldIsPermitMove(FIELD_MOVE_SURF));assert(!ScFieldIsPermitMove(FIELD_MOVE_DIG));
+    assert(!ScFieldCanReplace(PARTY_SIZE,&surf));
+    assert(!ScFieldCanUse(&surf,FIELD_MOVES_COUNT));
     /* Correct HM and badge pair for every permit. */
     enum FieldMove fs[]={FIELD_MOVE_FLASH,FIELD_MOVE_CUT,FIELD_MOVE_FLY,FIELD_MOVE_STRENGTH,FIELD_MOVE_SURF};
     u32 hmBits[]={4,0,1,3,2};
@@ -121,6 +124,47 @@ struct Pokemon caught;
 u8 GetCatchingBattler(void){return 1;}
 struct Pokemon *GetBattlerMon(u32 battler){return &caught;}
 '''
+MENU_FIXTURE = r'''
+#define MENU_FIELD_MOVES 100
+#define MENU_SUMMARY 0
+#define MENU_SWITCH 1
+#define MENU_ITEM 2
+#define MENU_MAIL 3
+#define MENU_CANCEL1 4
+#define MAX_MON_MOVES 4
+#define MON_DATA_MOVE1 10
+#define MON_DATA_HELD_ITEM 20
+#define SE_SELECT 1
+#define SELECTWINDOW_ACTIONS 0
+struct {u8 actions[8],numActions,scFieldPage,windowId[3];} internal,*sPartyMenuInternal=&internal;
+struct {u8 slotId;} gPartyMenu;
+struct {int data[16];void (*func)(u8);} gTasks[1];
+void AppendToList(u8 *items,u8 *count,u8 action){assert(*count<8);items[(*count)++]=action;}
+bool32 FieldMove_IsVisible(u32 field){return 1;}
+bool32 InBattlePike(void){return 0;}
+bool32 ItemIsMail(u32 item){return 0;}
+void PlaySE(u32 sound){}
+void PartyMenuRemoveWindow(u8 *window){}
+void DisplaySelectionWindow(u32 type){assert(internal.numActions<=7);}
+void Task_HandleSelectionMenuInput(u8 task){}
+'''
+MENU_CASES = r'''
+int main(void){
+    badges=hms=31;compatibility[SPECIES_MEW]=~0u;
+    gParties[0][0]=(struct Pokemon){{SPECIES_MEW,0},(1u<<FIELD_MOVE_DIG)|(1u<<FIELD_MOVE_TELEPORT)|(1u<<FIELD_MOVE_SOFT_BOILED)|(1u<<FIELD_MOVE_SWEET_SCENT)};
+    gParties[0][1]=(struct Pokemon){{SPECIES_PIDGEY,0},0};
+    SetPartyMonFieldSelectionActions(gParties[0],0);
+    assert(internal.numActions==5&&internal.actions[1]==SC_FIELD_ACTION_OPEN);
+    assert(ScHandleFieldMenuAction(0,SC_FIELD_ACTION_OPEN));assert(internal.numActions==7);
+    assert(internal.actions[5]==SC_FIELD_ACTION_NEXT&&internal.actions[6]==SC_FIELD_ACTION_BACK);
+    assert(ScHandleFieldMenuAction(0,SC_FIELD_ACTION_NEXT));assert(internal.numActions==6);
+    assert(ScHandleFieldMenuAction(0,SC_FIELD_ACTION_NEXT));assert(internal.numActions==7);
+    assert(ScHandleFieldMenuAction(0,SC_FIELD_ACTION_BACK));assert(internal.numActions==5&&internal.actions[4]==MENU_CANCEL1);
+    assert(!ScHandleFieldMenuAction(0,MENU_SUMMARY));
+    return 0;
+}
+'''
+
 ENTRY_CASES = r'''
 int main(void){
     badges=hms=31;compatibility[SPECIES_LAPRAS]=1u<<FIELD_MOVE_SURF;
@@ -137,6 +181,40 @@ int main(void){
 '''
 
 class FieldAccessTests(unittest.TestCase):
+    def test_actual_fly_selector_rejects_sevii_and_unvisited_mainland(self):
+        function=extract_function('src/region_map.c','GetMapsecType')
+        symbols=sorted(set(re.findall(r'\b(?:MAPSEC_|MAPSECTYPE_|FLAG_)[A-Z0-9_]+',function)))
+        declarations='\n'.join('#define '+name+' '+str(i+1) for i,name in enumerate(symbols))
+        source='#include <assert.h>\n#define P_SC_KANTO_RULES 1\n#define REGION_MAP_KANTO 0\ntypedef unsigned char u8;typedef unsigned int mapsec_u16_t;\n'+declarations+'''
+static int palletVisited;
+int FlagGet(unsigned flag){return flag==FLAG_WORLD_MAP_PALLET_TOWN?palletVisited:1;}
+int GetRegionMapType(unsigned section){return section==MAPSEC_ONE_ISLAND||section==MAPSEC_LITTLEROOT_TOWN?1:REGION_MAP_KANTO;}
+'''+function+'''
+int main(void){
+assert(GetMapsecType(MAPSEC_ONE_ISLAND)==MAPSECTYPE_NONE);
+assert(GetMapsecType(MAPSEC_LITTLEROOT_TOWN)==MAPSECTYPE_NONE);
+assert(GetMapsecType(MAPSEC_PALLET_TOWN)==MAPSECTYPE_CITY_CANTFLY);
+palletVisited=1;assert(GetMapsecType(MAPSEC_PALLET_TOWN)==MAPSECTYPE_CITY_CANFLY);
+assert(GetMapsecType(MAPSEC_CINNABAR_ISLAND)==MAPSECTYPE_CITY_CANFLY);
+return 0;}
+'''
+        with tempfile.TemporaryDirectory(prefix='sc-field-fly-') as d:
+            p=Path(d);(p/'test.c').write_text(source)
+            result=subprocess.run(['cc','-std=c11','-Werror',str(p/'test.c'),'-o',str(p/'test')],capture_output=True,text=True);self.assertEqual(result.returncode,0,result.stderr)
+            result=subprocess.run([str(p/'test')],capture_output=True,text=True);self.assertEqual(result.returncode,0,result.stderr)
+
+    def test_actual_field_menu_open_page_back_and_capacity(self):
+        policy='\n'.join(line for line in (ENGINE/'src/sc_field.c').read_text().splitlines() if not line.startswith('#include'))
+        source=FIXTURE+MENU_FIXTURE+policy
+        for name in ['SetPartyMonFieldSelectionActions','ScHandleFieldMenuAction']:
+            source+='\n'+extract_function('src/party_menu.c',name)
+        source+='\n'+MENU_CASES
+        with tempfile.TemporaryDirectory(prefix='sc-field-menu-') as d:
+            p=Path(d);(p/'test.c').write_text(source)
+            cmd=['cc','-std=c11','-Werror','-I'+str(ENGINE/'include'),'-DTRUE=1','-DFALSE=0','-DFIRERED','-DTESTING=0',str(p/'test.c'),'-o',str(p/'test')]
+            result=subprocess.run(cmd,capture_output=True,text=True);self.assertEqual(result.returncode,0,result.stderr)
+            result=subprocess.run([str(p/'test')],capture_output=True,text=True);self.assertEqual(result.returncode,0,result.stderr)
+
     def test_actual_surf_script_and_catch_swap_entries(self):
         policy='\n'.join(line for line in (ENGINE/'src/sc_field.c').read_text().splitlines() if not line.startswith('#include'))
         source=FIXTURE+ENTRY_FIXTURE+policy

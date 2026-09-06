@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_field.h"
 #include "frontier_util.h"
 #include "battle_setup.h"
 #include "battle_util.h"
@@ -2300,6 +2301,14 @@ bool8 ScrCmd_checkfieldmove(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1);
 
     gSpecialVar_Result = PARTY_SIZE;
+    if (P_SC_KANTO_RULES && ScFieldIsPermitMove(fieldMove))
+    {
+        // Badge and acquired HM are mandatory even for legacy unchecked callers.
+        gSpecialVar_Result = ScFieldFindUser(fieldMove);
+        if (gSpecialVar_Result != PARTY_SIZE)
+            gSpecialVar_0x8004 = GetMonData(&gParties[B_TRAINER_PLAYER][gSpecialVar_Result], MON_DATA_SPECIES);
+        return FALSE;
+    }
     if (doUnlockedCheck && !IsFieldMoveUnlocked(fieldMove))
         return FALSE;
 

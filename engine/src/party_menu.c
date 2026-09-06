@@ -1,6 +1,8 @@
 #include "global.h"
+#include "sc_field.h"
 #include "malloc.h"
 #include "battle.h"
+#include "battle_script_commands.h"
 #include "battle_anim.h"
 #include "battle_controllers.h"
 #include "battle_gfx_sfx_util.h"
@@ -187,6 +189,7 @@ struct PartyMenuInternal
     u8 windowId[3];
     u8 actions[8];
     u8 numActions;
+    u8 scFieldPage;
     // In vanilla Emerald, only the first 0xB0 hwords (0x160 bytes) are actually used.
     // However, a full 0x100 hwords (0x200 bytes) are allocated.
     // It is likely that the 0x160 value used below is a constant defined by
@@ -474,6 +477,7 @@ static void CursorCb_Trade1(u8);
 static void CursorCb_Trade2(u8);
 static void CursorCb_Toss(u8);
 static void CursorCb_FieldMove(u8);
+static bool32 ScHandleFieldMenuAction(u8 taskId, u8 action);
 static void CursorCb_CatalogBulb(u8);
 static void CursorCb_CatalogOven(u8);
 static void CursorCb_CatalogWashing(u8);
@@ -508,7 +512,7 @@ static u8 IndividualToCombinedPartyId(u8 index, enum BattlerId battler);
 static const u8 sText_askText[] = _("Would you like to change {STR_VAR_1}'s\nability to {STR_VAR_2}?");
 static const u8 sText_doneText[] = _("{STR_VAR_1}'s ability became\n{STR_VAR_2}!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_BasePointsResetToZero[] = _("{STR_VAR_1}'s base points\nwere all reset to zero!{PAUSE_UNTIL_PRESS}");
-static const u8 sText_CannotSendMonToBoxHM[] = _("Cannot send that mon to the box,\nbecause it knows a HM move.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_CannotSendMonToBoxHM[] = _("Cannot send that mon to the box,\nbecause your team needs it to travel.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_CannotSendMonToBoxPartner[] = _("Cannot send a mon that doesn't\nbelong to you to the box.{PAUSE_UNTIL_PRESS}");
 
 // static const data
@@ -1655,6 +1659,9 @@ static bool8 IsSelectedMonNotEgg(u8 *slotPtr)
 
 static bool8 DoesSelectedMonKnowHM(u8 *slotPtr)
 {
+    if (P_SC_KANTO_RULES)
+        return !ScFieldCanReplace(*slotPtr, GetBattlerMon(GetCatchingBattler()));
+
     if (B_CATCH_SWAP_CHECK_HMS == FALSE)
         return FALSE;
 
@@ -2892,7 +2899,13 @@ static u8 DisplaySelectionWindow(u8 windowType)
         if (sPartyMenuInternal->actions[i] >= MENU_FIELD_MOVES)
             fontColorsId = 4;
 
-        if (sPartyMenuInternal->actions[i] >= MENU_FIELD_MOVES)
+        if (sPartyMenuInternal->actions[i] == SC_FIELD_ACTION_OPEN)
+            text = COMPOUND_STRING("FIELD");
+        else if (sPartyMenuInternal->actions[i] == SC_FIELD_ACTION_NEXT)
+            text = COMPOUND_STRING("MORE");
+        else if (sPartyMenuInternal->actions[i] == SC_FIELD_ACTION_BACK)
+            text = COMPOUND_STRING("BACK");
+        else if (sPartyMenuInternal->actions[i] >= MENU_FIELD_MOVES)
             text = GetMoveName(FieldMove_GetMoveId(sPartyMenuInternal->actions[i] - MENU_FIELD_MOVES));
         else
             text = sCursorOptions[sPartyMenuInternal->actions[i]].text;
@@ -2954,7 +2967,15 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     sPartyMenuInternal->numActions = 0;
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SUMMARY);
 
-    // Add field moves to action list
+    // Campaign fields live in their own bounded, paged menu.
+    if (P_SC_KANTO_RULES)
+    {
+        u8 fields[SC_FIELD_PAGE_SIZE + 2];
+        if (ScFieldBuildPage(&mons[slotId], 0, fields) > 1)
+            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, SC_FIELD_ACTION_OPEN);
+    }
+    else
+    // Add learned field moves to the upstream action list.
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         for (j = 0; j != FIELD_MOVES_COUNT; j++)
@@ -3107,6 +3128,8 @@ static void Task_HandleSelectionMenuInput(u8 taskId)
         case MENU_B_PRESSED:
             PlaySE(SE_SELECT);
             PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[2]);
+            if (ScHandleFieldMenuAction(taskId, sPartyMenuInternal->actions[sPartyMenuInternal->numActions - 1]))
+                break;
             if (sPartyMenuInternal->actions[sPartyMenuInternal->numActions - 1] >= MENU_FIELD_MOVES)
                 CursorCb_FieldMove(taskId);
             else
@@ -3114,6 +3137,8 @@ static void Task_HandleSelectionMenuInput(u8 taskId)
             break;
         default:
             PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[2]);
+            if (ScHandleFieldMenuAction(taskId, sPartyMenuInternal->actions[input]))
+                break;
             if (sPartyMenuInternal->actions[input] >= MENU_FIELD_MOVES)
                 CursorCb_FieldMove(taskId);
             else
@@ -3121,6 +3146,36 @@ static void Task_HandleSelectionMenuInput(u8 taskId)
             break;
         }
     }
+}
+
+static bool32 ScHandleFieldMenuAction(u8 taskId, u8 action)
+{
+    if (!P_SC_KANTO_RULES || action < SC_FIELD_ACTION_OPEN || action > SC_FIELD_ACTION_BACK)
+        return FALSE;
+    PlaySE(SE_SELECT);
+    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+    if (action == SC_FIELD_ACTION_BACK)
+    {
+        SetPartyMonFieldSelectionActions(gParties[B_TRAINER_PLAYER], gPartyMenu.slotId);
+    }
+    else
+    {
+        if (action == SC_FIELD_ACTION_OPEN)
+            sPartyMenuInternal->scFieldPage = 0;
+        else
+            sPartyMenuInternal->scFieldPage ^= 1; // At most nine supported fields: two pages.
+        sPartyMenuInternal->numActions = ScFieldBuildPage(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId],
+            sPartyMenuInternal->scFieldPage, sPartyMenuInternal->actions);
+        for (u32 i = 0; i < sPartyMenuInternal->numActions; i++)
+        {
+            if (sPartyMenuInternal->actions[i] < FIELD_MOVES_COUNT)
+                sPartyMenuInternal->actions[i] += MENU_FIELD_MOVES;
+        }
+    }
+    DisplaySelectionWindow(SELECTWINDOW_ACTIONS);
+    gTasks[taskId].data[0] = 0xFF;
+    gTasks[taskId].func = Task_HandleSelectionMenuInput;
+    return TRUE;
 }
 
 static void CursorCb_Summary(u8 taskId)
@@ -4100,7 +4155,13 @@ static void CursorCb_FieldMove(u8 taskId)
         return;
     }
 
-    if (!IsFieldMoveUnlocked(fieldMove))
+    if (P_SC_KANTO_RULES && ScFieldIsPermitMove(fieldMove)
+        && !ScFieldCanUse(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], fieldMove))
+    {
+        DisplayPartyMenuStdMessage(PARTY_MSG_CANT_USE_HERE);
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    }
+    else if (!IsFieldMoveUnlocked(fieldMove))
     {
         DisplayPartyMenuMessage(FieldMove_GetLockedMessage(fieldMove), TRUE);
         gTasks[taskId].func = Task_ReturnToChooseMonAfterText;

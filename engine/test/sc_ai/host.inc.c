@@ -61,6 +61,18 @@ int main(void)
     ScAiChoose(&o,choices);
     assert(choices[0].target == 0);
 
+    /* Helping Hand is evaluated with its partner's attack, not in isolation. */
+    o=arena(); o.actorCount=2; o.actors[1]=3; o.aliveMask=15; o.ownMask=10;
+    o.count[0]=2; o.count[1]=1;
+    o.options[0][0]=(struct ScAiOption){.kind=SC_AI_MOVE,.index=0,.boostsPartner=1};
+    o.options[0][1]=(struct ScAiOption){.kind=SC_AI_MOVE,.index=1,.damage={10}};
+    o.options[1][0]=(struct ScAiOption){.kind=SC_AI_MOVE,.damage={80}};
+    ScAiChoose(&o,choices);
+    assert(choices[0].index==0);
+    o.options[1][0]=(struct ScAiOption){.kind=SC_AI_SWITCH,.index=2,.utility=80};
+    ScAiChoose(&o,choices);
+    assert(choices[0].index==1); /* Do not help an ally that switches. */
+
     /* Never reserve the same party slot or consumable twice in doubles. */
     o=arena(); o.actorCount=2; o.actors[1]=3;
     o.count[0]=o.count[1]=2;

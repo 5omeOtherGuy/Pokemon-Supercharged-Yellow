@@ -3,6 +3,7 @@
 
 #include "sc_effects.h"
 
+void ScGetPublicSwitchInEffects(u32 battler, u32 partyIndex, struct ScPublicEffects *out);
 void ScGetPublicBattlerEffects(u32 battler, struct ScPublicEffects *out);
 void ScGetPublicSwitchInEffects(u32 battler, u32 partyIndex, struct ScPublicEffects *out);
 

@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_ai.h"
 #include "main.h"
 #include "malloc.h"
 #include "battle.h"
@@ -406,6 +407,7 @@ void SetupAIPredictionData(enum BattlerId battler, enum SwitchType switchType)
 
 void ComputeAiBattlerDecisions(enum BattlerId battler)
 {
+    if (ScAiEnabled()) { ScAiComputeBattler(battler); return; }
     gAiLogicData->aiCalcInProgress = TRUE;
 
         AIDebugTimerStart();
@@ -503,6 +505,7 @@ static void SetupRandomRollsForAIMoveSelection(enum BattlerId battler)
 
 void AI_TrySwitchOrUseItem(enum BattlerId battler)
 {
+    if (ScAiEnabled()) { ScAiEmitAction(battler); return; }
     struct Pokemon *party;
     enum BattlerId battlerIn1, battlerIn2;
     s32 lastId = GetAILastPartyIndex(battler); // + 1
@@ -578,6 +581,7 @@ void AI_TrySwitchOrUseItem(enum BattlerId battler)
 
 u32 BattleAI_ChooseMoveIndex(enum BattlerId battler)
 {
+    if (ScAiEnabled()) return ScAiMoveIndex(battler);
     SetAIUsingGimmick(battler, USE_GIMMICK);
     SetupRandomRollsForAIMoveSelection(battler);
 
@@ -617,6 +621,7 @@ static void CopyBattlerDataToAIParty(u32 bPosition, enum BattleTrainer trainer)
 
 void Ai_InitPartyStruct(void)
 {
+    if (ScAiEnabled()) return;
     bool32 isOmniscient = (gAiThinkingStruct->aiFlags[B_POSITION_OPPONENT_LEFT] & AI_FLAG_OMNISCIENT) || (gAiThinkingStruct->aiFlags[B_POSITION_OPPONENT_RIGHT] & AI_FLAG_OMNISCIENT);
     bool32 isAbilityOmniscient = (gAiThinkingStruct->aiFlags[B_POSITION_OPPONENT_LEFT] & AI_FLAG_ABILITY_OMNISCIENCE) || (gAiThinkingStruct->aiFlags[B_POSITION_OPPONENT_RIGHT] & AI_FLAG_ABILITY_OMNISCIENCE);
     bool32 isItemOmniscient = (gAiThinkingStruct->aiFlags[B_POSITION_OPPONENT_LEFT] & AI_FLAG_ITEM_OMNISCIENCE) || (gAiThinkingStruct->aiFlags[B_POSITION_OPPONENT_RIGHT] & AI_FLAG_ITEM_OMNISCIENCE);
@@ -850,6 +855,12 @@ static void SetBattlerAiMovesData(struct AiLogicData *aiData, enum BattlerId bat
 
 void SetAiLogicDataForTurn(struct AiLogicData *aiData)
 {
+    if (ScAiEnabled())
+    {
+        memset(aiData, 0, sizeof(*aiData));
+        ScAiPrepareTurn();
+        return;
+    }
     memset(aiData, 0, sizeof(struct AiLogicData));
     gAiBattleData->aiUsingGimmick = 0;
 

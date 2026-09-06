@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_ai.h"
 #include "battle.h"
 #include "constants/battle_ai.h"
 #include "battle_ai_main.h"
@@ -2606,6 +2607,7 @@ static u32 GetNextMonInParty(struct Pokemon *party, int lastId, enum BattlerId b
 
 u32 GetMostSuitableMonToSwitchInto(enum BattlerId battler, enum SwitchType switchType)
 {
+    if (ScAiEnabled()) return ScAiSwitchIn(battler);
     enum BattlerId opposingBattler = 0;
     u32 bestMonId = PARTY_SIZE;
     enum BattlerId battlerIn1 = 0, battlerIn2 = 0;

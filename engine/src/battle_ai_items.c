@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_ai.h"
 #include "battle.h"
 #include "constants/battle_ai.h"
 #include "battle_ai_items.h"
@@ -27,6 +28,7 @@ static u32 GetHPHealAmount(u8 itemEffectParam, struct Pokemon *mon);
 
 bool32 ShouldUseItem(enum BattlerId battler)
 {
+    if (ScAiEnabled()) return ScAiUseItem(battler);
     bool32 shouldUse = FALSE;
     u32 healAmount = 0;
 

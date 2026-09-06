@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_supplies.h"
 #include "item_menu.h"
 #include "battle.h"
 #include "battle_controllers.h"
@@ -1623,7 +1624,8 @@ static void OpenContextMenu(u8 taskId)
     case ITEMMENULOCATION_BATTLE:
     case ITEMMENULOCATION_WALLY:
     case ITEMMENULOCATION_RAIDEND:
-        if (GetItemBattleUsage(gSpecialVar_ItemId))
+        if (GetItemBattleUsage(gSpecialVar_ItemId)
+            && (!ScSuppliesApplies() || ScSuppliesCanUse(gBattlerInMenuId, gSpecialVar_ItemId)))
         {
             gBagMenu->contextMenuItemsPtr = sContextMenuItems_BattleUse;
             gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_BattleUse);
@@ -2109,6 +2111,11 @@ static void ItemMenu_UseInBattle(u8 taskId)
         return;
 
     RemoveContextWindow();
+    if (ScSuppliesApplies() && !ScSuppliesCanUse(gBattlerInMenuId, gSpecialVar_ItemId))
+    {
+        DisplayItemMessage(taskId, FONT_NORMAL, COMPOUND_STRING("That supply was not prepared,\nor none remain for this battle."), HandleErrorMessage);
+        return;
+    }
     if (type == ITEM_USE_BAG_MENU || (type == ITEM_USE_BATTLER && !IsDoubleBattle()))
         ItemUseInBattle_BagMenu(taskId);
     else if (type == ITEM_USE_PARTY_MENU || (type == ITEM_USE_BATTLER && IsDoubleBattle()))

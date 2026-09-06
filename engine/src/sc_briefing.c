@@ -240,7 +240,10 @@ static const u8 sColors[] = {TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_
 static const struct WindowTemplate sWindowTemplate =
 {
     .bg = 0, .tilemapLeft = 1, .tilemapTop = 1, .width = 28, .height = 17,
-    .paletteNum = 15, .baseBlock = 0x220,
+    // BG0 starts at VRAM 0x8000; keep 476 tiles below the frame tiles at
+    // 0x200 and field tilemaps at 0xE000. Restore overlapped field windows
+    // from their retained CPU buffers when this temporary overlay closes.
+    .paletteNum = 15, .baseBlock = 1,
 };
 
 static void Print(u32 x, u32 y, const u8 *text)
@@ -371,8 +374,8 @@ static void DrawDescription(void)
         {
             ScBriefingGetMoves(&sBriefing, sView.mon, moves);
             id = moves[sView.entry];
-            name = GetMoveName(id);
-            description = GetMoveDescription(id);
+            name = id == MOVE_NONE ? COMPOUND_STRING("Empty move slot") : GetMoveName(id);
+            description = id == MOVE_NONE ? COMPOUND_STRING("No move is assigned to this slot.") : GetMoveDescription(id);
             Print(4, 17, COMPOUND_STRING("Power"));
             Number(33, 17, GetMovePower(id));
             Print(62, 17, COMPOUND_STRING("Acc."));
@@ -391,15 +394,15 @@ static void DrawDescription(void)
         else
         {
             id = GetTrainerPartyFromId(sBriefing.trainerId)[sView.mon].heldItem;
-            name = GetItemName(id);
-            description = GetItemDescription(id);
+            name = id == ITEM_NONE ? COMPOUND_STRING("No held item") : GetItemName(id);
+            description = id == ITEM_NONE ? COMPOUND_STRING("This POKéMON is not holding an item.") : GetItemDescription(id);
         }
     }
     else if (sView.parent == SC_BRIEF_BAG)
     {
         id = sBriefing.trainer->items[sView.entry];
-        name = GetItemName(id);
-        description = GetItemDescription(id);
+        name = id == ITEM_NONE ? COMPOUND_STRING("Empty bag slot") : GetItemName(id);
+        description = id == ITEM_NONE ? COMPOUND_STRING("No usable item occupies this bag slot.") : GetItemDescription(id);
     }
     else
     {
@@ -422,11 +425,11 @@ static void DrawDescription(void)
     }
     Print(4, 0, name);
     u32 lines = WrapDescription(description);
-    u32 visible = 7;
+    u32 visible = 6;
     if (sView.cursor > (lines > visible ? lines - visible : 0))
         sView.cursor = lines > visible ? lines - visible : 0;
     for (u32 i = 0; i < visible && i + sView.cursor < lines; i++)
-        Print(4, 34 + i * 10, sLineBuffer[i + sView.cursor]);
+        Print(4, 34 + i * 12, sLineBuffer[i + sView.cursor]);
     if (passive)
         Print(4, 107, COMPOUND_STRING("Multipliers stack; each step rounds down."));
     Print(4, 121, COMPOUND_STRING("UP/DOWN scroll   B back   START ready"));
@@ -455,9 +458,10 @@ static void DrawBriefing(void)
         MonHeading();
         ScBriefingGetMoves(&sBriefing, sView.mon, moves);
         for (u32 i = 0; i < 4; i++)
-            Print(9, 30 + 12 * i, GetMoveName(moves[i]));
+            Print(9, 30 + 12 * i, moves[i] == MOVE_NONE ? COMPOUND_STRING("Empty") : GetMoveName(moves[i]));
         Label(78, COMPOUND_STRING(" Ability: "), gAbilitiesInfo[ScBriefingGetAbility(&sBriefing, sView.mon)].name);
-        Label(90, COMPOUND_STRING(" Item: "), GetItemName(GetTrainerPartyFromId(sBriefing.trainerId)[sView.mon].heldItem));
+        u16 heldItem = GetTrainerPartyFromId(sBriefing.trainerId)[sView.mon].heldItem;
+        Label(90, COMPOUND_STRING(" Item: "), heldItem == ITEM_NONE ? COMPOUND_STRING("None") : GetItemName(heldItem));
         Print(9, 102, COMPOUND_STRING("Capabilities"));
         PrintRowsCursor(30, 12);
         Print(4, 121, COMPOUND_STRING("A inspect  L/R teammate  B back"));
@@ -506,7 +510,7 @@ static void DrawBriefing(void)
         Print(4, 14, COMPOUND_STRING("Each occupied row is one usable unit."));
         for (u32 i = 0; i < ARRAY_COUNT(sBriefing.trainer->items); i++)
         {
-            Print(9, 32 + i * 17, GetItemName(sBriefing.trainer->items[i]));
+            Print(9, 32 + i * 17, sBriefing.trainer->items[i] == ITEM_NONE ? COMPOUND_STRING("Empty") : GetItemName(sBriefing.trainer->items[i]));
             if (sBriefing.trainer->items[i] != ITEM_NONE)
                 Print(190, 32 + i * 17, COMPOUND_STRING("x1"));
         }
@@ -541,6 +545,9 @@ static void FinishBriefing(u8 taskId, bool32 accepted)
         ClearStdWindowAndFrameToTransparent(sWindow, TRUE);
         RemoveWindow(sWindow);
         sWindow = WINDOW_NONE;
+        for (u32 i = 0; i < WINDOWS_MAX; i++)
+            if (gWindows[i].window.bg == 0 && gWindows[i].tileData)
+                CopyWindowToVram(i, COPYWIN_GFX);
     }
     DestroyTask(taskId);
     ScriptContext_Enable();

@@ -1705,12 +1705,12 @@ ScY_RivalTakeEeveeMovement::
 ScY_RivalLeaveLabMovement::
 	walk_down
 	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
 	walk_left
 	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_down
 	set_invisible
 	step_end

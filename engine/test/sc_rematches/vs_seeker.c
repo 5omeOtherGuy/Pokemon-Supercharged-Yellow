@@ -1,5 +1,6 @@
 #include "global.h"
 #include "battle_setup.h"
+#include "battle.h"
 #include "event_data.h"
 #include "item.h"
 #include "test/test.h"
@@ -50,6 +51,8 @@ TEST("SC rematches: first route parties resolve full trainer IDs without Hoenn m
 TEST("SC rematches: high trainer IDs preserve identity and consume readiness once")
 {
     struct WarpData location = gSaveBlock1Ptr->location;
+    u32 battleFlags = gBattleTypeFlags;
+    TrainerBattleParameter battleParams = gTrainerBattleParameter;
     bool32 owned = CheckBagHasItem(ITEM_VS_SEEKER, 1);
     bool32 defeated = HasTrainerBeenFought(TRAINER_TWINS_ELI_ANNE);
     bool32 charging = FlagGet(FLAG_SYS_VS_SEEKER_CHARGING);
@@ -78,11 +81,16 @@ TEST("SC rematches: high trainer IDs preserve identity and consume readiness onc
     gSaveBlock1Ptr->location.mapNum = MAP_NUM(MAP_ROUTE11);
     EXPECT(!ShouldTryRematchBattleForTrainerId(TRAINER_TWINS_ELI_ANNE));
     gSaveBlock1Ptr->location.mapNum = MAP_NUM(MAP_ROUTE8);
-    ScRematchClearReady(TRAINER_TWINS_ELI_ANNE);
+    gBattleTypeFlags = BATTLE_TYPE_TRAINER;
+    TRAINER_BATTLE_PARAM.opponentA = TRAINER_TWINS_ELI_ANNE;
+    TRAINER_BATTLE_PARAM.opponentB = TRAINER_NONE;
+    ClearCurrentTrainerWantRematchVsSeeker();
     EXPECT(!ShouldTryRematchBattleForTrainerId(TRAINER_TWINS_ELI_ANNE));
     EXPECT(!ScRematchSetReady(65535));
     gSaveBlock1Ptr->trainerRematches[index] = previousReady;
     gSaveBlock1Ptr->location = location;
+    gBattleTypeFlags = battleFlags;
+    gTrainerBattleParameter = battleParams;
     for (u32 i = 0; i < 8; i++) { if (badges[i]) FlagSet(badgeFlags[i]); else FlagClear(badgeFlags[i]); }
     if (!charging) FlagClear(FLAG_SYS_VS_SEEKER_CHARGING);
     if (!defeated) ClearTrainerFlag(TRAINER_TWINS_ELI_ANNE);

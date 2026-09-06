@@ -515,7 +515,7 @@ static void Select(void)
 
 static void CB2_Services(void)
 {
-    u32 keys = gMain.newKeys;
+    u32 keys = gMain.newKeys | (gMain.newAndRepeatedKeys & (DPAD_UP | DPAD_DOWN));
     if (keys & B_BUTTON) Back();
     else if (keys & A_BUTTON) Select();
     else if ((keys & START_BUTTON) && sUi.page == PAGE_SUPPLIES) SetSupply(SC_SUPPLY_SLOTS, ITEM_NONE);

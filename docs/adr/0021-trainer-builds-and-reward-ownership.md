@@ -87,8 +87,8 @@ No implementation or balance results exist. Future checks must cover ownership, 
 
 ## Open questions
 
-- Whether to retain automatic badge stat boosts; exact field-permission mapping and interaction with selected additional passives. Obedience restrictions are removed.
-- Starting trainer capacity, numerical badge-stage increases, final budget, individual passive costs and effects, magnitudes, stacking and reassignment costs.
+- Automatic badge stat boosts are omitted and the field-permission mapping is selected in ADR-0027. Verify integration with selected additional passives; obedience restrictions remain removed.
+- Starting trainer capacity, numerical badge-stage increases, final budget, individual passive costs and effects, magnitudes and stacking. Reassignment is free under ADR-0027.
 - Specific eligible NPCs, their capacity budgets and passive loadouts, with background justification.
 - Scouting presentation and loadout commitment/refresh timing under [ADR-0024](0024-passive-scouting-and-ai-observations.md), which now accepts reciprocal active-effect disclosure.
 - Repeat access details, rematch tiers and progression triggers.

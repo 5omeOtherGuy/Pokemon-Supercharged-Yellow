@@ -12,7 +12,7 @@ struct ScAiOption
     unsigned short damage[SC_AI_BATTLERS];
     short utility;
     unsigned short effectMask;
-    unsigned char kind, index, target, resource, protects;
+    unsigned char kind, index, target, resource, protects, boostsPartner;
 };
 struct ScAiObservation
 {

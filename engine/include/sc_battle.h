@@ -3,7 +3,7 @@
 
 #include "sc_effects.h"
 
-void ScGetPublicSwitchInEffects(u32 battler, u32 partyIndex, struct ScPublicEffects *out);
+u32 ScApplySpeedEffects(u32 battler, u32 speed);
 bool32 ScEffectsEnabled(void);
 #if TESTING
 void ScEffectsEnableForTests(bool32 enabled);

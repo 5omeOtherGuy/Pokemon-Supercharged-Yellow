@@ -83,3 +83,11 @@ void ScGetPublicSwitchInEffects(u32 battler, u32 partyIndex, struct ScPublicEffe
         GetScaledHPFraction(GetMonData(mon, MON_DATA_HP), GetMonData(mon, MON_DATA_MAX_HP), 48),
         TRUE, GetMonData(mon, MON_DATA_STATUS), out);
 }
+
+// Applied after ordinary speed modifiers, before order and Trick Room compare it.
+u32 ScApplySpeedEffects(u32 battler, u32 speed)
+{
+    struct ScPublicEffects effects;
+    ScGetPublicBattlerEffects(battler, &effects);
+    return speed * effects.speedPercent / 100;
+}

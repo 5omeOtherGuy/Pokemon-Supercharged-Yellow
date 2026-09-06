@@ -25,4 +25,25 @@ class ContentTransactionTests(unittest.TestCase):
             self.assertEqual(vm.battles,[])
             self.assertNotIn('FLAG_SC_DUO_'+str(n),vm.flags)
 
+    def test_yellow_rival_evolution_outcome_matrix(self):
+        for lab_win,route_win,expected in [(False,False,2),(False,True,2),(True,False,1),(True,True,0)]:
+            vm=ScriptVM(ENGINE)
+            vm.outcome='B_OUTCOME_WON' if lab_win else 'B_OUTCOME_LOST'
+            vm.run('ScY_SetLabRivalBranch')
+            vm.outcome='B_OUTCOME_WON' if route_win else 'B_OUTCOME_LOST'
+            vm.run('ScY_SetRoute22RivalBranch')
+            self.assertEqual(vm.vars['VAR_STARTER_MON'],expected)
+    def test_champion_decline_keeps_scene_retriable_without_victory(self):
+        vm=ScriptVM(ENGINE);vm.accept=0
+        vm.run('PokemonLeague_ChampionsRoom_EventScript_BattleCharmander')
+        self.assertEqual(vm.battles,[])
+        self.assertNotIn('FLAG_DEFEATED_CHAMP',vm.flags)
+        self.assertEqual(vm.vars['VAR_TEMP_1'],1)
+    def test_all_unique_legendaries_only_commit_capture(self):
+        for script,flag in [('CeruleanCave_B1F_EventScript_Mewtwo','FLAG_FOUGHT_MEWTWO'),('SeafoamIslands_B4F_EventScript_Articuno','FLAG_FOUGHT_ARTICUNO'),('PowerPlant_EventScript_Zapdos','FLAG_FOUGHT_ZAPDOS'),('ScY_Moltres','FLAG_SC_CAUGHT_MOLTRES')]:
+            for outcome in ['B_OUTCOME_CAUGHT','B_OUTCOME_WON','B_OUTCOME_LOST','B_OUTCOME_RAN']:
+                vm=ScriptVM(ENGINE);vm.outcome=outcome
+                vm.run(script)
+                self.assertEqual(flag in vm.flags,outcome=='B_OUTCOME_CAUGHT',(script,outcome))
+
 if __name__=='__main__':unittest.main()

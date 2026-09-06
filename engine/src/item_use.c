@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sc_supplies.h"
 #include "item_use.h"
 #include "battle.h"
 #include "battle_anim.h"
@@ -1172,7 +1173,7 @@ void ItemUseInBattle_PartyMenuChooseMove(u8 taskId)
 static bool32 IteamHealsMonVolatile(enum BattlerId battler, enum Item itemId)
 {
     const u8 *effect = GetItemEffect(itemId);
-    if (effect[3] & ITEM3_STATUS_ALL)
+    if ((effect[3] & ITEM3_STATUS_ALL) == ITEM3_STATUS_ALL)
         return (gBattleMons[battler].volatiles.infatuation || gBattleMons[battler].volatiles.confusionTimer > 0);
     else if (effect[0] & ITEM0_INFATUATION)
         return gBattleMons[battler].volatiles.infatuation;
@@ -1194,6 +1195,14 @@ static bool32 SelectedMonHasVolatile(enum Item itemId)
 // Returns whether an item can be used in battle and sets the fail text.
 bool32 CannotUseItemsInBattle(enum Item itemId, struct Pokemon *mon)
 {
+    if (ScSuppliesApplies() && !ScSuppliesCanUse(gBattlerInMenuId, itemId))
+    {
+        StringExpandPlaceholders(gStringVar4, COMPOUND_STRING("That supply was not prepared,\nor none remain for this battle."));
+        return TRUE;
+    }
+    if (mon == NULL)
+        mon = GetBattlerMon(gBattlerInMenuId);
+
     enum EffectItem battleUsage = GetItemBattleUsage(itemId);
     bool8 cannotUse = FALSE;
     const u8* failStr = NULL;
@@ -1337,8 +1346,13 @@ void ItemUseInBattle_BagMenu(u8 taskId)
     }
     else
     {
+        if (ScSuppliesApplies() && !ScSuppliesReserve(gBattlerInMenuId, gSpecialVar_ItemId))
+        {
+            DisplayItemMessage(taskId, FONT_NORMAL, gText_WontHaveEffect, CloseItemMessage);
+            return;
+        }
         PlaySE(SE_SELECT);
-        if (!GetItemImportance(gSpecialVar_ItemId) && !(B_TRY_CATCH_TRAINER_BALL >= GEN_4 && (GetItemBattleUsage(gSpecialVar_ItemId) == EFFECT_ITEM_THROW_BALL) && (gBattleTypeFlags & BATTLE_TYPE_TRAINER)))
+        if (!ScSuppliesApplies() && !GetItemImportance(gSpecialVar_ItemId) && !(B_TRY_CATCH_TRAINER_BALL >= GEN_4 && (GetItemBattleUsage(gSpecialVar_ItemId) == EFFECT_ITEM_THROW_BALL) && (gBattleTypeFlags & BATTLE_TYPE_TRAINER)))
             RemoveUsedItem();
         ScheduleBgCopyTilemapToVram(2);
         if (CurrentBattlePyramidLocation() == PYRAMID_LOCATION_NONE)

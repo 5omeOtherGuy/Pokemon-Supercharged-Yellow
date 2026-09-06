@@ -1,6 +1,7 @@
 #include "global.h"
 #include "battle.h"
 #include "item.h"
+#include "main.h"
 #include "sc_supplies.h"
 #include "test/test.h"
 

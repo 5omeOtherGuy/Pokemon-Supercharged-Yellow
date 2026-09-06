@@ -38,6 +38,7 @@
 #include "pokedex.h"
 #include "pokeblock.h"
 #include "pokemon.h"
+#include "sc_progression.h"
 #include "pokemon_animation.h"
 #include "pokemon_icon.h"
 #include "pokemon_summary_screen.h"
@@ -4939,6 +4940,8 @@ s32 CalculateFriendshipBonuses(struct Pokemon *mon, s32 modifier, enum HoldEffec
 
 void MonGainEVs(struct Pokemon *mon, enum Species defeatedSpecies)
 {
+    if (ScProgressionEnabled())
+        return; // Permanent training is committed only after the entire battle.
     u8 evs[NUM_STATS];
     u16 evIncrease = 0;
     u16 totalEVs = 0;

@@ -17,6 +17,7 @@
 #include "item_menu.h"
 #include "util.h"
 #include "pokemon.h"
+#include "sc_progression.h"
 #include "random.h"
 #include "battle_controllers.h"
 #include "battle_interface.h"
@@ -2156,6 +2157,7 @@ static void Cmd_getexp(void)
     switch (gBattleScripting.getexpState)
     {
     case 0: // check if should receive exp at all
+        ScProgressionRecordDefeat(gBattlerFainted);
         if (IsOnPlayerSide(gBattlerFainted)
             || IsAiVsAiBattle()
             || !BattleTypeAllowsExp())
@@ -2296,6 +2298,7 @@ static void Cmd_getexp(void)
                     }
 
                     ApplyExperienceMultipliers(&gBattleStruct->battlerExpReward, *expMonId, gBattlerFainted);
+                    gBattleStruct->battlerExpReward = ScProgressionOrdinaryExp(gBattleStruct->battlerExpReward);
 
                     if (B_EXP_CAP_TYPE == EXP_CAP_HARD && gBattleStruct->battlerExpReward != 0)
                     {
@@ -3266,6 +3269,7 @@ static void Cmd_switchindataupdate(void)
     }
 
     SwitchInClearSetData(battler, &oldData.volatiles);
+    ScProgressionEnterField(battler);
 
     if (gBattleTypeFlags & BATTLE_TYPE_PALACE
         && gBattleMons[battler].maxHP / 2 >= gBattleMons[battler].hp

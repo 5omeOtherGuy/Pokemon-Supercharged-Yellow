@@ -16,6 +16,7 @@ struct ScPassiveInfo
 
 extern const struct ScPassiveInfo gScCapabilityInfo[12];
 extern const struct ScPassiveInfo gScTrainerPassiveInfo[8];
+u32 ScGetEncounterCapability(u16 trainerId);
 u32 ScGetNpcCapabilities(u16 trainerId, u32 partyIndex);
 u32 ScGetNpcTrainerPassives(u16 trainerId);
 u32 ScGetNpcTrainerBudget(u16 trainerId);

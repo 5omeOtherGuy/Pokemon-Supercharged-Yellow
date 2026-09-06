@@ -12,7 +12,7 @@ Read the owning records for complete rules, authority and open questions. This m
 | Numerical progression, saves, AI architecture and training services | [0029](0029-progression-and-save-layout.md); [0030](0030-public-observation-ai.md); [0031](0031-training-services-and-individual-traits.md) |
 | Charter; decision workflow | [0001](0001-project-direction.md); [0002](0002-decision-records.md) |
 | Source foundation | [0028](0028-pinned-kanto-foundation.md); historical proposal [0003](0003-source-foundation.md) |
-| Preparation economy and equipment access | [0034](0034-preparation-economy-and-equipment-access.md) |
+| Preparation economy, equipment and ordinary rematches | [0034](0034-preparation-economy-and-equipment-access.md); [0035](0035-mainland-vs-seeker-training.md) |
 | Battle pacing | [0032](0032-battle-pacing-presets.md) |
 | Android play target; eligible ROM platforms | [0025](0025-android-emulation-platform.md) |
 | Yellow/Kanto content baseline; starter; current expansion scope | [0026](0026-yellow-kanto-content-baseline.md) |
@@ -78,6 +78,7 @@ Ordinary level EXP, stat-training reward value and stat-training eligibility are
 | [0032](0032-battle-pacing-presets.md) | Offer named battle-pacing presets | Accepted |
 | [0033](0033-story-challenge-stage-gates.md) | Align story challenges with badge-stage preparation | Accepted |
 | [0034](0034-preparation-economy-and-equipment-access.md) | Keep preparation supplies replaceable and equipment staged | Accepted |
+| [0035](0035-mainland-vs-seeker-training.md) | Use fixed mainland rematches for repeatable training | Accepted |
 
 Accepted means a decision was made. It does not mean implementation or verification is complete. Each record states its implementation status separately.
 
@@ -140,3 +141,5 @@ ADRs 0030–0031 select the public-observation AI architecture and individual-de
 ADRs 0032–0033 select named battle-pacing presets and explicit story-challenge stage gates. Current totals: 28 Accepted and 5 Superseded; actual pacing and ordinary story validation remain pending.
 
 ADR-0034 selects repeatable preparation access and staged equipment. Current totals: 29 Accepted and 5 Superseded; economic runtime and human preparation evidence remain pending.
+
+ADR-0035 selects fixed mainland Vs. Seeker rematches and deterministic readiness. Current totals:30 Accepted and5 Superseded. Six economy runtime fixtures now pass; complete preparation and rematch gameplay validation remain unfinished.

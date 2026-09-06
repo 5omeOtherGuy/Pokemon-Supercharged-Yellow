@@ -3,7 +3,7 @@
 - Status: Accepted
 - Date: 2026-09-06
 - Decision authority: Economy and numerical choices delegated by the owner's full-project mandate
-- Implementation: Shop/pickup source checks and map assembly pass; integrated runtime and economic/human balance checks pending
+- Implementation: Shop/pickup source checks, map assembly and six diagnostic economy runtime scenarios pass; ordinary economic and human balance checks pending
 - Supersedes: None
 - Superseded by: None
 
@@ -29,4 +29,6 @@ Unrestricted early Light Ball would double the starter's attacking stats before 
 
 Source tests cover exact stage-gated stock, prices, ordinary first/repeat/decline script paths, all disabled mainland pickups, full-bag gift retry and the early wild-held bypass. Actual event preprocessing and ARM assembly cover29 changed maps. The integrated regression suite is broader mechanical evidence, not an economic playthrough.
 
-The inherited Vs. Seeker is disabled and still contains Hoenn-specific rematch logic. Its delivered item cannot be cited as working training access until that separate repair is tested. Required follow-up includes real shop transactions, first and repeat practice battles, money loss and replenishment, zero-money recovery, Android controls and measured human preparation at each battle pace.
+The initially disabled, Hoenn-specific Vs. Seeker is being replaced under [ADR-0035](0035-mainland-vs-seeker-training.md). Its delivered item cannot be cited as verified training access until that separate repair passes runtime checks.
+
+On 2026-09-06, [six diagnostic runtime scenarios](../validation/campaign-economy.md) on frozen source `9d479bc5` verified real shop transactions, the Light Ball badge gate, first/repeat practice payouts, free decline and full-bag gift retry. The 1426 successful commands include explicit fixture state; these are not an organically earned campaign journey. Money loss and replenishment, complete zero-money recovery, Android controls and measured human preparation at each battle pace remain acceptance work.

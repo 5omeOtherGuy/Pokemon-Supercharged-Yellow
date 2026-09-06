@@ -1,16 +1,7 @@
 #ifndef GUARD_CONFIG_POKEMON_H
 #define GUARD_CONFIG_POKEMON_H
 
-// Production Kanto rules. Ordinary upstream test fixtures keep their broad rules;
-// use -DSC_TEST_CAMPAIGN=1 to test the production policy in a TESTING build.
-#ifndef SC_TEST_CAMPAIGN
-#define SC_TEST_CAMPAIGN FALSE
-#endif
-#if defined(FIRERED) && (!TESTING || SC_TEST_CAMPAIGN)
-#define P_SC_KANTO_RULES TRUE
-#else
-#define P_SC_KANTO_RULES FALSE
-#endif
+#include "sc_campaign.h"
 
 // Species data settings
 #define P_UPDATED_TYPES             GEN_LATEST  // Some Pokémon have received type updates after their introduction.

@@ -1,7 +1,7 @@
 #ifndef GUARD_CONFIG_BATTLE_H
 #define GUARD_CONFIG_BATTLE_H
 
-#include "config/pokemon.h"
+#include "sc_campaign.h"
 
 // Calculation settings
 #define B_CRIT_CHANCE               GEN_LATEST // Chances of landing a critical hit. See CalcCritChanceStage. Gen6+ chances guarantee a crit at 3 or more stages. Gen1 chances are based on half of the user's base Speed.

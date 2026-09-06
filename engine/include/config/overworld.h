@@ -1,7 +1,7 @@
 #ifndef GUARD_CONFIG_OVERWORLD_H
 #define GUARD_CONFIG_OVERWORLD_H
 
-#include "config/pokemon.h"
+#include "sc_campaign.h"
 
 // Movement config
 #define OW_RUNNING_INDOORS          GEN_LATEST  // In Gen4+, players are allowed to run indoors.

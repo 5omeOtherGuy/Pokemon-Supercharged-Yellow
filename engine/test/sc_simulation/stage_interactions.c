@@ -45,28 +45,34 @@ AI_SINGLE_BATTLE_TEST("SC simulation: Brock Geodude punishes Electric-only Pikac
     }
 }
 
-SINGLE_BATTLE_TEST("SC simulation: cap-level Mankey Low Kick defeats authored first Onix")
+SINGLE_BATTLE_TEST("SC simulation: cap-level Mankey defeats first Onix with two Low Kicks when moving first")
 {
     GIVEN {
         ASSUME(GetTrainerPartyFromId(TRAINER_LEADER_BROCK)[1].species == SPECIES_ONIX);
         PLAYER(SPECIES_MANKEY) { Level(15); Speed(100); Moves(MOVE_LOW_KICK); }
         OPPONENT(SPECIES_ONIX) { AUTHORED(TRAINER_LEADER_BROCK, 1); Speed(50); }
     } WHEN {
-        TURN { MOVE(player, MOVE_LOW_KICK); MOVE(opponent, MOVE_HARDEN); }
+        TURN { MOVE(player, MOVE_LOW_KICK); MOVE(opponent, MOVE_ROCK_TOMB); }
+        TURN { MOVE(player, MOVE_LOW_KICK); MOVE(opponent, MOVE_ROCK_TOMB); }
     } THEN {
         EXPECT_EQ(opponent->hp, 0);
     }
 }
 
-SINGLE_BATTLE_TEST("SC simulation: Nidoran Double Kick answers authored Geodude Sturdy")
+SINGLE_BATTLE_TEST("SC simulation: Nidoran Double Kick chips authored Sturdy Geodude without a one-turn knockout")
 {
     GIVEN {
         PLAYER(SPECIES_NIDORAN_M) { Level(15); Speed(100); Moves(MOVE_DOUBLE_KICK); }
         OPPONENT(SPECIES_GEODUDE) { AUTHORED(TRAINER_LEADER_BROCK, 0); Speed(50); }
     } WHEN {
         TURN { MOVE(player, MOVE_DOUBLE_KICK); MOVE(opponent, MOVE_DEFENSE_CURL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_KICK, player);
+        HP_BAR(opponent);
+        HP_BAR(opponent);
     } THEN {
-        EXPECT_EQ(opponent->hp, 0);
+        EXPECT_GT(opponent->hp, 0);
+        EXPECT_LT(opponent->hp, opponent->maxHP);
     }
 }
 

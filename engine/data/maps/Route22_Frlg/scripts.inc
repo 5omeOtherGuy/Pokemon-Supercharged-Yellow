@@ -33,6 +33,7 @@ Route22_EventScript_EarlyRival::
 	call_if_eq VAR_STARTER_MON, 2, Route22_EventScript_EarlyRivalSquirtle
 	call_if_eq VAR_STARTER_MON, 1, Route22_EventScript_EarlyRivalBulbasaur
 	call_if_eq VAR_STARTER_MON, 0, Route22_EventScript_EarlyRivalCharmander
+	call ScY_SetRoute22RivalBranch
 	msgbox Route22_Text_EarlyRivalPostBattle
 	closemessage
 	delay 10
@@ -58,14 +59,26 @@ Route22_EventScript_EarlyRivalApproachBottom::
 	return
 
 Route22_EventScript_EarlyRivalSquirtle::
+	setvar VAR_0x8004, TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_Route22
 	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
 	return
 
 Route22_EventScript_EarlyRivalBulbasaur::
+	setvar VAR_0x8004, TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_Route22
 	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
 	return
 
 Route22_EventScript_EarlyRivalCharmander::
+	setvar VAR_0x8004, TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_Route22
 	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER, 0, Route22_Text_EarlyRivalDefeat, Text_RivalVictory
 	return
 
@@ -208,14 +221,26 @@ Route22_EventScript_LateRivalApproachBottom::
 	return
 
 Route22_EventScript_LateRivalSquirtle::
+	setvar VAR_0x8004, TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_Route22
 	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE, Route22_Text_LateRivalDefeat
 	return
 
 Route22_EventScript_LateRivalBulbasaur::
+	setvar VAR_0x8004, TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_Route22
 	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR, Route22_Text_LateRivalDefeat
 	return
 
 Route22_EventScript_LateRivalCharmander::
+	setvar VAR_0x8004, TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_Route22
 	trainerbattle_no_intro TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER, Route22_Text_LateRivalDefeat
 	return
 
@@ -299,3 +324,18 @@ Route22_Text_LeagueGateSign::
 	.string "POKéMON LEAGUE\n"
 	.string "Front Gate$"
 
+
+ScY_SetRoute22RivalBranch::
+	goto_if_ne VAR_STARTER_MON, 1, Common_EventScript_NopReturn
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_WON, Common_EventScript_NopReturn
+	setvar VAR_STARTER_MON, 0
+	return
+
+ScY_Decline_Route22::
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_ROUTE22_RIVAL
+	setobjectxyperm LOCALID_ROUTE22_RIVAL, 25, 4
+	addobject LOCALID_ROUTE22_RIVAL
+	fadescreen FADE_FROM_BLACK
+	goto ScY_DeclineBoss

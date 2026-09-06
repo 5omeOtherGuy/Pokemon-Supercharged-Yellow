@@ -152,3 +152,23 @@ CeruleanCity_House4_Text_YourBerryPouchIsFull::
 	.string "Hm? Your BERRY POUCH is full.\n"
 	.string "My gift remains ungiven, then.$"
 
+
+ScY_Bulbasaur::
+	lock
+	faceplayer
+	goto_if_set FLAG_SC_GOT_BULBASAUR, ScY_BulbasaurDone
+	msgbox ScY_BulbasaurText, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, ScY_End
+	givemon SPECIES_BULBASAUR, 10
+	goto_if_eq VAR_RESULT, 2, ScY_BulbasaurFull
+	setflag FLAG_SC_GOT_BULBASAUR
+	msgbox ScY_Text_Adopted
+	goto ScY_End
+ScY_BulbasaurFull::
+	msgbox ScY_Text_NoRoom
+	goto ScY_End
+ScY_BulbasaurDone::
+	msgbox ScY_Text_AlreadyGift
+	goto ScY_End
+ScY_BulbasaurText::
+	.string "MELANIE: I care for injured POKéMON.\nThis BULBASAUR needs a kind TRAINER.\pWill you look after it?$"

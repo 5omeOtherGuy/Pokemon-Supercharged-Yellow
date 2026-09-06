@@ -3,6 +3,13 @@ SaffronCity_Gym_Frlg_MapScripts::
 
 SaffronCity_Gym_EventScript_Sabrina::
 	famechecker FAMECHECKER_SABRINA, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	goto_if_unset FLAG_BADGE05_GET, ScY_GymOrder
+	goto_if_defeated TRAINER_LEADER_SABRINA, ScY_Rematch_SABRINA_RewardCheck
+	lockall
+	setvar VAR_0x8004, TRAINER_LEADER_SABRINA
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_single TRAINER_LEADER_SABRINA, SaffronCity_Gym_Text_SabrinaIntro, SaffronCity_Gym_Text_SabrinaDefeat, SaffronCity_Gym_EventScript_DefeatedSabrina, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM04_FROM_SABRINA, SaffronCity_Gym_EventScript_GiveTM04
 	msgbox SaffronCity_Gym_Text_ExplainTM04
@@ -255,3 +262,49 @@ SaffronCity_Gym_Text_GymStatuePlayerWon::
 	.string "WINNING TRAINERS:\n"
 	.string "{RIVAL}, {PLAYER}$"
 
+
+ScY_Rematch_SABRINA::
+	lockall
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_SABRINA_Choose
+	goto_if_set FLAG_BADGE08_GET, ScY_Rematch_SABRINA_Choose
+	goto ScY_RematchLater
+ScY_Rematch_SABRINA_Choose::
+	goto_if_unset FLAG_SC_SABRINA_REMATCH_1, ScY_Rematch_SABRINA_1
+	goto_if_unset FLAG_SC_SABRINA_REMATCH_2, ScY_Rematch_SABRINA_Choose2
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_SABRINA_3
+	goto ScY_Rematch_SABRINA_Choose2
+ScY_Rematch_SABRINA_Choose2::
+	goto_if_set FLAG_IS_CHAMPION, ScY_Rematch_SABRINA_2
+	goto_if_set FLAG_BADGE08_GET, ScY_Rematch_SABRINA_2
+	goto ScY_Rematch_SABRINA_1
+
+ScY_Rematch_SABRINA_1::
+	setvar VAR_0x8004, TRAINER_SC_SABRINA_REMATCH_1
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_SABRINA_REMATCH_1, ScY_RematchDefeat
+	setflag FLAG_SC_SABRINA_REMATCH_1
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+ScY_Rematch_SABRINA_2::
+	setvar VAR_0x8004, TRAINER_SC_SABRINA_REMATCH_2
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_SABRINA_REMATCH_2, ScY_RematchDefeat
+	setflag FLAG_SC_SABRINA_REMATCH_2
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+ScY_Rematch_SABRINA_3::
+	setvar VAR_0x8004, TRAINER_SC_SABRINA_REMATCH_3
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
+	trainerbattle_no_intro TRAINER_SC_SABRINA_REMATCH_3, ScY_RematchDefeat
+	msgbox ScY_RematchDefeat
+	goto ScY_End
+
+ScY_Rematch_SABRINA_RewardCheck::
+	goto_if_unset FLAG_GOT_TM04_FROM_SABRINA, SaffronCity_Gym_EventScript_GiveTM04
+	goto ScY_Rematch_SABRINA

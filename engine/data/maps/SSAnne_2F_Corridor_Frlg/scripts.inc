@@ -68,14 +68,26 @@ SSAnne_2F_Corridor_EventScript_RivalApproachRight::
 	return
 
 SSAnne_2F_Corridor_EventScript_RivalSquirtle::
+	setvar VAR_0x8004, TRAINER_RIVAL_SS_ANNE_SQUIRTLE
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_SSAnne_2F_Corridor
 	trainerbattle_no_intro TRAINER_RIVAL_SS_ANNE_SQUIRTLE, SSAnne_2F_Corridor_Text_RivalDefeat
 	return
 
 SSAnne_2F_Corridor_EventScript_RivalBulbasaur::
+	setvar VAR_0x8004, TRAINER_RIVAL_SS_ANNE_BULBASAUR
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_SSAnne_2F_Corridor
 	trainerbattle_no_intro TRAINER_RIVAL_SS_ANNE_BULBASAUR, SSAnne_2F_Corridor_Text_RivalDefeat
 	return
 
 SSAnne_2F_Corridor_EventScript_RivalCharmander::
+	setvar VAR_0x8004, TRAINER_RIVAL_SS_ANNE_CHARMANDER
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_Decline_SSAnne_2F_Corridor
 	trainerbattle_no_intro TRAINER_RIVAL_SS_ANNE_CHARMANDER, SSAnne_2F_Corridor_Text_RivalDefeat
 	return
 
@@ -205,3 +217,11 @@ SSAnne_2F_Corridor_Text_RivalPostBattle::
 	.string "You should go see him, too.\n"
 	.string "Smell ya!$"
 
+
+ScY_Decline_SSAnne_2F_Corridor::
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_SS_ANNE_RIVAL
+	setobjectxyperm LOCALID_SS_ANNE_RIVAL, 30, 2
+	addobject LOCALID_SS_ANNE_RIVAL
+	fadescreen FADE_FROM_BLACK
+	goto ScY_DeclineBoss

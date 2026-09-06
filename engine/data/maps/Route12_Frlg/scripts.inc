@@ -22,12 +22,13 @@ Route12_EventScript_Snorlax::
 	playmoncry SPECIES_SNORLAX, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setflag FLAG_HIDE_ROUTE_12_SNORLAX
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	setflag FLAG_WOKE_UP_ROUTE_12_SNORLAX
 	dowildbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ScY_End
+	clearflag FLAG_HIDE_ROUTE_12_SNORLAX
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route12_EventScript_FoughtSnorlax
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, Route12_EventScript_FoughtSnorlax
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route12_EventScript_FoughtSnorlax

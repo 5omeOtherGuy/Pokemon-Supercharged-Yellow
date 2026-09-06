@@ -41,9 +41,17 @@ MtMoon_B2F_EventScript_BattleMiguel::
 	return
 
 MtMoon_B2F_EventScript_MiguelFossilPicked::
-	msgbox MtMoon_B2F_Text_LabOnCinnabarRegeneratesFossils
-	release
-	end
+	lockall
+	goto_if_set FLAG_SC_GOT_SECOND_FOSSIL, ScY_End
+	goto_if_unset FLAG_WORLD_MAP_CINNABAR_ISLAND, ScY_FossilLater
+	msgbox ScY_FossilOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, ScY_End
+	setvar VAR_0x8004, ITEM_DOME_FOSSIL
+	call_if_set FLAG_GOT_DOME_FOSSIL, ScY_SelectHelix
+	giveitem VAR_0x8004
+	goto_if_eq VAR_RESULT, FALSE, ScY_End
+	setflag FLAG_SC_GOT_SECOND_FOSSIL
+	goto ScY_End
 
 MtMoon_B2F_EventScript_MiguelGoPickFossil::
 	msgbox MtMoon_B2F_Text_WellEachTakeAFossil
@@ -217,3 +225,34 @@ MtMoon_B2F_Text_ObtainedHelixFossil::
 MtMoon_B2F_Text_ObtainedDomeFossil::
 	.string "Obtained the DOME FOSSIL!$"
 
+
+ScY_RocketDuo1::
+	lockall
+	goto_if_set FLAG_SC_DUO_1, ScY_End
+	msgbox ScY_RocketDuo1Intro
+	setvar VAR_0x8004, TRAINER_SC_ROCKET_DUO_1
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_End
+	trainerbattle_no_intro TRAINER_SC_ROCKET_DUO_1, ScY_RocketDuo1Defeat
+	setflag FLAG_SC_DUO_1
+	msgbox ScY_RocketBlastOff
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_SC_MTMOON_B2F_FRLG_12
+	removeobject LOCALID_SC_MTMOON_B2F_FRLG_13
+	fadescreen FADE_FROM_BLACK
+	goto ScY_End
+ScY_RocketDuo1Intro::
+	.string "JESSIE: Prepare for trouble!\nJAMES: And make it double!\pMEOWTH: That POKéMON belongs to us!$"
+ScY_RocketDuo1Defeat::
+	.string "Our perfect plan… ruined again!$"
+
+ScY_SelectHelix::
+	setvar VAR_0x8004, ITEM_HELIX_FOSSIL
+	return
+ScY_FossilLater::
+	msgbox MtMoon_B2F_Text_LabOnCinnabarRegeneratesFossils
+	goto ScY_End
+ScY_FossilOffer::
+	.string "You've reached CINNABAR? Please\ntake my fossil to the lab, too!$"

@@ -215,15 +215,7 @@ PalletTown_ProfessorOaksLab_ChooseStarterScene::
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalFedUpWithWaiting
 	closemessage
 	delay 60
-	msgbox PalletTown_ProfessorOaksLab_Text_OakThreeMonsChooseOne
-	closemessage
-	delay 30
-	applymovement LOCALID_OAKS_LAB_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalReact
-	waitmovement 0
-	msgbox PalletTown_ProfessorOaksLab_Text_RivalNoFairWhatAboutMe
-	msgbox PalletTown_ProfessorOaksLab_Text_OakBePatientRival
-	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2
-	releaseall
+	goto ScY_ReceivePikachu
 	end
 
 PalletTown_ProfessorOaksLab_Movement_OakEnter::
@@ -1655,3 +1647,80 @@ PalletTown_ProfessorOaksLab_Text_RivalIllCompleteThePokedex::
 	.string "ONE ISLAND first…\p"
 	.string "Anyways, I'm outta here!$"
 
+
+ScY_ReceivePikachu::
+	removeobject LOCALID_SQUIRTLE_BALL
+	removeobject LOCALID_CHARMANDER_BALL
+	msgbox ScY_EeveeSnatch
+	closemessage
+	applymovement LOCALID_OAKS_LAB_RIVAL, ScY_RivalTakeEeveeMovement
+	waitmovement 0
+	removeobject LOCALID_BULBASAUR_BALL
+	playfanfare MUS_RG_OBTAIN_KEY_ITEM
+	msgbox ScY_RivalGotEevee
+	waitfanfare
+	msgbox ScY_OakGivePikachu
+	givemon SPECIES_PIKACHU, 5
+	setflag FLAG_SYS_POKEMON_GET
+	setflag FLAG_PALLET_LADY_NOT_BLOCKING_SIGN
+	setvar VAR_STARTER_MON, 1
+	playfanfare MUS_RG_OBTAIN_KEY_ITEM
+	msgbox ScY_GotPikachu
+	waitfanfare
+	showmonpic SPECIES_PIKACHU, 10, 3
+	playmoncry SPECIES_PIKACHU, CRY_MODE_NORMAL
+	msgbox ScY_PikachuBall
+	hidemonpic
+	closemessage
+	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_CHARMANDER, RIVAL_BATTLE_TUTORIAL, PalletTown_ProfessorOaksLab_Text_RivalDefeat, Text_RivalVictory
+	call ScY_SetLabRivalBranch
+	special HealPlayerParty
+	msgbox PalletTown_ProfessorOaksLab_Text_RivalGoToughenMyMon
+	closemessage
+	playbgm MUS_RG_RIVAL_EXIT, 0
+	applymovement LOCALID_OAKS_LAB_RIVAL, ScY_RivalLeaveLabMovement
+	waitmovement 0
+	removeobject LOCALID_OAKS_LAB_RIVAL
+	fadedefaultbgm
+	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 4
+	setflag FLAG_BEAT_RIVAL_IN_OAKS_LAB
+	goto ScY_End
+ScY_SetLabRivalBranch::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, ScY_LabWin
+	setvar VAR_STARTER_MON, 2
+	return
+ScY_LabWin::
+	setvar VAR_STARTER_MON, 1
+	return
+ScY_RivalTakeEeveeMovement::
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_in_place_faster_up
+	step_end
+ScY_RivalLeaveLabMovement::
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_down
+	set_invisible
+	step_end
+ScY_EeveeSnatch::
+	.string "OAK: This EEVEE was going to be\nyours, {PLAYER}…\p{RIVAL}: No way! I want EEVEE!$"
+ScY_RivalGotEevee::
+	.string "{RIVAL} took EEVEE!$"
+ScY_OakGivePikachu::
+	.string "OAK: Be patient! Here, {PLAYER}.\nTake the PIKACHU I just caught.\pIt needs a partner it can trust.$"
+ScY_GotPikachu::
+	.string "{PLAYER} received PIKACHU!$"
+ScY_PikachuBall::
+	.string "PIKACHU sprang out of its ball!\pOAK: It seems to prefer fresh air.\nYou'll understand each other soon.$"

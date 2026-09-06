@@ -167,12 +167,10 @@ SeafoamIslands_B4F_EventScript_Articuno::
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SeafoamIslands_B4F_EventScript_DefeatedArticuno
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SeafoamIslands_B4F_EventScript_RanFromArticuno
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SeafoamIslands_B4F_EventScript_RanFromArticuno
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, ScY_End
 	setflag FLAG_FOUGHT_ARTICUNO
-	release
-	end
+	removeobject VAR_LAST_TALKED
+	goto ScY_End
 
 SeafoamIslands_B4F_EventScript_DefeatedArticuno::
 	setflag FLAG_FOUGHT_ARTICUNO

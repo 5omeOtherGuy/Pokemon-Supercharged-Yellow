@@ -134,3 +134,18 @@ VictoryRoad_2F_Text_GregoryPostBattle::
 VictoryRoad_2F_Text_Gyaoo::
 	.string "ギヤーオ！$"
 
+
+ScY_Moltres::
+	lockall
+	goto_if_set FLAG_SC_CAUGHT_MOLTRES, ScY_End
+	msgbox ScY_MoltresText
+	playmoncry SPECIES_MOLTRES, CRY_MODE_ENCOUNTER
+	waitmoncry
+	setwildbattle SPECIES_MOLTRES, 60
+	special BattleSetup_StartLegendaryBattle
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, ScY_End
+	setflag FLAG_SC_CAUGHT_MOLTRES
+	goto ScY_End
+ScY_MoltresText::
+	.string "The air shimmers with fierce heat!$"

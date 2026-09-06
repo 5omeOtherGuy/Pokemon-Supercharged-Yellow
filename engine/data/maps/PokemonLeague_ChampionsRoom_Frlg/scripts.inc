@@ -47,9 +47,11 @@ PokemonLeague_ChampionsRoom_EventScript_EnterRoom::
 	lockall
 	textcolor NPC_TEXT_COLOR_MALE
 	setflag FLAG_TEMP_2
-	applymovement LOCALID_PLAYER, PokemonLeague_ChampionsRoom_Movement_PlayerEnter
-	waitmovement 0
+	getplayerxy VAR_0x8006, VAR_0x8007
+	call_if_eq VAR_0x8007, 19, ScY_ChampionEntryWalk
 	delay 20
+ScY_ChampionResume::
+	lockall
 	call_if_unset FLAG_SYS_GAME_CLEAR, PokemonLeague_ChampionsRoom_EventScript_Intro
 	call_if_set FLAG_SYS_GAME_CLEAR, PokemonLeague_ChampionsRoom_EventScript_RematchIntro
 	setflag FLAG_TEMP_3
@@ -120,26 +122,50 @@ PokemonLeague_ChampionsRoom_EventScript_RematchIntro::
 	return
 
 PokemonLeague_ChampionsRoom_EventScript_BattleSquirtle::
+	setvar VAR_0x8004, TRAINER_CHAMPION_FIRST_SQUIRTLE
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineChampion
 	trainerbattle_no_intro TRAINER_CHAMPION_FIRST_SQUIRTLE, PokemonLeague_ChampionsRoom_Text_Defeat
 	return
 
 PokemonLeague_ChampionsRoom_EventScript_BattleBulbasaur::
+	setvar VAR_0x8004, TRAINER_CHAMPION_FIRST_BULBASAUR
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineChampion
 	trainerbattle_no_intro TRAINER_CHAMPION_FIRST_BULBASAUR, PokemonLeague_ChampionsRoom_Text_Defeat
 	return
 
 PokemonLeague_ChampionsRoom_EventScript_BattleCharmander::
+	setvar VAR_0x8004, TRAINER_CHAMPION_FIRST_CHARMANDER
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineChampion
 	trainerbattle_no_intro TRAINER_CHAMPION_FIRST_CHARMANDER, PokemonLeague_ChampionsRoom_Text_Defeat
 	return
 
 PokemonLeague_ChampionsRoom_EventScript_RematchSquirtle::
+	setvar VAR_0x8004, TRAINER_CHAMPION_REMATCH_SQUIRTLE
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineChampion
 	trainerbattle_no_intro TRAINER_CHAMPION_REMATCH_SQUIRTLE, PokemonLeague_ChampionsRoom_Text_Defeat
 	return
 
 PokemonLeague_ChampionsRoom_EventScript_RematchBulbasaur::
+	setvar VAR_0x8004, TRAINER_CHAMPION_REMATCH_BULBASAUR
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineChampion
 	trainerbattle_no_intro TRAINER_CHAMPION_REMATCH_BULBASAUR, PokemonLeague_ChampionsRoom_Text_Defeat
 	return
 
 PokemonLeague_ChampionsRoom_EventScript_RematchCharmander::
+	setvar VAR_0x8004, TRAINER_CHAMPION_REMATCH_CHARMANDER
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineChampion
 	trainerbattle_no_intro TRAINER_CHAMPION_REMATCH_CHARMANDER, PokemonLeague_ChampionsRoom_Text_Defeat
 	return
 
@@ -325,3 +351,12 @@ PokemonLeague_ChampionsRoom_Text_OakPlayerComeWithMe::
 	.string "{PLAYER}!\n"
 	.string "Come with me!$"
 
+
+ScY_DeclineChampion::
+	setvar VAR_TEMP_1, 1
+	goto ScY_DeclineBoss
+
+ScY_ChampionEntryWalk::
+	applymovement LOCALID_PLAYER, PokemonLeague_ChampionsRoom_Movement_PlayerEnter
+	waitmovement 0
+	return

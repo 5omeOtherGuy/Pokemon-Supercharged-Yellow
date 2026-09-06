@@ -16,6 +16,7 @@ RocketHideout_B4F_EventScript_CountGruntDefeated::
 	return
 
 RocketHideout_B4F_EventScript_Giovanni::
+	goto_if_unset FLAG_SC_DUO_2, ScY_RocketDuo2
 	lock
 	faceplayer
 	famechecker FAMECHECKER_GIOVANNI, 0
@@ -23,6 +24,10 @@ RocketHideout_B4F_EventScript_Giovanni::
 	waitmessage
 	playbgm MUS_RG_ENCOUNTER_ROCKET, 0
 	waitbuttonpress
+	setvar VAR_0x8004, TRAINER_BOSS_GIOVANNI
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_DeclineBoss
 	trainerbattle_no_intro TRAINER_BOSS_GIOVANNI, RocketHideout_B4F_Text_GiovanniDefeat
 	msgbox RocketHideout_B4F_Text_GiovanniPostBattle
 	fadescreen FADE_TO_BLACK
@@ -176,3 +181,29 @@ RocketHideout_B4F_Text_Grunt1PostBattle::
 	.string "Oh, no!\n"
 	.string "I dropped the LIFT KEY!$"
 
+
+ScY_RocketDuo2::
+	lockall
+	goto_if_set FLAG_SC_DUO_2, ScY_End
+	msgbox ScY_RocketDuo2Intro
+	setvar VAR_0x8004, TRAINER_SC_ROCKET_DUO_2
+	special ScShowBossBriefing
+	waitstate
+	goto_if_eq VAR_RESULT, FALSE, ScY_End
+	trainerbattle_no_intro TRAINER_SC_ROCKET_DUO_2, ScY_RocketDuo2Defeat
+	setflag FLAG_SC_DUO_2
+	settrainerflag TRAINER_TEAM_ROCKET_GRUNT_16
+	settrainerflag TRAINER_TEAM_ROCKET_GRUNT_17
+	call RocketHideout_B4F_EventScript_RemoveBarrier
+	call RocketHideout_B4F_EventScript_DrawMapForBarrierRemoval
+	msgbox ScY_RocketBlastOff
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_SC_ROCKETHIDEOUT_B4F_FRLG_8
+	removeobject LOCALID_SC_ROCKETHIDEOUT_B4F_FRLG_9
+	fadescreen FADE_FROM_BLACK
+	goto ScY_End
+ScY_RocketDuo2Intro::
+	.string "JESSIE: Prepare for trouble!\nJAMES: And make it double!\pMEOWTH: That POKéMON belongs to us!$"
+ScY_RocketDuo2Defeat::
+	.string "Our perfect plan… ruined again!$"

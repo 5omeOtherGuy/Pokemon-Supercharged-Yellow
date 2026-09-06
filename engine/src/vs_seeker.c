@@ -211,7 +211,8 @@ void VsSeekerResetObjectMovementAfterChargeComplete(void)
     u8 objEventId;
     struct ObjectEvent * objectEvent;
 
-    for (i = 0; i < gMapHeader.events->objectEventCount; i++)
+    for (i = 0; i < gMapHeader.events->objectEventCount
+         && i < ARRAY_COUNT(gSaveBlock1Ptr->objectEventTemplates); i++)
     {
         if (templates[i].trainerType != TRAINER_TYPE_NORMAL
         && templates[i].trainerType != TRAINER_TYPE_BURIED)
@@ -551,7 +552,8 @@ void ClearRematchMovementByTrainerId(void)
     if (vsSeekerDataIdx == -1)
         return;
 
-    for (i = 0; i < gMapHeader.events->objectEventCount; i++)
+    for (i = 0; i < gMapHeader.events->objectEventCount
+         && i < ARRAY_COUNT(gSaveBlock1Ptr->objectEventTemplates); i++)
     {
         if (!ShouldChangeMovementForTrainerType(objectEventTemplates[i].trainerType)
         || vsSeekerDataIdx != TrainerIdToRematchTableId(gRematchTable, GetTrainerFlagFromScript(objectEventTemplates[i].script)))

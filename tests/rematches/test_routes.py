@@ -7,10 +7,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tests/content'))
-from test_campaign import parties
+from test_campaign import parties, ALLOWED, normalized
 from test_champion_finale import members
+import test_champion_finale as finale
 
 class RematchRoutesTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        finale.FinaleTests.setUpClass.__func__(cls)
+        cls.keys={normalized(k):k for k in cls.roster}
+
     def entries(self):
         path=ROOT/'engine/src/data/rematches_frlg.h'
         self.assertTrue(path.exists(), 'Kanto rematch table must replace Hoenn aliases')
@@ -34,6 +40,15 @@ class RematchRoutesTests(unittest.TestCase):
                 body=teams[trainer]; self.assertNotRegex(body,r'(?m)^Items:')
                 self.assertNotRegex(trainer,r'LEADER|RIVAL|CHAMPION|TEAM_ROCKET|GIOVANNI')
                 self.assertTrue(1<=len(members(body))<=6)
+                for mon in members(body):
+                    self.assertIn(normalized(mon['species']), ALLOWED)
+                    self.assertIn(mon['item'], ('', 'Black Belt'))
+                    key=self.keys[normalized(mon['species'])]; data=self.roster[key]
+                    legal={v for level,v in data['learnset'] if 0<level<=mon['level']}
+                    legal.update(self.moves[m] for m in self.learnables.get(key,set()) if m[5:] in self.tm_moves and m in self.moves)
+                    self.assertTrue(legal, 'automatic level-up moves require a real source learnset')
+                    for move in mon['moves']:
+                        self.assertIn(self.move_ids[normalized(move)], legal, (trainer,key,move))
                 # Reachable repeats preserve script branch, full trainer identity and format.
                 for label in labels:
                     block=script.split(label+'::\n',1)[1].split('\n\n',1)[0]

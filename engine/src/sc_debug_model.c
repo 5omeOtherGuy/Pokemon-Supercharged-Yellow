@@ -185,6 +185,11 @@ u32 ScDebugRefillPack(bool32 travel)
     const u16 *items = travel ? keys : supplies;
     u32 count = travel ? ARRAY_COUNT(keys) : ARRAY_COUNT(supplies), failures = 0;
     if (!CanEdit()) return count;
+    if (travel)
+    {
+        FlagSet(FLAG_SYS_B_DASH);
+        FlagSet(FLAG_SYS_POKEDEX_GET);
+    }
     for (u32 i = 0; i < count; i++)
     {
         u32 have = CountTotalItemQuantityInBag(items[i]), target = travel ? 1 : 99;

@@ -24,6 +24,9 @@ TEST("SC cheats: nature and gender edits preserve encrypted personal development
     {
         EXPECT(ScDebugEditMon(0, SC_EDIT_NATURE, 0, nature));
         EXPECT_EQ(GetNature(mon), nature);
+#if P_SC_KANTO_RULES
+        EXPECT_EQ(GetMonData(mon, MON_DATA_HIDDEN_NATURE), nature);
+#endif
         EXPECT_EQ(GetMonData(mon, MON_DATA_SC_EARNED_CAPABILITIES), earned);
         EXPECT_EQ(GetMonData(mon, MON_DATA_SC_ACTIVE_CAPABILITIES), active);
         EXPECT_EQ(GetMonData(mon, MON_DATA_SC_FOCUS), focus);

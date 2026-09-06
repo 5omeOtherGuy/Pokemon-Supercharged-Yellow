@@ -51,7 +51,7 @@ static const u8 *const sHome[] =
 {
     COMPOUND_STRING("Edit party POKéMON"), COMPOUND_STRING("Give a POKéMON"),
     COMPOUND_STRING("Give all original 151"), COMPOUND_STRING("Give an item"),
-    COMPOUND_STRING("Refill supplies (99 each)"), COMPOUND_STRING("Travel keys and HMs"),
+    COMPOUND_STRING("Refill supplies (99 each)"), COMPOUND_STRING("Travel keys, HMs, shoes, DEX"),
     COMPOUND_STRING("Heal party + restore PP"), COMPOUND_STRING("Prepare party at badge cap"),
     COMPOUND_STRING("Unlock builds + Practice Points"), COMPOUND_STRING("Set badge count"),
     COMPOUND_STRING("Max money"), COMPOUND_STRING("Recharge VS SEEKER"),
@@ -89,6 +89,11 @@ static const u8 sWarps[] =
     HEAL_LOCATION_CELADON_CITY, HEAL_LOCATION_FUCHSIA_CITY, HEAL_LOCATION_SAFFRON_CITY,
     HEAL_LOCATION_CINNABAR_ISLAND, HEAL_LOCATION_INDIGO_PLATEAU, HEAL_LOCATION_ROUTE4, HEAL_LOCATION_ROUTE10,
 };
+
+STATIC_ASSERT(ARRAY_COUNT(sEdits) == SC_EDIT_COUNT + 1, ScDebug_EditCatalogSize);
+STATIC_ASSERT(ARRAY_COUNT(sOptions) == SC_DEBUG_OPTION_COUNT, ScDebug_OptionCatalogSize);
+STATIC_ASSERT(ARRAY_COUNT(sWarpNames) == ARRAY_COUNT(sWarps), ScDebug_WarpCatalogSize);
+STATIC_ASSERT(ARRAY_COUNT(sIvs) == SC_STAT_COUNT && ARRAY_COUNT(sEvs) == SC_STAT_COUNT, ScDebug_StatCatalogSize);
 
 static void Init(void);
 static struct Pokemon *Mon(void) { return &gParties[B_TRAINER_PLAYER][sUi.party]; }

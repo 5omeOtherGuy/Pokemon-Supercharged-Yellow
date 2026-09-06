@@ -1,0 +1,54 @@
+{
+  "provenance": "Additional diagnostic setup only: clear Growl/PP in first move slot for relearning; enable Pokemon menu FLAG_SYS_POKEMON_GET. NOT organic campaign progress.",
+  "changes": [
+    {
+      "address": "0x2031c98",
+      "before": "d6660300",
+      "after": "81660300",
+      "command": "fixture32 0x2031c98 0x36681"
+    },
+    {
+      "address": "0x2031c9c",
+      "before": "2ea41c2c",
+      "after": "03a41c2c",
+      "command": "fixture32 0x2031c9c 0x2c1ca403"
+    },
+    {
+      "address": "0x2031ca4",
+      "before": "2bba2532",
+      "after": "03ba2532",
+      "command": "fixture32 0x2031ca4 0x3225ba03"
+    },
+    {
+      "address": "0x020112b8",
+      "before": "00000000",
+      "after": "01000000",
+      "command": "fixture32 0x020112b8 1"
+    },
+    {
+      "address": "0x020112b8",
+      "before": "01000000",
+      "after": "00000000",
+      "command": "fixture32 0x020112b8 0"
+    },
+    {
+      "address": "0x020112ac",
+      "before": "00000000",
+      "after": "01000000",
+      "command": "fixture32 0x020112ac 1"
+    },
+    {
+      "address": "0x020112ac",
+      "before": "01000000",
+      "after": "00000000",
+      "command": "fixture32 0x020112ac 0"
+    },
+    {
+      "address": "0x020112b0",
+      "before": "00000040",
+      "after": "00010040",
+      "command": "fixture32 0x020112b0 0x40000100"
+    }
+  ],
+  "correction": "Flag 0x860 from stale comment/incorrect standalone preprocessing was restored to zero before play; actual REGION_KANTO MAX_TRAINERS_COUNT_FRLG768 makes FLAG_SYS_POKEMON_GET0x800. Actual FRLG flags use a separate SYS_FLAGS table: 0x800 is Safari mode (diagnostic only, restored); ELF InitStartMenuStep at 08213e68 confirms Pokemon flag 0x828. No safari movement/battle occurred."
+}

@@ -1,0 +1,23 @@
+{
+  "provenance": "Diagnostic owned bag stock: Potion3, Antidote2, Revive1; quantities XOR actual save key0x0f2dda54. Not acquisitions.",
+  "changes": [
+    {
+      "address": "0x20104c4",
+      "before": "000054da",
+      "after": "1c0057da",
+      "command": "fixture32 0x20104c4 0xda57001c"
+    },
+    {
+      "address": "0x20104c8",
+      "before": "000054da",
+      "after": "2b0056da",
+      "command": "fixture32 0x20104c8 0xda56002b"
+    },
+    {
+      "address": "0x20104cc",
+      "before": "000054da",
+      "after": "210055da",
+      "command": "fixture32 0x20104cc 0xda550021"
+    }
+  ]
+}

@@ -32,7 +32,7 @@ def prepare(snapshot):
     words=[word^key for word in struct.unpack_from('<12I',mon,32)]
     plain=bytearray(struct.pack('<12I',*words))
     if sum(struct.unpack('<24H',plain))&0xffff!=struct.unpack_from('<H',mon,28)[0]:raise ValueError('invalid source Pokémon checksum')
-    if struct.unpack_from('<H',plain,12*SUBSTRUCT0[personality%24])[0]!=25:raise ValueError('expected diagnostic Pikachu')
+    if struct.unpack_from('<H',plain,12*SUBSTRUCT0[personality%24])[0]&0x7ff!=25:raise ValueError('expected diagnostic Pikachu')
     struct.pack_into('<H',plain,12*SUBSTRUCT2[personality%24]+6,0xfff)
     struct.pack_into('<H',mon,28,sum(struct.unpack('<24H',plain))&0xffff)
     struct.pack_into('<12I',mon,32,*[word^key for word in struct.unpack('<12I',plain)])

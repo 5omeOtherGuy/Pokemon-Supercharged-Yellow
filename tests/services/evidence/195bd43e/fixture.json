@@ -1,0 +1,29 @@
+{
+  "provenance": "diagnostic ROM fixture; NOT organic campaign progress",
+  "source_sha256": "5013582bc8a35db93d8432a1a1144f1a65423e6992627c8d4384950904d2e765",
+  "elf_sha256": "6a0e6c545f5ea2f60a8aede736a148398c5e6705d99508bf6ceb890e0dae2efe",
+  "fixture_sha256": "3ad29ab465e9de4f1bb3dd9cc502802aec43bedd04f5b7280ec87004b91cc979",
+  "script_address": "0x8343e26",
+  "original_bytes": "6a5a2b58020601673e3408a0210d8000000701553e3408210d80010007015e3e3408684f01002f0c380851",
+  "fixture_bytes": "69238148200a00061900050014f80100030000000f000f000f000f000f000f00392705ff06000400276b02",
+  "test_mon": {
+    "species": 25,
+    "level": 5,
+    "nature": 3,
+    "gender": 0,
+    "ivs": [
+      15,
+      15,
+      15,
+      15,
+      15,
+      15
+    ]
+  },
+  "destination": {
+    "mapGroup": 39,
+    "mapNum": 5,
+    "x": 6,
+    "y": 4
+  }
+}

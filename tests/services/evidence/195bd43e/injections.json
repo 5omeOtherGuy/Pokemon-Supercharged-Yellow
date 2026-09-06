@@ -1,0 +1,49 @@
+{
+  "provenance": "diagnostic-state-injected; NOT organic rewards/progression",
+  "changes": [
+    {
+      "record": "party",
+      "address": "0x2031c98",
+      "before": "d8160000",
+      "after": "d7260000",
+      "command": "fixture32 0x2031c98 0x26d7"
+    },
+    {
+      "record": "party",
+      "address": "0x2031cc4",
+      "before": "03a43b2c",
+      "after": "03a4c423",
+      "command": "fixture32 0x2031cc4 0x23c4a403"
+    },
+    {
+      "record": "party",
+      "address": "0x2031cd0",
+      "before": "05ff1300",
+      "after": "05ff1000",
+      "command": "fixture32 0x2031cd0 0x10ff05"
+    },
+    {
+      "record": "trainer",
+      "address": "0x20073c8",
+      "before": "03000000",
+      "after": "ff000000",
+      "command": "fixture32 0x20073c8 0xff"
+    },
+    {
+      "record": "trainer",
+      "address": "0x20073d0",
+      "before": "00000000",
+      "after": "d0070000",
+      "command": "fixture32 0x20073d0 0x7d0"
+    },
+    {
+      "record": "trainer",
+      "address": "0x20073dc",
+      "before": "0001769b",
+      "after": "00018cdc",
+      "command": "fixture32 0x20073dc 0xdc8c0100"
+    }
+  ],
+  "party_after": "974bc9c994eff2e5cadddfd5d7dce9ff00000202bbd5ffffffffff00d72600002ea41c2c57a4592c2bba25321ad43b2c7ea43b2c03963a2c03fc3e2eec19cc3203a43b2c03a43b2c03a4c42303a43d2c0000000005ff100013000c0009000e0009000a00",
+  "trainer_after": "3159435301003000ff00000000000000d0070000000000000000000000018cdc00000000000000000000000000000000"
+}

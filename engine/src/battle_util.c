@@ -1,4 +1,7 @@
 #include "global.h"
+#if SC_TEST_TOOLS
+#include "sc_debug.h"
+#endif
 #include "sc_battle.h"
 #include "sc_progression.h"
 #include "sc_supplies.h"
@@ -9312,6 +9315,20 @@ void SortBattlersBySpeed(enum BattlerId *battlers, bool32 slowToFast)
 
 void TryRestoreHeldItems(void)
 {
+#if SC_TEST_TOOLS
+    if (ScDebugOptionEnabled(SC_DEBUG_INFINITE_ITEMS))
+    {
+        // Refill between battles so single-use items still behave normally
+        // during a turn (an infinite pinch berry could otherwise loop).
+        for (u32 i = 0; i < PARTY_SIZE; i++)
+        {
+            enum Item original = gBattleStruct->itemLost[B_TRAINER_PLAYER][i].originalItem;
+            if (original != ITEM_NONE)
+                SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_HELD_ITEM, &original);
+        }
+        return;
+    }
+#endif
     if (!B_TRAINERS_KNOCK_OFF_ITEMS && B_RESTORE_HELD_BATTLE_ITEMS < GEN_9)
         return;
 

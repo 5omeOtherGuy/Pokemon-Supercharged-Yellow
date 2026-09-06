@@ -4,9 +4,11 @@
 #include "move.h"
 #include "sc_briefing.h"
 #include "sc_build_catalog.h"
+#include "constants/opponents_frlg.h"
 
 #ifndef SC_BRIEFING_HOST_TEST
 #include "main.h"
+#include "sc_progression.h"
 #include "event_data.h"
 #include "item.h"
 #include "menu.h"
@@ -138,9 +140,22 @@ bool32 ScBriefingLoad(u16 trainerId, struct ScBriefingModel *model)
     return TRUE;
 }
 
-bool32 ScBriefingCanAccept(const struct ScBriefingModel *model, u32 healthyCount)
+static u32 RequiredBadges(u16 trainerId)
+{
+    if (trainerId == TRAINER_BOSS_GIOVANNI
+        || trainerId == TRAINER_SC_ROCKET_DUO_2 || trainerId == TRAINER_SC_ROCKET_DUO_3
+        || (trainerId >= TRAINER_RIVAL_POKEMON_TOWER_SQUIRTLE && trainerId <= TRAINER_RIVAL_POKEMON_TOWER_CHARMANDER))
+        return 3;
+    if (trainerId == TRAINER_BOSS_GIOVANNI_2 || trainerId == TRAINER_SC_ROCKET_DUO_4
+        || (trainerId >= TRAINER_RIVAL_SILPH_SQUIRTLE && trainerId <= TRAINER_RIVAL_SILPH_CHARMANDER))
+        return 5;
+    return 0;
+}
+
+bool32 ScBriefingCanAccept(const struct ScBriefingModel *model, u32 healthyCount, u32 badgeCount)
 {
     return model->error == SC_BRIEF_OK
+        && badgeCount >= RequiredBadges(model->trainerId)
         && healthyCount >= (model->trainer->battleType == TRAINER_BATTLE_TYPE_DOUBLES ? 2u : 1u);
 }
 
@@ -428,6 +443,12 @@ static void DrawDescription(void)
         passive = TRUE;
     }
     Print(4, 0, name);
+    if (passive)
+    {
+        StringCopy(gStringVar4, description);
+        StringAppend(gStringVar4, COMPOUND_STRING("\nDamage percentages change\ncalculated damage only. Fixed,\nlevel-based, reflected, fractional\nand OHKO damage stay unchanged."));
+        description = gStringVar4;
+    }
     u32 lines = WrapDescription(description);
     u32 visible = 6;
     if (sView.cursor > (lines > visible ? lines - visible : 0))
@@ -499,7 +520,11 @@ static void DrawBriefing(void)
         Print(4, 4, COMPOUND_STRING("Begin this battle?"));
         Print(4, 24, sBriefing.trainer->battleType == TRAINER_BATTLE_TYPE_DOUBLES
             ? COMPOUND_STRING("Doubles - two healthy POKéMON needed.") : COMPOUND_STRING("Singles - use your available party."));
-        if (sNeedsPartner)
+        if (ScGetBadgeCount() < RequiredBadges(sBriefing.trainerId))
+            Print(4, 43, RequiredBadges(sBriefing.trainerId) == 3
+                ? COMPOUND_STRING("Earn three BADGES before this\nchallenge. You may still scout the team.")
+                : COMPOUND_STRING("Earn five BADGES before this\nchallenge. You may still scout the team."));
+        else if (sNeedsPartner)
             Print(4, 43, COMPOUND_STRING("Your party is not ready.\nReturn to a POKéMON CENTER first."));
         else
             Print(4, 43, COMPOUND_STRING("Set rules. Used supplies stay spent.\nCheck your selected supplies first."));
@@ -577,9 +602,9 @@ static void Task_Briefing(u8 taskId)
     if (action == SC_BRIEF_ACCEPT)
     {
         // Recheck at commitment; never start doubles with one healthy Pokemon.
-        if (!ScBriefingCanAccept(&sBriefing, HealthyPartyCount()))
+        if (!ScBriefingCanAccept(&sBriefing, HealthyPartyCount(), ScGetBadgeCount()))
         {
-            sNeedsPartner = TRUE;
+            sNeedsPartner = ScGetBadgeCount() >= RequiredBadges(sBriefing.trainerId);
             sView.cursor = 1;
             DrawBriefing();
             return;

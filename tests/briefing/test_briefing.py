@@ -88,7 +88,19 @@ int main(void) {
  assert(output[0]==MOVE_GROWL && output[1]==MOVE_TAIL_WHIP && output[2]==MOVE_QUICK_ATTACK && output[3]==MOVE_SPARK);
  ScBriefingGetMoves(&model,1,output); assert(output[0]==MOVE_THUNDER && output[1]==0 && output[2]==MOVE_TACKLE && output[3]==0);
  assert(ScBriefingGetAbility(&model,0)==ABILITY_STATIC);
- assert(!ScBriefingCanAccept(&model,0) && !ScBriefingCanAccept(&model,1)); assert(ScBriefingCanAccept(&model,2));
+ const unsigned gated[]={248,625,329,330,331,626,332,333,334,627,249};
+ for(unsigned i=0;i<sizeof(gated)/sizeof(gated[0]);i++) {
+  unsigned stage=i<6 ? 3 : 5;
+  model.trainerId=gated[i];
+  assert(!ScBriefingCanAccept(&model,2,stage-1));
+  assert(ScBriefingCanAccept(&model,2,stage));
+  assert(!ScBriefingCanAccept(&model,1,stage)); // Format gate still applies.
+  view=(struct ScBriefingView){0};
+  assert(ScBriefingNavigate(&model,&view,A_BUTTON)==SC_BRIEF_REDRAW && view.screen==SC_BRIEF_MON);
+ }
+ model.trainerId=314; view=(struct ScBriefingView){0};
+
+ assert(!ScBriefingCanAccept(&model,0,8) && !ScBriefingCanAccept(&model,1,8)); assert(ScBriefingCanAccept(&model,2,8));
  assert(ScBriefingNavigate(&model,&view,A_BUTTON)==SC_BRIEF_REDRAW && view.screen==SC_BRIEF_MON);
  assert(ScBriefingNavigate(&model,&view,A_BUTTON)==SC_BRIEF_REDRAW && view.screen==SC_BRIEF_DESCRIPTION);
  assert(ScBriefingNavigate(&model,&view,B_BUTTON)==SC_BRIEF_REDRAW && view.screen==SC_BRIEF_MON);
@@ -134,7 +146,7 @@ int main(void) {
  trainers[314].startingStatus[2]=1; assert(!ScBriefingLoad(314,&model) && model.error==SC_BRIEF_FIELD_EFFECT); trainers[314].startingStatus[2]=0;
  trainers[314].partySize=7; assert(!ScBriefingLoad(314,&model)); trainers[314].partySize=2;
  trainers[314].items[3]=ITEMS_COUNT; assert(!ScBriefingLoad(314,&model)); trainers[314].items[3]=0;
- trainers[314].battleType=0; assert(ScBriefingLoad(314,&model)); assert(ScBriefingCanAccept(&model,1));
+ trainers[314].battleType=0; assert(ScBriefingLoad(314,&model)); assert(ScBriefingCanAccept(&model,1,8));
  assert(!ScBriefingLoad(65535,&model)); assert(!ScBriefingLoad(0,&model));
  return 0;
 }

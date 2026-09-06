@@ -40,7 +40,7 @@ bool32 ScBriefingLoad(u16 trainerId, struct ScBriefingModel *model);
 void ScBriefingGetMoves(const struct ScBriefingModel *model, u32 index, u16 moves[4]);
 u16 ScBriefingGetAbility(const struct ScBriefingModel *model, u32 index);
 u32 ScBriefingNavigate(const struct ScBriefingModel *model, struct ScBriefingView *view, u16 keys);
-bool32 ScBriefingCanAccept(const struct ScBriefingModel *model, u32 healthyCount);
+bool32 ScBriefingCanAccept(const struct ScBriefingModel *model, u32 healthyCount, u32 badgeCount);
 void ScShowBossBriefing(void);
 
 #endif

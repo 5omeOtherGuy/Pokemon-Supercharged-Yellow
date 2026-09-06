@@ -1,5 +1,6 @@
 #include "global.h"
 #include "sc_supplies.h"
+#include "sc_pace.h"
 #include "battle.h"
 #include "battle_hold_effects.h"
 #include "battle_message.h"
@@ -1508,7 +1509,7 @@ static void Cmd_waitmessage(void)
         }
         else
         {
-            u16 toWait = cmd->time;
+            u16 toWait = ScBattleDelay(cmd->time, 12);
             if (gTestRunnerHeadless)
                 gPauseCounterBattle = toWait;
             if (++gPauseCounterBattle >= toWait)
@@ -2919,7 +2920,7 @@ static void Cmd_pause(void)
 
     if (gBattleControllerExecFlags == 0)
     {
-        u16 value = cmd->frames;
+        u16 value = ScBattleDelay(cmd->frames, 0);
         if (gTestRunnerHeadless)
             gPauseCounterBattle = value;
         if (++gPauseCounterBattle >= value)

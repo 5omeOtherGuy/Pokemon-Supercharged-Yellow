@@ -1,4 +1,6 @@
 #include "global.h"
+#include "sc_pace.h"
+#include "sc_progression_core.h"
 #include "option_menu.h"
 #include "bg.h"
 #include "gpu_regs.h"
@@ -96,7 +98,7 @@ static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
 {
     [MENUITEM_TEXTSPEED]   = COMPOUND_STRING("TEXT SPEED"),
     [MENUITEM_BATTLESCENE] = COMPOUND_STRING("BATTLE SCENE"),
-    [MENUITEM_BATTLESTYLE] = COMPOUND_STRING("BATTLE STYLE"),
+    [MENUITEM_BATTLESTYLE] = P_SC_KANTO_RULES ? COMPOUND_STRING("BATTLE PACE") : COMPOUND_STRING("BATTLE STYLE"),
     [MENUITEM_SOUND]       = COMPOUND_STRING("SOUND"),
     [MENUITEM_BUTTONMODE]  = COMPOUND_STRING("BUTTON MODE"),
     [MENUITEM_FRAMETYPE]   = COMPOUND_STRING("FRAME"),
@@ -247,6 +249,8 @@ void CB2_InitOptionMenu(void)
         gTasks[taskId].tTextSpeed = gSaveBlock2Ptr->optionsTextSpeed;
         gTasks[taskId].tBattleSceneOff = gSaveBlock2Ptr->optionsBattleSceneOff;
         gTasks[taskId].tBattleStyle = gSaveBlock2Ptr->optionsBattleStyle;
+        if (P_SC_KANTO_RULES)
+            gTasks[taskId].tBattleStyle = ScGetBattlePace() == 4 ? 2 : ScGetBattlePace() == 2 ? 1 : 0;
         gTasks[taskId].tSound = gSaveBlock2Ptr->optionsSound;
         gTasks[taskId].tButtonMode = gSaveBlock2Ptr->optionsButtonMode;
         gTasks[taskId].tWindowFrameType = gSaveBlock2Ptr->optionsWindowFrameType;
@@ -368,7 +372,14 @@ static void Task_OptionMenuSave(u8 taskId)
 {
     gSaveBlock2Ptr->optionsTextSpeed = gTasks[taskId].tTextSpeed;
     gSaveBlock2Ptr->optionsBattleSceneOff = gTasks[taskId].tBattleSceneOff;
-    gSaveBlock2Ptr->optionsBattleStyle = gTasks[taskId].tBattleStyle;
+    if (P_SC_KANTO_RULES)
+    {
+        gSaveBlock3Ptr->sc.battleSpeed = 1u << gTasks[taskId].tBattleStyle;
+        ScSealTrainerProgress(&gSaveBlock3Ptr->sc);
+        gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
+    }
+    else
+        gSaveBlock2Ptr->optionsBattleStyle = gTasks[taskId].tBattleStyle;
     gSaveBlock2Ptr->optionsSound = gTasks[taskId].tSound;
     gSaveBlock2Ptr->optionsButtonMode = gTasks[taskId].tButtonMode;
     gSaveBlock2Ptr->optionsWindowFrameType = gTasks[taskId].tWindowFrameType;
@@ -482,6 +493,15 @@ static void BattleScene_DrawChoices(u8 selection)
 
 static u8 BattleStyle_ProcessInput(u8 selection)
 {
+    if (P_SC_KANTO_RULES)
+    {
+        if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
+        {
+            selection = (selection + (JOY_NEW(DPAD_LEFT) ? 2 : 1)) % 3;
+            sArrowPressed = TRUE;
+        }
+        return selection;
+    }
     if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
     {
         selection ^= 1;
@@ -493,6 +513,13 @@ static u8 BattleStyle_ProcessInput(u8 selection)
 
 static void BattleStyle_DrawChoices(u8 selection)
 {
+    if (P_SC_KANTO_RULES)
+    {
+        DrawOptionMenuChoice(COMPOUND_STRING("{COLOR GREEN}{SHADOW LIGHT_GREEN}NORM"), 104, YPOS_BATTLESTYLE, selection == 0);
+        DrawOptionMenuChoice(COMPOUND_STRING("{COLOR GREEN}{SHADOW LIGHT_GREEN}FAST"), 136, YPOS_BATTLESTYLE, selection == 1);
+        DrawOptionMenuChoice(COMPOUND_STRING("{COLOR GREEN}{SHADOW LIGHT_GREEN}QUICK"), 173, YPOS_BATTLESTYLE, selection == 2);
+        return;
+    }
     u8 styles[2];
 
     styles[0] = 0;

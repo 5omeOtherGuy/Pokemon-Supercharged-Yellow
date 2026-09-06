@@ -96,6 +96,29 @@ class BossTests(unittest.TestCase):
             moves={m for mon in team for m in mon['moves']}
             self.assertFalse(moves & banned,(trainer,moves & banned))
 
+    def test_level_evolutions_are_not_used_before_their_source_threshold(self):
+        minimum={}
+        for row in self.roster.values():
+            for level,target in re.findall(r'EVO_LEVEL,\s*(\d+),\s*SPECIES_(\w+)',row['block']):
+                minimum[target]=min(minimum.get(target,100),int(level))
+        for trainer,body in allocated().items():
+            for mon in finale.members(body):
+                key=self.species_keys[normalized(mon['species'])]
+                self.assertGreaterEqual(mon['level'],minimum.get(key,1),(trainer,key))
+
+    def test_ordinary_countertools_are_learned_by_the_relevant_stage(self):
+        examples=[('MANKEY','LOW_KICK',15),('NIDORAN_M','DOUBLE_KICK',15),
+                  ('BUTTERFREE','CONFUSION',15),('IVYSAUR','RAZOR_LEAF',22),
+                  ('PIKACHU','HELPING_HAND',22),('PIDGEOTTO','TAILWIND',22),
+                  ('PSYDUCK','ICY_WIND',22),('PSYDUCK','RAIN_DANCE',22),
+                  ('DIGLETT','BULLDOZE',28),('CHARMELEON','FLAMETHROWER',36),
+                  ('BUTTERFREE','BUG_BUZZ',36),('KADABRA','PSYCHIC',44),
+                  ('SNORLAX','CRUNCH',50),('CLEFABLE','MISTY_TERRAIN',50),
+                  ('LAPRAS','ICE_BEAM',56)]
+        for species,move,cap in examples:
+            learned={m for l,m in self.roster[species]['learnset'] if 0<l<=cap}
+            self.assertIn(self.moves['MOVE_'+move],learned,(species,move,cap))
+
     def test_gym_capability_aces_keep_signature_identity(self):
         aces=dict(zip(GYMS,('Onix','Starmie','Raichu','Vileplume','Weezing','Alakazam','Arcanine','Rhydon')))
         for trainer,body in allocated().items():

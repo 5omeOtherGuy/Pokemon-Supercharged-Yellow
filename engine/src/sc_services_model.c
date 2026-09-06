@@ -16,7 +16,7 @@ bool32 ScServicesAtCenter(void)
 {
     if (!ScProgressionEnabled() || gMain.inBattle)
         return FALSE;
-    switch (gSaveBlock1Ptr->location.mapGroup | (gSaveBlock1Ptr->location.mapNum << 8))
+    switch (gSaveBlock1Ptr->location.mapNum | (gSaveBlock1Ptr->location.mapGroup << 8))
     {
     case MAP_VIRIDIAN_CITY_POKEMON_CENTER_2F:
     case MAP_PEWTER_CITY_POKEMON_CENTER_2F:

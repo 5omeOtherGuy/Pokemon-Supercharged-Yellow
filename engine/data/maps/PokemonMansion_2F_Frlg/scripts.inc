@@ -62,3 +62,15 @@ PokemonMansion_1F_Text_ChristenedDiscoveredMonMew::
 	.string "We christened the newly discovered\l"
 	.string "POKéMON, MEW.$"
 
+
+ScEconomy_PokemonMansion_2F_EventScript_ItemCalcium_ETHER::
+	finditem ITEM_ETHER
+	end
+
+ScEconomy_PokemonMansion_2F_EventScript_ItemZinc_LUM_BERRY::
+	finditem ITEM_LUM_BERRY
+	end
+
+ScEconomy_PokemonMansion_2F_EventScript_ItemHPUp_SITRUS_BERRY::
+	finditem ITEM_SITRUS_BERRY
+	end

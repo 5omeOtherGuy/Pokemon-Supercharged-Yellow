@@ -138,3 +138,7 @@ SilphCo_5F_Text_RocketBossLookingForStrongMons::
 	.string "strong POKéMON.\p"
 	.string "I hope our PRESIDENT managed to\n"
 	.string "avoid trouble…$"
+
+ScEconomy_SilphCo_5F_EventScript_ItemProtein_FOCUS_SASH::
+	finditem ITEM_FOCUS_SASH
+	end

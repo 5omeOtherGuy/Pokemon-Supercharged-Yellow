@@ -28,6 +28,16 @@ VermilionCity_Mart_Items::
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_ICE_HEAL
 	.2byte ITEM_REPEL
+	.2byte ITEM_ORAN_BERRY
+	.2byte ITEM_CHERI_BERRY
+	.2byte ITEM_CHESTO_BERRY
+	.2byte ITEM_PECHA_BERRY
+	.2byte ITEM_RAWST_BERRY
+	.2byte ITEM_ASPEAR_BERRY
+	.2byte ITEM_SITRUS_BERRY
+	.2byte ITEM_LUM_BERRY
+	.2byte ITEM_LEPPA_BERRY
+	.2byte ITEM_ETHER
 	.2byte ITEM_NONE
 	release
 	end

@@ -55,3 +55,11 @@ PokemonMansion_1F_Text_JohnsonPostBattle::
 	.string "but I feel spooked.\p"
 	.string "I ought to go soon.$"
 
+
+ScEconomy_PokemonMansion_1F_EventScript_ItemCarbos_LEPPA_BERRY::
+	finditem ITEM_LEPPA_BERRY
+	end
+
+ScEconomy_PokemonMansion_1F_EventScript_ItemProtein_FOCUS_SASH::
+	finditem ITEM_FOCUS_SASH
+	end

@@ -207,3 +207,7 @@ ScY_RocketDuo2Intro::
 	.string "JESSIE: Prepare for trouble!\nJAMES: And make it double!\pMEOWTH: That POKéMON belongs to us!$"
 ScY_RocketDuo2Defeat::
 	.string "Our perfect plan… ruined again!$"
+
+ScEconomy_RocketHideout_B4F_EventScript_ItemCalcium_ETHER::
+	finditem ITEM_ETHER
+	end

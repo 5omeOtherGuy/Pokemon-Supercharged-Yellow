@@ -97,7 +97,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SilphCo_5F_EventScript_ItemProtein",
+      "script": "ScEconomy_SilphCo_5F_EventScript_ItemProtein_FOCUS_SASH",
       "flag": "FLAG_HIDE_SILPH_CO_5F_PROTEIN"
     },
     {

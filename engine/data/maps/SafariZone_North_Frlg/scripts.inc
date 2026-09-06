@@ -42,3 +42,7 @@ SafariZone_North_Text_WinFreeHMFindSecretHouse::
 	.string "Win a free HM for finding the\n"
 	.string "SECRET HOUSE.$"
 
+
+ScEconomy_SafariZone_North_EventScript_ItemProtein_FOCUS_SASH::
+	finditem ITEM_FOCUS_SASH
+	end

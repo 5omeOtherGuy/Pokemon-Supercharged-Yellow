@@ -201,3 +201,7 @@ Route12_Text_GiaNotEnoughMons::
 	.string "GIA: I can't bear to battle\n"
 	.string "without my JES!\p"
 	.string "Don't you have one more POKéMON?$"
+
+ScEconomy_Route12_EventScript_ItemIron_AIR_BALLOON::
+	finditem ITEM_AIR_BALLOON
+	end

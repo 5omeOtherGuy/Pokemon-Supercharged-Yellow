@@ -253,3 +253,7 @@ ScY_RocketDuo4Intro::
 	.string "JESSIE: Prepare for trouble!\nJAMES: And make it double!\pMEOWTH: That POKéMON belongs to us!$"
 ScY_RocketDuo4Defeat::
 	.string "Our perfect plan… ruined again!$"
+
+ScEconomy_SilphCo_11F_EventScript_ItemZinc_LUM_BERRY::
+	finditem ITEM_LUM_BERRY
+	end

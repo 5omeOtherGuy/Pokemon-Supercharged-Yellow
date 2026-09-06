@@ -30,6 +30,16 @@ CeruleanCity_Mart_Items::
 	.2byte ITEM_BURN_HEAL
 	.2byte ITEM_ESCAPE_ROPE
 	.2byte ITEM_REPEL
+	.2byte ITEM_ORAN_BERRY
+	.2byte ITEM_CHERI_BERRY
+	.2byte ITEM_CHESTO_BERRY
+	.2byte ITEM_PECHA_BERRY
+	.2byte ITEM_RAWST_BERRY
+	.2byte ITEM_ASPEAR_BERRY
+	.2byte ITEM_SITRUS_BERRY
+	.2byte ITEM_LUM_BERRY
+	.2byte ITEM_LEPPA_BERRY
+	.2byte ITEM_ETHER
 	.2byte ITEM_NONE
 	release
 	end
@@ -43,8 +53,9 @@ CeruleanCity_Mart_Text_RepelWorksOnWeakMons::
 	.string "REPEL's effect is boosted.$"
 
 CeruleanCity_Mart_Text_DoYouKnowAboutRareCandy::
-	.string "Do you know about RARE CANDY?\n"
-	.string "They don't sell it in shops.\p"
-	.string "I think it makes POKéMON grow\n"
-	.string "very quickly all of a sudden.$"
+	.string "The BERRY specialist in town sells\n"
+	.string "held BERRIES, EVIOLITE and MAGNET.\p"
+	.string "Need more prize money? ETHAN by\n"
+	.string "NUGGET BRIDGE offers free practice\l"
+	.string "rematches after your first win.$"
 

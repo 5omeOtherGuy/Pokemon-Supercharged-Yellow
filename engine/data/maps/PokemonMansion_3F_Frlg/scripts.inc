@@ -55,3 +55,7 @@ PokemonMansion_1F_Text_MewGaveBirthToMewtwo::
 	.string "MEW gave birth.\p"
 	.string "We named the newborn MEWTWO.$"
 
+
+ScEconomy_PokemonMansion_3F_EventScript_ItemIron_AIR_BALLOON::
+	finditem ITEM_AIR_BALLOON
+	end

@@ -155,7 +155,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SilphCo_7F_EventScript_ItemCalcium",
+      "script": "ScEconomy_SilphCo_7F_EventScript_ItemCalcium_ETHER",
       "flag": "FLAG_HIDE_SILPH_CO_7F_CALCIUM"
     },
     {
@@ -339,7 +339,7 @@
       "x": 22,
       "y": 11,
       "elevation": 0,
-      "item": "ITEM_ZINC",
+      "item": "ITEM_LUM_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_7F_ZINC",
       "quantity": 1,
       "underfoot": false

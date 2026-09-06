@@ -150,7 +150,10 @@ Route24_Text_EthanDefeat::
 	.string "Too much!$"
 
 Route24_Text_EthanPostBattle::
-	.string "I did my best. I have no regrets!$"
+	.string "Talk to me again for a practice\n"
+	.string "rematch with this same team.\p"
+	.string "There is no fee. Winning earns\n"
+	.string "ordinary prize money and training.$"
 
 Route24_Text_ReliIntro::
 	.string "I'm No. 4!\n"
@@ -216,3 +219,22 @@ ScY_CharmanderDone::
 	goto ScY_End
 ScY_CharmanderText::
 	.string "DAMIAN: I'm not good at raising\nPOKéMON. This CHARMANDER deserves\la TRAINER who will help it grow.\pWill you take it with you?$"
+
+ScEconomy_Route24_Ethan::
+	trainerbattle_single TRAINER_CAMPER_ETHAN, Route24_Text_EthanIntro, Route24_Text_EthanDefeat, ScEconomy_TRAINER_CAMPER_ETHAN_FirstWin
+	lock
+	faceplayer
+	msgbox ScEconomy_TRAINER_CAMPER_ETHAN_Ask, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, ScEconomy_TRAINER_CAMPER_ETHAN_Finish
+	trainerbattle_no_intro TRAINER_CAMPER_ETHAN, Route24_Text_EthanDefeat
+ScEconomy_TRAINER_CAMPER_ETHAN_FirstWin::
+	msgbox Route24_Text_EthanPostBattle
+ScEconomy_TRAINER_CAMPER_ETHAN_Finish::
+	release
+	end
+
+ScEconomy_TRAINER_CAMPER_ETHAN_Ask::
+	.string "Want a practice rematch? No fee.\n"
+	.string "Same team and ordinary prize money.\p"
+	.string "We can practise again whenever\n"
+	.string "you talk to me. Ready?$"

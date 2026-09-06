@@ -1,5 +1,6 @@
 #include "global.h"
 #include "sc_battle.h"
+#include "sc_progression.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_anim_scripts.h"
@@ -11175,6 +11176,7 @@ struct PartyState *GetBattlerPartyState(enum BattlerId battler)
 
 void SetValuesOnFaint(enum BattlerId battler)
 {
+    ScProgressionRecordFaint(battler);
     gHitMarker |= HITMARKER_FAINTED(battler);
     gBattleStruct->eventState.faintedAction = 0;
     gBattlerFainted = battler;

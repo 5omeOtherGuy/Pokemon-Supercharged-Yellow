@@ -641,12 +641,20 @@ void HandleAction_UseItem(void)
     ClearVariousBattlerFlags(gBattlerAttacker);
 
     gLastUsedItem = gBattleResources->bufferB[gBattlerAttacker][1] | (gBattleResources->bufferB[gBattlerAttacker][2] << 8);
+    enum EffectItem usage = GetItemBattleUsage(gLastUsedItem);
+    if (usage == 0
+        || (ScSuppliesApplies() && !ScSuppliesCommit(gBattlerAttacker, gLastUsedItem)))
+    {
+        gBattlescriptCurrInstr = BattleScript_ScSupplyUnavailable;
+        gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+        return;
+    }
     if (X_ITEM_FRIENDSHIP_INCREASE > 0
         && GetItemEffectType(gLastUsedItem) == ITEM_EFFECT_X_ITEM
         && !ShouldSkipFriendshipChange())
         UpdateFriendshipFromXItem(gBattlerAttacker);
 
-    gBattlescriptCurrInstr = gBattlescriptsForUsingItem[GetItemBattleUsage(gLastUsedItem) - 1];
+    gBattlescriptCurrInstr = gBattlescriptsForUsingItem[usage - 1];
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
 

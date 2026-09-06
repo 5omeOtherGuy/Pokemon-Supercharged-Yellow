@@ -41,6 +41,13 @@ gBattlescriptsForSafariActions::
 BattleScript_ItemEnd:
 	end
 
+@ An earlier action can exhaust the target or invalidate a reserved supply.
+@ Finish only this battler's action; do not spend an unavailable item/quota.
+BattleScript_ScSupplyUnavailable::
+	printstring STRINGID_BUTITFAILED
+	waitmessage B_WAIT_TIME_LONG
+	end
+
 BattleScript_UseItemMessage:
 	printstring STRINGID_EMPTYSTRING3
 	pause B_WAIT_TIME_MED

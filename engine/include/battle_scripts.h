@@ -163,6 +163,7 @@ extern const u8 BattleScript_MoveEffectRecoilHP25[];
 extern const u8 BattleScript_MoveEffectRecoil[];
 extern const u8 BattleScript_FaintAttackerForExplosion[];
 extern const u8 BattleScript_MaxHp50Recoil[];
+extern const u8 BattleScript_ScSupplyUnavailable[];
 extern const u8 BattleScript_ItemSteal[];
 extern const u8 BattleScript_ItemStealNoAnim[];
 extern const u8 BattleScript_WeatherAbilityActivates[];
